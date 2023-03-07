@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import login from "./routes/login";
 import signup from "./routes/signup";
 import getCommitees from "./routes/getCommitees";
+import getCommiteeEvents from "./routes/getCommiteeEvents";
 dotenv.config();
 const PORT = process.env.PORT;
 const HOST_NAME = process.env.HOST_NAME;
@@ -19,7 +20,7 @@ app.use(cors());
 
 app.use(json({ extended: false }));
 
-app.use("/api", login, signup, getCommitees);
+app.use("/api", login, signup, getCommitees, getCommiteeEvents);
 app.use("/", (req, res) => {
 	res.send("Server is Running");
 });
