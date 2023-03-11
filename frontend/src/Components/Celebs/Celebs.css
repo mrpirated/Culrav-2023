@@ -1,0 +1,64 @@
+@media screen and (max-width: 450px) {
+  #space {
+    margin-right: 120px;
+  }
+}
+
+#Gallery {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-width: 33%;
+  -moz-column-width: 33%;
+  column-width: 33%;
+  padding: 0px 0%;
+  padding-bottom: 60px;
+}
+
+@media screen and (max-width: 991px) {
+  #Gallery {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #Gallery {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-width: 100%;
+    -moz-column-width: 100%;
+    column-width: 100%;
+  }
+}
+
+#image {
+  margin-bottom: 15px;
+}
+
+.effect-container.activeCeleb #bar {
+  animation: pulse 1s;
+
+  transition: 1s;
+  transition-timing-function: ease-in;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
