@@ -1,0 +1,84 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.wrapper div {
+  height: 70px;
+  width: 70px;
+  border: 5px solid red;
+  position: absolute;
+}
+
+.wrapper div:nth-child(1) {
+  top: 10%;
+  left: 30%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(2) {
+  top: 40%;
+  left: 70%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(3) {
+  top: 80%;
+  left: 30%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(4) {
+  top: 50%;
+  left: 10%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(5) {
+  top: 30%;
+  left: 20%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(6) {
+  top: 50%;
+  left: 50%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(7) {
+  top: 70%;
+  left: 90%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(8) {
+  top: 20%;
+  left: 90%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(9) {
+  top: 10%;
+  left: 70%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(10) {
+  top: 90%;
+  left: 70%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(11) {
+  top: 40%;
+  left: 60%;
+  animation: sqaure 5s linear infinite;
+}
+
+.wrapper div:nth-child(12) {
+  top: 80%;
+  left: 50%;
+  animation: sqaure 5s linear infinite;
+}

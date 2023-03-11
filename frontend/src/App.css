@@ -1,3 +1,32 @@
-/* .App {
-  text-align: center;
-} */
+.SponsorBack {
+  background: url("./Assets/Footer/FooterBanner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.EventsBack {
+  background: url("./Assets/Events/Events.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin-top: -100px;
+}
+
+.AboutBack {
+  background: url("./Assets/About/About.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.HomeBack {
+  background: url("./Assets/Home/HomeBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}

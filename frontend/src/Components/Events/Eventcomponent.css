@@ -1,0 +1,56 @@
+/* .wrapper {
+    box-sizing: content-box;
+    height: 30px;
+    margin-bottom: -100px;
+    padding: 40px 30px;
+    display: flex;
+    border-radius: 8px;
+} */
+
+.subEvents {
+  overflow: hidden;
+  text-align: center;
+  font-size: larger;
+}
+
+.subEvents span {
+  display: block;
+  height: 100%;
+  padding-left: 10px;
+  color: black;
+  animation: spin_words 10s infinite;
+}
+
+@keyframes spin_words {
+  10% {
+    transform: translateY(-112%);
+  }
+
+  25% {
+    transform: translateY(-100%);
+  }
+
+  35% {
+    transform: translateY(-212%);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
+
+  60% {
+    transform: translateY(-312%);
+  }
+
+  75% {
+    transform: translateY(-300%);
+  }
+
+  85% {
+    transform: translateY(-412%);
+  }
+
+  100% {
+    transform: translateY(-400%);
+  }
+}

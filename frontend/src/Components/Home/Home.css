@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
-
 .header__background-image {
   height: 100vh;
-  width: 100vw;
   background: url("../../Assets/Home/HomeBackground.jpg");
   background-size: cover;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   z-index: -5;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .header__center {
@@ -19,45 +19,31 @@
   flex-direction: column;
   margin-left: 29px;
   margin-right: 29px;
+  color: black;
 }
 
 #inner {
-  font-family: "Montserrat", sans-serif;
   font-size: 70px;
   font-weight: 900;
+  text-align: center;
+}
+
+@media screen and (max-width: 380px) {
+  #inner {
+    font-size: 50px;
+  }
 }
 
 #inner-head {
-  font-family: "Montserrat", sans-serif;
   font-size: 50px;
   font-weight: bold;
   margin-top: -5px;
+  text-align: center;
 }
-
-/* .header__center img {
-  width: 80%;
-  @media screen and (max-width: 1100px) {
-    width: 25%;
-  }
-
-  @media screen and (max-width: 750px) {
-    width: 40%;
-  }
-
-  @media screen and (max-width: 550px) {
-    width: 50%;
-  }
-} */
 
 .header__center h1 {
   color: var(--white-color);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 60px;
-  text-align: center;
   letter-spacing: 0.16em;
-  margin: 0rem 4rem 2rem 4rem;
 
   @media screen and (max-width: 1050px) {
     font-size: 48px;
@@ -70,14 +56,6 @@
   @media screen and (max-width: 550px) {
     font-size: 24px;
   }
-}
-
-.display-flex {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1;
-  width: 100%;
 }
 
 @-webkit-keyframes text-flicker-in-glow {

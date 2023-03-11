@@ -1,0 +1,29 @@
+.content #outer {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+#HeadTimer {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.launch-time {
+  display: flex;
+  margin-top: 3px;
+}
+
+@media screen and (max-width: 380px) {
+  .launch-time div {
+    margin-right: 20px;
+  }
+}
+
+.launch-time div p {
+  font-size: 30px;
+  margin-bottom: -8px;
+}
+
+.launch-time div span {
+  font-size: 12px;
+}
