@@ -29,7 +29,7 @@ const ScrollToTop = () => {
     <div className="bg-black">
       {isVisible && (
         <div
-          className="bg-stone-300 w-12 h-12 flex justify-center items-center rounded-full fixed bottom-0 right-0 mr-6 mb-6 hover:cursor-pointer z-40"
+          className="bg-stone-300 w-12 h-12 flex justify-center items-center rounded-full fixed bottom-0 right-0 mr-6 mb-6 hover:cursor-pointer z-50"
           onClick={ScrollToBtn}
         >
           <div className="bg-warm p-4 rounded-3xl">

@@ -23,7 +23,8 @@ module.exports = {
       grey: "#D3D3D3",
       black: "#000000",
       red: "#EA4F39",
-      brown:"#2B2B2D"
+      brown: "#2B2B2D",
+      d_primary: "#282828",
     },
     extend: {
       fontFamily: {

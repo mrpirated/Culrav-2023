@@ -10,6 +10,7 @@ function Header() {
           whileInView={{ y: [150, 0], opacity: [0, 1] }}
           transition={{ duration: 5, ease: "easeOut" }}
           whileTap={{ scale: 0.9 }}
+          viewport={{ once: true }}
         >
           <h1 id="inner">CULRAV</h1>
           <h1 id="inner-head">2023</h1>

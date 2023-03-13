@@ -1,13 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import logo from "../../Assets/Home/Logo.png";
 import { Link } from "react-scroll";
+import "./Navbar.css";
 
 const navItems = ["home", "about", "events", "sponsors", "contact"];
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [navScroll, setScroll] = useState(false);
+  // const [flag, setFlag] = useState(0);
+  const navbarRef = useRef();
+
+  // window.onscroll = function () {
+  //   if (window.scrollY >= 500) {
+  //     setFlag(1);
+  //     console.log(flag);
+  //   } else {
+  //     // setFlag(0);
+  //     console.log(flag);
+  //   }
+  // };
+
+  useEffect(() => {
+    const applyContainerProperties = () => {
+      navbarRef.current.classList.add("navbar-below");
+    };
+
+    window.onscroll = function () {
+      if (window.scrollY >= 200) {
+        navbarRef.current.classList.add("activeNav");
+        // setTimeout(() => {
+        setScroll(true);
+        // }, 500);
+      } else {
+        navbarRef.current.classList.add("activeNav");
+        // setTimeout(() => {
+        setScroll(false);
+        // }, 500);
+      }
+    };
+
+    applyContainerProperties();
+  });
 
   const HamOpen = (
     <svg
@@ -43,20 +78,21 @@ function Navbar() {
     </svg>
   );
 
-  window.onscroll = function () {
-    if (window.scrollY > 500) setScroll(true);
-    else setScroll(false);
-  };
+  // window.onscroll = function () {
+  //   if (window.scrollY > 500) setScroll(true);
+  //   else setScroll(false);
+  // };
 
   return (
     <nav
-      className={`w-full flex flex-row justify-between z-40 fixed transition duration-600 ${
+      ref={navbarRef}
+      className={`w-full flex flex-row justify-between z-30 fixed transition duration-600 ${
         navScroll ? "shadow-xl bg-light" : ""
       }`}
     >
       <div
         className={`logo md:px-0 flex justify-center items-center ${
-          !navScroll ? "lg:w-1/3 lg:h-1/3" : "md:w-1/3 md:h-1/3 bg-light"
+          !navScroll ? "lg:w-1/3 lg:h-1/3" : "md:w-1/3 md:h-1/3"
         } xs:px-8 xs:py-8 transition duration-600`}
       >
         <a href="#/">

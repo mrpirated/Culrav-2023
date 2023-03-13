@@ -1,0 +1,145 @@
+.right {}
+
+.right .solved-questions {
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin: 7px;
+    box-shadow: 2px 2px 10px black;
+}
+
+.right .solved-questions .questions ul {
+    list-style-type: none;
+}
+
+.right .solved-questions .questions ul li {
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.right .solved-questions .questions ul li:nth-child(odd) {
+    background-color: #373737;
+}
+
+
+/* first row */
+.first-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* user stats  */
+.first-row .user-stats {
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin: 7px;
+    height: 150px;
+    color: #9FA1A4;
+    box-shadow: 2px 2px 10px black;
+}
+
+.first-row .user-stats .container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.first-row .user-stats .container .circularbar {
+    /* background-color: yellow;
+    height: 10em; */
+}
+
+.circularbar .outer-circle {
+    background-color: #282828;
+    border: 4px solid #373737;
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.circularbar .outer-circle p {
+    position: relative;
+    top: 25%;
+    left: 25%;
+    margin: auto;
+}
+
+.first-row .user-stats .container .progressbar {}
+
+.progressbar .bardata {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.progressbar .bar {
+    width: 100%;
+    height: 4px;
+    /* background-color: #ddd; */
+}
+
+.progressbar #bar1 {
+    margin: 20px 0px;
+}
+
+.progressbar #bar2 {
+    margin: 20px 0px;
+}
+
+.progressbar #bar3 {
+    margin: 20px 0px;
+}
+
+.progressbar .progress{
+    /* width: 50%; */
+    height: 4px;
+    
+}
+
+.first-row .badges {
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin: 7px;
+    height: 150px;
+    box-shadow: 2px 2px 10px black;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+
+.first-row .badges .left-badges{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.first-row .badges .top {
+    
+    
+}
+
+.first-row .badges .bottom {
+    margin: 1em 0px;
+}
+
+.first-row .badges .image {
+    
+}
+
+.first-row .badges .image img {
+    /* width: 50%; */
+    width: 50%;
+    opacity: 0.2;
+    float: right;
+}
+
+/* media queries  */
+@media (max-width:1100px)
+{
+    .first-row{
+        display: block;
+    }
+}

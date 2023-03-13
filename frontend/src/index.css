@@ -29,3 +29,10 @@ code {
 body::-webkit-scrollbar {
   display: none;
 }
+
+@font-face {
+  font-family: "japan";
+  /*Can be any text*/
+  src: local("AirbnbCerealLight"),
+    url("./Fonts/SAKURATA.ttf") format("truetype");
+}
