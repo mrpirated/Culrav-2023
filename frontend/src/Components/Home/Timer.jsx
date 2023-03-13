@@ -41,7 +41,7 @@ const Timer = () => {
   return (
     <div className="bodyTimer">
       <div className="container">
-        <div className="content">
+        <div className="contentTimer">
           <div id="outer" className="ml-[10px] xl:ml-0">
             <div id="HeadTimer">COMMING SOON...</div>
             {/* ml-[-66px] */}

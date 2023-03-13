@@ -1,0 +1,151 @@
+/* left side of the page  */
+.left {
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin: 7px;
+    box-shadow: 2px 2px 10px black;
+}
+
+.first-section {
+    display: grid;
+    grid-template-areas:
+        'flex flex flex'
+        'editProfile editProfile editProfile';
+
+}
+
+.first-section-flex{
+    grid-area:flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.avtar {
+    
+}
+
+.avtar img {
+    height: 70px;
+    width: 70px;
+    /* border: 1px solid grey; */
+    border-radius: 10px;
+}
+
+.first-section .data {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.first-section .rank {
+    margin-top: 30px;
+}
+
+.first-section .edit-profile-btn {
+    background-color: #283A2E;
+    width: 100%;
+    text-align: center;
+    grid-area: editProfile;
+    border-radius: 5px;
+    margin: 10px 0px;
+    padding: 8px 0px;
+}
+
+.first-section .edit-profile-btn a {
+    text-decoration: none;
+    color: #2AA149;
+    cursor: pointer;
+    font-size: 14px;
+    /* padding: 25px 0px; */
+}
+
+
+/* second section */
+.second-section .head {
+    margin: 20px 0px;
+}
+
+.second-section .short-text {
+    font-size: 11px;
+    margin: 2px 0px;
+}
+
+.second-section .box .container {
+    margin-bottom: 12px;
+}
+
+
+
+/* third section  */
+.third-section .heading {
+    margin: 10px 0px;
+}
+
+.third-section .language-learned {
+    margin: 20px 0px;
+
+}
+
+.third-section .language-learned .s15p {
+    font-size: 11px;
+    display: inline;
+    float: right;
+}
+.third-section .box-element{
+    padding: 5px 15px;
+    background-color: #3E3E3E;
+    display: inline;
+    border-radius: 15px;
+    color:#BDBFC2;
+    font-size: 13px;
+}
+
+
+
+/* fourth section  */
+.fourth-section .heading {
+    margin: 10px 0px;
+}
+
+.fourth-section .level {
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.fourth-section .level .coloured-circle {
+    /* background-color: tomato; */
+    height: 5px;
+    width: 5px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.fourth-section .level #red {
+    background-color: #EF4743;
+}
+
+.fourth-section .level #yellow {
+    background-color: #FFC01E;
+}
+
+.fourth-section .level #green {
+    background-color: #2CBB5D;
+}
+
+.fourth-section .level-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fourth-section .level-items .box-element {
+    padding: 5px 5px;
+    margin: 5px 5px;
+    background-color: #3E3E3E;
+    border-radius: 15px;
+    color: #BDBFC2;
+    font-size: 13px;
+    cursor: pointer;
+}

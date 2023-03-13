@@ -50,9 +50,9 @@ function AboutCulrav() {
       </div> */}
       <div className="flex mx-2 justify-center items-center relative">
         <div className="w-[25vw] h-[25vw] rounded-full bg-red"></div>
-        <p className="text-center text-3xl sm:text-5xl font-bold text-white absolute t-[50%] l-[50%]">
-          AB<span className="spanB">O</span>UT
-          <span className="spanT"> C</span>UL<span className="spanI">R</span>
+        <p className="text-center text-3xl sm:text-6xl font-bold text-white absolute t-[50%] l-[50%] heading">
+          AB<span className="spanB heading">O</span>UT
+          <span className="spanT heading"> C</span>UL<span className="spanI heading">R</span>
           AV
         </p>
       </div>

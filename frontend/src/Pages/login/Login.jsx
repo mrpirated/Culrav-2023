@@ -1,10 +1,7 @@
 import React from "react";
 import "./login.css";
-// import { motion } from "framer-motion";
-import img1 from "./assests/img1.jpg";
-import img2 from "./assests/img2.jpg";
-// import Lights from "./Lights";
-
+import img1 from "./assests/img1.webp";
+import img2 from "./assests/img2.webp";
 function Login() {
   const toggleForm = async () => {
     let section = document.querySelector("section");
@@ -20,16 +17,6 @@ function Login() {
   return (
     <>
       <section>
-        {/* <motion.div
-          className="absolute top-0 left-0 z-10"
-          animate={{ y: [-500, 0] }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{delay : 1}}
-        >
-          <Lights />
-        </motion.div> */}
-
         <div className="container">
           <div className="user signinBx">
             <div className="imgBx">

@@ -17,7 +17,7 @@ const Team = () => {
         <div className="SectionTeam">
           <div className="containerTeam">
             <div className="card">
-              <div className="content">
+              <div className="contentTeam">
                 <div className="imgBx">
                   <img src={img} alt="" srcset="" />
                 </div>
@@ -49,7 +49,7 @@ const Team = () => {
             </div>
 
             <div className="card">
-              <div className="content">
+              <div className="contentTeam">
                 <div className="imgBx">
                   <img src={img} alt="" srcset="" />
                 </div>
@@ -81,7 +81,7 @@ const Team = () => {
             </div>
 
             <div className="card">
-              <div className="content">
+              <div className="contentTeam">
                 <div className="imgBx">
                   <img src={img} alt="" srcset="" />
                 </div>
@@ -113,7 +113,7 @@ const Team = () => {
             </div>
 
             <div className="card">
-              <div className="content">
+              <div className="contentTeam">
                 <div className="imgBx">
                   <img src={img} alt="" srcset="" />
                 </div>

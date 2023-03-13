@@ -13,6 +13,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-icons: ^4.8.0
+  react-plx: ^2.0.1
   react-router-dom: ^6.8.2
   react-scripts: 5.0.1
   react-scroll: ^1.8.9
@@ -34,6 +35,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.8.0_react@18.2.0
+  react-plx: 2.0.1_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_react@18.2.0
   react-scroll: 1.8.9_biqbaboplfbrettd7655fr4n2y
@@ -2617,6 +2619,13 @@ packages:
       '@babel/types': 7.21.2
     dev: false
 
+  /@types/bezier-easing/2.1.2:
+    resolution: {integrity: sha512-1f9PSSooB7VBfwNQm5nKE8i7XXWWtjKPmm1apg52pxq/mmuyJNZpvEzR2n+c0+XPs0ldLoVWWp54tqkXsKxFsA==}
+    deprecated: This is a stub types definition. bezier-easing provides its own type definitions, so you do not need this installed.
+    dependencies:
+      bezier-easing: 2.1.0
+    dev: false
+
   /@types/body-parser/1.19.2:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
@@ -3601,6 +3610,10 @@ packages:
 
   /batch/0.6.1:
     resolution: {integrity: sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==}
+    dev: false
+
+  /bezier-easing/2.1.0:
+    resolution: {integrity: sha512-gbIqZ/eslnUFC1tjEvtz0sgx+xTK20wDnYMIA27VA04R7w6xxXQPZDbibjA9DTWZRA2CXtwHykkVzlCaAJAZig==}
     dev: false
 
   /bfj/7.0.2:
@@ -8642,6 +8655,19 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
+  /react-plx/2.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-hEUhCZbHDCfoUawOi4dieiBOM5XY7bXlPwOPR+DDzGz6N9BdkJALwDQevT/F2ROq5bZXdZH8p35rK/GWwUAUQg==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      '@types/bezier-easing': 2.1.2
+      bezier-easing: 2.1.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      window-scroll-manager: 1.1.4
+    dev: false
+
   /react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
@@ -10292,6 +10318,10 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: false
+
+  /window-scroll-manager/1.1.4:
+    resolution: {integrity: sha512-Oj916sD6Daigs128qtksCcBGvwXcuTuMn65m1FEp/QINBwbkval43p0qfZna2GFExXZFdoMTT3/s1of0szsG7A==}
     dev: false
 
   /word-wrap/1.2.3:

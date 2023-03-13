@@ -1,5 +1,5 @@
 import React from "react";
-// import "./Events.css";
+import "./Events.css";
 import AnimatedText from "./AnimatedText";
 import data from "./data.js";
 import Eventcomponent from "./Eventcomponent";
