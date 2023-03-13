@@ -26,6 +26,12 @@
     animation: flicker-3 24s linear infinite both;
 }
 
+.heading{
+    font-family: 'japan';
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+}
+
 @-webkit-keyframes flicker-3 {
 
     0%,

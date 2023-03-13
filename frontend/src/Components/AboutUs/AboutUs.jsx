@@ -13,12 +13,15 @@ function AboutUs() {
 
   return (
     <>
-      <div className="px-4 py-12 sm:p-12 flex flex-col lg:flex-row h-auto lg:h-screen w-full aboutMnnit">
+      <div
+        className="px-4 py-12 sm:p-12 flex flex-col lg:flex-row h-auto lg:h-screen w-full aboutMnnit"
+        id="about"
+      >
         <div className="flex mx-2 lg:my-4 justify-center items-center relative w-full">
           <div className="w-[25vw] h-[25vw] rounded-full bg-red"></div>
-          <p className="text-center text-3xl sm:text-5xl font-bold text-white absolute t-[50%] l-[50%]">
-            A<span className="spanB">B</span>OU
-            <span className="spanT">T</span> MNN<span className="spanI">I</span>
+          <p className="text-center text-3xl sm:text-6xl font-bold text-white absolute t-[50%] l-[50%] heading">
+            A<span className="spanB heading">B</span>OU
+            <span className="spanT heading">T</span> MNN<span className="spanI heading">I</span>
             T
           </p>
         </div>

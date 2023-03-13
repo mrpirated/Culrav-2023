@@ -1,0 +1,29 @@
+.navbar-below.activeNav {
+  animation: pulse 1.5s;
+  transition: 1.5s;
+  transition-timing-function: ease-in;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  88% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
