@@ -10,9 +10,9 @@ function Login() {
     section.classList.toggle("active");
   };
 
-  const googleAuth = async () => {
-    window.location.replace("http://localhost:3000/auth/google");
-  };
+  // const googleAuth = async () => {
+  //   window.location.replace("http://localhost:3000/auth/google");
+  // };
 
   return (
     <>
@@ -49,6 +49,9 @@ function Login() {
                   </a>
                 </p>
               </form>
+              <a href="/">
+                <button className="signup_button2">Home</button>
+              </a>
             </div>
           </div>
 
@@ -93,10 +96,10 @@ function Login() {
                     Sign in.
                   </a>
                 </p>
-                <button className="signup_button2" onClick={googleAuth}>
-                  Sign Up With Google
-                </button>
               </form>
+              <a href="/">
+                <button className="signup_button2">Home</button>
+              </a>
             </div>
             <div className="imgBx">
               <img src={img2} alt="" />

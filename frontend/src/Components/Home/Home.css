@@ -1,10 +1,4 @@
 .header__background-image {
-  height: 100vh;
-  background: url("../../Assets/Home/HomeBackground.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
   z-index: -5;
   display: flex;
   justify-content: center;
@@ -26,6 +20,9 @@
   font-size: 70px;
   font-weight: 900;
   text-align: center;
+  font-family: "japan";
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
 }
 
 @media screen and (max-width: 380px) {

@@ -13,6 +13,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-icons: ^4.8.0
+  react-parallax: ^3.5.1
   react-plx: ^2.0.1
   react-router-dom: ^6.8.2
   react-scripts: 5.0.1
@@ -35,6 +36,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.8.0_react@18.2.0
+  react-parallax: 3.5.1_biqbaboplfbrettd7655fr4n2y
   react-plx: 2.0.1_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_react@18.2.0
@@ -8653,6 +8655,16 @@ packages:
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+    dev: false
+
+  /react-parallax/3.5.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-p5zPsPsqELlIOGaPS01O0IRx8R2bxcBAtrdF/RHf9nIxxk5hijbM2y89tk4rJQBcNH6ESSLe7J2NV4/ms7FLFw==}
+    peerDependencies:
+      react: 16.x.x || 17.x.x || 18.x.x
+      react-dom: 16.x.x || 17.x.x || 18.x.x
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-plx/2.0.1_biqbaboplfbrettd7655fr4n2y:

@@ -19,10 +19,10 @@ function AboutUs() {
       >
         <div className="flex mx-2 lg:my-4 justify-center items-center relative w-full">
           <div className="w-[25vw] h-[25vw] rounded-full bg-red"></div>
-          <p className="text-center text-3xl sm:text-6xl font-bold text-white absolute t-[50%] l-[50%] heading">
-            A<span className="spanB heading">B</span>OU
-            <span className="spanT heading">T</span> MNN<span className="spanI heading">I</span>
-            T
+          <p className="text-center text-3xl sm:text-6xl font-bold text-white absolute t-[50%] l-[50%] japanFont">
+            A<span className="spanB japanFont">B</span>OU
+            <span className="spanT japanFont">T</span> MNN
+            <span className="spanI japanFont">I</span>T
           </p>
         </div>
         <div className="flex flex-col my-4 sm:mx-2 justify-center items-center sm:px-4 text-center lg:text-left">
