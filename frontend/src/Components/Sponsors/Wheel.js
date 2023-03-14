@@ -54,7 +54,9 @@ export default class Wheel extends Component {
         </div>
         <div style={Styles.heading}>
           {/* <h3 style={Styles.text.smallhead}>OUR SPONSORSHIPS</h3> */}
-          <h1 style={Styles.text.largehead}>OFFICIAL SPONSORS</h1>
+          <h1 className="japanFont" style={Styles.text.largehead}>
+            OFFICIAL SPONSORS
+          </h1>
         </div>
       </>
     );

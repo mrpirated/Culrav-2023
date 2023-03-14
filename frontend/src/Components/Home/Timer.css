@@ -6,6 +6,7 @@
 #HeadTimer {
   font-size: 20px;
   margin-top: 20px;
+  /* font-family: "japan"; */
 }
 
 .launch-time {
@@ -22,8 +23,10 @@
 .launch-time div p {
   font-size: 30px;
   margin-bottom: -8px;
+  /* font-family: "japan"; */
 }
 
 .launch-time div span {
   font-size: 12px;
+  /* font-family: "japan"; */
 }

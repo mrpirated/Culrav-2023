@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import logo from "../../Assets/Home/Logo.png";
+import logo from "../../Assets/Home/Logo.png"; 
 import { Link } from "react-scroll";
 import "./Navbar.css";
 
@@ -28,7 +28,7 @@ function Navbar() {
     };
 
     window.onscroll = function () {
-      if (window.scrollY >= 200) {
+      if (window.scrollY >= 500) {
         navbarRef.current.classList.add("activeNav");
         // setTimeout(() => {
         setScroll(true);
@@ -50,7 +50,7 @@ function Navbar() {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="black"
+      stroke="white"
       className="w-10 h-10"
     >
       <path
@@ -86,8 +86,9 @@ function Navbar() {
   return (
     <nav
       ref={navbarRef}
+      // bg-light
       className={`w-full flex flex-row justify-between z-30 fixed transition duration-600 ${
-        navScroll ? "shadow-xl bg-light" : ""
+        navScroll ? "shadow-xl" : ""
       }`}
     >
       <div
@@ -109,10 +110,11 @@ function Navbar() {
       </div>
 
       <div
+        // bg-light
         className={`container px-3 md:flex xl:px-500px ${
           !navScroll
             ? "pt-[50px] lg:mt-[-170px] md:mt-[-150px] xl:mt-[-150px] 2xl:mt-[-120px]"
-            : "bg-light pt-[94px] 2xl:pt-[110px] xl:pt-[72px] lg:pt-[0px] lg:mt-[-16px] md:pt-[0px] md:mt-[-9px]"
+            : "pt-[94px] 2xl:pt-[110px] xl:pt-[72px] lg:pt-[0px] lg:mt-[-16px] md:pt-[0px] md:mt-[-9px]"
         }`}
       >
         <ul
@@ -136,6 +138,17 @@ function Navbar() {
             </Link>
           ))}
           <a
+            href="/team"
+            className="hidden md:block md:mt-[-15px] lg:mt-[-5px] xl:mt-[-80px] 2xl:mt-[-120px] mx-2 px-1 lg:mx-3 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
+          >
+            <li
+              className="text-sm cursor-pointer lg:text-[14px] 2xl:text-[15px]"
+              key={`link-teampage`}
+            >
+              TEAM
+            </li>
+          </a>
+          <a
             href="/login"
             className="hidden md:block bg-light md:mt-[-15px] lg:mt-[-5px] xl:mt-[-80px] 2xl:mt-[-120px] md:ml-[10px] xl:ml-[20px] px-6 py-4 text-black font-bold hover:text-white hover:bg-dark transition ease-in-out duration-700"
           >
@@ -151,7 +164,8 @@ function Navbar() {
 
       <div
         className={`md:hidden ${
-          !navScroll ? "" : "bg-light"
+          // bg-light
+          !navScroll ? "" : ""
         } relative flex justify-center items-center pr-[50px] mt-[-50px]`}
       >
         <div
@@ -200,8 +214,19 @@ function Navbar() {
                     </Link>
                   </li>
                 ))}
+                <a
+                  href="/team"
+                  className="mt-[8px] text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
+                >
+                  <li
+                    // className="text-sm cursor-pointer lg:text-[14px] 2xl:text-[15px]"
+                    key={`link-teampage`}
+                  >
+                    TEAM
+                  </li>
+                </a>
                 <a href="/login" className="">
-                  <li className="px-6 mt-[10px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black hover:text-grey hover:bg-dark">
+                  <li className="px-6 mt-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black hover:text-grey hover:bg-dark">
                     CONFIRM YOUR SEAT
                   </li>
                 </a>

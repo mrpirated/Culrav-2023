@@ -1,5 +1,5 @@
 .SponsorBack {
-  background: url("./Assets/Footer/FooterBanner.jpg");
+  background: url("./Assets/Footer/Footer.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -7,7 +7,7 @@
 }
 
 .EventsBack {
-  background: url("./Assets/Events/Events.png");
+  background: url("./Assets/Events/Event.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -16,7 +16,7 @@
 }
 
 .AboutBack {
-  background: url("./Assets/About/About.jpg");
+  background: url("./Assets/About/About.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -29,4 +29,10 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+}
+
+.japanFont {
+  font-family: "japan";
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
 }

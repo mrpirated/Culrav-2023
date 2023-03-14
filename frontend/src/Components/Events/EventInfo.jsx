@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -40,11 +39,11 @@ function EventInfo(props) {
   return (
     <>
       <div
-        className="fixed w-screen h-screen z-40 top-0 left-0 backdrop-blur"
+        id="blur"
+        className="fixed w-screen h-screen z-40 top-0 left-0"
         onClick={props.handleClick}
       ></div>
       <div
-        // id="blur"
         className="fixed w-[80vw] h-[80vh] bg-off top-[50%] left-[50%] z-40"
         style={{ transform: "translate(-50%, -50%)" }}
       >
@@ -80,7 +79,7 @@ function EventInfo(props) {
                 >
                   <p
                     className={`text-2xl lg:text-4xl font-extrabold ${
-                      props.eventTitle == "Anunaad"
+                      props.eventTitle === "Anunaad"
                         ? "text-black"
                         : "text-white"
                     }`}
