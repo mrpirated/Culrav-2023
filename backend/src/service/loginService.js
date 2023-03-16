@@ -21,10 +21,10 @@ const loginService = async ({ email, password }) => {
 		.then((response) => {
 			//debug(user);
 			id = response.data.user.id;
-			userDetails = (({ name, email }) => ({
-				name,
-				email,
-			}))(response.data.user);
+			userDetails = {
+				name: response.data.user.name,
+				email: response.data.user.email,
+			};
 			return {
 				user_password: password,
 				password: response.data.user.password,
@@ -34,11 +34,10 @@ const loginService = async ({ email, password }) => {
 			return checkPassword(details);
 		})
 		.then((response) => {
-			const token = getToken({ id: id }, "30d");
 			return {
 				success: true,
 				message: "Successfully logged In",
-				data: { token, user: userDetails },
+				data: { token: getToken({ id: id }, "30d"), user: userDetails },
 			};
 		})
 		.catch((err) => {

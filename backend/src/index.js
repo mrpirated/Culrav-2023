@@ -8,9 +8,11 @@ import login from "./routes/login";
 import signup from "./routes/signup";
 import getCommitees from "./routes/getCommitees";
 import getCommiteeEvents from "./routes/getCommiteeEvents";
+import config from "./config";
 dotenv.config();
-const PORT = process.env.PORT;
-const HOST_NAME = process.env.HOST_NAME;
+
+const PORT = config.PORT;
+const HOST_NAME = config.HOST_NAME;
 const debug = dbg("http");
 const { json } = express;
 const app = express();

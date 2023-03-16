@@ -26,7 +26,7 @@ CREATE TABLE `commitee` (
   `commitee_id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`commitee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

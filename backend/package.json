@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "set DEBUG=http,database,api:*,service:*,data:*,controller:*,socket:* & nodemon --exec babel-node src/index.js"
+		"start": "set DEBUG=http,database,api:*,service:*,data:*,controller:*,socket:* & nodemon --exec babel-node src/index.js",
+		"build": "babel src -d build"
 	},
 	"author": "",
 	"license": "ISC",
@@ -25,7 +26,7 @@
 		"express-validator": "^6.15.0",
 		"http": "^0.0.1-security",
 		"https": "^1.0.0",
-		"jsonwebtoken": "^9.0.0",
+		"jsonwebtoken": "^8.5.1",
 		"mysql": "^2.18.1"
 	}
 }
