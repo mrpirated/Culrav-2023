@@ -8,7 +8,7 @@ const Team = () => {
   return (
     <div className="" id="team">
       <div>
-        <h1 id="Head" className="bg-dark text-center text-grey">
+        <h1 id="Head" className="text-center text-grey">
           OUR TEAM
         </h1>
       </div>

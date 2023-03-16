@@ -9,7 +9,7 @@ const Now = () => {
           <img id="image" src={photo.url} alt="baabtra.com" />
           <div className="absolute inset-0 hover:cursor-pointer hover:bg-black hover:bg-opacity-75 transition ease-in-out duration-700">
             <div className="opacity-0 hover:opacity-100 h-full transition ease-in-out duration-700">
-              <div className="bottom-0 fixed pb-6 pl-6">
+              <div className="sm:bottom-0 sm:fixed pt-3 sm:pt-0 pl-5 sm:pb-6 sm:pl-6">
                 <div className="text-[16px] text-white">{photo.name}</div>
                 <div className="text-[13px] text-grey">{photo.label}</div>
               </div>

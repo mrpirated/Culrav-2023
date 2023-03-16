@@ -19,7 +19,7 @@ function Eventcomponent(props) {
   useEffect(() => {
     const interval = setInterval(() => {
       setSubevent((subevent) => (subevent + 1) % props.subevents.length);
-    }, 800);
+    }, 4000);
     return () => clearInterval(interval);
   });
 
@@ -37,7 +37,7 @@ function Eventcomponent(props) {
         whileInView={{ y: [150, 0], opacity: [0, 1] }}
         viewport={{ once: true }}
         transition={{
-          duration: 1,
+          duration: 0.4,
           ease: "easeOut",
           delay: delayArray[Math.floor(Math.random() * delayArray.length)],
         }}

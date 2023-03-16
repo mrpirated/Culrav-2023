@@ -31,20 +31,20 @@ const Celebs = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-center pt-[35px] pb-[28px] text-[40px] font-bold tracking-wide">
+      <h1 className="text-darker mt-[70px] text-center pt-[35px] pb-[28px] text-[40px] font-bold tracking-wide japanFont">
         CELEBS
       </h1>
       <div ref={animateRef} className="relative text-center">
         <span
           onClick={() => setState(false)}
           id="space"
-          className="mr-[200px] cursor-pointer text-[20px] transition ease-in-out duration-500"
+          className="text-darker mr-[200px] cursor-pointer text-[20px] transition ease-in-out duration-500"
         >
           PAST
         </span>
         <span
           onClick={() => setState(true)}
-          className="cursor-pointer text-[20px] transition ease-in-out duration-500"
+          className="text-darker cursor-pointer text-[20px] transition ease-in-out duration-500"
         >
           NOW
         </span>

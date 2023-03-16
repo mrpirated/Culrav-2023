@@ -52,9 +52,17 @@ export default class Wheel extends Component {
         >
           {this.state.cards}
         </div>
-        <div style={Styles.heading}>
+        <div
+          className="mt-[50px] xs:mt-[20px] sm:mt-80px] md:mt-[30px] lg:mt-[10px] 2xl:mt-[30px]"
+          style={Styles.heading}
+        >
           {/* <h3 style={Styles.text.smallhead}>OUR SPONSORSHIPS</h3> */}
-          <h1 style={Styles.text.largehead}>OFFICIAL SPONSORS</h1>
+          <h1
+            className="japanFont text-[9vw] lg:text-[5vw] xl:text-[5vw] 2xl:text-[5vw]"
+            style={Styles.text.largehead}
+          >
+            OFFICIAL SPONSORS
+          </h1>
         </div>
       </>
     );
@@ -89,7 +97,7 @@ const Styles = {
     },
     largehead: {
       color: "white",
-      fontSize: "5vw",
+      // fontSize: "10vw",
       fontWeight: "bold",
     },
   },

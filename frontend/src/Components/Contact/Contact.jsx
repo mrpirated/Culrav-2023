@@ -8,8 +8,8 @@ const Contact = () => {
   return (
     <div className="bodyContact" id="contact">
       <footer className="w-full">
-        <div class="wrapper">
-          <div class="words">
+        <div className="wrapper">
+          <div className="words">
             <span>Hello - こんにちは - Konnichiwa</span>
             <span>Welcome - いらっしゃいませ - Irasshaimase</span>
             <span>See you - またね - Mata ne</span>

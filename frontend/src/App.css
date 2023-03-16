@@ -1,22 +1,23 @@
 .SponsorBack {
-  background: url("./Assets/Footer/FooterBanner.jpg");
+  background: url("./Assets/Footer/Footer.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
 
-.EventsBack {
-  background: url("./Assets/Events/Events.png");
-  background-size: cover;
+.TrailerBack {
+  background-color: bisque;
+  /* background: url("./Assets/Events/Event.png"); */
+  /* background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  margin-top: -100px;
+  margin-top: -100px; */
 }
 
 .AboutBack {
-  background: url("./Assets/About/About.jpg");
+  background: url("./Assets/About/About.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -29,4 +30,10 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+}
+
+.japanFont {
+  font-family: "japan";
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
 }

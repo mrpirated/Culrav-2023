@@ -1,10 +1,4 @@
 .header__background-image {
-  height: 100vh;
-  background: url("../../Assets/Home/HomeBackground.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
   z-index: -5;
   display: flex;
   justify-content: center;
@@ -26,12 +20,9 @@
   font-size: 70px;
   font-weight: 900;
   text-align: center;
-}
-
-@media screen and (max-width: 380px) {
-  #inner {
-    font-size: 50px;
-  }
+  font-family: "japan";
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
 }
 
 #inner-head {
@@ -39,6 +30,26 @@
   font-weight: bold;
   margin-top: -5px;
   text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+  #inner {
+    font-size: 60px;
+  }
+  #inner-head {
+    padding-top: 7px;
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #inner {
+    font-size: 45px;
+  }
+  #inner-head {
+    padding-top: 7px;
+    font-size: 40px;
+  }
 }
 
 .header__center h1 {

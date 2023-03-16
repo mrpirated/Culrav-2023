@@ -3,8 +3,8 @@ import "./YoutubeEmbed.css";
 
 const Trailer = () => {
   return (
-    <div className="pb-[50px]">
-      <h1 className="text-center pt-[30px] md:pt-[50px] pb-[20px] md:pb-[40px] text-[40px] font-bold tracking-wide">
+    <div className="pb-[70px] md:mb-[-100px] xl:[-180px]">
+      <h1 className="text-darker text-center pt-[70px] md:pt-[80px] pb-[50px] md:pb-[70px] text-[40px] font-bold tracking-wide japanFont">
         OFFICIAL TRAILER
       </h1>
       <YoutubeEmbed embedId="vpidbmddNb8" />

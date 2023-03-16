@@ -6,12 +6,12 @@ import Eventcomponent from "./Eventcomponent";
 
 function Events() {
   let width = window.screen.width;
-  let textSize = "48px";
-  if (width > 768) textSize = "60px";
+  let textSize = "60px";
+  if (width > 640) textSize = "88px";
   console.log(textSize);
   return (
     <div className="events px-4 md:px-12 box-border">
-      <div className="text-dark my-4">
+      <div className="text-darker ml-[10px] sm:ml-[25px] my-4">
         <AnimatedText textSize={textSize} />
       </div>
 

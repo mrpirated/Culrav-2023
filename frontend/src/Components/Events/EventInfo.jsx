@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import DownloadIcon from "@mui/icons-material/Download";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import Team from "./Team";
+import EventCard from "./EventCard";
 
 let container = {
   hidden: { opacity: 1, scale: 0 },
@@ -40,11 +40,11 @@ function EventInfo(props) {
   return (
     <>
       <div
-        className="fixed w-screen h-screen z-40 top-0 left-0 backdrop-blur"
+        id="blur"
+        className="fixed w-screen h-screen z-40 top-0 left-0"
         onClick={props.handleClick}
       ></div>
       <div
-        // id="blur"
         className="fixed w-[80vw] h-[80vh] bg-off top-[50%] left-[50%] z-40"
         style={{ transform: "translate(-50%, -50%)" }}
       >
@@ -80,7 +80,7 @@ function EventInfo(props) {
                 >
                   <p
                     className={`text-2xl lg:text-4xl font-extrabold ${
-                      props.eventTitle == "Anunaad"
+                      props.eventTitle === "Anunaad"
                         ? "text-black"
                         : "text-white"
                     }`}
@@ -100,25 +100,17 @@ function EventInfo(props) {
                   laboriosam aperiam ipsa ab molestiae placeat nisi, deserunt
                   optio labore suscipit quidem ullam commodi.
                 </motion.p>
-                <motion.p
-                  variants={item}
-                  className="text-xl md:text-2xl font-bold"
-                >
-                  Events Under {props.eventTitle}
-                </motion.p>
-                {props.subevents.map((element) => {
-                  return (
-                    <motion.li variants={item} className="md:text-xl">
-                      {element}
-                    </motion.li>
-                  );
-                })}
-                <div className="my-4">
-                  <Button variant="contained" endIcon={<DownloadIcon />}>
-                    Download File
-                  </Button>
-                </div>
               </div>
+            </div>
+            <div className="flex justify-center">
+              <p className="text-xl font-bold lg:text-3xl ">
+                Events Under {props.eventTitle}
+              </p>
+            </div>
+            <div className="p-2 md:p-10 flex flex-row flex-wrap justify-center">
+              {props.subevents.map((element) => {
+                return <EventCard />;
+              })}
             </div>
             <div className="flex justify-center">
               <p className="text-xl font-bold lg:text-3xl ">
