@@ -104,7 +104,7 @@ section .container .user .formBx input[type="submit"] {
   letter-spacing: 1px;
   margin-right: 10px;
   transition: 0.5s;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .signup_btn {
@@ -113,7 +113,7 @@ section .container .user .formBx input[type="submit"] {
 }
 
 .signup_button {
-  flex: 0.1;
+  flex: 0.4;
 }
 
 .signup_button2 {
@@ -180,13 +180,17 @@ section .container.active .signupBx .formBx {
   top: 0;
 }
 
+section .container.active .signupBx .imgBx {
+  top: 0;
+}
+
 section .container .signupBx .imgBx {
   top: -100%;
   transition: 0.5s;
-}
-
-section .container.active .signupBx .imgBx {
-  top: 0;
+  background: url("./assests/img2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 section .container .signinBx .formBx {
@@ -197,13 +201,17 @@ section .container.active .signinBx .formBx {
   top: 100%;
 }
 
+section .container.active .signinBx .imgBx {
+  top: -100%;
+}
+
 section .container .signinBx .imgBx {
   top: 0;
   transition: 0.5s;
-}
-
-section .container.active .signinBx .imgBx {
-  top: -100%;
+  background: url("./assests/img1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 991px) {
@@ -220,7 +228,50 @@ section .container.active .signinBx .imgBx {
     width: 100%;
   }
 
-  section .container.active .signinBx .formBx {
+  section .container .active .signinBx .formBx {
     top: -100%;
+  }
+
+  section .container .signinBx .formBx {
+    top: 0;
+    background: url("./assests/Mobile1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  section .container .signupBx .formBx {
+    top: -100%;
+    background: url("./assests/Mobile2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  section .container .user .formBx h2 {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: aliceblue;
+  }
+
+  section .container .user .formBx .signup {
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: aliceblue;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  section .container .user .formBx .signup a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #9dafeb;
   }
 }

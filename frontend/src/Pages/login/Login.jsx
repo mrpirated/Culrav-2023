@@ -1,7 +1,7 @@
 import React from "react";
 import "./login.css";
-import img1 from "./assests/img1.webp";
-import img2 from "./assests/img2.webp";
+// import img1 from "./assests/img1.webp";
+// import img2 from "./assests/img2.webp";
 function Login() {
   const toggleForm = async () => {
     let section = document.querySelector("section");
@@ -20,7 +20,7 @@ function Login() {
         <div className="container">
           <div className="user signinBx">
             <div className="imgBx">
-              <img src={img1} alt="" />
+              {/* <img src={img1} alt="" /> */}
               <p className="text-white text-6xl z-20 absolute w-10 p-6">
                 ログイン
               </p>
@@ -42,10 +42,10 @@ function Login() {
                   required="true"
                 />
                 <input type="submit" value="Login" />
-                <p className="signup">
+                <p className="signup text-center">
                   don't have an account?
-                  <a href="#/" onClick={toggleForm}>
-                    Sign up.
+                  <a className="pl-2" href="#/" onClick={toggleForm}>
+                    Sign up
                   </a>
                 </p>
               </form>
@@ -90,10 +90,10 @@ function Login() {
                     value="Sign Up"
                   />
                 </div>
-                <p className="signup">
+                <p className="signup text-center">
                   Already have an account?
-                  <a href="#/" onClick={toggleForm}>
-                    Sign in.
+                  <a className="pl-2" href="#/" onClick={toggleForm}>
+                    Sign in
                   </a>
                 </p>
               </form>
@@ -102,7 +102,7 @@ function Login() {
               </a>
             </div>
             <div className="imgBx">
-              <img src={img2} alt="" />
+              {/* <img src={img2} alt="" /> */}
               <p className="text-white text-6xl z-20 absolute w-10 m-6 right-6">
                 登録
               </p>

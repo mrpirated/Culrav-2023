@@ -1,9 +1,16 @@
 #Head {
-  font-family: "Montserrat", sans-serif;
+  font-family: "japan";
   font-size: 50px;
   font-weight: bold;
+  background: #443c3c;
   padding-top: 50px;
-  margin-bottom: -105px;
+  margin-bottom: -100px;
+}
+
+@media screen and (max-width: 1360px) {
+  #Head {
+    margin-bottom: 0px;
+  }
 }
 
 .bodyTeam {
@@ -11,7 +18,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: #927071;
+  background: #443c3c;
   min-height: 100vh;
 }
 
@@ -25,7 +32,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#daa095, #a5888a);
+  /* background: linear-gradient(#daa095, #a5888a); */
   clip-path: circle(30% at right 70%);
 }
 .SectionTeam::after {
@@ -34,7 +41,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#daa095, #a5888a);
+  /* background: linear-gradient(#daa095, #a5888a); */
   clip-path: circle(20% at 10% 70%);
 }
 .containerTeam {

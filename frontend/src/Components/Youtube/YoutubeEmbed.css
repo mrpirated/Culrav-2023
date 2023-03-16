@@ -13,3 +13,13 @@
   position: absolute;
   z-index: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .video-responsive iframe {
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+  }
+}

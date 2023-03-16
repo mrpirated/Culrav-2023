@@ -13,7 +13,7 @@ function Preloader() {
     setVisibility("hidden");
   };
 
-  setTimeout(handleload,4000);
+  setTimeout(handleload, 4000);
 
   return (
     <>
@@ -23,11 +23,16 @@ function Preloader() {
         <div className="relative">
           <img
             src={textOnly}
-            className=" increase-opacity w-[300px] fixed top-[50%] left-[50%] z-[100]"
+            className=" increase-opacity w-[300px] top-[41%] left-[48%] fixed z-40"
             style={{ transform: "translate(-35%, -25%)" }}
+            alt=""
           />
         </div>
-        <img src={circle} className="slide-top blink w-[150px]" />
+        <img
+          src={circle}
+          className="slide-top blink w-[150px] mt-[-150px]"
+          alt=""
+        />
       </div>
     </>
   );

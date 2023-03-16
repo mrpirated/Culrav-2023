@@ -25,13 +25,13 @@ function AboutUs() {
             <span className="spanI japanFont">I</span>T
           </p>
         </div>
-        <div className="flex flex-col my-4 sm:mx-2 justify-center items-center sm:px-4 text-center lg:text-left">
-          <p className="text-lg sm:text-2xl sm:p-4 text-darker  font-semibold">
+        <div className="flex xl:mr-[100px] flex-col my-4 sm:mx-2 justify-center items-center sm:px-4 text-center lg:text-left">
+          <p className="text-lg sm:text-2xl sm:p-4 text-light  font-semibold">
             Motilal Nehru National Institute of Technology Allahabad, Prayagraj
             (MNNIT) is an Institute with total commitment to quality and
             excellence in academic and cultural pursuits .
           </p>
-          <p className="text-sm sm:text-xl p-4">
+          <p className="text-sm text-white sm:text-xl p-4">
             Initiated in 1987, Culrav has emerged as the most resplendent
             college based fest in Northern India and as one of the most awaited
             cultural event of the country. We have breathtaking competitions,
