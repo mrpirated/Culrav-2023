@@ -25,17 +25,31 @@
   line-height: 1.3em;
 }
 
-@media screen and (max-width: 380px) {
-  #inner {
-    font-size: 50px;
-  }
-}
-
 #inner-head {
   font-size: 50px;
   font-weight: bold;
   margin-top: -5px;
   text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+  #inner {
+    font-size: 60px;
+  }
+  #inner-head {
+    padding-top: 7px;
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #inner {
+    font-size: 45px;
+  }
+  #inner-head {
+    padding-top: 7px;
+    font-size: 40px;
+  }
 }
 
 .header__center h1 {

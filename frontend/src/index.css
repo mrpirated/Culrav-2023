@@ -24,6 +24,10 @@ code {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   scroll-behavior: smooth;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body::-webkit-scrollbar {

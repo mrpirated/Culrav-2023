@@ -43,7 +43,7 @@ const Timer = () => {
       <div className="container">
         <div className="contentTimer">
           <div id="outer" className="ml-[10px] xl:ml-0">
-            <div id="HeadTimer">COMMING SOON...</div>
+            <div id="HeadTimer">COMING SOON...</div>
             {/* ml-[-66px] */}
             <div className="launch-time">
               <div className="mr-[40px] xl:mr-[60px]">

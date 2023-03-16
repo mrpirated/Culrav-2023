@@ -2,7 +2,7 @@
   box-sizing: content-box;
   height: 30px;
   margin-bottom: 0px;
-  padding: 20px 20px 30px;
+  padding: 50px 20px 30px;
   display: flex;
   border-radius: 8px;
 }
@@ -128,6 +128,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* margin-top: -200px; changed margin to -200 from -230 px */
   margin-top: -230px;
 }
 

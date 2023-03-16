@@ -14,12 +14,6 @@
   margin-top: 3px;
 }
 
-@media screen and (max-width: 380px) {
-  .launch-time div {
-    margin-right: 20px;
-  }
-}
-
 .launch-time div p {
   font-size: 30px;
   margin-bottom: -8px;
@@ -29,4 +23,42 @@
 .launch-time div span {
   font-size: 12px;
   /* font-family: "japan"; */
+}
+
+@media screen and (max-width: 550px) {
+  .launch-time div {
+    margin-right: 20px;
+  }
+  .launch-time div p {
+    font-size: 25px;
+    padding-bottom: 2px;
+  }
+  #HeadTimer {
+    font-size: 17px;
+    margin-top: 15px;
+    /* font-family: "japan"; */
+  }
+  .launch-time div span {
+    font-size: 12px;
+    /* font-family: "japan"; */
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .launch-time div {
+    margin-right: 20px;
+  }
+  .launch-time div p {
+    font-size: 20px;
+    padding-bottom: 2px;
+  }
+  #HeadTimer {
+    font-size: 15px;
+    margin-top: 15px;
+    /* font-family: "japan"; */
+  }
+  .launch-time div span {
+    font-size: 10px;
+    /* font-family: "japan"; */
+  }
 }
