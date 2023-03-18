@@ -5,6 +5,7 @@ const debug = dbg("data:checkIfEventRegistered");
 
 const checkIfEventRegistered = async (user_id, event_id) => {
 	return new Promise((resolve, reject) => {
+		debug(event_id, user_id);
 		pool.query(
 			`SELECT tm.member_id, t.event_id FROM team t 
         JOIN team_member tm ON t.team_id = tm.team_id WHERE
@@ -14,6 +15,7 @@ const checkIfEventRegistered = async (user_id, event_id) => {
 				if (err) {
 					reject({ success: false, message: err });
 				} else {
+					debug(result);
 					if (result.length != 0)
 						reject({
 							success: false,
