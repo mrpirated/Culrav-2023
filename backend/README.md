@@ -120,3 +120,62 @@
             "message": string
         }
         ```
+5. api/createTeam (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        }
+        "body":{
+            "event_id": Integer,
+            "team_name": String
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data": [
+                {
+                    
+                }
+            ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+6. api/addMemberToTeam (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        }
+        "body":{
+            "team_id": Integer,
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data": [
+                {
+                    
+                }
+            ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
