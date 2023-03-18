@@ -14,7 +14,7 @@ const checkTokenService = async (bearerToken) => {
 			if (err) {
 				reject({ success: false, message: "Invalid Token" });
 			}
-			//console.log(decoded);
+			debug(decoded);
 			resolve({
 				success: true,
 				message: "Token Verified",

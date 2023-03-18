@@ -4,7 +4,7 @@ import checkIfUserExists from "../data/checkIfUserExists";
 import checkPassword from "../controllers/checkPassword";
 import getToken from "../controllers/getToken";
 const loginService = async ({ email, password }) => {
-	var id;
+	var user_id;
 	var userDetails;
 	return await checkIfUserExists({ email })
 		.then((response) => {
@@ -19,8 +19,8 @@ const loginService = async ({ email, password }) => {
 			});
 		})
 		.then((response) => {
-			//debug(user);
-			id = response.data.user.id;
+			// debug(response);
+			user_id = response.data.user.user_id;
 			userDetails = {
 				name: response.data.user.name,
 				email: response.data.user.email,
@@ -37,7 +37,10 @@ const loginService = async ({ email, password }) => {
 			return {
 				success: true,
 				message: "Successfully logged In",
-				data: { token: getToken({ id: id }, "30d"), user: userDetails },
+				data: {
+					token: getToken({ user_id: user_id, name: userDetails.name }, "30d"),
+					user: userDetails,
+				},
 			};
 		})
 		.catch((err) => {

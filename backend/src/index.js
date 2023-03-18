@@ -8,6 +8,8 @@ import login from "./routes/login";
 import signup from "./routes/signup";
 import getCommitees from "./routes/getCommitees";
 import getCommiteeEvents from "./routes/getCommiteeEvents";
+import createTeam from "./routes/createTeam";
+import addMemberToTeam from "./routes/addMemberToTeam";
 import config from "./config";
 dotenv.config();
 
@@ -22,7 +24,15 @@ app.use(cors());
 
 app.use(json({ extended: false }));
 
-app.use("/api", login, signup, getCommitees, getCommiteeEvents);
+app.use(
+	"/api",
+	login,
+	signup,
+	getCommitees,
+	getCommiteeEvents,
+	createTeam,
+	addMemberToTeam
+);
 app.use("/", (req, res) => {
 	res.send("Server is Running");
 });
