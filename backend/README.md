@@ -179,3 +179,28 @@
             "message": string
         }
         ```
+7. api/addOrganizingTeam (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        }
+        "body":{
+            "team_member_id": Integer,
+            "type":String,// ('ADMIN','FS','PR','COCO','TECHLEAD','MEDIALEAD','POC','NONE')
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```

@@ -1,7 +1,6 @@
 import dbg from "debug";
 import checkTokenService from "./checkTokenService";
 const debug = dbg("service:addMemberToTeam");
-import createTeam from "../data/createTeam";
 import checkIfEventRegistered from "../data/checkIfEventRegistered";
 import addMemberToTeam from "../data/addMemberToTeam";
 import getEventRegisteredByTeam from "../data/getEventRegisteredByTeam";
