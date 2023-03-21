@@ -1,10 +1,10 @@
 import { Router } from "express";
 const router = Router();
 import dbg from "debug";
-const debug = dbg("api:addMemberToTeam");
-import addMemberToTeamService from "../service/addMemberToTeamService";
-router.post("/addMemberToTeam", async (req, res) => {
-	await addMemberToTeamService(req.headers.authorization, req.body)
+const debug = dbg("api:addOrganizingTeam");
+import addOrganizingteamService from "../service/addOrganizingTeamService";
+router.post("/addOrganizingTeam", async (req, res) => {
+	await addOrganizingteamService(req.headers.authorization, req.body)
 		.then((response) => {
 			debug(response);
 			res.send(response);
