@@ -62,3 +62,14 @@
     /* font-family: "japan"; */
   }
 }
+
+#loginBtn {
+  font-size: 15px;
+  list-style: none;
+  margin-left: -2px;
+  color: black;
+}
+
+#loginBtn:hover {
+  color: rgb(136, 136, 136);
+}

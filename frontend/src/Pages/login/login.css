@@ -11,7 +11,10 @@ h2 {
 section {
   position: relative;
   min-height: 100vh;
-  background: #756156;
+  background: url("./assests/loginbg1.png") #756156;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +23,10 @@ section {
 }
 
 .active {
-  background: #81615a;
+  background: url("./assests/loginbg1.png") #584e4f;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
 }
 
 section .container {
@@ -30,6 +36,7 @@ section .container {
   background: #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  /* margin-top: 95px; */
 }
 
 section .container .user {
@@ -107,14 +114,14 @@ section .container .user .formBx input[type="submit"] {
   border-radius: 5px;
 }
 
-.signup_btn {
+/* .signup_btn {
   display: flex;
   width: 100%;
 }
 
 .signup_button {
   flex: 0.4;
-}
+} */
 
 .signup_button2 {
   flex: 0.7;
@@ -234,7 +241,7 @@ section .container .signinBx .imgBx {
 
   section .container .signinBx .formBx {
     top: 0;
-    background: url("./assests/Mobile1.png");
+    background: url("./assests/Mobile1.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -242,7 +249,7 @@ section .container .signinBx .imgBx {
 
   section .container .signupBx .formBx {
     top: -100%;
-    background: url("./assests/Mobile2.png");
+    background: url("./assests/Mobile2.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

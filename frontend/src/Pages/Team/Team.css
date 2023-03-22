@@ -1,9 +1,17 @@
+.image {
+  background-image: url(./Assets/Background.png);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 #Head {
   font-family: "japan";
   font-size: 50px;
   font-weight: bold;
-  background: #443c3c;
-  padding-top: 50px;
+  /* background: #443c3c; */
+  padding-top: 110px;
   margin-bottom: -100px;
 }
 
@@ -13,13 +21,26 @@
   }
 }
 
+@media screen and (max-width: 400px) {
+  #Head {
+    font-size: 40px;
+  }
+}
+
 .bodyTeam {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: #443c3c;
+  margin-top: -125px;
+  /* background: #443c3c; */
   min-height: 100vh;
+  /* background-image: url(./Assets/Background.png);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat; */
+  z-index: 0;
 }
 
 .SectionTeam {
@@ -51,7 +72,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 40px 0;
+  margin: 150px 0;
 }
 
 .containerTeam .card {

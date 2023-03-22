@@ -10,7 +10,7 @@ const Timer = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countDownDate = new Date("April 3, 2023 00:00:00").getTime();
+    const countDownDate = new Date("April 12, 2023 00:00:00").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
@@ -65,6 +65,16 @@ const Timer = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="md:hidden">
+        <a href="/login" className="">
+          <li
+            id="loginBtn"
+            className="pr-4 pl-3 w-[200px] mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont"
+          >
+            CONFIRM YOUR SEAT
+          </li>
+        </a>
       </div>
     </div>
   );
