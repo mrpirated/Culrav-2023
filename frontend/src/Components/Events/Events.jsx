@@ -22,6 +22,7 @@ function Events() {
             subevents={element.subevents}
             eventTitle={element.EventName}
             image={element.image}
+            commitee_id = {element.commitee_id}
             japanese={element.japanese}
           />
         ))}

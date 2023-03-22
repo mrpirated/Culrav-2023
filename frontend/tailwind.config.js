@@ -24,6 +24,7 @@ module.exports = {
       black: "#000000",
       red: "#EA4F39",
       brown: "#2B2B2D",
+      brown2: "#2e2829",
       d_primary: "#282828",
     },
     extend: {

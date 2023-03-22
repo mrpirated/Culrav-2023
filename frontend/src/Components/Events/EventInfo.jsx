@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import DownloadIcon from "@mui/icons-material/Download";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import Team from "./Team";
 import EventCard from "./EventCard";
@@ -45,7 +43,7 @@ function EventInfo(props) {
         onClick={props.handleClick}
       ></div>
       <div
-        className="fixed w-[80vw] h-[80vh] bg-off top-[50%] left-[50%] z-40"
+        className="fixed w-[80vw] h-[80vh] bg-gradient-to-r from-brown2 to-off top-[50%] left-[50%] z-40"
         style={{ transform: "translate(-50%, -50%)" }}
       >
         {width > 1024}

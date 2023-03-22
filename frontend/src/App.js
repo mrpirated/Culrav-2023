@@ -4,7 +4,9 @@ import { useEffect } from "react";
 
 //Pages
 import Login from "./Pages/login/Login";
+// import NavPageLogin from "./Pages/login/NavPage";
 import Team from "./Pages/Team/Team";
+import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 
 //Components
@@ -70,7 +72,15 @@ function App() {
     <div className="">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />}></Route>
+          <Route
+            path="/login"
+            element={
+              <>
+                {/* <NavPageLogin /> */}
+                <Login />
+              </>
+            }
+          ></Route>
           <Route
             path="/"
             element={
@@ -97,7 +107,15 @@ function App() {
               </>
             }
           ></Route>
-          <Route path="/team" element={<Team />}></Route>
+          <Route
+            path="/team"
+            element={
+              <>
+                <NavPageTeam />
+                <Team />
+              </>
+            }
+          ></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>;
         </Routes>
       </BrowserRouter>

@@ -88,7 +88,7 @@ function Navbar() {
       ref={navbarRef}
       // bg-light
       className={`w-full flex flex-row justify-between z-30 fixed transition duration-600 ${
-        navScroll ? "shadow-xl bg-sharp" : ""
+        navScroll ? "shadow-xl bg-[#CCAD8F]" : ""
       }`}
     >
       <div
@@ -100,8 +100,8 @@ function Navbar() {
           <img
             className={`cursor-pointer ${
               !navScroll
-                ? "w-[220px] xlsm:w-[120px] sm:w-[150px] xl:w-[220px] sm:ml-[20px] lg:ml-[50px] xl:ml-[100px]"
-                : "w-[80px] mt-[-10px] my-[-11px] mb-[-22px]"
+                ? "w-[220px] xlsm:w-[120px] sm:w-[150px] md-[150px] xl:w-[220px] sm:ml-[20px] lg:ml-[50px] xl:ml-[100px]"
+                : "w-[80px] xs:w-[130px] sm:w-[120px] md:w-[80px] mt-[-10px] my-[-11px] mb-[-22px]"
             }`}
             src={logo}
             alt="Culrav Logo"
@@ -114,7 +114,7 @@ function Navbar() {
         className={`container px-3 md:flex xl:px-500px ${
           !navScroll
             ? "pt-[50px] lg:mt-[-170px] md:mt-[-150px] xl:mt-[-150px] 2xl:mt-[-120px]"
-            : "bg-sharp pt-[94px] 2xl:pt-[110px] xl:pt-[72px] lg:pt-[0px] lg:mt-[-16px] md:pt-[0px] md:mt-[-9px]"
+            : "bg-[#CCAD8F] pt-[94px] 2xl:pt-[110px] xl:pt-[72px] lg:pt-[0px] lg:mt-[-16px] md:pt-[0px] md:mt-[-9px]"
         }`}
       >
         <ul
@@ -128,7 +128,7 @@ function Navbar() {
               className={`hidden ${
                 !navScroll
                   ? "lg:mt-[20px]"
-                  : "lg:mt-[-7px] before:bg-warm hover:text-warm"
+                  : "lg:mt-[-7px] before:bg-dark hover:text-dark"
               } md:block md:mt-[-15px] xl:mt-[-80px] 2xl:mt-[-120px] mx-2 px-1 lg:mx-3 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark`}
               smooth={true}
               duration={500}
@@ -146,7 +146,7 @@ function Navbar() {
             className={`hidden ${
               !navScroll
                 ? "lg:mt-[20px]"
-                : "lg:mt-[-7px]  before:bg-warm hover:text-warm"
+                : "lg:mt-[-7px] before:bg-dark hover:text-dark"
             } md:block md:mt-[-15px] xl:mt-[-80px] 2xl:mt-[-120px] mx-2 px-1 lg:mx-3 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark`}
           >
             <li
@@ -166,7 +166,7 @@ function Navbar() {
               className="text-sm  sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]"
               key={`link-confirmYourSeat`}
             >
-              CONFIRM YOUR SEAT
+              REGISTER NOW
             </li>
           </a>
         </ul>
@@ -175,11 +175,11 @@ function Navbar() {
       <div
         className={`md:hidden ${
           // bg-light
-          !navScroll ? "" : "bg-sharp"
+          !navScroll ? "" : "bg-[#CCAD8F]"
         } relative flex justify-center items-center pr-[50px] mt-[-50px]`}
       >
         <div
-          className={`flex cursor-pointer ${!navScroll ? "" : "mb-[-45px]"}`}
+          className={`flex cursor-pointer ${!navScroll ? "" : " mb-[-53px]"}`}
           onClick={() => setToggle(true)}
         >
           {HamOpen}
@@ -237,7 +237,7 @@ function Navbar() {
                 </a>
                 <a href="/login" className="">
                   <li className="px-6 mt-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black hover:text-grey hover:bg-dark">
-                    CONFIRM YOUR SEAT
+                    REGISTER NOW
                   </li>
                 </a>
               </ul>
