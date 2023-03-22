@@ -10,6 +10,7 @@ const pool = mysql.createPool({
 	database: config.DB_NAME,
 	connectionLimit: 10,
 });
+
 debug("mysql pool created");
 pool.on("connection", function (connection) {
 	//connection.query("SET SESSION auto_increment_increment=1");
