@@ -170,32 +170,7 @@
             "message": string
         }
         ```
-7. api/addOrganizingTeam (POST)
-   - request
-        ```javascript
-        "headers":{
-            "authorization": Bearer token,
-        }
-        "body":{
-            "team_member_id": Integer,
-            "type":String,// ('ADMIN','FS','PR','COCO','TECHLEAD','MEDIALEAD','POC','NONE')
-        }
-        ```
-    - response
-        ```javascript
-        {
-            "success":boolean, //true
-            "message":string,
-        }
-        ```
-   - error
-        ```javascript
-        {
-            "success":boolean,//false
-            "message": string
-        }
-        ```
-8. api/getUserTeams (GET)
+7. api/getUserTeams (GET)
    - request
         ```javascript
         "headers":{
@@ -227,7 +202,7 @@
             "message": string
         }
         ```
-9. api/getUserTeams (GET)
+8. api/getUserTeams (GET)
    - request
         ```javascript
         "headers":{
@@ -259,6 +234,56 @@
                     }
                 ]
             ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+9. api/addPOCs (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization":Bearer Token,
+        },
+        "body":{
+            "poc_id":Integer,
+            "commitee_id":Integer
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+10. api/addECs (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization":Bearer Token,
+        },
+        "body":{
+            "ec_id":Integer,
+            "commitee_id":Integer
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
         }
         ```
    - error

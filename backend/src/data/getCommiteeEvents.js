@@ -5,7 +5,7 @@ const debug = dbg("data:getCommiteeEvents");
 const getCommiteeEvents = async ({ commitee_id }) => {
 	return new Promise((resolve, reject) => {
 		pool.query(
-			"SELECT event_id,name FROM event WHERE commitee_id=?",
+			`SELECT * FROM event WHERE commitee_id=?`,
 			[commitee_id],
 			(err, result) => {
 				if (err) {

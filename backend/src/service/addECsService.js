@@ -1,9 +1,10 @@
 import dbg from "debug";
+import addECs from "../data/addECs";
 import changeUserType from "../data/changeUserType";
 import getUserType from "../data/getUserType";
 import checkTokenService from "./checkTokenService";
-const debug = dbg("service:addOrganizingTeam");
-const addOrganizingTeamService = async (token, { team_member_id, type }) => {
+const debug = dbg("service:addECs");
+const addECsService = async (token, { ec_id, event_id }) => {
 	var user_id;
 	var user_type;
 	return await checkTokenService(token)
@@ -13,12 +14,8 @@ const addOrganizingTeamService = async (token, { team_member_id, type }) => {
 		})
 		.then((response) => {
 			user_type = response.data.type;
-			if (
-				user_type === "ADMIN" ||
-				(user_type === "FS" &&
-					(type === "POC" || type === "COCO" || type === "PR"))
-			) {
-				return changeUserType(team_member_id, type);
+			if (user_type === "ADMIN" || user_type === "FS" || user_type === "POC") {
+				return changeUserType(ec_id, "EC");
 			} else {
 				return {
 					success: false,
@@ -26,8 +23,13 @@ const addOrganizingTeamService = async (token, { team_member_id, type }) => {
 				};
 			}
 		})
+		.then((response) => {
+			if (response.success) {
+				return addECs(ec_id, event_id);
+			} else return response;
+		})
 		.catch((error) => {
 			return error;
 		});
 };
-export default addOrganizingTeamService;
+export default addECsService;
