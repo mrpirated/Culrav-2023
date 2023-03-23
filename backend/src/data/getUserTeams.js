@@ -6,7 +6,8 @@ const debug = dbg("data:getUserTeams");
 const getUserTeams = async (user_id) => {
 	return new Promise((resolve, reject) => {
 		pool.query(
-			`SELECT t.team_id, t.team_name, e.event_id, e.name, e.commitee_id, c.name, 
+			`SELECT t.team_id, t.team_name, e.event_id, e.name AS 'event_name', 
+            e.commitee_id, c.name AS 'commitee_name', 
             IF(t.team_leader = 1, 'True', 'False') as 'is_leader' FROM team t 
             JOIN team_member tm ON tm.team_id = t.team_id 
             JOIN event e ON t.event_id = e.event_id

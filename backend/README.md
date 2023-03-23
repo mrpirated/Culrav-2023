@@ -63,12 +63,6 @@
         }
         ```
 3. api/getCommitees (GET)
-   - request
-        ```javascript
-        "headers":{
-            "authorization":Bearer token,
-        }
-        ```
     - response
         ```javascript
         {
@@ -93,9 +87,6 @@
 4. api/getCommiteeEvents (GET)
    - request
         ```javascript
-        "headers":{
-            "authorization":Bearer token,
-        },
         "query":{
             "commitee_id": integer,
         }
@@ -195,6 +186,38 @@
         {
             "success":boolean, //true
             "message":string,
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+8. api/getUserTeams (GET)
+   - request
+        ```javascript
+        "headers":{
+            "authorization":Bearer Token,
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data": [
+                {
+                    "team_id": Integer,
+                    "team_name": String,
+                    "event_id": Integer,
+                    "event_name": String,
+                    "commitee_id": Integer,
+                    "commitee_name": String,
+                    "is_leader": Boolean
+                }
+            ]
         }
         ```
    - error
