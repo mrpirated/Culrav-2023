@@ -1,0 +1,29 @@
+import pool from "../dbconn/db";
+import dbg from "debug";
+
+const debug = dbg("data:getUserTeams");
+
+const getUserTeams = async (user_id) => {
+	return new Promise((resolve, reject) => {
+		pool.query(
+			`SELECT t.team_id, t.team_name, e.event_id, e.name, e.commitee_id, c.name, 
+            IF(t.team_leader = 1, 'True', 'False') as 'is_leader' FROM team t 
+            JOIN team_member tm ON tm.team_id = t.team_id 
+            JOIN event e ON t.event_id = e.event_id
+            JOIN commitee c ON e.commitee_id = c.commitee_id
+            WHERE tm.member_id = ?`,
+			[user_id],
+			(err, result) => {
+				if (err) {
+					reject({ success: false, message: err });
+				} else
+					resolve({
+						success: true,
+						message: "Teams Fetched",
+						data: result,
+					});
+			}
+		);
+	});
+};
+export default getUserTeams;

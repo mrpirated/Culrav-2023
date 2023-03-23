@@ -1,10 +1,10 @@
 import { Router } from "express";
 const router = Router();
 import dbg from "debug";
-const debug = dbg("api:getCommiteeEvents");
-import getCommiteeEventsService from "../service/getCommiteeEventsService";
-router.get("/getCommiteeEvents", async (req, res) => {
-	await getCommiteeEventsService(req.query)
+const debug = dbg("api:getUserTeams");
+import getUserTeamsService from "../service/getUserTeamsService";
+router.get("/getuserTeams", async (req, res) => {
+	await getUserTeamsService(req.headers.authorization)
 		.then((response) => {
 			res.send(response);
 		})
@@ -12,5 +12,4 @@ router.get("/getCommiteeEvents", async (req, res) => {
 			res.status(500).send({ success: false, message: error });
 		});
 });
-
 export default router;

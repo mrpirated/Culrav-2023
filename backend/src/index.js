@@ -11,6 +11,7 @@ import getCommiteeEvents from "./routes/getCommiteeEvents";
 import createTeam from "./routes/createTeam";
 import addMemberToTeam from "./routes/addMemberToTeam";
 import addOrganizingTeam from "./routes/addOrganizingTeam";
+import getUserTeams from "./routes/getUserTeams";
 import config from "./config";
 dotenv.config();
 
@@ -33,7 +34,8 @@ app.use(
 	getCommiteeEvents,
 	createTeam,
 	addMemberToTeam,
-	addOrganizingTeam
+	addOrganizingTeam,
+	getUserTeams
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");
