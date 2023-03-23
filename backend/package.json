@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "set DEBUG=http,database,api:*,service:*,data:*,controller:*,socket:* & nodemon --exec babel-node src/index.js",
+		"ubuntu": "DEBUG=http,database,api:*,service:*,data:*,controller:*,socket:* nodemon --exec babel-node src/index.js",
 		"build": "babel src -d build"
 	},
 	"author": "",

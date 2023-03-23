@@ -15,7 +15,6 @@ const addNewUser = async (user) => {
 				reject({ success: false, message: err });
 			} else resolve({ success: true, message: result, user: user });
 		});
-		connection.release();
 	});
 };
 export default addNewUser;
