@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+const axios = require('axios');
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
@@ -10,8 +11,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://culrav.online/api/login", {
-      method: "POST",
+    const response = await axios.post(process.env.REACT_APP_LOGIN, {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });

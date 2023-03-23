@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+const axios = require('axios');
+
 
 export const useSignup = () => {
   const [errorSignup, setErrorSignup] = useState(null);
@@ -10,8 +12,7 @@ export const useSignup = () => {
     setIsLoadingSignup(true);
     setErrorSignup(null);
 
-    const response = await fetch("http://culrav.online/api/signup", {
-      method: "POST",
+    const response = await axios.post(process.env.REACT_APP_SIGNUP, {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
     });
