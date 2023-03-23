@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import EventInfo from "./EventInfo";
+const axios = require("axios");
 
 function Eventcomponent(props) {
   const [subevent, setSubevent] = useState(0);
@@ -10,24 +11,26 @@ function Eventcomponent(props) {
 
   const handleEvent = () => {
     setEvent(props.japanese);
-    setWidth(100);
+    const slider = document.getElementById(`slider${props.eventTitle}`);
+    slider.style.width = "100%";
   };
 
   const handleExitEvent = () => {
     setEvent(props.eventTitle);
-    setWidth(0);
+    const slider = document.getElementById(`slider${props.eventTitle}`);
+    slider.style.width = "0%";
   };
 
   const getEventsData = async () => {
     console.log("called");
-    const data = await fetch(
-      `http://culrav.online:5008/api/getCommiteeEvents?commitee_id=${props.commitee_id}`,
+    const data = await axios.get(
+      `${process.env.REACT_APP_COMMITEE}?commitee_id=${props.commitee_id}`,
       {
-        method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "authorization":
-            'Bearer ' +"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzkxNjY2NzgsImV4cCI6MTY4MTc1ODY3OH0.4QQWu1BvkqmSXDLl3pslsz34OtFRuccRNWpNCTRMDck",
+          authorization:
+            "Bearer " +
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzkxNjY2NzgsImV4cCI6MTY4MTc1ODY3OH0.4QQWu1BvkqmSXDLl3pslsz34OtFRuccRNWpNCTRMDck",
         },
       }
     );
@@ -38,7 +41,8 @@ function Eventcomponent(props) {
 
   useEffect(() => {
     getEventsData();
-    // console.log("called");
+    const slider = document.getElementById(`slider${props.eventTitle}`);
+    slider.style.width = "0%";
   }, []);
 
   const handleClick = () => {
@@ -71,7 +75,8 @@ function Eventcomponent(props) {
             alt=""
           />
           <div
-            className={`absolute top-0 left-0 w-[${width}%] h-full z-10 overflow-hidden bg-off opacity-[0.85] transition-all duration-[400ms]`}
+            id={`slider${props.eventTitle}`}
+            className={`absolute top-0 left-0 h-full z-10 overflow-hidden bg-off opacity-[0.85] transition-all duration-[400ms]`}
           >
             {props.subevents.map((element) => {
               return <p className="m-1 text-center text-black">{element}</p>;
