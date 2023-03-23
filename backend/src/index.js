@@ -12,6 +12,7 @@ import createTeam from "./routes/createTeam";
 import addMemberToTeam from "./routes/addMemberToTeam";
 import addOrganizingTeam from "./routes/addOrganizingTeam";
 import getUserTeams from "./routes/getUserTeams";
+import getTeamDetails from "./routes/getTeamDetails";
 import config from "./config";
 dotenv.config();
 
@@ -35,7 +36,8 @@ app.use(
 	createTeam,
 	addMemberToTeam,
 	addOrganizingTeam,
-	getUserTeams
+	getUserTeams,
+	getTeamDetails
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");

@@ -1,10 +1,10 @@
 import { Router } from "express";
 const router = Router();
 import dbg from "debug";
-const debug = dbg("api:getUserTeams");
-import getUserTeamsService from "../service/getUserTeamsService";
-router.get("/getUserTeams", async (req, res) => {
-	await getUserTeamsService(req.headers.authorization)
+const debug = dbg("api:getTeamDetails");
+import getTeamDetailsService from "../service/getTeamDetailsService";
+router.get("/getTeamDetails", async (req, res) => {
+	await getTeamDetailsService(req.headers.authorization, req.query)
 		.then((response) => {
 			res.send(response);
 		})

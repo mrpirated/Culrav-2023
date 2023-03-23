@@ -227,3 +227,44 @@
             "message": string
         }
         ```
+9. api/getUserTeams (GET)
+   - request
+        ```javascript
+        "headers":{
+            "authorization":Bearer Token,
+        },
+        "query":{
+            "team_id":Integer,
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data": [
+                "team_details":{
+                    "team_id": Integer,
+                    "team_name": String,
+                    "event_id": Integer,
+                    "event_name": String,
+                    "commitee_id": Integer,
+                    "commitee_name": String,
+                },
+                "team_members":[
+                    {
+                        "user_name": String,
+                        "user_id": Integer,
+                        "is_leader": Integer
+                    }
+                ]
+            ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
