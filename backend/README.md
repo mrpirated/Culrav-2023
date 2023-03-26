@@ -156,11 +156,6 @@
         {
             "success":boolean, //true
             "message":string,
-            "data": [
-                {
-                    
-                }
-            ]
         }
         ```
    - error
@@ -277,6 +272,81 @@
         "body":{
             "ec_id":Integer,
             "commitee_id":Integer
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+11. api/removeMemberFromTeam (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        }
+        "body":{
+            "team_id": Integer,
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+12. api/activateTeamLink (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        }
+        "body":{
+            "team_id": Integer,
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data":{
+                "link":String
+                }
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+13. api/addMemberToTeamLink (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        }
+        "body":{
+            "link": Integer,
         }
         ```
     - response

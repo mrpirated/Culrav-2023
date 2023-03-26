@@ -14,6 +14,9 @@ import getUserTeams from "./routes/getUserTeams";
 import getTeamDetails from "./routes/getTeamDetails";
 import addPOCs from "./routes/addPOCs";
 import addECs from "./routes/addECs";
+import removeMemberFromTeam from "./routes/removeMemberFromTeam";
+import activateTeamLink from "./routes/activateTeamLink";
+import addMemberToTeamLink from "./routes/addMemberToTeamLink";
 import config from "./config";
 dotenv.config();
 
@@ -36,10 +39,13 @@ app.use(
 	getCommiteeEvents,
 	createTeam,
 	addMemberToTeam,
+	removeMemberFromTeam,
 	getUserTeams,
 	getTeamDetails,
 	addPOCs,
-	addECs
+	addECs,
+	activateTeamLink,
+	addMemberToTeamLink
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");

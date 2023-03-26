@@ -3,6 +3,7 @@ import mysql from "mysql2";
 import dbg from "debug";
 const debug = dbg("database");
 const pool = mysql.createPool({
+	multipleStatements: true,
 	host: config.DB_HOSTNAME,
 	user: config.DB_USERNAME,
 	password: config.DB_PASSWORD,

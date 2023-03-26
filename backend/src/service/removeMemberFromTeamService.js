@@ -1,10 +1,12 @@
 import dbg from "debug";
 import checkTokenService from "./checkTokenService";
-const debug = dbg("service:addMemberToTeam");
+const debug = dbg("service:removeMemberFromTeam");
 import checkIfEventRegistered from "../data/checkIfEventRegistered";
-import addMemberToTeam from "../data/addMemberToTeam";
+import removeMemberFromTeam from "../data/removeMemberFromTeam";
 import getEventRegisteredByTeam from "../data/getEventRegisteredByTeam";
-const addMemberToTeamService = async (token, { team_id }) => {
+import checkIfTeamLeader from "../data/checkIfTeamLeader";
+import removeTeam from "../data/removeTeam";
+const removeMemberFromTeamService = async (token, { team_id }) => {
 	var user_id;
 	return await checkTokenService(token)
 		.then((response) => {
@@ -16,16 +18,23 @@ const addMemberToTeamService = async (token, { team_id }) => {
 			return checkIfEventRegistered(user_id, response.data.event_id);
 		})
 		.then((response) => {
-			if (!response.success) return addMemberToTeam(user_id, team_id);
+			if (response.success) return checkIfTeamLeader(user_id, team_id);
 			else {
 				return Promise.reject({
 					success: false,
-					message: "User Already Registered in the Event",
+					message: "User Not Registered in the Event",
 				});
+			}
+		})
+		.then((response) => {
+			if (response.success) {
+				return removeTeam(team_id);
+			} else {
+				return removeMemberFromTeam(user_id, team_id);
 			}
 		})
 		.catch((error) => {
 			return error;
 		});
 };
-export default addMemberToTeamService;
+export default removeMemberFromTeamService;

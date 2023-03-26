@@ -17,11 +17,11 @@ const checkIfEventRegistered = async (user_id, event_id) => {
 				} else {
 					debug(result);
 					if (result.length != 0)
-						reject({
-							success: false,
+						resolve({
+							success: true,
 							message: "User Already Registered in the Event",
 						});
-					else resolve({ success: true, message: result });
+					else resolve({ success: false, message: result });
 				}
 			}
 		);
