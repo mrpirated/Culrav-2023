@@ -11,10 +11,11 @@ h2 {
 section {
   position: relative;
   min-height: 100vh;
-  background: url("./assests/loginbg1.png") #756156;
+  /* background: url("./assests/loginbg1.png") #756156;
   background-size: cover;
   background-position: right;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background: #756156;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,12 +23,12 @@ section {
   transition: 0.5;
 }
 
-.active {
+/* .active {
   background: url("./assests/loginbg1.png") #584e4f;
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
-}
+} */
 
 section .container {
   position: relative;
@@ -36,7 +37,6 @@ section .container {
   background: #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  /* margin-top: 95px; */
 }
 
 section .container .user {
@@ -113,15 +113,6 @@ section .container .user .formBx input[type="submit"] {
   transition: 0.5s;
   border-radius: 5px;
 }
-
-/* .signup_btn {
-  display: flex;
-  width: 100%;
-}
-
-.signup_button {
-  flex: 0.4;
-} */
 
 .signup_button2 {
   flex: 0.7;
@@ -221,7 +212,7 @@ section .container .signinBx .imgBx {
   background-repeat: no-repeat;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1023px) {
   section .container {
     max-width: 400px;
     width: 400px;

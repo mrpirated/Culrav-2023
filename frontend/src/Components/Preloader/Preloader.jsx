@@ -5,9 +5,6 @@ import textOnly from "../../Assets/Preloader/textOnly.webp";
 
 function Preloader() {
   const [visibility, setVisibility] = useState("fixed");
-  // window.addEventListener("load",function(){
-  //   setVisibility("hidden");
-  // })
 
   const handleload = () => {
     setVisibility("hidden");

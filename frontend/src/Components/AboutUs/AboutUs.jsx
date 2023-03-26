@@ -2,15 +2,6 @@ import AboutCulrav from "./AboutCulrav";
 import "./AboutUs.css";
 
 function AboutUs() {
-  //   const [Text1, setText] = useState("B");
-
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       setText((Text1) => (Text1=="B"?"ャ":"B"));
-  //     }, 7000);
-  //     return () => clearInterval(interval);
-  //   }, []);
-
   return (
     <>
       <div

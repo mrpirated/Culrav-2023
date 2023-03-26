@@ -128,7 +128,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-top: -200px; changed margin to -200 from -230 px */
   margin-top: -230px;
 }
 

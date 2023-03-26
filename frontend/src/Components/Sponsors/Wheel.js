@@ -97,7 +97,6 @@ const Styles = {
     },
     largehead: {
       color: "white",
-      // fontSize: "10vw",
       fontWeight: "bold",
     },
   },

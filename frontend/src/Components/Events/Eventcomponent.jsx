@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import EventInfo from "./EventInfo";
-const axios = require("axios");
+// import axios, * as others from "axios";
+// import { element } from "prop-types";
 
 function Eventcomponent(props) {
-  const [subevent, setSubevent] = useState(0);
-  const [width, setWidth] = useState(0);
+  const [subevent, setSubevent] = useState([]);
   const [event, setEvent] = useState(props.eventTitle);
   const [display, setdisplay] = useState(false);
 
@@ -22,21 +22,16 @@ function Eventcomponent(props) {
   };
 
   const getEventsData = async () => {
-    console.log("called");
-    const data = await axios.get(
-      `${process.env.REACT_APP_COMMITEE}?commitee_id=${props.commitee_id}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          authorization:
-            "Bearer " +
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzkxNjY2NzgsImV4cCI6MTY4MTc1ODY3OH0.4QQWu1BvkqmSXDLl3pslsz34OtFRuccRNWpNCTRMDck",
-        },
-      }
+    const jsony = await fetch(
+      `${process.env.REACT_APP_COMMITEE}?commitee_id=${props.commitee_id}`
     );
+    const response = await jsony.json();
 
-    const parsedData = data.json();
-    console.log(parsedData);
+    // const response = await axios.get(
+    //   `${process.env.REACT_APP_COMMITEE}?commitee_id=${props.commitee_id}`
+    // );
+    setSubevent(response.data);
+    // console.log(response.data.data);
   };
 
   useEffect(() => {
@@ -78,8 +73,10 @@ function Eventcomponent(props) {
             id={`slider${props.eventTitle}`}
             className={`absolute top-0 left-0 h-full z-10 overflow-hidden bg-off opacity-[0.85] transition-all duration-[400ms]`}
           >
-            {props.subevents.map((element) => {
-              return <p className="m-1 text-center text-black">{element}</p>;
+            {subevent.map((element) => {
+              return (
+                <p className="m-1 text-center text-black">{element.name}</p>
+              );
             })}
           </div>
         </div>

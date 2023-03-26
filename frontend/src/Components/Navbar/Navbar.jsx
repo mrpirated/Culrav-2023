@@ -9,18 +9,7 @@ const navItems = ["home", "about", "events", "sponsors", "contact"];
 function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [navScroll, setScroll] = useState(false);
-  // const [flag, setFlag] = useState(0);
   const navbarRef = useRef();
-
-  // window.onscroll = function () {
-  //   if (window.scrollY >= 500) {
-  //     setFlag(1);
-  //     console.log(flag);
-  //   } else {
-  //     // setFlag(0);
-  //     console.log(flag);
-  //   }
-  // };
 
   useEffect(() => {
     const applyContainerProperties = () => {
@@ -30,14 +19,10 @@ function Navbar() {
     window.onscroll = function () {
       if (window.scrollY >= 500) {
         navbarRef.current.classList.add("activeNav");
-        // setTimeout(() => {
         setScroll(true);
-        // }, 500);
       } else {
         navbarRef.current.classList.add("activeNav");
-        // setTimeout(() => {
         setScroll(false);
-        // }, 500);
       }
     };
 
@@ -67,7 +52,7 @@ function Navbar() {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth="1.5"
-      stroke="black"
+      stroke="white"
       className="w-10 h-10"
     >
       <path
@@ -78,15 +63,9 @@ function Navbar() {
     </svg>
   );
 
-  // window.onscroll = function () {
-  //   if (window.scrollY > 500) setScroll(true);
-  //   else setScroll(false);
-  // };
-
   return (
     <nav
       ref={navbarRef}
-      // bg-light
       className={`w-full flex flex-row justify-between z-30 fixed transition duration-600 ${
         navScroll ? "shadow-xl bg-[#CCAD8F]" : ""
       }`}
@@ -110,7 +89,6 @@ function Navbar() {
       </div>
 
       <div
-        // bg-light
         className={`container px-3 md:flex xl:px-500px ${
           !navScroll
             ? "pt-[50px] lg:mt-[-170px] md:mt-[-150px] xl:mt-[-150px] 2xl:mt-[-120px]"
@@ -174,7 +152,6 @@ function Navbar() {
 
       <div
         className={`md:hidden ${
-          // bg-light
           !navScroll ? "" : "bg-[#CCAD8F]"
         } relative flex justify-center items-center pr-[50px] mt-[-50px]`}
       >
@@ -187,7 +164,8 @@ function Navbar() {
         {toggle && (
           <div>
             <motion.div
-              className="fixed top-0 left-0 right-0 z-50 flex flex-col items-end justify-end w-screen h-screen p-1 pb-4 shadow-lg md:hidden bg-warm"
+              id="NavBlur"
+              className="fixed top-0 left-0 right-0 z-50 flex flex-col items-end justify-end w-screen p-1 pb-4 shadow-lg md:hidden bg-warm"
               animate={{ y: [-500, 0] }}
               transition={{
                 type: "spring",
@@ -207,7 +185,7 @@ function Navbar() {
                 <img className="w-[40%]" src={logo} alt="Renaissance Logo" />
               </div>
 
-              <ul className="flex flex-col items-center justify-start sm:mt-[-20px] w-full h-full p-0 m-0 text-xs text-black">
+              <ul className="flex mt-[15px] flex-col items-center justify-start sm:mt-[-20px] w-full h-full p-0 m-0 text-xs text-black">
                 {navItems.map((item) => (
                   <li
                     className="mx-10 font-Mont pb-[20px] my-2 cursor-pointer"
@@ -216,7 +194,7 @@ function Navbar() {
                     <Link
                       onClick={() => setToggle(false)}
                       to={`${item}`}
-                      className="mt-[-25px] text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
+                      className="mt-[-25px] text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
                       smooth={true}
                       duration={500}
                     >
@@ -228,15 +206,12 @@ function Navbar() {
                   href="/team"
                   className="mt-[8px] text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
                 >
-                  <li
-                    // className="text-sm cursor-pointer lg:text-[14px] 2xl:text-[15px]"
-                    key={`link-teampage`}
-                  >
+                  <li key={`link-teampage`} className="text-white">
                     TEAM
                   </li>
                 </a>
                 <a href="/login" className="">
-                  <li className="px-6 mt-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black hover:text-grey hover:bg-dark">
+                  <li className="px-6 text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark">
                     REGISTER NOW
                   </li>
                 </a>

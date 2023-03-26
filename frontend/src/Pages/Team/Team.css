@@ -10,7 +10,6 @@
   font-family: "japan";
   font-size: 50px;
   font-weight: bold;
-  /* background: #443c3c; */
   padding-top: 110px;
   margin-bottom: -100px;
 }
@@ -33,13 +32,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: -125px;
-  /* background: #443c3c; */
   min-height: 100vh;
-  /* background-image: url(./Assets/Background.png);
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat; */
   z-index: 0;
 }
 

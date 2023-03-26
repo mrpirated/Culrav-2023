@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
-const axios = require('axios');
-
 
 export const useSignup = () => {
   const [errorSignup, setErrorSignup] = useState(null);
@@ -12,7 +10,8 @@ export const useSignup = () => {
     setIsLoadingSignup(true);
     setErrorSignup(null);
 
-    const response = await axios.post(process.env.REACT_APP_SIGNUP, {
+    const response = await fetch(process.env.REACT_APP_SIGNUP, {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
     });
@@ -26,10 +25,8 @@ export const useSignup = () => {
       setErrorSignup(json.message);
 
       if (json.success) {
-        // save the user to local storage (JWT)
         localStorage.setItem("user", JSON.stringify(json));
 
-        // update the auth context
         dispatch({ type: "LOGIN", payload: json });
 
         setIsLoadingSignup(false);

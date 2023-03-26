@@ -44,7 +44,6 @@ const Timer = () => {
         <div className="contentTimer">
           <div id="outer" className="ml-[10px] xl:ml-0">
             <div id="HeadTimer">COMING SOON...</div>
-            {/* ml-[-66px] */}
             <div className="launch-time">
               <div className="mr-[40px] xl:mr-[60px]">
                 <p>{timerDays}</p>
@@ -72,7 +71,7 @@ const Timer = () => {
             id="loginBtn"
             className="pr-4 pl-3 w-[200px] mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont"
           >
-            CONFIRM YOUR SEAT
+            REGISTER NOW
           </li>
         </a>
       </div>

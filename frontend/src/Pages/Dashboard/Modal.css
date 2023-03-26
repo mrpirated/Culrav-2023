@@ -1,0 +1,80 @@
+.modal,
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-content {
+  position: fixed;
+  width: 45%;
+  top: 70px;
+  bottom: 70px;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 10px;
+  overflow: scroll;
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    position: absolute;
+    width: 400px;
+    top: 110px;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .modal-content {
+    position: absolute;
+    width: 350px;
+    top: 110px;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .modal-content {
+    position: absolute;
+    width: 300px;
+    top: 110px;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .modal-content {
+    position: absolute;
+    width: 250px;
+    top: 110px;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 10px;
+  }
+}
+
+.close-modal {
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
