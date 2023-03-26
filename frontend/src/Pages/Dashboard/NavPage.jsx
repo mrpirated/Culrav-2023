@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import logo from "../../Assets/Home/Logo.png";
+import { useLogout } from "../../Hooks/useLogout";
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const { logout } = useLogout();
+
+  const handleClickLogout = async (e) => {
+    logout();
+  };
 
   const HamOpen = (
     <svg
@@ -11,7 +17,7 @@ function Navbar() {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="white"
+      stroke="black"
       className="w-10 h-10"
     >
       <path
@@ -40,7 +46,7 @@ function Navbar() {
   );
 
   return (
-    <nav className="w-full flex flex-row justify-between z-30 fixed transition duration-600 shadow-xl">
+    <nav className="w-full bg-[#CCAD8F] flex flex-row justify-between z-30 fixed transition duration-600 shadow-xl">
       <div className="logo md:px-0 flex justify-center items-center md:w-1/3 md:h-1/3 xlsm:px-3 xlsm:py-6 xs:px-6 xs:py-6 transition duration-600">
         <a href="/">
           <img
@@ -58,23 +64,15 @@ function Navbar() {
             className="hidden lg:mt-[-7px] text-white md:block md:mt-[-15px] xl:mt-[-80px] 2xl:mt-[-120px] mx-2 px-1 lg:mx-3 lg:px-2 relative font-Mont before:content-[''] before:absolute before:h-[3px] before:w-[0px] before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-[66px] hover:text-dark transition ease-in-out duration-700"
           >
             <li
-              className="text-sm mr-[15px] sm:text-[12px] cursor-pointer lg:text-[14px] 2xl:text-[15px]"
+              className="text-sm mr-[7px] sm:text-[13px] cursor-pointer lg:text-[15px] 2xl:text-[16px]"
               key={`link-teampage`}
             >
               HOME
             </li>
           </a>
-          <a
-            href="/login"
-            className="hidden md:block bg-light md:mt-[-15px] lg:mt-[-7px] xl:mt-[-80px] 2xl:mt-[-120px] md:ml-[10px] xl:ml-[20px] sm:px-4 sm:py-2 lg:px-6 lg:py-4 text-black font-bold hover:text-white hover:bg-dark transition ease-in-out duration-700"
-          >
-            <li
-              className="text-sm  sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]"
-              key={`link-confirmYourSeat`}
-            >
-              REGISTER NOW
-            </li>
-          </a>
+          <div className="hidden lg:mt-[-7px] text-white md:block md:mt-[-15px] xl:mt-[-80px] 2xl:mt-[-120px] mx-2 px-1 lg:mx-3 lg:px-2 relative font-Mont before:content-[''] before:absolute before:h-[3px] before:w-[0px] before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-[66px]">
+            <button onClick={handleClickLogout}>LOGOUT</button>
+          </div>
         </ul>
       </div>
 
@@ -112,17 +110,15 @@ function Navbar() {
               <ul className="flex flex-col items-center justify-start sm:mt-[-20px] w-full h-full p-0 m-0 text-xs text-black">
                 <a
                   href="/"
-                  className="mt-[25px] text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
+                  className="mt-[30px] text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
                 >
                   <li key={`link-homepage`} className="text-[17px] text-white">
                     BACK TO HOME
                   </li>
                 </a>
-                <a href="/login" className="">
-                  <li className="px-6 mb-[25px] mt-[35px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-white hover:text-grey hover:bg-dark">
-                    REGISTER NOW
-                  </li>
-                </a>
+                <div className="px-6 mt-[15px] mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black">
+                  <button onClick={handleClickLogout}>LOGOUT</button>
+                </div>
               </ul>
             </motion.div>
           </div>

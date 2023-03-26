@@ -37,17 +37,6 @@ function AboutCulrav() {
           they stand a chance to win lots of goodies and merchandise.
         </p>
       </div>
-      {/* <div className="iFrame">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/_Ifnk69C9NE"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div> */}
       <div className="lg:ml-[50px] flex mx-2 lg:pb-[150px] justify-center items-center relative">
         <div className="w-[25vw] h-[25vw] rounded-full bg-red"></div>
         <p className="text-center text-3xl sm:text-6xl font-bold text-white absolute t-[50%] l-[50%] japanFont">

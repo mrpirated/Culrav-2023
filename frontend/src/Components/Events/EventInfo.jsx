@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import axios, * as others from "axios";
 import { motion } from "framer-motion";
 import IconButton from "@mui/material/IconButton";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
@@ -25,6 +27,8 @@ const item = {
 };
 
 function EventInfo(props) {
+  const [subevent, setSubevent] = useState([]);
+
   const width = window.screen.width;
   let initial = "hidden";
   let animate = "visible";
@@ -34,6 +38,18 @@ function EventInfo(props) {
     animate = { y: 0, opacity: 1 };
     transition = { ease: "linear", duration: 0.3 };
   }
+
+  const getEventsData = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_COMMITEE}?commitee_id=${props.commitee_id}`
+    );
+    setSubevent(response.data.data);
+    // console.log(response.data.data);
+  };
+
+  useEffect(() => {
+    getEventsData();
+  }, []);
 
   return (
     <>
@@ -106,8 +122,8 @@ function EventInfo(props) {
               </p>
             </div>
             <div className="p-2 md:p-10 flex flex-row flex-wrap justify-center">
-              {props.subevents.map((element) => {
-                return <EventCard />;
+              {subevent.map((element) => {
+                return <EventCard {...element} />;
               })}
             </div>
             <div className="flex justify-center">

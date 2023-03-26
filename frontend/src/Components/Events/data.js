@@ -74,8 +74,7 @@ const events = [
     EventName: "Rangmanch",
     commitee_id: 1,
     japanese: "ラングマンチ",
-    image:
-      "./Assests/rangmanch.webp",
+    image: "./Assests/rangmanch.webp",
     subevents: [
       "Nukkad",
       "Natyamanch",

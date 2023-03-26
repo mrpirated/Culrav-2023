@@ -1,6 +1,7 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { useEffect } from "react";
+import { User } from "./User/User";
 
 //Pages
 import Login from "./Pages/login/Login";
@@ -8,6 +9,7 @@ import Login from "./Pages/login/Login";
 import Team from "./Pages/Team/Team";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import NavPageDash from "./Pages/Dashboard/NavPage";
 
 //Components
 import Navbar from "./Components/Navbar/Navbar";
@@ -23,6 +25,8 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Preloader from "./Components/Preloader/Preloader";
 
 function App() {
+  const { user } = User();
+
   const List = [
     "./img.png",
     "./img.png",
@@ -75,10 +79,14 @@ function App() {
           <Route
             path="/login"
             element={
-              <>
-                {/* <NavPageLogin /> */}
-                <Login />
-              </>
+              !user ? (
+                <>
+                  {/* <NavPageLogin /> */}
+                  <Login />
+                </>
+              ) : (
+                <Navigate to="/dashboard" />
+              )
             }
           ></Route>
           <Route
@@ -116,7 +124,20 @@ function App() {
               </>
             }
           ></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>;
+          <Route
+            path="/dashboard"
+            element={
+              user ? (
+                <>
+                  <NavPageDash />
+                  <Dashboard />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          ></Route>
+          ;
         </Routes>
       </BrowserRouter>
     </div>

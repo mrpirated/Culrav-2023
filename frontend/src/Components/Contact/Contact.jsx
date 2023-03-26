@@ -1,8 +1,8 @@
 import "./Contact.css";
 import facebook from "../../Assets/Footer/facebook.svg";
 import instagram from "../../Assets/Footer/instagram.svg";
-import twitter from "../../Assets/Footer/twitter.svg";
-import linkedin from "../../Assets/Footer/linkedin.svg";
+// import twitter from "../../Assets/Footer/twitter.svg";
+// import linkedin from "../../Assets/Footer/linkedin.svg";
 
 const Contact = () => {
   return (
@@ -19,25 +19,33 @@ const Contact = () => {
         </div>
         <ul className="social_icon">
           <li>
-            <a href="#/">
+            <a
+              rel="noreferrer"
+              href="https://www.facebook.com/mnnit.culrav"
+              target={"_blank"}
+            >
               <img className="w-[35px]" src={facebook} alt="" />
             </a>
           </li>
           <li>
-            <a href="#/">
+            <a
+              rel="noreferrer"
+              href="https://www.instagram.com/culrav/"
+              target={"_blank"}
+            >
               <img className="w-[35px]" src={instagram} alt="" />
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="#/">
               <img className="w-[35px]" src={twitter} alt="" />
             </a>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <a href="#/">
               <img className="w-[35px]" src={linkedin} alt="" />
             </a>
-          </li>
+          </li> */}
         </ul>
         <ul className="menu">
           <li>
@@ -48,7 +56,7 @@ const Contact = () => {
           id="contact-details"
           className="p-[15px] flex flex-col justify-center items-center"
         >
-          <a href="http://www.mnnit.ac.in/">
+          <a rel="noreferrer" href="http://www.mnnit.ac.in/" target={"_blank"}>
             <div id="college" className="mb-[8px]">
               MNNIT ALLAHABAD, TELIYARGANJ, PRAYAGRAJ , INDIA
             </div>
