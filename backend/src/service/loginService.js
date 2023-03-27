@@ -24,6 +24,8 @@ const loginService = async ({ email, password }) => {
 			userDetails = {
 				name: response.data.user.name,
 				email: response.data.user.email,
+				verfied: response.data.user.verified,
+				type: response.data.user.type,
 			};
 			return {
 				user_password: password,

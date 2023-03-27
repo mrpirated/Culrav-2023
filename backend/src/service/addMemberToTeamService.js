@@ -4,16 +4,23 @@ const debug = dbg("service:addMemberToTeam");
 import checkIfEventRegistered from "../data/checkIfEventRegistered";
 import addMemberToTeam from "../data/addMemberToTeam";
 import getEventRegisteredByTeam from "../data/getEventRegisteredByTeam";
-const addMemberToTeamService = async (token, { team_id }) => {
-	var user_id;
+import checkIfTeamLeader from "../data/checkIfTeamLeader";
+const addMemberToTeamService = async (token, { team_id, user_id }) => {
+	var leader_id;
+	var event_id;
 	return await checkTokenService(token)
 		.then((response) => {
 			debug(response);
-			user_id = response.data.decoded.user_id;
+			leader_id = response.data.decoded.user_id;
 			return getEventRegisteredByTeam(team_id);
 		})
 		.then((response) => {
-			return checkIfEventRegistered(user_id, response.data.event_id);
+			event_id = response.data.event_id;
+			return checkIfTeamLeader(leader_id, team_id);
+		})
+		.then((response) => {
+			if (response.success) return checkIfEventRegistered(user_id, event_id);
+			else return Promise.reject(response);
 		})
 		.then((response) => {
 			if (!response.success) return addMemberToTeam(user_id, team_id);
