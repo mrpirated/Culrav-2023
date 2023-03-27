@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { toast } from "react-toastify";
 
 export const useSignup = () => {
   const [errorSignup, setErrorSignup] = useState(null);
@@ -19,17 +20,17 @@ export const useSignup = () => {
 
     if (!response.ok) {
       setIsLoadingSignup(false);
-      // setError(json.error);
+      toast.error("some ,error occured, please try again");
     }
     if (response.ok) {
-      setErrorSignup(json.message);
-
-      if (json.success) {
+      if (!json.success) {
+        setErrorSignup(json.message);
+        toast.error(json.message);
+      } else {
         localStorage.setItem("user", JSON.stringify(json));
-
         dispatch({ type: "LOGIN", payload: json });
-
         setIsLoadingSignup(false);
+        toast.success(json.message);
       }
     }
   };

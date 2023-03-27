@@ -1,7 +1,7 @@
 import "./Contact.css";
 import facebook from "../../Assets/Footer/facebook.svg";
 import instagram from "../../Assets/Footer/instagram.svg";
-// import twitter from "../../Assets/Footer/twitter.svg";
+import twitter from "../../Assets/Footer/twitter.svg";
 // import linkedin from "../../Assets/Footer/linkedin.svg";
 
 const Contact = () => {
@@ -30,17 +30,21 @@ const Contact = () => {
           <li>
             <a
               rel="noreferrer"
+              href="https://twitter.com/culrav_mnnit"
+              target={"_blank"}
+            >
+              <img className="w-[35px]" src={twitter} alt="" />
+            </a>
+          </li>
+          <li>
+            <a
+              rel="noreferrer"
               href="https://www.instagram.com/culrav/"
               target={"_blank"}
             >
               <img className="w-[35px]" src={instagram} alt="" />
             </a>
           </li>
-          {/* <li>
-            <a href="#/">
-              <img className="w-[35px]" src={twitter} alt="" />
-            </a>
-          </li> */}
           {/* <li>
             <a href="#/">
               <img className="w-[35px]" src={linkedin} alt="" />

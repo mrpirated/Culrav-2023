@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 // import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
@@ -19,17 +22,16 @@ export const useLogin = () => {
 
     if (!response.ok) {
       setIsLoading(false);
-      // setError(json.error.message);
-    }
-    if (response.ok) {
-      setError(json.message);
-
-      if (json.success) {
+      toast.error("some ,error occured, please try again");
+    } else {
+      if (!json.success) {
+        setError(json.message);
+        toast.error(json.message);
+      } else {
         localStorage.setItem("user", JSON.stringify(json));
-
         dispatch({ type: "LOGIN", payload: json });
-
         setIsLoading(false);
+        toast.success(json.message);
       }
     }
 

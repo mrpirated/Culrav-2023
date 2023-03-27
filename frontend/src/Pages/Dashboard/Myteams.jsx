@@ -111,16 +111,25 @@ function Myteams() {
                           <div>
                             <div
                               key={element.user_id}
-                              className="teams px-4 mt-[5px] py-3 bg-warm rounded-md"
+                              className="teams px-4 mt-[5px] py-3 bg-warm rounded-md flex items-center justify-between"
                             >
-                              <p className="text-sm">
-                                Name: {element.user_name}
-                              </p>
-                              {element.is_leader ? (
-                                <p className="text-sm pt-[2px]">Admin</p>
-                              ) : (
-                                <p className="text-sm pt-[2px]">Member</p>
-                              )}
+                              <div>
+                                <p className="text-sm">
+                                  Name: {element.user_name}
+                                </p>
+                                {element.is_leader ? (
+                                  <p className="text-sm pt-[2px]">LEADER</p>
+                                ) : (
+                                  <p className="text-sm pt-[2px]">Member</p>
+                                )}
+                              </div>
+                              <div>
+                                {element.is_leader ? (
+                                  <button id="leave">LEAVE</button>
+                                ) : (
+                                  <button id="leave">REMOVE</button>
+                                )}
+                              </div>
                             </div>
                           </div>
                         );

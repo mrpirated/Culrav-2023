@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { useEffect } from "react";
 import { User } from "./User/User";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //Pages
 import Login from "./Pages/login/Login";
@@ -10,6 +12,7 @@ import Team from "./Pages/Team/Team";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import NavPageDash from "./Pages/Dashboard/NavPage";
+import DashboardAdmin from "./Pages/Dashboard/DashboardAdmin";
 
 //Components
 import Navbar from "./Components/Navbar/Navbar";
@@ -140,6 +143,7 @@ function App() {
           ;
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }

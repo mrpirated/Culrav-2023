@@ -2,6 +2,7 @@ import "./login.css";
 import { useState } from "react";
 import { useLogin } from "../../Hooks/useLogin";
 import { useSignup } from "../../Hooks/useSignup";
+import { toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ function Login() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [confirm, setConfirm] = useState("");
-  const { login, isLoading, error } = useLogin();
+  const { login, error } = useLogin();
   const { signup, isLoadingSignup, errorSignup } = useSignup();
 
   const toggleForm = async () => {
@@ -35,17 +36,21 @@ function Login() {
   const handleSubmitSignup = async (e) => {
     e.preventDefault();
 
-    const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+    const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (regExp.test(password)) {
-      setMessage("Password is valid");
+      // setMessage("Password is valid");
       if (password === passwordAgain) {
-        setConfirm("Password validation successful");
+        // setConfirm("Password validation successful");
         await signup(name, email, password);
       } else {
-        setConfirm("Passwords are different");
+        // setConfirm("Passwords are different");
+        toast.warn("Confirm Password is not matching with password");
       }
     } else if (!regExp.test(password)) {
-      setMessage("Password is invalid");
+      // setMessage("Password is invalid");
+      toast.warn(
+        "Password must contain at least one numeric digit, one uppercase and one lowercase letter and length should be greater than 8 "
+      );
     } else {
       setMessage("");
     }
@@ -86,7 +91,6 @@ function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {/* disabled={isLoading} */}
                 <input type="submit" value="LOGIN" />
                 {error && (
                   <div className="text-white lg:text-black w-full text-center pt-[10px]">
