@@ -149,6 +149,7 @@
         }
         "body":{
             "team_id": Integer,
+            "user_id": Integer, //user of id which team leader wishes to add.
         }
         ```
     - response
@@ -249,7 +250,7 @@
             "commitee_id":Integer
         }
         ```
-    - response
+   - response
         ```javascript
         {
             "success":boolean, //true
@@ -349,7 +350,7 @@
             "link": Integer,
         }
         ```
-    - response
+   - response
         ```javascript
         {
             "success":boolean, //true
