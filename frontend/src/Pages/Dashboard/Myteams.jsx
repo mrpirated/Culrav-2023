@@ -120,7 +120,7 @@ function Myteams() {
                                 {element.is_leader ? (
                                   <p className="text-sm pt-[2px]">LEADER</p>
                                 ) : (
-                                  <p className="text-sm pt-[2px]">Member</p>
+                                  <p className="text-sm pt-[2px]">MEMBER</p>
                                 )}
                               </div>
                               <div>
