@@ -17,6 +17,7 @@ import addECs from "./routes/addECs";
 import removeMemberFromTeam from "./routes/removeMemberFromTeam";
 import activateTeamLink from "./routes/activateTeamLink";
 import addMemberToTeamLink from "./routes/addMemberToTeamLink";
+import editEventDetails from "./routes/editEventDetails";
 import config from "./config";
 import getUserData from "./routes/getUserData";
 import getImage from "./routes/getImage";
@@ -49,7 +50,8 @@ app.use(
 	activateTeamLink,
 	addMemberToTeamLink,
 	getUserData,
-	getImage
+	getImage,
+	editEventDetails
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");

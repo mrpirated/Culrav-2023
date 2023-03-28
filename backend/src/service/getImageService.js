@@ -11,10 +11,10 @@ const getImageService = async (query) => {
 			filename += `posters/commitee/${query.commitee_id}`;
 			defFilename += `posters/default`;
 		} else if (query.type === "event") {
-			defFilename += `posters/event/${query.event_id}`;
+			filename += `posters/event/${query.event_id}`;
 			defFilename += `posters/default`;
 		} else if (query.type === "user") {
-			defFilename += `profiles/${query.user_id}`;
+			filename += `profiles/${query.user_id}`;
 			defFilename += `profiles/default`;
 		}
 		filename += ".jpg";

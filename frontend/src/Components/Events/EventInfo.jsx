@@ -72,7 +72,7 @@ function EventInfo(props) {
           className="flex flex-col w-full h-full shadow-lg overflow-auto"
         >
           <div className="relative flex flex-col w-full h-auto">
-            <div className="fixed top-0 right-0 z-50 p-2 md:p-4">
+            <div className="fixed top-[-4px] right-3 z-50 p-2 md:p-4">
               <IconButton
                 color="primary"
                 aria-label="Close"
@@ -107,7 +107,7 @@ function EventInfo(props) {
               </div>
               <div className="w-full md:w-[50%] h-auto p-6">
                 <motion.p variants={item} className="text-xl font-bold my-2">
-                  "quote of this event can be written down here ."
+                  "quote of this event can be written down here"
                 </motion.p>
                 <motion.p variants={item} className="md:text-xl my-4">
                   Here we can write the description of the event , Lorem ipsum
@@ -119,8 +119,8 @@ function EventInfo(props) {
               </div>
             </div>
             <div className="flex justify-center">
-              <p className="text-xl font-bold lg:text-3xl ">
-                Events Under {props.eventTitle}
+              <p className="text-xl mt-[40px] mb-[-10px] font-bold lg:text-3xl ">
+                EVENTS UNDER {props.eventTitle}
               </p>
             </div>
             <div className="p-2 md:p-10 flex flex-row flex-wrap justify-center">
@@ -130,7 +130,7 @@ function EventInfo(props) {
             </div>
             <div className="flex justify-center">
               <p className="text-xl font-bold lg:text-3xl ">
-                {props.eventTitle} Coordinators
+                {props.eventTitle} COORDINATORS
               </p>
             </div>
             <div className="flex flex-row flex-wrap justify-center">
