@@ -17,7 +17,7 @@ function AboutUs() {
           </p>
         </div>
         <div className="flex xl:mr-[100px] flex-col my-4 sm:mx-2 justify-center items-center sm:px-4 text-center lg:text-left">
-          <p className="text-lg sm:text-2xl sm:p-4 text-light  font-semibold">
+          <p className="text-lg sm:text-2xl sm:p-4 text-warm  font-semibold">
             Motilal Nehru National Institute of Technology Allahabad, Prayagraj
             (MNNIT) is an Institute with total commitment to quality and
             excellence in academic and cultural pursuits .

@@ -60,7 +60,7 @@ function EventInfo(props) {
         onClick={props.handleClick}
       ></div>
       <div
-        className="fixed w-[80vw] h-[80vh] bg-gradient-to-r from-[#ff7e5f] to-[#feb47b] top-[50%] left-[50%] z-40"
+        className="fixed w-[90vw] md:w-[80vw] h-[80vh] bg-gradient-to-r from-[#ff7e5f] to-[#feb47b] top-[50%] left-[50%] z-40 rounded-md"
         style={{ transform: "translate(-50%, -50%)" }}
       >
         {width > 1024}
