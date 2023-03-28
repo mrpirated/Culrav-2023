@@ -200,48 +200,7 @@
             "message": string
         }
         ```
-8. api/getUserTeams (GET)
-   - request
-        ```javascript
-        "headers":{
-            "authorization":Bearer Token,
-        },
-        "query":{
-            "team_id":Integer,
-        }
-        ```
-    - response
-        ```javascript
-        {
-            "success":boolean, //true
-            "message":string,
-            "data": [
-                "team_details":{
-                    "team_id": Integer,
-                    "team_name": String,
-                    "event_id": Integer,
-                    "event_name": String,
-                    "commitee_id": Integer,
-                    "commitee_name": String,
-                },
-                "team_members":[
-                    {
-                        "user_name": String,
-                        "user_id": Integer,
-                        "is_leader": Integer
-                    }
-                ]
-            ]
-        }
-        ```
-   - error
-        ```javascript
-        {
-            "success":boolean,//false
-            "message": string
-        }
-        ```
-9. api/addPOCs (POST)
+8. api/addPOCs (POST)
    - request
         ```javascript
         "headers":{
@@ -266,7 +225,7 @@
             "message": string
         }
         ```
-10. api/addECs (POST)
+9.  api/addECs (POST)
    - request
         ```javascript
         "headers":{
@@ -291,7 +250,7 @@
             "message": string
         }
         ```
-11. api/removeMemberFromTeam (POST)
+10. api/removeMemberFromTeam (POST)
    - request
         ```javascript
         "headers":{
@@ -315,7 +274,7 @@
             "message": string
         }
         ```
-12. api/activateTeamLink (POST)
+11. api/activateTeamLink (POST)
    - request
         ```javascript
         "headers":{
@@ -342,7 +301,7 @@
             "message": string
         }
         ```
-13. api/addMemberToTeamLink (POST)
+12. api/addMemberToTeamLink (POST)
    - request
         ```javascript
         "headers":{
@@ -366,7 +325,7 @@
             "message": string
         }
         ```
-14. api/getUserData (GET)
+13. api/getUserData (GET)
    - request
         ```javascript
         "headers":{
@@ -386,6 +345,63 @@
                     "type":string,
                 }
             }
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+14. api/getImage (GET)
+   - request
+        ```javascript
+        "query":{
+            "type": String, // event, commitee, profile
+            "event_id": String, //if type is event
+            "commitee_id": String, //if type is commitee
+            "user_id": String, //if type is profile
+        }
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data": {
+                "image":{
+                    "type":"Buffer",
+                    "data":[Integer]
+                }
+            }
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+14. api/editEventDetails (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        },
+        "body":{
+            "event_id":Integer,
+            "event_description":String,
+            "event_tagline":String,
+            "min_team_members":Integer,
+            "max_team_members":Integer,
+            "rules":String
+        }
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
         }
         ```
    - error
