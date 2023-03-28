@@ -153,7 +153,7 @@ function CreateTeam() {
         </div>
         <div className="mt-4">
           <button
-            className="hover:shadow-md hover:bg-dark"
+            className="hover:shadow-md hover:bg-[#f43e4a] transition-all duration-100"
             onClick={handleClick}
           >
             CREATE
