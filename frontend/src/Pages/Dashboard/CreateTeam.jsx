@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios, * as others from "axios";
 import Select from "react-select";
 import { User } from "../../User/User";
+import { toast } from "react-toastify";
+import Spinner from "./Spinner";
 
 const options = [
   { value: 6, label: "Anunaad" },
@@ -17,9 +19,11 @@ function CreateTeam() {
   const [subevent, setSubevent] = useState([]);
   const [selectedsubEvent, setselectedsubEvent] = useState(null);
   const [teamName, setTeamName] = useState("");
+  const [progress, setProgress] = useState(false);
   const { user } = User();
 
   const onEventchange = async (event) => {
+    setProgress(true);
     const id = event.value;
     setselectedsubEvent(null);
     const response = await axios.get(
@@ -33,6 +37,7 @@ function CreateTeam() {
       };
       subeventoptions.push(object);
     });
+    setProgress(false);
     setSubevent(subeventoptions);
   };
 
@@ -77,17 +82,18 @@ function CreateTeam() {
       const json = await response.json();
 
       if (response.ok) {
-        console.log("Successful Fetch");
-        console.log(json);
         if (json.success) {
+          toast.success("Team created Successfully");
           window.location.reload(false);
         } else {
-          window.location.reload(false);
-          window.alert(json.message);
+          toast.error(json.messge);
+          // window.location.reload(false);
+          // window.alert(json.message);
         }
       }
     } else {
-      console.log("select a sub event");
+      // console.log("select a sub event");
+      toast.warn("Select an event");
     }
   };
 

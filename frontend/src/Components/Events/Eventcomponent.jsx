@@ -60,18 +60,18 @@ function Eventcomponent(props) {
         }}
       >
         <div
-          className="relative w-[90vw] md:w-[40vw] lg:w-[27vw] xl:w-[29vw] h-[220px] shadow-2xl"
+          className="relative w-[90vw] md:w-[40vw] lg:w-[27vw] xl:w-[29vw] h-[220px] shadow-lg"
           onMouseOver={handleEvent}
           onMouseOut={handleExitEvent}
         >
           <img
             src={require(`${props.image}`)}
-            className="w-full h-full object-cover hover:blur-sm transition-[3s] duration-300"
+            className="w-full h-full object-cover hover:blur-sm transition-[3s] duration-300 rounded-t-lg"
             alt=""
           />
           <div
             id={`slider${props.eventTitle}`}
-            className={`absolute top-0 left-0 h-full z-10 overflow-hidden bg-off opacity-[0.85] transition-all duration-[400ms]`}
+            className={`absolute top-0 left-0 h-full z-10 overflow-hidden bg-[#f58e76] opacity-[0.85] transition-all duration-[400ms] rounded-t-lg`}
           >
             {subevent.map((element) => {
               return (
@@ -81,7 +81,7 @@ function Eventcomponent(props) {
           </div>
         </div>
         <div
-          className="flex bg-red text-brown mt-1 w-auto h-[100px] justify-center items-center text-2xl md:text-3xl shadow-2xl font-extrabold"
+          className="flex bg-red text-brown mt-1 w-auto h-[100px] justify-center items-center text-2xl md:text-3xl shadow-2xl font-extrabold rounded-b-lg"
           onMouseOver={handleEvent}
           onMouseOut={handleExitEvent}
         >
