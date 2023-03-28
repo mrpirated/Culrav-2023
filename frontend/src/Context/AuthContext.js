@@ -23,7 +23,9 @@ export const AuthContextProvider = ({ children }) => {
 		if (token) {
 			getUserDataAPI({ token: token }).then((response) => {
 				console.log(response);
-				dispatch({ type: "LOGIN", payload: response.data });
+				var user = response.data;
+				user.token = token;
+				dispatch({ type: "LOGIN", payload: user });
 			});
 		}
 	}, []);

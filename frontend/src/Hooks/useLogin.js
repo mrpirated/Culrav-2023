@@ -22,11 +22,12 @@ export const useLogin = () => {
 			.then((response) => {
 				console.log(response);
 				localStorage.setItem("token", JSON.stringify(response.data.token));
+				response.data.user.token = response.data.token;
 				dispatch({ type: "LOGIN", payload: response.data.user });
 				toast.success(response.message);
 			})
 			.catch((error) => {
-				toast.error(error);
+				toast.error(error.message);
 			});
 		// const json = await response.json();
 		// if (!response.ok) {
