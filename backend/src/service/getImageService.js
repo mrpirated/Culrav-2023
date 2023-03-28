@@ -5,7 +5,7 @@ import path from "path";
 const getImageService = async (query) => {
 	return new Promise((resolve, reject) => {
 		debug(query);
-		var imageUrl = `https://images.culrav.online${query.type}_`;
+		var imageUrl = `https://images.culrav.online/${query.type}_`;
 		if (query.type === "commitee") {
 			imageUrl += query.commitee_id;
 		} else if (query.type === "event") {
