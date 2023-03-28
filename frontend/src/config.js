@@ -7,5 +7,10 @@ const config = {
 	getUserData: "/getUserData",
 	addECs: "/addECs",
 	addPOCs: "/addPOCs",
+	createTeam: "/createTeam",
+	addMemberToTeam: "/addMemberToTeam",
+	getUserTeams: "/getUserTeams",
+	removeMemberFromTeam: "/removeMemberFromTeam",
+	activateTeamLink: "/activateTeamLink",
 };
 export default config;
