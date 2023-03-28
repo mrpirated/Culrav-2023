@@ -117,7 +117,7 @@ function EventInfo(props) {
             </div>
             <div className="flex justify-center">
               <p className="text-xl mt-[40px] mb-[-10px] font-bold lg:text-3xl ">
-                EVENTS UNDER {props.name}
+                Events Under {props.name}
               </p>
             </div>
             <div className="p-2 md:p-10 flex flex-row flex-wrap justify-center">
