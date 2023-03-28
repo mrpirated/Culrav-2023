@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Events.css";
 import AnimatedText from "./AnimatedText";
-import data from "./data.js";
+// import data from "./data.js";
 import Eventcomponent from "./Eventcomponent";
+import getCommiteesAPI from "../../api/getCommiteesAPI";
 
 function Events() {
+  const [data, setData] = useState([]);
+
+  const fetchCommiteeData = async () => {
+    const response = await getCommiteesAPI();
+    console.log(response.data);
+    setData(response.data);
+  };
+
+  useEffect(() => {
+    fetchCommiteeData();
+  }, []);
+
   let width = window.screen.width;
   let textSize = "60px";
   if (width > 640) textSize = "88px";
@@ -17,14 +30,7 @@ function Events() {
 
       <div className="mx-4 flex flex-row flex-wrap justify-around">
         {data.map((element) => (
-          <Eventcomponent
-            key={element.EventName}
-            subevents={element.subevents}
-            eventTitle={element.EventName}
-            image={element.image}
-            commitee_id={element.commitee_id}
-            japanese={element.japanese}
-          />
+          <Eventcomponent {...element} />
         ))}
       </div>
     </div>

@@ -6,6 +6,7 @@ import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import Team from "./Team";
 import EventCard from "./EventCard";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
+import Spinner from "../../Pages/Dashboard/Spinner";
 let container = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -28,6 +29,7 @@ const item = {
 
 function EventInfo(props) {
   const [subevent, setSubevent] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const width = window.screen.width;
   let initial = "hidden";
@@ -45,11 +47,12 @@ function EventInfo(props) {
         setSubevent(response.data);
       }
     );
-    // console.log(response.data.data);
+    setLoading(false);
   };
 
   useEffect(() => {
     getEventsData();
+    setLoading(true);
   }, []);
 
   return (
@@ -84,53 +87,52 @@ function EventInfo(props) {
             </div>
             <div className="flex flex-col items-center w-full h-auto md:flex-row">
               <div className=" w-full md:w-[50%] md:h-full p-6 relative">
-                <img
+                {/* <img
                   src={require(`${props.image}`)}
                   alt=""
                   className="object-cover w-full h-full rounded-lg shadow-md"
-                />
+                /> */}
                 <div
                   className="absolute text-white  top-[80%] left-[50%] "
                   style={{ transform: "translate(-50%, -50%)" }}
                 >
                   <p
                     className={`text-2xl lg:text-4xl font-extrabold ${
-                      props.eventTitle === "Anunaad"
-                        ? "text-black"
-                        : "text-white"
+                      props.name === "Anunaad" ? "text-black" : "text-white"
                     }`}
                     style={{ fontFamily: "japan" }}
                   >
-                    {props.eventTitle.toUpperCase()}
+                    {props.name.toUpperCase()}
                   </p>
                 </div>
               </div>
               <div className="w-full md:w-[50%] h-auto p-6">
-                <motion.p variants={item} className="text-xl font-bold my-2">
-                  "quote of this event can be written down here"
+                <motion.p variants={item} className="text-xl font-bold my-2 italic">
+                  {props.tagline}
                 </motion.p>
                 <motion.p variants={item} className="md:text-xl my-4">
-                  Here we can write the description of the event , Lorem ipsum
-                  dolor, sit amet consectetur adipisicing elit. Corrupti,
-                  deleniti doloremque asperiores ducimus dicta neque nobis
-                  laboriosam aperiam ipsa ab molestiae placeat nisi, deserunt
-                  optio labore suscipit quidem ullam commodi.
+                  {props.commitee_description}
                 </motion.p>
               </div>
             </div>
             <div className="flex justify-center">
               <p className="text-xl mt-[40px] mb-[-10px] font-bold lg:text-3xl ">
-                EVENTS UNDER {props.eventTitle}
+                EVENTS UNDER {props.name}
               </p>
             </div>
             <div className="p-2 md:p-10 flex flex-row flex-wrap justify-center">
+              {loading && (
+                <div className="my-8">
+                  <Spinner />
+                </div>
+              )}
               {subevent.map((element) => {
                 return <EventCard {...element} />;
               })}
             </div>
             <div className="flex justify-center">
               <p className="text-xl font-bold lg:text-3xl ">
-                {props.eventTitle} COORDINATORS
+                {props.name} COORDINATORS
               </p>
             </div>
             <div className="flex flex-row flex-wrap justify-center">

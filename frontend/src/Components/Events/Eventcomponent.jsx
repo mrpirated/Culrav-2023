@@ -6,19 +6,17 @@ import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 // import { element } from "prop-types";
 
 function Eventcomponent(props) {
+	console.log(props);
   const [subevent, setSubevent] = useState([]);
-  const [event, setEvent] = useState(props.eventTitle);
   const [display, setdisplay] = useState(false);
 
   const handleEvent = () => {
-    setEvent(props.japanese);
-    const slider = document.getElementById(`slider${props.eventTitle}`);
+    const slider = document.getElementById(`slider${props.name}`);
     slider.style.width = "100%";
   };
 
   const handleExitEvent = () => {
-    setEvent(props.eventTitle);
-    const slider = document.getElementById(`slider${props.eventTitle}`);
+    const slider = document.getElementById(`slider${props.name}`);
     slider.style.width = "0%";
   };
 
@@ -42,7 +40,7 @@ function Eventcomponent(props) {
 
   useEffect(() => {
     getEventsData();
-    const slider = document.getElementById(`slider${props.eventTitle}`);
+    const slider = document.getElementById(`slider${props.name}`);
     slider.style.width = "0%";
   }, []);
 
@@ -70,13 +68,13 @@ function Eventcomponent(props) {
           onMouseOver={handleEvent}
           onMouseOut={handleExitEvent}
         >
-          <img
+          {/* <img
             src={require(`${props.image}`)}
             className="w-full h-full object-cover hover:blur-sm transition-[3s] duration-300 rounded-t-lg"
             alt=""
-          />
+          /> */}
           <div
-            id={`slider${props.eventTitle}`}
+            id={`slider${props.name}`}
             className={`absolute top-0 left-0 h-full z-10 overflow-hidden bg-[#f58e76] opacity-[0.85] transition-all duration-[400ms] rounded-t-lg`}
           >
             <div className="flex flex-col items-center justify-center h-full w-full">
@@ -95,7 +93,7 @@ function Eventcomponent(props) {
           onMouseOver={handleEvent}
           onMouseOut={handleExitEvent}
         >
-          <p>{event}</p>
+          <p>{props.name.toUpperCase()}</p>
         </div>
       </motion.div>
       {display && <EventInfo {...props} handleClick={handleClick} />}
