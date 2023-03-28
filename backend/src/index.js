@@ -19,6 +19,7 @@ import activateTeamLink from "./routes/activateTeamLink";
 import addMemberToTeamLink from "./routes/addMemberToTeamLink";
 import config from "./config";
 import getUserData from "./routes/getUserData";
+import getImage from "./routes/getImage";
 dotenv.config();
 
 const PORT = config.PORT;
@@ -47,7 +48,8 @@ app.use(
 	addECs,
 	activateTeamLink,
 	addMemberToTeamLink,
-	getUserData
+	getUserData,
+	getImage
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");
