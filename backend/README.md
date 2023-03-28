@@ -366,3 +366,32 @@
             "message": string
         }
         ```
+14. api/getUserData (GET)
+   - request
+        ```javascript
+        "headers":{
+            "authorization": Bearer token,
+        }
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data": {
+                "token":string,
+                "user":{
+                    "user_id":Integer,
+                    "name":string,
+                    "email":string,
+                    "type":string,
+                }
+            }
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
