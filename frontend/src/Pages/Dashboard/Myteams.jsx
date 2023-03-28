@@ -39,6 +39,34 @@ function Myteams() {
     }, 3000);
   };
 
+  const handleDelete = async () => {
+    // process.env.REACT_APP_REMOVEMEMBERFROMTEAM
+    const response = await fetch(
+      "http://culrav.online:5008/api/removeMemberFromTeam",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.data.token}`,
+        },
+        body: JSON.stringify({ team_id: myTeamID }),
+      }
+    );
+    const json = await response.json();
+
+    if (response.ok) {
+      console.log("Successfully deleted user");
+      console.log(JSON.stringify(json));
+      if (json.success) {
+        window.location.reload(false);
+        window.alert(json.message);
+      } else {
+        window.location.reload(false);
+        window.alert(json.message);
+      }
+    }
+  };
+
   const addUser = async () => {
     // process.env.REACT_APP_ADDMEMBERTOTEAMLINK
     const response = await fetch(process.env.REACT_APP_ADDMEMBERTOTEAM, {
@@ -309,13 +337,29 @@ function Myteams() {
                                   </p>
                                 )}
                               </div>
-                              <div>
-                                {element.is_leader ? (
-                                  <button id="leave">LEAVE</button>
-                                ) : (
-                                  <button id="leave">REMOVE</button>
-                                )}
-                              </div>
+                              {leader ? (
+                                <div>
+                                  {element.is_leader ? (
+                                    <button onClick={handleDelete} id="delete">
+                                      DELETE TEAM
+                                    </button>
+                                  ) : (
+                                    <button id="leave">REMOVE</button>
+                                  )}
+                                </div>
+                              ) : (
+                                <div>
+                                  {user.data.user.name === element.user_name ? (
+                                    <button onClick={handleDelete} id="leave">
+                                      LEAVE
+                                    </button>
+                                  ) : (
+                                    <button id="leave" className="hidden">
+                                      LEAVE
+                                    </button>
+                                  )}
+                                </div>
+                              )}
                             </div>
                           </div>
                         );

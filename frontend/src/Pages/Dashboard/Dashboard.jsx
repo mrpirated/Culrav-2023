@@ -26,7 +26,7 @@ function Dashboard() {
         </div>
 
         {/* center dashboard  */}
-        <div className="center mt-[35px] m-4 ml-[-4px] md:ml-[0px] w-full">
+        <div className="center mt-[35px] md:mt-[15px] m-4 ml-[-4px] md:ml-[0px] w-full">
           <div className="flex flex-col w-full ">
             <CreateTeam />
             <div className="mt-[22px]">

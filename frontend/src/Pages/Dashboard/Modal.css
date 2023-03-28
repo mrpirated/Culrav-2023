@@ -87,6 +87,14 @@
   padding-right: 0px;
 }
 
+#delete {
+  width: 130px;
+  font-size: 11px;
+  padding: 9px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 #leaveLink {
   width: 125px;
   font-size: 13px;
