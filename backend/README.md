@@ -102,6 +102,12 @@
                 {
                     "event_id": integer,
                     "name": string,
+                    "event_tagline": String,
+                    "event_description": String,
+                    "event_description": String,
+                    "min_team_members": Integer,
+                    "max_team_members": Integer,
+                    "rules": String,
                 }
             ]
         }
@@ -383,7 +389,7 @@
             "message": string
         }
         ```
-14. api/editEventDetails (POST)
+15. api/editEventDetails (POST)
    - request
         ```javascript
         "headers":{
@@ -402,6 +408,28 @@
         {
             "success":boolean, //true
             "message":string,
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+16. api/getOrganizingTeam (GET)
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data":[
+                {
+                    "user_id": Integer,
+                    "name" : String,
+                    "type": Integer
+                }
+            ]
         }
         ```
    - error
