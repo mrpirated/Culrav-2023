@@ -31,17 +31,16 @@ function EventCard(props) {
         <div className="px-6 py-4 h-full bg-white">
           <div className="font-bold text-xl mb-2 ">{props.name}</div>
           <p class="text-gray-700 text-base">
-            {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Voluptatibus quia, nulla! Maiores et perferendis eaque,
-            exercitationem praesentium nihil. */}
             {props.event_tagline}
           </p>
+          <div className="">
           <button
             className="hover:shadow-md mt-[20px] hover:bg-[#f43e4a] transition-all duration-100"
             onClick={handleClick}
           >
             REGISTER
           </button>
+          </div>
         </div>
       </div>
     </>
