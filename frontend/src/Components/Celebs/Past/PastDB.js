@@ -4,11 +4,11 @@ import img3 from "../../../Assets/Celebs/Past/rahul_subramanian.webp";
 import img4 from "../../../Assets/Celebs/Past/ahsaan_qureshi.webp";
 import img5 from "../../../Assets/Celebs/Past/farhan_akhtar.jpg";
 import img6 from "../../../Assets/Celebs/Past/priyanka_kumari.jpg";
-import img7 from "../../../Assets/Celebs/Past/shirley_setia.jpg";
-import img8 from "../../../Assets/Celebs/Past/zaeden.jpg";
-import img9 from "../../../Assets/Celebs/Past/rahat_indori.webp";
-import img10 from "../../../Assets/Celebs/Past/yellow_diary.jpg";
-import img11 from "../../../Assets/Celebs/Past/local_train.webp";
+import img7 from "../../../Assets/Celebs/Past/yellow_diary.jpg";
+import img8 from "../../../Assets/Celebs/Past/local_train.webp";
+import img9 from "../../../Assets/Celebs/Past/shirley_setia.jpg";
+import img10 from "../../../Assets/Celebs/Past/zaeden.jpg";
+import img11 from "../../../Assets/Celebs/Past/rahat_indori.webp";
 
 const pastCelebs = [
   {
@@ -17,9 +17,9 @@ const pastCelebs = [
     label: "Comedian",
   },
   {
-    url: img2,
-    name: "CHETAN BHAGAT",
-    label: "Author",
+    url: img9,
+    name: "SHIRLEY SETIA",
+    label: "Singer",
   },
   {
     url: img3,
@@ -43,28 +43,28 @@ const pastCelebs = [
   },
   {
     url: img7,
-    name: "SHIRLEY SETIA",
-    label: "Singer",
+    name: "THE YELLOW DIARY",
+    label: "Band",
   },
   {
     url: img8,
+    name: "THE LOCAL TRAIN",
+    label: "Band",
+  },
+  {
+    url: img2,
+    name: "CHETAN BHAGAT",
+    label: "Author",
+  },
+  {
+    url: img10,
     name: "ZAEDEN",
     label: "Singer",
   },
   {
-    url: img9,
+    url: img11,
     name: "RAHAT INDORI",
     label: "Lyricist",
-  },
-  {
-    url: img10,
-    name: "YELLOW DIARY",
-    label: "Band",
-  },
-  {
-    url: img11,
-    name: "LOCAL TRAIN",
-    label: "Band",
   },
 ];
 
