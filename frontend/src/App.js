@@ -89,7 +89,8 @@ function App() {
                   <Login />
                 </>
               ) : (
-                <Navigate to="/dashboard" />
+                // <Navigate to="/dashboard" />
+                <Navigate to="/" />
               )
             }
           ></Route>
