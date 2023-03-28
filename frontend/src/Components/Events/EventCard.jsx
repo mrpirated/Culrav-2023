@@ -15,10 +15,10 @@ function EventCard(props) {
             exercitationem praesentium nihil.
           </p>
           <button
-            className="hover:shadow-md hover:bg-[#f43e4a] transition-all duration-100"
+            className="hover:shadow-md mt-[20px] hover:bg-[#f43e4a] transition-all duration-100"
             onClick={handleClick}
           >
-            Register
+            REGISTER
           </button>
         </div>
       </div>
