@@ -41,17 +41,14 @@ function Myteams() {
 
   const addUser = async () => {
     // process.env.REACT_APP_ADDMEMBERTOTEAMLINK
-    const response = await fetch(
-      "http://culrav.online:5008/api/addMemberToTeam",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.data.token}`,
-        },
-        body: JSON.stringify({ team_id: myTeamID, user_id: userID }),
-      }
-    );
+    const response = await fetch(process.env.REACT_APP_ADDMEMBERTOTEAM, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.data.token}`,
+      },
+      body: JSON.stringify({ team_id: myTeamID, user_id: userID }),
+    });
     const json = await response.json();
 
     if (response.ok) {
@@ -71,17 +68,14 @@ function Myteams() {
 
   const generateLink = async () => {
     // process.env.REACT_APP_GENERATELINK
-    const response = await fetch(
-      "http://culrav.online:5008/api/activateTeamLink",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.data.token}`,
-        },
-        body: JSON.stringify({ team_id: teamID }),
-      }
-    );
+    const response = await fetch(process.env.REACT_APP_GENERATELINK, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.data.token}`,
+      },
+      body: JSON.stringify({ team_id: teamID }),
+    });
     const json = await response.json();
 
     if (response.ok) {

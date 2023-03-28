@@ -7,17 +7,14 @@ const AddTeamMembers = () => {
 
   const handleClick = async () => {
     // process.env.REACT_APP_ADDMEMBERTOTEAMLINK
-    const response = await fetch(
-      "http://culrav.online:5008/api/addMemberToTeamLink",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.data.token}`,
-        },
-        body: JSON.stringify({ team_id: teamLink }),
-      }
-    );
+    const response = await fetch(process.env.REACT_APP_ADDMEMBERTOTEAMLINK, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.data.token}`,
+      },
+      body: JSON.stringify({ team_id: teamLink }),
+    });
     const json = await response.json();
 
     if (response.ok) {
