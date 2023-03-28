@@ -6,7 +6,7 @@ function EventCard(props) {
 
   const getImage = async () => {
     const response = await fetch(
-      `https://server.culrav.online/api/getImage?type=event&event_id=${props.event_id}`
+      `https://testserver.culrav.online/api/getImage?type=event&event_id=${props.event_id}`
     );
     const json = await response.json();
     const imag = json.data.imageUrl;
