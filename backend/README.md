@@ -19,8 +19,10 @@
             "data": {
                 "token":string,
                 "user":{
+                    "user_id":Integer,
                     "name":string,
                     "email":string,
+                    "type":string,
                 }
             }
         }
@@ -347,7 +349,7 @@
             "authorization": Bearer token,
         }
         "body":{
-            "link": Integer,
+            "link": String,
         }
         ```
    - response

@@ -22,9 +22,9 @@ const loginService = async ({ email, password }) => {
 			// debug(response);
 			user_id = response.data.user.user_id;
 			userDetails = {
+				user_id:response.data.user_id,
 				name: response.data.user.name,
 				email: response.data.user.email,
-				verfied: response.data.user.verified,
 				type: response.data.user.type,
 			};
 			return {
