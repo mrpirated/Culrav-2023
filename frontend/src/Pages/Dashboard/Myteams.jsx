@@ -41,17 +41,14 @@ function Myteams() {
 
   const handleDelete = async () => {
     // process.env.REACT_APP_REMOVEMEMBERFROMTEAM
-    const response = await fetch(
-      "http://culrav.online:5008/api/removeMemberFromTeam",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.data.token}`,
-        },
-        body: JSON.stringify({ team_id: myTeamID }),
-      }
-    );
+    const response = await fetch(process.env.REACT_APP_REMOVEMEMBERFROMTEAM, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.data.token}`,
+      },
+      body: JSON.stringify({ team_id: myTeamID }),
+    });
     const json = await response.json();
 
     if (response.ok) {
