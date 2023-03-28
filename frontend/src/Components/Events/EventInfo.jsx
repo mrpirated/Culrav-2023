@@ -87,11 +87,11 @@ function EventInfo(props) {
             </div>
             <div className="flex flex-col items-center w-full h-auto md:flex-row">
               <div className=" w-full md:w-[50%] md:h-full p-6 relative">
-                {/* <img
-                  src={require(`${props.image}`)}
-                  alt=""
+                <img
+                  src={props.imgurl}
+                  alt={`${props.name} image`}
                   className="object-cover w-full h-full rounded-lg shadow-md"
-                /> */}
+                />
                 <div
                   className="absolute text-white  top-[80%] left-[50%] "
                   style={{ transform: "translate(-50%, -50%)" }}
