@@ -7,6 +7,8 @@ import img6 from "../../../Assets/Celebs/Past/priyanka_kumari.jpg";
 import img7 from "../../../Assets/Celebs/Past/shirley_setia.jpg";
 import img8 from "../../../Assets/Celebs/Past/zaeden.jpg";
 import img9 from "../../../Assets/Celebs/Past/rahat_indori.webp";
+import img10 from "../../../Assets/Celebs/Past/yellow_diary.jpg";
+import img11 from "../../../Assets/Celebs/Past/local_train.webp";
 
 const pastCelebs = [
   {
@@ -53,6 +55,16 @@ const pastCelebs = [
     url: img9,
     name: "RAHAT INDORI",
     label: "Lyricist",
+  },
+  {
+    url: img10,
+    name: "YELLOW DIARY",
+    label: "Band",
+  },
+  {
+    url: img11,
+    name: "LOCAL TRAIN",
+    label: "Band",
   },
 ];
 
