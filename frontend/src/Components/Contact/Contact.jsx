@@ -65,10 +65,8 @@ const Contact = () => {
               MNNIT ALLAHABAD, TELIYARGANJ, PRAYAGRAJ , INDIA
             </div>
           </a>
-          <div className="mb-[8px]">
-            CONTACT US : +919695115107, +917799930206
-          </div>
-          <div>E-MAIL ID: culrav2023@gmail.com</div>
+          <div className="mb-[8px]">CONTACT US : 9997213024, 8707078089</div>
+          <div>E-MAIL ID: culrav2k23@gmail.com</div>
         </div>
         <p id="copyright" className="">
           COPYRIGHT &copy; CULRAV 2023 | ALL RIGHTS RESERVED

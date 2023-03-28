@@ -11,6 +11,7 @@ function Login() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [reg, setReg] = useState(false);
   const { login, error } = useLogin();
   const { signup, isLoadingSignup, errorSignup } = useSignup();
 
@@ -151,6 +152,29 @@ function Login() {
                   onChange={(e) => setPasswordAgain(e.target.value)}
                   value={passwordAgain}
                 />
+                <div className="flex items-center my-[5px]">
+                  <span className="mr-2">
+                    <label className="text-[14px] ml-[10px]">
+                      Are you from MNNIT?
+                    </label>
+                  </span>
+                  <span>
+                    <input type="checkbox" onChange={() => setReg(!reg)} />
+                  </span>
+                </div>
+                <div>
+                  {reg ? (
+                    <input
+                      type="number"
+                      placeholder="Registration Number"
+                      required="true"
+                      // onChange={(e) => setName(e.target.value)}
+                      // value={name}
+                    ></input>
+                  ) : (
+                    <div className="hidden"></div>
+                  )}
+                </div>
                 <div className="text-white lg:text-black">{confirm}</div>
                 <div className="signup_btn">
                   <input
