@@ -1,5 +1,5 @@
 import React from "react";
-import teamlogo from  "./Assests/teamlogo.webp";
+import teamlogo from "./Assests/teamlogo.webp";
 
 function Team() {
   return (
@@ -10,8 +10,8 @@ function Team() {
           alt="avatar"
           className="cover rounded-full h-[150px] w-[150px] lg:h-[200px] lg:w-[200px]"
         ></img>
-        <p className="font-bold text-xl lg:text-3xl mt-4">Member Name</p>
-        <p className="font-normal lg:text-xl">Member position</p>
+        <p className="font-bold text-xl lg:text-2xl mt-4">MEMBER NAME</p>
+        <p className="font-normal lg:text-md">MEMBER POSITION</p>
       </div>
     </div>
   );

@@ -82,7 +82,9 @@ function Eventcomponent(props) {
             <div className="flex flex-col items-center justify-center h-full w-full">
               {subevent.map((element) => {
                 return (
-                  <p className="m-1 text-center text-black">{element.name}</p>
+                  <p className="m-1 mb-0 text-[15px] text-center uppercase text-black">
+                    {element.name}
+                  </p>
                 );
               })}
             </div>
