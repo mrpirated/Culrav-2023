@@ -4,7 +4,7 @@ import dbg from "debug";
 const debug = dbg("api:getImage");
 import getImageService from "../service/getImageService";
 router.get("/getImage", async (req, res) => {
-	await getImageService(req.headers.authorization, req.query)
+	await getImageService(req.query)
 		.then((response) => {
 			res.send(response);
 		})
