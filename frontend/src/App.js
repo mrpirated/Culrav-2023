@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useReducer } from "react";
 import { User } from "./User/User";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { authReducer } from "./Context/AuthContext";
 //Pages
 import Login from "./Pages/login/Login";
 // import NavPageLogin from "./Pages/login/NavPage";
@@ -27,7 +27,9 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Preloader from "./Components/Preloader/Preloader";
 function App() {
 	const { user } = User();
-
+	const [state, dispatch] = useReducer(authReducer, {
+		user: null,
+	});
 	const List = [
 		"./img.png",
 		"./img.png",

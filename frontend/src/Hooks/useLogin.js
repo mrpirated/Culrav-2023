@@ -20,7 +20,8 @@ export const useLogin = () => {
 		// });
 		await loginAPI({ email, password })
 			.then((response) => {
-				localStorage.setItem("token", response.data.token);
+				console.log(response);
+				localStorage.setItem("token", JSON.stringify(response.data.token));
 				dispatch({ type: "LOGIN", payload: response.data.user });
 				toast.success(response.message);
 			})

@@ -4,7 +4,7 @@ import config from "../config";
 const getUserDataAPI = async (data) => {
 	const { token } = data;
 	return await axios
-		.post(config.baseUrl + config.getUserData, {
+		.get(config.baseUrl + config.getUserData, {
 			headers: { Authorization: "Bearer " + token },
 		})
 		.then((res) => {

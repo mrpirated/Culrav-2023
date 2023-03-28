@@ -1,5 +1,5 @@
 import { createContext, useReducer, useEffect } from "react";
-import getUserDataAPI from "../api/getUserData";
+import getUserDataAPI from "../api/getUserDataAPI";
 export const AuthContext = createContext();
 
 export const authReducer = (state, action) => {
@@ -20,9 +20,8 @@ export const AuthContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		const token = JSON.parse(localStorage.getItem("token"));
-
 		if (token) {
-			getUserDataAPI(token).then((response) => {
+			getUserDataAPI({ token: token }).then((response) => {
 				console.log(response);
 				dispatch({ type: "LOGIN", payload: response.data });
 			});
