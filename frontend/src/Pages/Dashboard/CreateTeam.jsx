@@ -95,7 +95,7 @@ function CreateTeam() {
     <>
       <div className="bg-light my-2 w-full rounded-md mx-1 box-border p-4">
         <div>
-          <p className="text-2xl font-medium">Create Team</p>
+          <p className="text-2xl font-medium">CREATE TEAM</p>
         </div>
         <div className="mt-4">
           <label
@@ -150,7 +150,7 @@ function CreateTeam() {
             className="hover:shadow-md hover:bg-dark"
             onClick={handleClick}
           >
-            Create Team
+            CREATE
           </button>
         </div>
       </div>

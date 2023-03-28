@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import logo from "../../Assets/Home/Logo.png";
 import { Link } from "react-scroll";
+import { User } from "../../User/User";
 import "./Navbar.css";
 
 const navItems = ["home", "about", "events", "sponsors", "contact"];
@@ -9,6 +10,7 @@ const navItems = ["home", "about", "events", "sponsors", "contact"];
 function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [navScroll, setScroll] = useState(false);
+  const { user } = User();
   const navbarRef = useRef();
 
   useEffect(() => {
@@ -144,7 +146,7 @@ function Navbar() {
               className="text-sm  sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]"
               key={`link-confirmYourSeat`}
             >
-              REGISTER NOW
+              {!user ? "REGISTER NOW" : "DASHBOARD"}
             </li>
           </a>
         </ul>
@@ -212,7 +214,7 @@ function Navbar() {
                 </a>
                 <a href="/login" className="">
                   <li className="px-6 text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark">
-                    REGISTER NOW
+                    {!user ? "REGISTER NOW" : "DASHBOARD"}
                   </li>
                 </a>
               </ul>

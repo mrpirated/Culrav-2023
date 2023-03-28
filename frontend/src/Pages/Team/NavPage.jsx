@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import logo from "../../Assets/Home/Logo.png";
+import { User } from "../../User/User";
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const { user } = User();
 
   const HamOpen = (
     <svg
@@ -72,7 +74,7 @@ function Navbar() {
               className="text-sm  sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]"
               key={`link-confirmYourSeat`}
             >
-              REGISTER NOW
+              {!user ? "REGISTER NOW" : "DASHBOARD"}
             </li>
           </a>
         </ul>
@@ -120,7 +122,7 @@ function Navbar() {
                 </a>
                 <a href="/login" className="">
                   <li className="px-6 mb-[25px] mt-[35px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-white hover:text-grey hover:bg-dark">
-                    REGISTER NOW
+                    {!user ? "REGISTER NOW" : "DASHBOARD"}
                   </li>
                 </a>
               </ul>

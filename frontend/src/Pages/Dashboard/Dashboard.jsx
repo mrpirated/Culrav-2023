@@ -18,12 +18,15 @@ function Dashboard() {
               <p className="text-2xl p-4 text-brown">
                 Hello, <span className="text-red">{user.data.user.name}</span>
               </p>
+              <p className="text-sm ml-[2px] p-4 pb-4 mt-[-30px] text-brown">
+                {user.data.user.email}
+              </p>
             </div>
           </div>
         </div>
 
         {/* center dashboard  */}
-        <div className="center m-4 mt-[15px] ml-[-4px] md:ml-[0px] w-full">
+        <div className="center mt-[35px] m-4 ml-[-4px] md:ml-[0px] w-full">
           <div className="flex flex-col w-full ">
             <CreateTeam />
             <div className="mt-[22px]">

@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import "./Timer.css";
+import { User } from "../../User/User";
 
 const Timer = () => {
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
   const [timerMinutes, setTimerMinutes] = useState("00");
   const [timerSeconds, setTimerSeconds] = useState("00");
+  const { user } = User();
 
   let interval = useRef();
 
@@ -71,7 +73,7 @@ const Timer = () => {
             id="loginBtn"
             className="pr-4 pl-3 w-[200px] mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont"
           >
-            REGISTER NOW
+            {!user ? "REGISTER NOW" : "DASHBOARD"}
           </li>
         </a>
       </div>

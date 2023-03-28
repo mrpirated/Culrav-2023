@@ -86,3 +86,23 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+
+#leaveLink {
+  width: 125px;
+  font-size: 13px;
+  padding: 8.2px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#addID {
+  width: 125px;
+  font-size: 13px;
+  padding: 8.2px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#copy-text {
+  border-radius: 40px;
+}
