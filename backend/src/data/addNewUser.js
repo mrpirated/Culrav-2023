@@ -8,6 +8,7 @@ const addNewUser = async (user) => {
 			name: user.name,
 			email: user.email,
 			password: user.password,
+			mnnit_id: user.mnnit_id,
 		};
 
 		pool.query("INSERT INTO user set ?", [values], (err, result) => {
