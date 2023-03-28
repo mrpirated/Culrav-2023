@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import EventInfo from "./EventInfo";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
+import { async } from "q";
+import getImagesAPI from "../../api/getImage";
 // import axios, * as others from "axios";
 // import { element } from "prop-types";
 
 function Eventcomponent(props) {
-	console.log(props);
+  console.log(props);
   const [subevent, setSubevent] = useState([]);
   const [display, setdisplay] = useState(false);
+  const [imgurl, setimgurl] = useState(null);
 
   const handleEvent = () => {
     const slider = document.getElementById(`slider${props.name}`);
@@ -38,8 +41,15 @@ function Eventcomponent(props) {
     // console.log(response.data.data);
   };
 
+  const fetchImage = async () => {
+    const url = await getImagesAPI("commitee", props.commitee_id);
+    setimgurl(url.data.imageUrl);
+    console.log("url", url.data.imageUrl);
+  };
+
   useEffect(() => {
     getEventsData();
+    fetchImage();
     const slider = document.getElementById(`slider${props.name}`);
     slider.style.width = "0%";
   }, []);
@@ -68,11 +78,11 @@ function Eventcomponent(props) {
           onMouseOver={handleEvent}
           onMouseOut={handleExitEvent}
         >
-          {/* <img
-            src={require(`${props.image}`)}
+          <img
+            src={imgurl}
             className="w-full h-full object-cover hover:blur-sm transition-[3s] duration-300 rounded-t-lg"
             alt=""
-          /> */}
+          />
           <div
             id={`slider${props.name}`}
             className={`absolute top-0 left-0 h-full z-10 overflow-hidden bg-[#f58e76] opacity-[0.85] transition-all duration-[400ms] rounded-t-lg`}
@@ -96,7 +106,7 @@ function Eventcomponent(props) {
           <p>{props.name.toUpperCase()}</p>
         </div>
       </motion.div>
-      {display && <EventInfo {...props} handleClick={handleClick} />}
+      {display && <EventInfo {...props} handleClick={handleClick} imgurl={imgurl}/>}
     </>
   );
 }
