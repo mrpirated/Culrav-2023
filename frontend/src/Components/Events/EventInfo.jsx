@@ -59,7 +59,7 @@ function EventInfo(props) {
         onClick={props.handleClick}
       ></div>
       <div
-        className="fixed w-[80vw] h-[80vh] bg-gradient-to-r from-brown2 to-off top-[50%] left-[50%] z-40"
+        className="fixed w-[80vw] h-[80vh] bg-gradient-to-r from-[#ff7e5f] to-[#feb47b] top-[50%] left-[50%] z-40"
         style={{ transform: "translate(-50%, -50%)" }}
       >
         {width > 1024}
@@ -86,7 +86,7 @@ function EventInfo(props) {
                 <img
                   src={require(`${props.image}`)}
                   alt=""
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full rounded-lg shadow-md"
                 />
                 <div
                   className="absolute text-white  top-[80%] left-[50%] "
