@@ -130,16 +130,16 @@ function EventInfo(props) {
                 return <EventCard {...element} />;
               })}
             </div>
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <p className="text-xl font-bold lg:text-3xl ">
                 {props.name} COORDINATORS
               </p>
-            </div>
-            <div className="flex flex-row flex-wrap justify-center">
+            </div> */}
+            {/* <div className="flex flex-row flex-wrap justify-center">
               <Team />
               <Team />
               <Team />
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

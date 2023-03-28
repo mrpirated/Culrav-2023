@@ -83,15 +83,14 @@ function App() {
           <Route
             path="/login"
             element={
-              !user ? (
-                <>
-                  {/* <NavPageLogin /> */}
-                  <Login />
-                </>
-              ) : (
-                // <Navigate to="/dashboard" />
-                <Navigate to="/" />
-              )
+              // !user ? (
+              <>
+                {/* <NavPageLogin /> */}
+                <Login />
+              </>
+              // ) : (
+              //   <Navigate to="/dashboard" />
+              // )
             }
           ></Route>
           <Route

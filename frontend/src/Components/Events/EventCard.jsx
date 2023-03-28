@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import img from "./Assests/cardTop.webp";
+import img from "./Assests/cardTop.webp";
 
 function EventCard(props) {
   const [image, setImage] = useState(null);
@@ -10,6 +10,7 @@ function EventCard(props) {
     );
     const json = await response.json();
     const imag = json.data.imageUrl;
+    console.log("image", imag);
     setImage(imag);
   };
 
@@ -21,10 +22,14 @@ function EventCard(props) {
   const handleClick = () => {};
   return (
     <>
-      <div class="w-[80vw] xs:w-[70vw] md:w-[30vw] lg:w-[23vw] m-2 rounded overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl">
-        <img class="w-full" src={image} alt="Card" />
-        <div class="px-6 py-4 bg-white">
-          <div class="font-bold text-xl mb-2 ">{props.name}</div>
+      <div className="w-[80vw] xs:w-[70vw] md:w-[30vw] lg:w-[23vw] m-2 rounded overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl">
+        <img
+          className="w-full h-[300px] object-cover"
+          src={image ? image : img}
+          alt="Card"
+        />
+        <div className="px-6 py-4 h-full bg-white">
+          <div className="font-bold text-xl mb-2 ">{props.name}</div>
           <p class="text-gray-700 text-base">
             {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Voluptatibus quia, nulla! Maiores et perferendis eaque,
