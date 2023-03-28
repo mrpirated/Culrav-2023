@@ -13,6 +13,7 @@ const getImageService = async (query) => {
 		} else if (query.type === "user") {
 			imageUrl += query.user_id;
 		}
+		imageUrl += ".jpg";
 		resolve({
 			success: true,
 			data: {
