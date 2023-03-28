@@ -18,30 +18,6 @@ function Navbar() {
       navbarRef.current.classList.add("navbar-below");
     };
 
-    // useEffect(() => {
-    //   window.onscroll = () => {
-    //     const element = document.getElementsByClassName("TrailerBack");
-    //     const height = element[0].scrollHeight;
-    //     const start = element[0].getBoundingClientRect().y;
-    //     // console.log(start);
-    //     if (start + height * 0.2 > 0) {
-    //       element[0].style.backgroundColor = "bisque";
-    //     }
-    //     if (start + height * 0.2 <= 0 && start + height * 0.4 > 0) {
-    //       element[0].style.backgroundColor = "#F9C1B1";
-    //     }
-    //     if (start + height * 0.4 <= 0 && start + height * 0.6 > 0) {
-    //       element[0].style.backgroundColor = "#FB8085";
-    //     }
-    //     if (start + height * 0.6 <= 0 && start + height * 0.8 > 0) {
-    //       element[0].style.backgroundColor = "#f2dea4";
-    //     }
-    //     if (start + height * 0.8 <= 0) {
-    //       element[0].style.backgroundColor = "#F7CD7C";
-    //     }
-    //   };
-    // }, []);
-
     window.onscroll = function () {
       if (window.scrollY >= 500) {
         navbarRef.current.classList.add("activeNav");
@@ -62,13 +38,13 @@ function Navbar() {
         element[0].style.backgroundColor = "#F9C1B1";
       }
       if (start + height * 0.4 <= 0 && start + height * 0.6 > 0) {
-        element[0].style.backgroundColor = "#FB8085";
-      }
-      if (start + height * 0.6 <= 0 && start + height * 0.8 > 0) {
         element[0].style.backgroundColor = "#f2dea4";
       }
+      if (start + height * 0.6 <= 0 && start + height * 0.8 > 0) {
+        element[0].style.backgroundColor = "#F9C1B1";
+      }
       if (start + height * 0.8 <= 0) {
-        element[0].style.backgroundColor = "#F7CD7C";
+        element[0].style.backgroundColor = "bisque";
       }
     };
 
