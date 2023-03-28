@@ -11,7 +11,7 @@
   -webkit-column-width: 33%;
   -moz-column-width: 33%;
   column-width: 33%;
-  padding: 0px 0%;
+  padding: 0px 15%;
   padding-bottom: 60px;
 }
 
@@ -20,6 +20,7 @@
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
+    padding: 0px 9%;
   }
 }
 
@@ -31,6 +32,7 @@
     -webkit-column-width: 100%;
     -moz-column-width: 100%;
     column-width: 100%;
+    padding: 0px 0%;
   }
 }
 

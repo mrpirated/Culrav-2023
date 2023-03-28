@@ -1,52 +1,58 @@
-import img1 from "../../../Assets/Celebs/ahsan_kureshi.jpg";
-import img2 from "../../../Assets/Celebs/nizami_brothers.jpg";
-import img3 from "../../../Assets/Celebs/priyanka_kumari.jpg";
-import img4 from "../../../Assets/Celebs/shlesh_gautam.jpg";
-import img5 from "../../../Assets/Celebs/spunk.jpg";
-import img6 from "../../../Assets/Celebs/vishnu_saxena.jpg";
-import img7 from "../../../Assets/Celebs/zaeden.jpg";
-import img8 from "../../../Assets/Celebs/sunil_jogi.jpg";
+import img1 from "../../../Assets/Celebs/Past/biswa_kalyan_rath.jpg";
+import img2 from "../../../Assets/Celebs/Past/chetan_bhagat.jpg";
+import img3 from "../../../Assets/Celebs/Past/rahul_subramanian.webp";
+import img4 from "../../../Assets/Celebs/Past/ahsaan_qureshi.webp";
+import img5 from "../../../Assets/Celebs/Past/farhan_akhtar.jpg";
+import img6 from "../../../Assets/Celebs/Past/priyanka_kumari.jpg";
+import img7 from "../../../Assets/Celebs/Past/shirley_setia.jpg";
+import img8 from "../../../Assets/Celebs/Past/zaeden.jpg";
+import img9 from "../../../Assets/Celebs/Past/rahat_indori.webp";
 
 const pastCelebs = [
   {
     url: img1,
-    name: "AHSAN QURESHI",
+    name: "BISWA KALYAN RATH",
     label: "Comedian",
   },
   {
     url: img2,
-    name: "NIZAMI BROTHERS",
-    label: "Singer",
+    name: "CHETAN BHAGAT",
+    label: "Author",
   },
   {
     url: img3,
+    name: "RAHUL SUBRAMANIAN",
+    label: "Comedian",
+  },
+  {
+    url: img4,
+    name: "AHSAAN QURESHI",
+    label: "Comedian",
+  },
+  {
+    url: img5,
+    name: "FARHAN AKHTAR",
+    label: "Actor",
+  },
+  {
+    url: img6,
     name: "PRIYANKA KUMARI",
     label: "Model",
   },
   {
-    url: img4,
-    name: "SHLESH GAUTAM",
-    label: "Poet",
-  },
-  {
-    url: img5,
-    name: "SPUNK",
-    label: "Band",
-  },
-  {
-    url: img6,
-    name: "VISHNU SAXENA",
-    label: "Poet",
-  },
-  {
     url: img7,
-    name: "ZAEDEN",
-    label: "DJ",
+    name: "SHIRLEY SETIA",
+    label: "Singer",
   },
   {
     url: img8,
-    name: "SUNIL JOGI",
-    label: "Poet",
+    name: "ZAEDEN",
+    label: "Singer",
+  },
+  {
+    url: img9,
+    name: "RAHAT INDORI",
+    label: "Lyricist",
   },
 ];
 

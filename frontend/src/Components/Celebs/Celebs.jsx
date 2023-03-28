@@ -3,7 +3,7 @@ import Now from "./Now/Now";
 import Past from "./Past/Past";
 
 const Celebs = () => {
-  const [set, setState] = useState(true);
+  const [set, setState] = useState(false);
   const animateRef = useRef();
 
   useEffect(() => {
