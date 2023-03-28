@@ -12,6 +12,11 @@
   animation: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s both;
 }
 
+.decrease-opacity {
+  -webkit-animation: dopacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.5s both;
+  animation: dopacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.5s both;
+}
+
 @-webkit-keyframes slide-top {
   0% {
     -webkit-transform: translateY(100px);
@@ -57,5 +62,26 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes dopacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dopacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }

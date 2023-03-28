@@ -10,12 +10,12 @@ function Preloader() {
     setVisibility("hidden");
   };
 
-  setTimeout(handleload, 4000);
+  setTimeout(handleload, 5000);
 
   return (
     <>
       <div
-        className={`Preloader h-screen w-screen ${visibility} z-[90] overflow-hidden flex justify-center items-center`}
+        className={`Preloader decrease-opacity h-screen w-screen ${visibility} z-[90] overflow-hidden flex justify-center items-center`}
       >
         <div className="relative">
           <img

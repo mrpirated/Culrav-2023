@@ -50,7 +50,7 @@ function Eventcomponent(props) {
 		setdisplay(!display);
 	};
 
-	var delayArray = [0.4, 0.6, 0.8, 0.7, 0.5];
+	var delayArray = [0.1, 0.2, 0.3];
 
 	return (
 		<>
