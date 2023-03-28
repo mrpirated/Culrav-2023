@@ -5,38 +5,20 @@ import path from "path";
 const getImageService = async (query) => {
 	return new Promise((resolve, reject) => {
 		debug(query);
-		var filename = "uploads/";
-		var defFilename = "uploads/";
+		var imageUrl = `https://images.culrav.online${query.type}_`;
 		if (query.type === "commitee") {
-			filename += `posters/commitee/${query.commitee_id}`;
-			defFilename += `posters/default`;
+			imageUrl += query.commitee_id;
 		} else if (query.type === "event") {
-			filename += `posters/event/${query.event_id}`;
-			defFilename += `posters/default`;
+			imageUrl += query.event_id;
 		} else if (query.type === "user") {
-			filename += `profiles/${query.user_id}`;
-			defFilename += `profiles/default`;
+			imageUrl += query.user_id;
 		}
-		filename += ".jpg";
-		defFilename += ".jpg";
-		debug(filename);
-		debug(defFilename);
-		debug(fs.existsSync(path.resolve(filename)));
-		if (fs.existsSync(path.resolve(filename))) {
-			resolve({
-				success: true,
-				data: {
-					image: fs.readFileSync(path.resolve(filename)),
-				},
-			});
-		} else {
-			resolve({
-				success: true,
-				data: {
-					image: fs.readFileSync(path.resolve(defFilename)),
-				},
-			});
-		}
+		resolve({
+			success: true,
+			data: {
+				imageUrl: imageUrl,
+			},
+		});
 	});
 };
 export default getImageService;
