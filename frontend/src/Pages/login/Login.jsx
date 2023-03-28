@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [mnnitID, setMnnitID] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -42,7 +43,7 @@ function Login() {
       // setMessage("Password is valid");
       if (password === passwordAgain) {
         // setConfirm("Password validation successful");
-        await signup(name, email, password);
+        await signup(name, email, password, mnnitID);
       } else {
         // setConfirm("Passwords are different");
         toast.warn("Confirm Password is not matching with password");
@@ -154,8 +155,8 @@ function Login() {
                 />
                 <div className="flex items-center my-[5px]">
                   <span className="mr-2">
-                    <label className="text-[14px] ml-[10px]">
-                      Are you from MNNIT?
+                    <label className="text-[14px] ml-[10px] text-white lg:text-black">
+                      ARE YOU FROM MNNIT?
                     </label>
                   </span>
                   <span>
@@ -168,8 +169,8 @@ function Login() {
                       type="number"
                       placeholder="Registration Number"
                       required="true"
-                      // onChange={(e) => setName(e.target.value)}
-                      // value={name}
+                      onChange={(e) => setMnnitID(e.target.value)}
+                      value={mnnitID}
                     ></input>
                   ) : (
                     <div className="hidden"></div>
