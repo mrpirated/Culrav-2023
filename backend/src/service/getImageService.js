@@ -1,7 +1,5 @@
 import dbg from "debug";
 const debug = dbg("service:getImage");
-import fs from "fs";
-import path from "path";
 const getImageService = async (query) => {
 	return new Promise((resolve, reject) => {
 		debug(query);

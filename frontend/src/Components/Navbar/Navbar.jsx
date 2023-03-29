@@ -166,10 +166,9 @@ function Navbar() {
 							className='text-sm  sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]'
 							key={`link-confirmYourSeat`}
 						>
-							{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
+							{!user ? "REGISTER NOW" : `WELCOME ${user.culrav_id}`}
 						</li>
 					</a>
-          
 				</ul>
 			</div>
 
@@ -235,7 +234,7 @@ function Navbar() {
 								</a>
 								<a href={!user ? "/login" : ""} className=''>
 									<li className='px-6 text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark'>
-										{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
+										{!user ? "REGISTER NOW" : `WELCOME ${user.culrav_id}`}
 									</li>
 								</a>
 							</ul>
