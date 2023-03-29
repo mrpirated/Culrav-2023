@@ -232,7 +232,7 @@ function Navbar() {
 										TEAM
 									</li>
 								</a>
-								<a href='/login' className=''>
+								<a href={!user ? "/login" : ""} className=''>
 									<li className='px-6 text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark'>
 										{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
 									</li>
