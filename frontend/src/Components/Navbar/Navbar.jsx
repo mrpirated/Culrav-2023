@@ -6,7 +6,7 @@ import { User } from "../../User/User";
 import { useLogout } from "../../Hooks/useLogout";
 import "./Navbar.css";
 
-const navItems = ["home", "about", "events", "sponsors", "contact"];
+const navItems = ["about", "events", "sponsors", "schedule", "contact"];
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
@@ -176,9 +176,9 @@ function Navbar() {
             </li>
           </a>
           {user && (
-            <div className="hidden md:block px-6 mt-[-105px] mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black">
+            <li className="hidden md:block text-sm 2xl:mt-[-120px] xl:mt-[-80px] ml-[30px] uppercase sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]">
               <button onClick={handleClickLogout}>LOGOUT</button>
-            </div>
+            </li>
           )}
         </ul>
       </div>
