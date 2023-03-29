@@ -7,7 +7,7 @@ const addPOCsAPI = async (data) => {
 		.post(
 			`${config.baseUrl}${config.addPOCs}`,
 			{ poc_id, commitee_id },
-			{ headers: { Authorization: token } }
+			{ headers: { Authorization: "Bearer " + token } }
 		)
 		.then((res) => {
 			return res.data;

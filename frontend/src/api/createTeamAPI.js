@@ -7,7 +7,7 @@ const createTeamAPI = async (data) => {
 		.post(
 			`${config.baseUrl}${config.createTeam}`,
 			{ event_id, team_name },
-			{ headers: { Authorization: token } }
+			{ headers: { Authorization: "Bearer " + token } }
 		)
 		.then((res) => {
 			return res.data;

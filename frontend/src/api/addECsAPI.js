@@ -7,7 +7,7 @@ const addECsAPI = async (data) => {
 		.post(
 			`${config.baseUrl}${config.addECs}`,
 			{ ec_id, event_id },
-			{ headers: { Authorization: token } }
+			{ headers: { Authorization: "Bearer " + token } }
 		)
 		.then((res) => {
 			return res.data;
