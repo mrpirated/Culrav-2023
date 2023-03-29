@@ -13,5 +13,7 @@ const config = {
 	removeMemberFromTeam: "/removeMemberFromTeam",
 	activateTeamLink: "/activateTeamLink",
 	getOrganizingTeam: "/getOrganizingTeam",
+	getImages:"/getImage",
+	editEventDetails:"/editEventDetails",
 };
 export default config;

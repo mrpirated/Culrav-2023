@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 // import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import toast from "react-hot-toast";
 import loginAPI from "../api/loginAPI";
-import "react-toastify/dist/ReactToastify.css";
 
 export const useLogin = () => {
 	const [error, setError] = useState(null);

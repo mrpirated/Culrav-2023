@@ -2,11 +2,12 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { useEffect, useReducer } from "react";
 import { User } from "./User/User";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast, { Toaster } from "react-hot-toast";
 import { authReducer } from "./Context/AuthContext";
+
 //Pages
 import Login from "./Pages/login/Login";
+
 // import NavPageLogin from "./Pages/login/NavPage";
 import Team from "./Pages/Team/Team";
 import NavPageTeam from "./Pages/Team/NavPage";
@@ -14,6 +15,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import NavPageDash from "./Pages/Dashboard/NavPage";
 import DashboardAdmin from "./Pages/Dashboard/Admin/DashboardAdmin";
 import DashboardPoc from "./Pages/Dashboard/poc/DashboardPoc";
+
 //Components
 import Navbar from "./Components/Navbar/Navbar";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
@@ -26,6 +28,7 @@ import Sponsors from "./Components/Sponsors/Sponsors";
 import Contact from "./Components/Contact/Contact";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import Preloader from "./Components/Preloader/Preloader";
+
 function App() {
   const { user } = User();
   const [state, dispatch] = useReducer(authReducer, {
@@ -78,6 +81,7 @@ function App() {
 
   return (
     <div className="">
+      <Toaster position="top-right" reverseOrder={false} />
       <BrowserRouter>
         <Routes>
           <Route
@@ -130,21 +134,21 @@ function App() {
           ></Route>
           <Route
             path="/dashboard"
-            element={
-              user ? (
-                <>
-                  <NavPageDash />
-                  <Dashboard />
-                </>
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
+            element={<DashboardPoc />}
+            // element={
+            //   user ? (
+            //     <>
+            //       <NavPageDash />
+            //       <Dashboard />
+            //     </>
+            //   ) : (
+            //     <Navigate to="/login" />
+            //   )
+            // }
           ></Route>
           ;
         </Routes>
       </BrowserRouter>
-      <ToastContainer />
     </div>
   );
 }
