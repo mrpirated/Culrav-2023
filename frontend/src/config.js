@@ -12,6 +12,6 @@ const config = {
 	getUserTeams: "/getUserTeams",
 	removeMemberFromTeam: "/removeMemberFromTeam",
 	activateTeamLink: "/activateTeamLink",
-	getImages:"/getImage",
+	getOrganizingTeam: "/getOrganizingTeam",
 };
 export default config;
