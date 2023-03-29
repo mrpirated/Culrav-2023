@@ -112,7 +112,10 @@ const Team = () => {
           </div>
         </div>
       </div>
-      <h1 id="HeadDown" className="text-center pt-[180px] text-grey">
+      <h1
+        id="HeadDown"
+        className="Tech text-center pt-[240px] pb-[180px] lg:pb-[70px] lg:pt-[240px] text-grey"
+      >
         TECH TEAM
       </h1>
       <div className="bodyTeam">
@@ -135,7 +138,10 @@ const Team = () => {
         </div>
       </div>
 
-      <h1 id="HeadDown" className="text-center text-grey">
+      <h1
+        id="HeadDown"
+        className="Fest text-center xs:pt-[250px] xlsm:pt-[250px] lg:pt-[50px] pb-[180px] text-grey"
+      >
         FESTIVAL SECRETARIES
       </h1>
       <div className="bodyTeam">
@@ -158,7 +164,7 @@ const Team = () => {
         </div>
       </div>
 
-      <h1 id="HeadDown" className="text-center text-grey">
+      <h1 id="HeadDown" className="text-center pt-[250px] pb-[180px] text-grey">
         CO-COORDINATORS
       </h1>
       <div className="bodyTeam">
@@ -181,7 +187,7 @@ const Team = () => {
         </div>
       </div>
 
-      <h1 id="HeadDown" className="text-center text-grey">
+      <h1 id="HeadDown" className="text-center pt-[250px] pb-[180px] text-grey">
         PR TEAM
       </h1>
       <div className="bodyTeam">

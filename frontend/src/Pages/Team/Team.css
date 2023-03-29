@@ -123,6 +123,18 @@
   bottom: 15px;
 }
 
+@media only screen and (max-width: 1024px) and (min-width: 960px) {
+  .Tech {
+    padding-bottom: 80px;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 960px) {
+  .Fest {
+    padding-top: 140px;
+  }
+}
+
 .containerTeam .Proffcard .contentTeam {
   position: relative;
   display: flex;
