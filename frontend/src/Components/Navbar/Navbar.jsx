@@ -169,6 +169,7 @@ function Navbar() {
 							{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
 						</li>
 					</a>
+          
 				</ul>
 			</div>
 

@@ -123,8 +123,8 @@ function Login() {
 								<h2>Create an account</h2>
 								<input
 									type='text'
-									placeholder='Username'
-									name='username'
+									placeholder='Full Name'
+									name='name'
 									required='true'
 									onChange={(e) => setName(e.target.value)}
 									value={name}
