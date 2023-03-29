@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import signupAPI from "../api/signupAPI";
 
 export const useSignup = () => {

@@ -2,7 +2,7 @@ import "./login.css";
 import { useState } from "react";
 import { useLogin } from "../../Hooks/useLogin";
 import { useSignup } from "../../Hooks/useSignup";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 function Login() {
   const [email, setEmail] = useState("");

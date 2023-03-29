@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import img from "./Assests/cardTop.webp";
 
 function EventCard(props) {
@@ -19,7 +20,14 @@ function EventCard(props) {
   }, []);
 
   console.log("event", props);
-  const handleClick = () => {};
+
+  const handleClick = () => {
+    //toast to display coming soon
+    toast('Registeration for events Coming Soon', {
+      icon: '',
+    });
+  };
+
   return (
     <>
       <div className="w-[80vw] xs:w-[70vw] md:w-[30vw] lg:w-[23vw] m-2 rounded overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl">
@@ -30,16 +38,14 @@ function EventCard(props) {
         />
         <div className="px-6 py-4 h-full bg-white">
           <div className="font-bold text-xl mb-2 ">{props.name}</div>
-          <p class="text-gray-700 text-base">
-            {props.event_tagline}
-          </p>
+          <p class="text-gray-700 text-base">{props.event_tagline}</p>
           <div className="">
-          <button
-            className="hover:shadow-md mt-[20px] hover:bg-[#f43e4a] transition-all duration-100"
-            onClick={handleClick}
-          >
-            REGISTER
-          </button>
+            <button
+              className="hover:shadow-md mt-[20px] hover:bg-[#f43e4a] transition-all duration-100"
+              onClick={handleClick}
+            >
+              REGISTER
+            </button>
           </div>
         </div>
       </div>

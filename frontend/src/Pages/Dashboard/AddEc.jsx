@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios, * as others from "axios";
 import Select from "react-select";
 import { User } from "../../User/User";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import addECsAPI from "../../api/addECsAPI";
 
 const AddEc = () => {
