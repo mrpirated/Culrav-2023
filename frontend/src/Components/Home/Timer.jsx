@@ -68,7 +68,7 @@ const Timer = () => {
 				</div>
 			</div>
 			<div className='md:hidden'>
-				<a href={!user ? "/login" : ""} className=''>
+				<a href={!user ? "/login" : "/dashboard"} className=''>
 					<li
 						id='loginBtn'
 						className='pr-4 pl-3 w-[200px] mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont'

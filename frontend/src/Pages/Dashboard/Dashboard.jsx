@@ -1,12 +1,16 @@
+import { useEffect } from "react";
 import CreateTeam from "./CreateTeam";
 import DashboardNavbar from "./DashboardNavbar";
 import Myteams from "./Myteams";
 import AddTeamMembers from "./AddTeamMembers";
 import { User } from "../../User/User";
-
+import { useNavigate } from "react-router-dom";
 function Dashboard() {
 	const { user } = User();
-
+	const navigate = useNavigate();
+	useEffect(() => {
+		navigate("/");
+	}, []);
 	return (
 		<>
 			<DashboardNavbar />

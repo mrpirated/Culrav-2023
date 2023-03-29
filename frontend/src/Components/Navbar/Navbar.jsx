@@ -157,7 +157,7 @@ function Navbar() {
 						</li>
 					</a>
 					<a
-						href={!user ? "/login" : ""}
+						href={!user ? "/login" : "/dashboard"}
 						className={`hidden md:block bg-light md:mt-[-15px] ${
 							!navScroll ? "lg:mt-[20px]" : "lg:mt-[-7px]"
 						} xl:mt-[-80px] 2xl:mt-[-120px] md:ml-[10px] xl:ml-[20px] sm:px-4 sm:py-2 lg:px-6 lg:py-4 text-black font-bold hover:text-white hover:bg-dark transition ease-in-out duration-700`}
@@ -232,7 +232,7 @@ function Navbar() {
 										TEAM
 									</li>
 								</a>
-								<a href={!user ? "/login" : ""} className=''>
+								<a href={!user ? "/login" : "/dashboard"} className=''>
 									<li className='px-6 text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark'>
 										{!user ? "REGISTER NOW" : `WELCOME ${user.culrav_id}`}
 									</li>
