@@ -46,7 +46,9 @@ function Login() {
 			// setMessage("Password is valid");
 			if (password === passwordAgain) {
 				// setConfirm("Password validation successful");
-				await signup(name, email, password, mnnitID);
+				await signup(name, email, password, mnnitID).then((response) => {
+					navigate("/");
+				});
 			} else {
 				// setConfirm("Passwords are different");
 				toast.warn("Confirm Password is not matching with password");
