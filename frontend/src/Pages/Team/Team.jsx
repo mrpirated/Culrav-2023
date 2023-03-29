@@ -44,6 +44,16 @@ const Team = () => {
 			post: "Faculty Coordinator",
 			imageUrl: `https://images.culrav.online/anupam.jpg`,
 		},
+		{
+			name: "Dr. Mitu Mandal",
+			post: "Faculty Coordinator",
+			imageUrl: `https://images.culrav.online/mitu.jpg`,
+		},
+		{
+			name: "Dr. Santosh Kumar Gupta",
+			post: "Faculty Coordinator",
+			imageUrl: `https://images.culrav.online/santosh.jpg`,
+		},
 	];
 	return (
 		<div className='image' id='team'>
