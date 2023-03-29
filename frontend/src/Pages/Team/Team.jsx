@@ -6,6 +6,7 @@ import linkedin from "../../Assets/Team/linkedin.svg";
 import { useEffect, useState } from "react";
 import getOrganizingTeamAPI from "../../api/getOrganizingTeamAPI";
 import getImagesAPI from "../../api/getImageAPI";
+import Card from "./Card";
 const Team = () => {
 	const [organizingTeam, setOrganizinTeam] = useState([]);
 	useEffect(() => {
@@ -62,7 +63,7 @@ const Team = () => {
           OUR TEAM`
         </h1>
       </div> */}
-			<h1 id='HeadDown' className='text-center pt-[110px] text-grey'>
+			<h1 id='HeadDown' className='text-center pt-[110px] pb-[180px] text-grey'>
 				FACULTIES
 			</h1>
 			<div className='bodyTeam'>
@@ -73,20 +74,14 @@ const Team = () => {
 								return e.post === "Director";
 							})
 							.map((member) => (
-								<div className='card'>
-									<div className='contentTeam'>
-										<div className='imgBx'>
-											<img src={member.imageUrl} alt='' srcset='' />
-										</div>
-										<div className='contentBx'>
-											<h3>
-												{member.name}
-												<br />
-												<span>{member.post}</span>
-											</h3>
-										</div>
-									</div>
-								</div>
+								<Card
+									imageUrl={member.imageUrl}
+									member_name={member.name}
+									member_post={member.post}
+									insta_id={""}
+									linkedin_id={""}
+									isproff={true}
+								/>
 							))}
 					</div>
 					<div className='containerTeam'>
@@ -97,20 +92,14 @@ const Team = () => {
 								);
 							})
 							.map((member) => (
-								<div className='card'>
-									<div className='contentTeam'>
-										<div className='imgBx'>
-											<img src={member.imageUrl} alt='' srcset='' />
-										</div>
-										<div className='contentBx'>
-											<h3>
-												{member.name}
-												<br />
-												<span>{member.post}</span>
-											</h3>
-										</div>
-									</div>
-								</div>
+								<Card
+									imageUrl={member.imageUrl}
+									member_name={member.name}
+									member_post={member.post}
+									insta_id={""}
+									linkedin_id={""}
+									isproff={true}
+								/>
 							))}
 					</div>
 					<div className='containerTeam'>
@@ -119,20 +108,14 @@ const Team = () => {
 								return e.post === "Faculty Coordinator";
 							})
 							.map((member) => (
-								<div className='card'>
-									<div className='contentTeam'>
-										<div className='imgBx'>
-											<img src={member.imageUrl} alt='' srcset='' />
-										</div>
-										<div className='contentBx'>
-											<h3>
-												{member.name}
-												<br />
-												<span>{member.post}</span>
-											</h3>
-										</div>
-									</div>
-								</div>
+								<Card
+									imageUrl={member.imageUrl}
+									member_name={member.name}
+									member_post={member.post}
+									insta_id={""}
+									linkedin_id={""}
+									isproff={true}
+								/>
 							))}
 					</div>
 				</div>
@@ -148,36 +131,14 @@ const Team = () => {
 								return e.type === "TECHLEAD";
 							})
 							.map((member) => (
-								<div className='card'>
-									<div className='contentTeam'>
-										<div className='imgBx'>
-											<img
-												src={getImagesAPI("profile", member.user_id)}
-												alt=''
-												srcset=''
-											/>
-										</div>
-										<div className='contentBx'>
-											<h3>
-												{member.name}
-												<br />
-												<span>Tech Lead</span>
-											</h3>
-										</div>
-									</div>
-									<ul className='sci'>
-										<li>
-											<a href={member.insta_id} target='_blank'>
-												<img className='svg w-[25px]' src={instagram} alt='' />
-											</a>
-										</li>
-										<li>
-											<a href={member.linkedin_id} target='_blank'>
-												<img className='svg w-[25px]' src={linkedin} alt='' />
-											</a>
-										</li>
-									</ul>
-								</div>
+								<Card
+									imageUrl={getImagesAPI("profile", member.user_id)}
+									member_name={member.name}
+									member_post={"Tech Lead"}
+									insta_id={member.insta_id}
+									linkedin_id={member.linkedin_id}
+									isproff={false}
+								/>
 							))}
 					</div>
 				</div>
@@ -194,36 +155,14 @@ const Team = () => {
 								return e.type === "FS";
 							})
 							.map((member) => (
-								<div className='card'>
-									<div className='contentTeam'>
-										<div className='imgBx'>
-											<img
-												src={getImagesAPI("profile", member.user_id)}
-												alt=''
-												srcset=''
-											/>
-										</div>
-										<div className='contentBx'>
-											<h3>
-												{member.name}
-												<br />
-												<span>Festival Secretary</span>
-											</h3>
-										</div>
-									</div>
-									<ul className='sci'>
-										<li>
-											<a href={member.insta_id} target='_blank'>
-												<img className='svg w-[25px]' src={instagram} alt='' />
-											</a>
-										</li>
-										<li>
-											<a href={member.linkedin_id} target='_blank'>
-												<img className='svg w-[25px]' src={linkedin} alt='' />
-											</a>
-										</li>
-									</ul>
-								</div>
+								<Card
+									imageUrl={getImagesAPI("profile", member.user_id)}
+									member_name={member.name}
+									member_post={"Festival Secretary"}
+									insta_id={member.insta_id}
+									linkedin_id={member.linkedin_id}
+									isproff={false}
+								/>
 							))}
 					</div>
 				</div>
@@ -240,36 +179,14 @@ const Team = () => {
 								return e.type === "COCO";
 							})
 							.map((member) => (
-								<div className='card'>
-									<div className='contentTeam'>
-										<div className='imgBx'>
-											<img
-												src={getImagesAPI("profile", member.user_id)}
-												alt=''
-												srcset=''
-											/>
-										</div>
-										<div className='contentBx'>
-											<h3>
-												{member.name}
-												<br />
-												<span>Co-Coordinator</span>
-											</h3>
-										</div>
-									</div>
-									<ul className='sci'>
-										<li>
-											<a href={member.insta_id} target='_blank'>
-												<img className='svg w-[25px]' src={instagram} alt='' />
-											</a>
-										</li>
-										<li>
-											<a href={member.linkedin_id} target='_blank'>
-												<img className='svg w-[25px]' src={linkedin} alt='' />
-											</a>
-										</li>
-									</ul>
-								</div>
+								<Card
+									imageUrl={getImagesAPI("profile", member.user_id)}
+									member_name={member.name}
+									member_post={"Co-Coordinator"}
+									insta_id={member.insta_id}
+									linkedin_id={member.linkedin_id}
+									isproff={false}
+								/>
 							))}
 					</div>
 				</div>
@@ -286,36 +203,14 @@ const Team = () => {
 								return e.type === "PR";
 							})
 							.map((member) => (
-								<div className='card'>
-									<div className='contentTeam'>
-										<div className='imgBx'>
-											<img
-												src={getImagesAPI("profile", member.user_id)}
-												alt=''
-												srcset=''
-											/>
-										</div>
-										<div className='contentBx'>
-											<h3>
-												{member.name}
-												<br />
-												<span>PR Lead</span>
-											</h3>
-										</div>
-									</div>
-									<ul className='sci'>
-										<li>
-											<a href={member.insta_id} target='_blank'>
-												<img className='svg w-[25px]' src={instagram} alt='' />
-											</a>
-										</li>
-										<li>
-											<a href={member.linked_id} target='_blank'>
-												<img className='svg w-[25px]' src={linkedin} alt='' />
-											</a>
-										</li>
-									</ul>
-								</div>
+								<Card
+									imageUrl={getImagesAPI("profile", member.user_id)}
+									member_name={member.name}
+									member_post={"PR Lead"}
+									insta_id={member.insta_id}
+									linkedin_id={member.linkedin_id}
+									isproff={false}
+								/>
 							))}
 					</div>
 				</div>
