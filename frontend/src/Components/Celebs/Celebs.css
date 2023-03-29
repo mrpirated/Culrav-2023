@@ -20,7 +20,16 @@
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
-    padding: 0px 9%;
+    padding: 0px 12%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #Gallery {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    padding: 0px 5%;
   }
 }
 

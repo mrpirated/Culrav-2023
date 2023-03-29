@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import logo from "../../Assets/Home/Logo.png";
 import { Link } from "react-scroll";
 import { User } from "../../User/User";
+import { useLogout } from "../../Hooks/useLogout";
 import "./Navbar.css";
 
 const navItems = ["home", "about", "events", "sponsors", "contact"];
@@ -11,7 +12,12 @@ function Navbar() {
 	const [toggle, setToggle] = useState(false);
 	const [navScroll, setScroll] = useState(false);
 	const { user } = User();
+	const { logout } = useLogout();
 	const navbarRef = useRef();
+
+	const handleClickLogout = async (e) => {
+		logout();
+	};
 
 	useEffect(() => {
 		const applyContainerProperties = () => {
@@ -49,7 +55,7 @@ function Navbar() {
 		};
 
 		applyContainerProperties();
-	}, []);
+	});
 
 	const HamOpen = (
 		<svg
@@ -163,12 +169,17 @@ function Navbar() {
 						} xl:mt-[-80px] 2xl:mt-[-120px] md:ml-[10px] xl:ml-[20px] sm:px-4 sm:py-2 lg:px-6 lg:py-4 text-black font-bold hover:text-white hover:bg-dark transition ease-in-out duration-700`}
 					>
 						<li
-							className='text-sm  sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]'
+							className='text-sm uppercase sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]'
 							key={`link-confirmYourSeat`}
 						>
-							{!user ? "REGISTER NOW" : `WELCOME ${user.culrav_id}`}
+							{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
 						</li>
 					</a>
+					{user && (
+						<div className='hidden md:block px-6 mt-[-105px] mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black'>
+							<button onClick={handleClickLogout}>LOGOUT</button>
+						</div>
+					)}
 				</ul>
 			</div>
 
@@ -233,10 +244,15 @@ function Navbar() {
 									</li>
 								</a>
 								<a href={!user ? "/login" : "/dashboard"} className=''>
-									<li className='px-6 text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark'>
-										{!user ? "REGISTER NOW" : `WELCOME ${user.culrav_id}`}
+									<li className='px-6 uppercase text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark'>
+										{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
 									</li>
 								</a>
+								{user && (
+									<div className='px-6 mt-[-20px] mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black'>
+										<button onClick={handleClickLogout}>LOGOUT</button>
+									</div>
+								)}
 							</ul>
 						</motion.div>
 					</div>

@@ -71,9 +71,9 @@ const Timer = () => {
 				<a href={!user ? "/login" : "/dashboard"} className=''>
 					<li
 						id='loginBtn'
-						className='pr-4 pl-3 w-[200px] mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont'
+						className='pr-4 uppercase pl-3 w-[200px] mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont'
 					>
-						{!user ? "REGISTER NOW" : `WELCOME ${user.culrav_id}`}
+						{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
 					</li>
 				</a>
 			</div>
