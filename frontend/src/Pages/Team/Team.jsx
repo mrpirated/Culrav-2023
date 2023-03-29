@@ -1,8 +1,4 @@
-import img from "../../Assets/Team/Profile.jpg";
 import "./Team.css";
-import facebook from "../../Assets/Team/facebook.svg";
-import instagram from "../../Assets/Team/instagram.svg";
-import linkedin from "../../Assets/Team/linkedin.svg";
 import { useEffect, useState } from "react";
 import getOrganizingTeamAPI from "../../api/getOrganizingTeamAPI";
 import getImagesAPI from "../../api/getImageAPI";

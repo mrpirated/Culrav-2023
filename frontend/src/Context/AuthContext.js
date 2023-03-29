@@ -22,7 +22,6 @@ export const AuthContextProvider = ({ children }) => {
 		const token = JSON.parse(localStorage.getItem("token"));
 		if (token) {
 			getUserDataAPI({ token: token }).then((response) => {
-				console.log(response);
 				var user = response.data;
 				user.token = token;
 				dispatch({ type: "LOGIN", payload: user });
@@ -30,7 +29,7 @@ export const AuthContextProvider = ({ children }) => {
 		}
 	}, []);
 
-	console.log("AuthContext state: ", state);
+	// console.log("AuthContext state: ", state);
 
 	return (
 		<AuthContext.Provider value={{ ...state, dispatch }}>
