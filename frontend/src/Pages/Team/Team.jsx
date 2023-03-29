@@ -110,7 +110,7 @@ const Team = () => {
       </div>
       <h1
         id="HeadDown"
-        className="Tech text-center pt-[240px] pb-[180px] lg:pb-[70px] lg:pt-[240px] text-grey"
+        className="Tech text-center pt-[240px] 2xl:pb-[0px] pb-[180px] lg:pb-[70px] lg:pt-[240px] text-grey"
       >
         TECH TEAM
       </h1>
