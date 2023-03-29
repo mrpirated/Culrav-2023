@@ -3,6 +3,7 @@ const debug = dbg("service:login");
 import checkIfUserExists from "../data/checkIfUserExists";
 import checkPassword from "../controllers/checkPassword";
 import getToken from "../controllers/getToken";
+import getCulravId from "../controllers/getCulravId";
 const loginService = async ({ email, password }) => {
 	var user_id;
 	var userDetails;
@@ -22,10 +23,11 @@ const loginService = async ({ email, password }) => {
 			// debug(response);
 			user_id = response.data.user.user_id;
 			userDetails = {
-				user_id:response.data.user_id,
+				user_id: user_id,
 				name: response.data.user.name,
 				email: response.data.user.email,
 				type: response.data.user.type,
+				culrav_id: getCulravId(user_id),
 			};
 			return {
 				user_password: password,
