@@ -7,7 +7,7 @@ import addOrganizingTeam from "../data/addOrganizingTeam";
 const debug = dbg("service:addOrganizingTeam");
 const addOrganizingTeamService = async (
 	token,
-	{ org_id, type, linkedin_id, insta_id }
+	{ org_id, type, name, linkedin_id, insta_id }
 ) => {
 	var user_id;
 	var user_type;
@@ -20,7 +20,7 @@ const addOrganizingTeamService = async (
 			user_type = response.data.type;
 			debug(user_type);
 			if (user_type === "ADMIN") {
-				return addOrganizingTeam(org_id, type, linkedin_id, insta_id);
+				return addOrganizingTeam(org_id, type, name, linkedin_id, insta_id);
 			} else {
 				return {
 					success: false,
