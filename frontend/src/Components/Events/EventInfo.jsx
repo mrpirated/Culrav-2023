@@ -107,16 +107,22 @@ function EventInfo(props) {
                 </div>
               </div>
               <div className="w-full md:w-[50%] h-auto p-6">
-                <motion.p variants={item} className="text-xl font-bold my-2 italic">
-                  {props.tagline}
+                <motion.p
+                  variants={item}
+                  className="text-xl ml-[20px] mr-[20px] text-center font-bold my-2 italic"
+                >
+                  "{props.tagline}"
                 </motion.p>
-                <motion.p variants={item} className="md:text-xl my-4">
+                <motion.p
+                  variants={item}
+                  className="md:text-xl text-center my-4"
+                >
                   {props.commitee_description}
                 </motion.p>
               </div>
             </div>
             <div className="flex justify-center">
-              <p className="text-xl mt-[40px] mb-[-10px] font-bold lg:text-3xl ">
+              <p className="text-2xl ml-[20px] mr-[20px] text-center xlsm:mt-[5px] xs:mt-[5px] xlsm:mb-[13px] xs:mb-[13px] md:mt-[25px] md:mb-[-15px] uppercase mt-[40px] mb-[-10px] font-bold lg:text-3xl ">
                 Events Under {props.name}
               </p>
             </div>
@@ -130,16 +136,16 @@ function EventInfo(props) {
                 return <EventCard {...element} />;
               })}
             </div>
-            {/* <div className="flex justify-center">
-              <p className="text-xl font-bold lg:text-3xl ">
+            <div className="flex justify-center">
+              <p className="text-2xl text-center ml-[20px] mr-[20px] xlsm:mt-[35px] xs:mt-[35px] md:mt-[0px] md:mb-[0px] uppercase font-bold lg:text-3xl ">
                 {props.name} COORDINATORS
               </p>
-            </div> */}
-            {/* <div className="flex flex-row flex-wrap justify-center">
+            </div>
+            <div className="flex flex-row flex-wrap justify-center">
               <Team />
               <Team />
               <Team />
-            </div> */}
+            </div>
           </div>
         </motion.div>
       </div>

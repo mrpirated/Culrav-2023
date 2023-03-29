@@ -9,12 +9,13 @@ import img8 from "../../../Assets/Celebs/Past/local_train.webp";
 import img9 from "../../../Assets/Celebs/Past/shirley_setia.jpg";
 import img10 from "../../../Assets/Celebs/Past/zaeden.jpg";
 import img11 from "../../../Assets/Celebs/Past/rahat_indori.webp";
+import img12 from "../../../Assets/Celebs/Past/shlesh_gautam.jpg";
 
 const pastCelebs = [
   {
-    url: img1,
-    name: "BISWA KALYAN RATH",
-    label: "Comedian",
+    url: img5,
+    name: "FARHAN AKHTAR",
+    label: "Actor",
   },
   {
     url: img9,
@@ -27,14 +28,14 @@ const pastCelebs = [
     label: "Comedian",
   },
   {
-    url: img4,
-    name: "AHSAAN QURESHI",
-    label: "Comedian",
+    url: img7,
+    name: "THE YELLOW DIARY",
+    label: "Band",
   },
   {
-    url: img5,
-    name: "FARHAN AKHTAR",
-    label: "Actor",
+    url: img1,
+    name: "BISWA KALYAN RATH",
+    label: "Comedian",
   },
   {
     url: img6,
@@ -42,14 +43,14 @@ const pastCelebs = [
     label: "Model",
   },
   {
-    url: img7,
-    name: "THE YELLOW DIARY",
-    label: "Band",
+    url: img4,
+    name: "AHSAAN QURESHI",
+    label: "Comedian",
   },
   {
-    url: img8,
-    name: "THE LOCAL TRAIN",
-    label: "Band",
+    url: img11,
+    name: "RAHAT INDORI",
+    label: "Lyricist",
   },
   {
     url: img2,
@@ -57,14 +58,19 @@ const pastCelebs = [
     label: "Author",
   },
   {
+    url: img12,
+    name: "SHLESH GAUTAM",
+    label: "Poet",
+  },
+  {
     url: img10,
     name: "ZAEDEN",
     label: "Singer",
   },
   {
-    url: img11,
-    name: "RAHAT INDORI",
-    label: "Lyricist",
+    url: img8,
+    name: "THE LOCAL TRAIN",
+    label: "Band",
   },
 ];
 
