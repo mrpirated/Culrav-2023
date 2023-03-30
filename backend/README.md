@@ -463,7 +463,7 @@
             "message": string
         }
         ```
-18. api/getAllPOCs (GET)
+18. api/getAllECs (GET)
    - response
         ```javascript
         {
@@ -480,6 +480,56 @@
                     "ec_culrav_id":Integer
                 }
             ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+19. api/removePOCs (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization":Bearer Token,
+        },
+        "body":{
+            "poc_id":Integer,
+            "commitee_id":Integer
+        }
+        ```
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+20.  api/removeECs (POST)
+   - request
+        ```javascript
+        "headers":{
+            "authorization":Bearer Token,
+        },
+        "body":{
+            "ec_id":Integer,
+            "commitee_id":Integer
+        }
+        ```
+    - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
         }
         ```
    - error
