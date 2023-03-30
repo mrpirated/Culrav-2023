@@ -9,7 +9,7 @@ const addPOCs = async (user_id, commitee_id) => {
 			poc_id: user_id,
 			commitee_id: commitee_id,
 		};
-		pool.query(`INSERT INTO pocs SET ?`, [values, user_id], (err, result) => {
+		pool.query(`INSERT INTO pocs SET ?`, [values], (err, result) => {
 			if (err) {
 				reject({ success: false, message: err });
 			} else resolve({ success: true, message: "POC updated successfully" });

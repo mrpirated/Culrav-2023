@@ -9,7 +9,7 @@ const addECs = async (user_id, event_id) => {
 			ec_id: user_id,
 			event_id: event_id,
 		};
-		pool.query(`INSERT INTO ecs  SET ?`, [values, user_id], (err, result) => {
+		pool.query(`INSERT INTO ecs  SET ?`, [values], (err, result) => {
 			if (err) {
 				reject({ success: false, message: err });
 			} else resolve({ success: true, message: "EC updated successfully" });

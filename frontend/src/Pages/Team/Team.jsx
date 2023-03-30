@@ -112,6 +112,32 @@ const Team = () => {
 					</div>
 				</div>
 			</div>
+
+			<h1
+				id='HeadDown'
+				className='Fest text-center xs:pt-[240px] xlsm:pt-[240px] 2xl:pt-[50px] lg:pt-[0px] pb-[150px] lg:pb-[160px] text-grey'
+			>
+				FESTIVAL SECRETARIES
+			</h1>
+			<div className='bodyTeam'>
+				<div className='SectionTeam'>
+					<div className='containerTeam'>
+						{organizingTeam
+							.filter((e) => {
+								return e.type === "FS";
+							})
+							.map((member) => (
+								<Card
+									imageUrl={getImagesAPI("profile", member.user_id)}
+									member_name={member.name}
+									member_post={"Festival Secretary"}
+									insta_id={member.insta_id}
+									linkedin_id={member.linkedin_id}
+								/>
+							))}
+					</div>
+				</div>
+			</div>
 			<h1
 				id='HeadDown'
 				className='Tech text-center pt-[240px] xl:pb-[55px] 2xl:pt-[260px] 2xl:pb-[0px] pb-[150px] lg:pb-[50px] lg:pt-[240px] text-grey'
@@ -140,33 +166,6 @@ const Team = () => {
 					</div>
 				</div>
 			</div>
-
-			<h1
-				id='HeadDown'
-				className='Fest text-center xs:pt-[240px] xlsm:pt-[240px] 2xl:pt-[50px] lg:pt-[0px] pb-[150px] lg:pb-[160px] text-grey'
-			>
-				FESTIVAL SECRETARIES
-			</h1>
-			<div className='bodyTeam'>
-				<div className='SectionTeam'>
-					<div className='containerTeam'>
-						{organizingTeam
-							.filter((e) => {
-								return e.type === "FS";
-							})
-							.map((member) => (
-								<Card
-									imageUrl={getImagesAPI("profile", member.user_id)}
-									member_name={member.name}
-									member_post={"Festival Secretary"}
-									insta_id={member.insta_id}
-									linkedin_id={member.linkedin_id}
-								/>
-							))}
-					</div>
-				</div>
-			</div>
-
 			<h1
 				id='HeadDown'
 				className='text-center pt-[240px] pb-[150px] 2xl:pt-[260px] lg:pb-[160px] text-grey'
