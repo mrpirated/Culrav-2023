@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { useAuthContext } from "./useAuthContext";
+import { useDispatch, useSelector } from "react-redux";
 // import axios from "axios";
 import toast from "react-hot-toast";
 import loginAPI from "../api/loginAPI";
-
+import { loggedIn } from "../store/auth";
 export const useLogin = () => {
 	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(null);
-	const { dispatch } = useAuthContext();
-
+	const dispatch = useDispatch();
 	const login = async (email, password) => {
 		setIsLoading(true);
 		setError(null);
@@ -17,8 +16,10 @@ export const useLogin = () => {
 				console.log(response);
 				if (response.success) {
 					localStorage.setItem("token", JSON.stringify(response.data.token));
-					response.data.user.token = response.data.token;
-					dispatch({ type: "LOGIN", payload: response.data.user });
+					// response.data.user.token = response.data.token;
+					dispatch(
+						loggedIn({ user: response.data.user, token: response.data.token })
+					);
 					toast.success(response.message);
 				} else {
 					toast.error(response.message);

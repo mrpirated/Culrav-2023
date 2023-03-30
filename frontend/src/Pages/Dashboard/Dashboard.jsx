@@ -3,14 +3,14 @@ import CreateTeam from "./CreateTeam";
 import DashboardNavbar from "./DashboardNavbar";
 import Myteams from "./Myteams";
 import AddTeamMembers from "./AddTeamMembers";
-import { User } from "../../User/User";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Dashboard() {
-	const { user } = User();
+	const auth = useSelector((state) => state.auth);
 	const navigate = useNavigate();
-	useEffect(() => {
-		navigate("/");
-	}, []);
+	// useEffect(() => {
+	// 	navigate("/");
+	// }, []);
 	return (
 		<>
 			<DashboardNavbar />
@@ -20,10 +20,10 @@ function Dashboard() {
 					<div className='flex flex-col flex-wrap w-full h-[70px]'>
 						<div className='bg-light md:mt-[8px] ml-[-16px] md:ml-[-16px] my-2 w-full rounded-md'>
 							<p className='text-2xl p-4 text-brown'>
-								Hello, <span className='text-red'>{user.name}</span>
+								Hello, <span className='text-red'>{auth.user.name}</span>
 							</p>
 							<p className='text-sm ml-[2px] p-4 pb-4 mt-[-30px] text-brown'>
-								{user.email}
+								{auth.user.email}
 							</p>
 						</div>
 					</div>

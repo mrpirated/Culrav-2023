@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import "./Timer.css";
-import { User } from "../../User/User";
-
+import { useSelector } from "react-redux";
 const Timer = () => {
 	const [timerDays, setTimerDays] = useState("00");
 	const [timerHours, setTimerHours] = useState("00");
 	const [timerMinutes, setTimerMinutes] = useState("00");
 	const [timerSeconds, setTimerSeconds] = useState("00");
-	const { user } = User();
+	const auth = useSelector((state) => state.auth);
 
 	let interval = useRef();
 
@@ -68,12 +67,12 @@ const Timer = () => {
 				</div>
 			</div>
 			<div className='md:hidden'>
-				<a href={!user ? "/login" : "/dashboard"} className=''>
+				<a href={!auth.isauth ? "/login" : "/dashboard"} className=''>
 					<li
 						id='loginBtn'
 						className='pr-4 uppercase pl-3 w-[200px] mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont'
 					>
-						{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
+						{!auth.isauth ? "REGISTER NOW" : `WELCOME ${auth.user.name}`}
 					</li>
 				</a>
 			</div>

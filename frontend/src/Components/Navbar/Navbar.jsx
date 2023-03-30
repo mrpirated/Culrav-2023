@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import logo from "../../Assets/Home/Logo.png";
 import { Link } from "react-scroll";
-import { User } from "../../User/User";
 import { useLogout } from "../../Hooks/useLogout";
+import { useSelector } from "react-redux";
 import "./Navbar.css";
 
 const navItems = ["about", "events", "sponsors", "schedule", "contact"];
@@ -11,7 +11,7 @@ const navItems = ["about", "events", "sponsors", "schedule", "contact"];
 function Navbar() {
 	const [toggle, setToggle] = useState(false);
 	const [navScroll, setScroll] = useState(false);
-	const { user } = User();
+	const auth = useSelector((state) => state.auth);
 	const { logout } = useLogout();
 	const navbarRef = useRef();
 
@@ -163,7 +163,7 @@ function Navbar() {
 						</li>
 					</a>
 					<a
-						href={!user ? "/login" : "/dashboard"}
+						href={!auth.isauth ? "/login" : "/dashboard"}
 						className={`hidden md:block bg-light md:mt-[-15px] ${
 							!navScroll ? "lg:mt-[20px]" : "lg:mt-[-7px]"
 						} xl:mt-[-80px] 2xl:mt-[-120px] md:ml-[10px] xl:ml-[20px] sm:px-4 sm:py-2 lg:px-6 lg:py-4 text-black font-bold hover:text-white hover:bg-dark transition ease-in-out duration-700`}
@@ -172,10 +172,10 @@ function Navbar() {
 							className='text-sm uppercase sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]'
 							key={`link-confirmYourSeat`}
 						>
-							{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
+							{!auth.isauth ? "REGISTER NOW" : `WELCOME ${auth.user.name}`}
 						</li>
 					</a>
-					{user && (
+					{auth.isauth && (
 						<li className='hidden md:block text-sm 2xl:mt-[-120px] xl:mt-[-80px] ml-[30px] uppercase sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]'>
 							<button onClick={handleClickLogout}>LOGOUT</button>
 						</li>
@@ -243,12 +243,14 @@ function Navbar() {
 										TEAM
 									</li>
 								</a>
-								<a href={!user ? "/login" : "/dashboard"} className=''>
+								<a href={!auth.isauth ? "/login" : "/dashboard"} className=''>
 									<li className='px-6 uppercase text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark'>
-										{!user ? "REGISTER NOW" : `WELCOME ${user.name}`}
+										{!auth.isauth
+											? "REGISTER NOW"
+											: `WELCOME ${auth.user.name}`}
 									</li>
 								</a>
-								{user && (
+								{auth.isauth && (
 									<div className='px-6 mt-[-20px] mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black'>
 										<button onClick={handleClickLogout}>LOGOUT</button>
 									</div>

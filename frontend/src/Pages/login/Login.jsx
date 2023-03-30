@@ -1,11 +1,12 @@
 import "./login.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../Hooks/useLogin";
 import { useSignup } from "../../Hooks/useSignup";
 import toast from "react-hot-toast";
-
+import { useSelector } from "react-redux";
 function Login() {
+	const auth = useSelector((state) => state.auth);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [mnnitID, setMnnitID] = useState("");
@@ -17,6 +18,11 @@ function Login() {
 	const { login, error } = useLogin();
 	const { signup, isLoadingSignup, errorSignup } = useSignup();
 	const navigate = useNavigate();
+	useEffect(() => {
+		if (auth.isauth) {
+			navigate("/");
+		}
+	}, [auth]);
 	const toggleForm = async () => {
 		let section = document.querySelector("section");
 		let container = document.querySelector(".container");

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios, * as others from "axios";
 import Select from "react-select";
-import { User } from "../../User/User";
 import toast from "react-hot-toast";
 import addPOCsAPI from "../../api/addPOCsAPI";
-
+import { useSelector } from "react-redux";
 const AddPoc = () => {
 	const [options, setoptions] = useState([]);
 	const [selectedoption, setselectedoption] = useState(null);
 	const [poc, setpoc] = useState("");
-	const { user } = User();
+	const auth = useSelector((state) => state.auth);
 
 	const getCommiteeData = async () => {
 		const response = await axios.get(process.env.REACT_APP_COMM);
@@ -34,7 +33,7 @@ const AddPoc = () => {
 			toast.warn("Select a commitee first");
 		} else {
 			await addPOCsAPI({
-				token: user.token,
+				token: auth.token,
 				poc_id: poc,
 				commitee_id: selectedoption,
 			});

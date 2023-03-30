@@ -1,11 +1,11 @@
-import { useAuthContext } from "./useAuthContext";
-
+import { useDispatch } from "react-redux";
+import { loggedOut } from "../store/auth";
 export const useLogout = () => {
-	const { dispatch } = useAuthContext();
+	const dispatch = useDispatch();
 
 	const logout = () => {
 		localStorage.removeItem("token");
-		dispatch({ type: "LOGOUT" });
+		dispatch(loggedOut());
 	};
 
 	return { logout };

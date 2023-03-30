@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios, * as others from "axios";
 import Select from "react-select";
-import { User } from "../../User/User";
 import toast from "react-hot-toast";
 import addECsAPI from "../../api/addECsAPI";
-
+import { useSelector } from "react-redux";
 const AddEc = () => {
 	const [options, setoptions] = useState([]);
 	const [selectedoption, setselectedoption] = useState(null);
 	const [ec, setec] = useState("");
-	const { user } = User();
+	const auth = useSelector((state) => state.auth);
 
 	const getCommiteeData = async () => {
 		const response = await axios.get(process.env.REACT_APP_COMM);
@@ -34,7 +33,7 @@ const AddEc = () => {
 			toast.warn("Select a commitee first");
 		} else {
 			await addECsAPI({
-				token: user.token,
+				token: auth.token,
 				ec_id: ec,
 				event_id: selectedoption,
 			});
