@@ -1,6 +1,6 @@
 const config = {
 	baseUrl: process.env.REACT_APP_BASE_URL,
-	environment: process.env.REACT_APP_ENVIRONMENT,
+	environment: process.env.REACT_APP_ENVIRONMENT || "development",
 	login: "/login",
 	signup: "/signup",
 	getCommiteeEvents: "/getCommiteeEvents",
