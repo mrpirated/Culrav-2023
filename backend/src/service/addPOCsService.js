@@ -1,8 +1,8 @@
 import dbg from "debug";
 import addPOCs from "../data/addPOCs";
-import changeUserType from "../data/changeUserType";
 import getUserType from "../data/getUserType";
 import checkTokenService from "./checkTokenService";
+import checkIfUserIdExists from "../data/checkIfUserIdExists";
 const debug = dbg("service:addPOCs");
 const addPOCsService = async (token, { poc_id, commitee_id }) => {
 	var user_id;
@@ -16,18 +16,16 @@ const addPOCsService = async (token, { poc_id, commitee_id }) => {
 			user_type = response.data.type;
 			debug(user_type);
 			if (user_type === "ADMIN" || user_type === "FS") {
-				return changeUserType(poc_id, "POC");
+				return checkIfUserIdExists(poc_id);
 			} else {
-				return {
+				return Promise.reject({
 					success: false,
 					message: "User not authorized for adding this team member",
-				};
+				});
 			}
 		})
 		.then((response) => {
-			if (response.success) {
-				return addPOCs(poc_id, commitee_id);
-			} else return response;
+			return addPOCs(poc_id, commitee_id);
 		})
 		.catch((error) => {
 			return error;
