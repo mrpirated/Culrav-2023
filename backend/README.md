@@ -439,3 +439,53 @@
             "message": string
         }
         ```
+17. api/getAllPOCs (GET)
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data":[
+                {
+                    "poc_id": Integer,
+                    "poc_name": String,
+                    "commitee_id" : Integer,
+                    "commitee_name": String,
+                    "poc_culrav_id":Integer
+                }
+            ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```
+18. api/getAllPOCs (GET)
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data":[
+                {
+                    "ec_id": Integer,
+                    "ec_name": String,
+                    "commitee_id" : Integer,
+                    "commitee_name": String,
+                    "event_id" : Integer,
+                    "event_name": String,
+                    "ec_culrav_id":Integer
+                }
+            ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```

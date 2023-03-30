@@ -1,10 +1,10 @@
 import dbg from "debug";
-import addPOCs from "../data/addPOCs";
+import removeECs from "../data/removeECs";
 import getUserType from "../data/getUserType";
 import checkTokenService from "./checkTokenService";
 import checkIfUserIdExists from "../data/checkIfUserIdExists";
-const debug = dbg("service:addPOCs");
-const addPOCsService = async (token, { poc_id, commitee_id }) => {
+const debug = dbg("service:removeECs");
+const removeECsService = async (token, { ec_id, event_id }) => {
 	var user_id;
 	var user_type;
 	return await checkTokenService(token)
@@ -14,9 +14,8 @@ const addPOCsService = async (token, { poc_id, commitee_id }) => {
 		})
 		.then((response) => {
 			user_type = response.data.type;
-			debug(user_type);
-			if (user_type === "ADMIN" || user_type === "FS") {
-				return checkIfUserIdExists(poc_id);
+			if (user_type === "ADMIN" || user_type === "FS" || user_type === "POC") {
+				return checkIfUserIdExists(ec_id);
 			} else {
 				return Promise.reject({
 					success: false,
@@ -25,10 +24,10 @@ const addPOCsService = async (token, { poc_id, commitee_id }) => {
 			}
 		})
 		.then((response) => {
-			return addPOCs(poc_id, commitee_id);
+			return removeECs(ec_id, event_id);
 		})
 		.catch((error) => {
 			return error;
 		});
 };
-export default addPOCsService;
+export default removeECsService;

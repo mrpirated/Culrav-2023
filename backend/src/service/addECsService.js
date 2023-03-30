@@ -3,6 +3,7 @@ import addECs from "../data/addECs";
 import changeUserType from "../data/changeUserType";
 import getUserType from "../data/getUserType";
 import checkTokenService from "./checkTokenService";
+import checkIfUserIdExists from "../data/checkIfUserIdExists";
 const debug = dbg("service:addECs");
 const addECsService = async (token, { ec_id, event_id }) => {
 	var user_id;
@@ -15,18 +16,16 @@ const addECsService = async (token, { ec_id, event_id }) => {
 		.then((response) => {
 			user_type = response.data.type;
 			if (user_type === "ADMIN" || user_type === "FS" || user_type === "POC") {
-				return changeUserType(ec_id, "EC");
+				return checkIfUserIdExists(ec_id);
 			} else {
-				return {
+				return Promise.reject({
 					success: false,
 					message: "User not authorized for adding this team member",
-				};
+				});
 			}
 		})
 		.then((response) => {
-			if (response.success) {
-				return addECs(ec_id, event_id);
-			} else return response;
+			return addECs(ec_id, event_id);
 		})
 		.catch((error) => {
 			return error;
