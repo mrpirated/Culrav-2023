@@ -1,5 +1,6 @@
 const config = {
 	baseUrl: process.env.REACT_APP_BASE_URL,
+	environment: process.env.REACT_APP_ENVIRONMENT,
 	login: "/login",
 	signup: "/signup",
 	getCommiteeEvents: "/getCommiteeEvents",
@@ -13,7 +14,7 @@ const config = {
 	removeMemberFromTeam: "/removeMemberFromTeam",
 	activateTeamLink: "/activateTeamLink",
 	getOrganizingTeam: "/getOrganizingTeam",
-	getImages:"/getImage",
-	editEventDetails:"/editEventDetails",
+	getImages: "/getImage",
+	editEventDetails: "/editEventDetails",
 };
 export default config;

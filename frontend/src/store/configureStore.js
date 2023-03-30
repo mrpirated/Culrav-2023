@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import reducer from "./reducer";
-import { getDefaultMiddleware } from "@reduxjs/toolkit";
+import config from "../config";
 const store = configureStore({
 	reducer,
-	middleware: getDefaultMiddleware({ serializableCheck: false }),
+	devtools: config.environment === "production" ? true : false,
 });
 export default store;
