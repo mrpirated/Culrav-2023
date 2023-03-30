@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 //Pages
 import Login from "./Pages/login/Login";
@@ -10,6 +10,7 @@ import Login from "./Pages/login/Login";
 import Team from "./Pages/Team/Team";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import LoadingProvider from "./Components/LoadingProvider";
 import NavPageDash from "./Pages/Dashboard/NavPage";
 import DashboardAdmin from "./Pages/Dashboard/Admin/DashboardAdmin";
 import DashboardPoc from "./Pages/Dashboard/poc/DashboardPoc";
@@ -103,66 +104,68 @@ function App() {
 	}, []);
 	return (
 		<div className=''>
-			<Toaster position='top-right' reverseOrder={false} />
-			<BrowserRouter>
-				<Routes>
-					<Route path='/login' element={<Login />}></Route>
-					<Route
-						path='/'
-						element={
-							<>
-								<Preloader />
-								<Navbar />
-								<ScrollToTop />
-								<div className='HomeBack'>
-									<Home />
-								</div>
-								<div className='AboutBack'>
-									<AboutUs />
-								</div>
-								<div className='TrailerBack'>
-									<Trailer />
-									<Events />
-									<Celebs />
-									<Previous />
-								</div>
-								<div className='SponsorBack'>
-									<Sponsors ImageList={List} />
-									<Contact />
-								</div>
-							</>
-						}
-					></Route>
-					<Route
-						path='/team'
-						element={
-							<>
-								<NavPageTeam />
-								<Team />
-							</>
-						}
-					></Route>
-					<Route
-						path='/dashboard'
-						element={
-							<ProtectedRoute>
-								<Dashboard />
-							</ProtectedRoute>
-						}
-						// element={
-						//   user ? (
-						//     <>
-						//       <NavPageDash />
-						//       <Dashboard />
-						//     </>
-						//   ) : (
-						//     <Navigate to="/login" />
-						//   )
-						// }
-					></Route>
-					;
-				</Routes>
-			</BrowserRouter>
+			<LoadingProvider active={auth.isloading}>
+				<Toaster position='top-right' reverseOrder={false} />
+				<BrowserRouter>
+					<Routes>
+						<Route path='/login' element={<Login />}></Route>
+						<Route
+							path='/'
+							element={
+								<>
+									<Preloader />
+									<Navbar />
+									<ScrollToTop />
+									<div className='HomeBack'>
+										<Home />
+									</div>
+									<div className='AboutBack'>
+										<AboutUs />
+									</div>
+									<div className='TrailerBack'>
+										<Trailer />
+										<Events />
+										<Celebs />
+										<Previous />
+									</div>
+									<div className='SponsorBack'>
+										<Sponsors ImageList={List} />
+										<Contact />
+									</div>
+								</>
+							}
+						></Route>
+						<Route
+							path='/team'
+							element={
+								<>
+									<NavPageTeam />
+									<Team />
+								</>
+							}
+						></Route>
+						<Route
+							path='/dashboard'
+							element={
+								<ProtectedRoute>
+									<Dashboard />
+								</ProtectedRoute>
+							}
+							// element={
+							//   user ? (
+							//     <>
+							//       <NavPageDash />
+							//       <Dashboard />
+							//     </>
+							//   ) : (
+							//     <Navigate to="/login" />
+							//   )
+							// }
+						></Route>
+						;
+					</Routes>
+				</BrowserRouter>
+			</LoadingProvider>
 		</div>
 	);
 }
