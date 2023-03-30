@@ -11,8 +11,7 @@ const getAllECs = async () => {
             FROM user u 
             JOIN ecs ec ON ec.ec_id = u.user_id
             JOIN event e ON e.event_id = ec.event_id
-            JOIN commitee c ON c.commitee_id = e.commitee_id
-            WHERE u.type = "EC"`,
+            JOIN commitee c ON c.commitee_id = e.commitee_id`,
 			(err, result) => {
 				if (err) {
 					debug(err);

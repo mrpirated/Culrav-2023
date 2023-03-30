@@ -9,16 +9,11 @@ const addPOCs = async (user_id, commitee_id) => {
 			poc_id: user_id,
 			commitee_id: commitee_id,
 		};
-		pool.query(
-			`INSERT INTO pocs  SET ?;
-			UPDATE user SET type = "POC" WHERE user_id = ?`,
-			[values, user_id],
-			(err, result) => {
-				if (err) {
-					reject({ success: false, message: err });
-				} else resolve({ success: true, message: "POC updated successfully" });
-			}
-		);
+		pool.query(`INSERT INTO pocs SET ?`, [values, user_id], (err, result) => {
+			if (err) {
+				reject({ success: false, message: err });
+			} else resolve({ success: true, message: "POC updated successfully" });
+		});
 	});
 };
 export default addPOCs;

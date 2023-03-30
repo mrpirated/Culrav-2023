@@ -9,8 +9,7 @@ const getAllPOCs = async () => {
             c.commitee_id, c.name as commitee_name
             FROM user u 
             JOIN pocs p ON p.poc_id = u.user_id
-            JOIN commitee c ON c.commitee_id = p.commitee_id
-            WHERE u.type = "POC"`,
+            JOIN commitee c ON c.commitee_id = p.commitee_id`,
 			(err, result) => {
 				if (err) {
 					debug(err);
