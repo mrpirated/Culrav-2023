@@ -12,7 +12,7 @@ const addPOCs = async (user_id, commitee_id) => {
 		pool.query(
 			`INSERT INTO pocs  SET ?;
 			UPDATE user SET type = "POC" WHERE user_id = ?`,
-			[values, poc_id],
+			[values, user_id],
 			(err, result) => {
 				if (err) {
 					reject({ success: false, message: err });
