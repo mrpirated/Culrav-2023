@@ -439,3 +439,27 @@
             "message": string
         }
         ```
+17. api/getAllPOCs (GET)
+   - response
+        ```javascript
+        {
+            "success":boolean, //true
+            "message":string,
+            "data":[
+                {
+                    "poc_id": Integer,
+                    "poc_name": String,
+                    "commitee_id" : Integer,
+                    "commitee_name": String,
+                    "poc_culrav_id":Integer
+                }
+            ]
+        }
+        ```
+   - error
+        ```javascript
+        {
+            "success":boolean,//false
+            "message": string
+        }
+        ```

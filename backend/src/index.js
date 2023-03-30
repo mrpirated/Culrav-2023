@@ -23,6 +23,7 @@ import getUserData from "./routes/getUserData";
 import getImage from "./routes/getImage";
 import getOrganizingTeam from "./routes/getOrganizingTeam";
 import addOrganizingTeam from "./routes/addOrganizingTeam";
+import getAllPOCs from "./routes/getAllPOCs";
 dotenv.config();
 
 const PORT = config.PORT;
@@ -55,7 +56,8 @@ app.use(
 	getImage,
 	editEventDetails,
 	getOrganizingTeam,
-	addOrganizingTeam
+	addOrganizingTeam,
+	getAllPOCs
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");
