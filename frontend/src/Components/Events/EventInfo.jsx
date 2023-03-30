@@ -107,14 +107,11 @@ function EventInfo(props) {
               <div className="w-full md:w-[50%] h-auto p-6">
                 <motion.p
                   variants={item}
-                  className="text-xl font-bold my-2 italic"
+                  className="text-xl ml-[10px] mr-[10px] my-2 font-bold italic"
                 >
                   {props.tagline}
                 </motion.p>
-                <motion.p
-                  variants={item}
-                  className="md:text-xl text-center my-4"
-                >
+                <motion.p variants={item} className="md:text-xl my-4">
                   {props.commitee_description}
                 </motion.p>
               </div>
