@@ -16,5 +16,7 @@ const config = {
 	getOrganizingTeam: "/getOrganizingTeam",
 	getImages: "/getImage",
 	editEventDetails: "/editEventDetails",
+	getAllPOCs : "/getAllPOCs",
+	getAllECs : "/getAllECs"
 };
 export default config;

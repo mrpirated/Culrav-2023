@@ -30,13 +30,14 @@ function CreateTeam() {
   const [progress, setProgress] = useState(false);
   const auth = useSelector((state) => state.auth);
   const query = useQuery();
-  const [comDefaultValue, setComDeafultValue] = useState(null)
+  const [comDefaultValue, setComDeafultValue] = useState(null);
+  const [eventDefaultValue, setEventDeafultValue] = useState(null);
 
   const onEventchange = async (event) => {
     setProgress(true);
     const id = event.value;
-	let defValue = options.filter((opt) => opt.value == parseInt(id))[0]
-	setComDeafultValue(defValue)
+    let defValue = options.filter((opt) => opt.value == parseInt(id))[0];
+    setComDeafultValue(defValue);
     setselectedsubEvent(null);
     // const response = await axios.get(
     // 	`${process.env.REACT_APP_COMMITEE}?commitee_id=${id}`
@@ -61,6 +62,10 @@ function CreateTeam() {
   const onSubEventchange = async (event) => {
     console.log("subevent selected");
     console.log(event.value);
+    let defValue = subevent.filter(
+      (opt) => opt.value == parseInt(event.value)
+    )[0];
+    setEventDeafultValue(defValue);
     setselectedsubEvent(event.value);
   };
 
@@ -70,57 +75,37 @@ function CreateTeam() {
 
   const handleClick = async () => {
     if (selectedsubEvent != null) {
-      // const response = await axios.post(`${process.env.REACT_APP_CREATETEAM}`, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${user.data.token}`,
-      //   },
-      //   body: {
-      //     event_id: selectedsubEvent,
-      //     team_name: teamName,
-      //   },
-      // });
-
       setSubevent([]);
       setselectedsubEvent(null);
       setTeamName("");
 
-      const response = await fetch(process.env.REACT_APP_CREATETEAM, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${auth.token}`,
-        },
-        body: JSON.stringify({
-          event_id: selectedsubEvent,
-          team_name: teamName,
-        }),
-      });
-      const json = await response.json();
+      const data = {
+        token: auth.token,
+        event_id: selectedsubEvent,
+        team_name: teamName,
+      };
 
-      // getCommiteeEventsAPI
-
-      if (response.ok) {
-        if (json.success) {
-          toast.success("Team created Successfully");
-          window.location.reload(false);
-        } else {
-          toast.error(json.messge);
-          // window.location.reload(false);
-          // window.alert(json.message);
-        }
+      const response = await createTeamAPI(data);
+      if (response.success) {
+        toast.success("Team created successfully");
+      } else {
+        toast.error(response.message);
       }
     } else {
       // console.log("select a sub event");
-      toast.warn("Select an event");
+      toast.error("Select an event");
     }
   };
 
   useEffect(() => {
     let com_id = query.get("com_id");
-	let defValue = options.filter((opt) => opt.value == parseInt(com_id))[0]
-	console.log(defValue);
-	setComDeafultValue(defValue)
+    let event_id = query.get("event_id");
+    let defValue = options.filter((opt) => opt.value == parseInt(com_id))[0];
+    let eventdefValue = subevent.filter(
+      (opt) => opt.value == parseInt(event_id)
+    )[0];
+    setComDeafultValue(defValue);
+    setEventDeafultValue(eventdefValue);
   }, []);
 
   return (
@@ -142,7 +127,7 @@ function CreateTeam() {
             id="selectCommitee"
             className="w-full"
             onChange={onEventchange}
-			value={comDefaultValue}
+            value={comDefaultValue}
             required
           />
         </div>
@@ -158,7 +143,7 @@ function CreateTeam() {
             id="selectEvents"
             className="w-full"
             onChange={onSubEventchange}
-            // value={selectedsubEvent}
+            value={eventDefaultValue}
             required
           />
         </div>
