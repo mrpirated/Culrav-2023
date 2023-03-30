@@ -97,21 +97,21 @@ function EventInfo(props) {
                   style={{ transform: "translate(-50%, -50%)" }}
                 >
                   <p
-                    className={`text-2xl lg:text-4xl font-extrabold text-white`}
+                    className={`text-2xl text-center pl-[40px] pr-[40px] lg:text-4xl font-extrabold text-white`}
                     style={{ fontFamily: "japan" }}
                   >
                     {props.name.toUpperCase()}
                   </p>
                 </div>
               </div>
-              <div className="w-full md:w-[50%] h-auto p-6">
+              <div className="w-full pl-[20px] pr-[40px] md:w-[50%] h-auto p-6">
                 <motion.p
                   variants={item}
                   className="text-xl ml-[10px] mr-[10px] my-2 font-bold italic"
                 >
                   {props.tagline}
                 </motion.p>
-                <motion.p variants={item} className="md:text-xl my-4">
+                <motion.p variants={item} className="md:text-[15px] my-4">
                   {props.commitee_description}
                 </motion.p>
               </div>

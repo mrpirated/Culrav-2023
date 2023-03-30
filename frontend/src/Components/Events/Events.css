@@ -19,3 +19,9 @@
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
+
+@media only screen and (max-width: 830px) {
+  #EventRegister {
+    font-size: 12px;
+  }
+}
