@@ -172,7 +172,8 @@ function Navbar() {
 							className='text-sm uppercase sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]'
 							key={`link-confirmYourSeat`}
 						>
-							{!auth.isauth ? "REGISTER NOW" : `WELCOME ${auth.user.name}`}
+							{!auth.isauth ? "REGISTER NOW" : `WELCOME ${auth.user.name} `}
+							{auth.isauth && <p className="text-xs">Go To Dashboard</p>}
 						</li>
 					</a>
 					{auth.isauth && (
@@ -247,7 +248,7 @@ function Navbar() {
 									<li className='px-6 uppercase text-white mt-[30px] mb-[30px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont hover:text-grey hover:bg-dark'>
 										{!auth.isauth
 											? "REGISTER NOW"
-											: `WELCOME ${auth.user.name}`}
+											: `WELCOME ${auth.user.name} `}
 									</li>
 								</a>
 								{auth.isauth && (
