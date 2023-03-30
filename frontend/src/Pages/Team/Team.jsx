@@ -54,13 +54,17 @@ const Team = () => {
     },
   ];
   return (
-    <div className="image" id="team">
+    <div className="image pb-[60px]" id="team">
       {/* <div>
         <h1 id="Head" className="text-center text-grey">
           OUR TEAM`
         </h1>
       </div> */}
-      <h1 id="HeadDown" className="text-center pt-[110px] pb-[180px] text-grey">
+      {/* pb-[180px] */}
+      <h1
+        id="HeadDown"
+        className="text-center pt-[110px] pb-[150px] xl:pb-[160px] text-grey"
+      >
         FACULTIES
       </h1>
       <div className="bodyTeam">
@@ -110,12 +114,15 @@ const Team = () => {
       </div>
       <h1
         id="HeadDown"
-        className="Tech text-center pt-[240px] 2xl:pb-[0px] pb-[180px] lg:pb-[70px] lg:pt-[240px] text-grey"
+        className="Tech text-center pt-[240px] xl:pb-[55px] 2xl:pt-[260px] 2xl:pb-[0px] pb-[150px] lg:pb-[50px] lg:pt-[240px] text-grey"
       >
         TECH TEAM
       </h1>
       <div className="bodyTeam">
-        <div className="SectionTeam">
+        <div
+          id="TechSection"
+          className="SectionTeam 2xl:mt-[-200px] lg:mt-[-310px] lg:mb-[-150px]"
+        >
           <div className="containerTeam">
             {organizingTeam
               .filter((e) => {
@@ -136,7 +143,7 @@ const Team = () => {
 
       <h1
         id="HeadDown"
-        className="Fest text-center xs:pt-[250px] xlsm:pt-[250px] lg:pt-[50px] pb-[180px] text-grey"
+        className="Fest text-center xs:pt-[240px] xlsm:pt-[240px] 2xl:pt-[50px] lg:pt-[0px] pb-[150px] lg:pb-[160px] text-grey"
       >
         FESTIVAL SECRETARIES
       </h1>
@@ -160,7 +167,10 @@ const Team = () => {
         </div>
       </div>
 
-      <h1 id="HeadDown" className="text-center pt-[250px] pb-[180px] text-grey">
+      <h1
+        id="HeadDown"
+        className="text-center pt-[240px] pb-[150px] 2xl:pt-[260px] lg:pb-[160px] text-grey"
+      >
         CO-COORDINATORS
       </h1>
       <div className="bodyTeam">
@@ -183,7 +193,10 @@ const Team = () => {
         </div>
       </div>
 
-      <h1 id="HeadDown" className="text-center pt-[250px] pb-[180px] text-grey">
+      <h1
+        id="HeadDown"
+        className="text-center pt-[240px] 2xl:pt-[260px] pb-[150px] lg:pb-[160px] text-grey"
+      >
         PR TEAM
       </h1>
       <div className="bodyTeam">
