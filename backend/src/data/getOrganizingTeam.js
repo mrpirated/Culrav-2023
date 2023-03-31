@@ -11,8 +11,11 @@ const getOrganizingTeam = async () => {
             LEFT JOIN insta i ON i.user_id = u.user_id
             WHERE type = "TECHLEAD"
             OR type = "FS"
+            OR type = "TECHTEAM"
             OR type = "COCO"
-            OR type = "PR"`,
+            OR type = "PR"
+			OR type = "MEDIALEAD"
+			OR type = "DESIGNLEAD"`,
 			(err, result) => {
 				if (err) {
 					reject({ success: false, message: err });

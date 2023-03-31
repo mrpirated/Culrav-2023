@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./Pages/login/Login";
 
 // import NavPageLogin from "./Pages/login/NavPage";
-import Team from "./Pages/Team/Team";
+import AllTeams from "./Pages/Team/AllTeams";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import LoadingProvider from "./Components/LoadingProvider";
@@ -32,150 +32,150 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import { loggedWithToken, tokenChecked, setLoading } from "./store/auth";
 import addHitsAPI from "./api/addHitsAPI";
 function App() {
-	// const [state, dispatchs] = useReducer(authReducer, {
-	// 	user: null,
-	// });
-	const dispatch = useDispatch();
-	const auth = useSelector((state) => state.auth);
-	const List = [
-		"./images/ola.png",
-		"./images/festpav.png",
-		"./images/kwalitywalls.png",
-		"./images/pizzahut.png",
-		"./images/pepsi.png",
-		"./images/bob.png",
-		"./images/dainikjagran.png",
-		"./images/goli.png",
-		"./images/redfm.png",
-		"./images/safeexpress.png",
-		"./images/sbi.png",
-		"./images/ias.jpg",
-		"./images/cepta.png",
-		"./images/vlcc.png",
-		"./images/bk.png",
-		"./images/dell.png",
-		"./images/ktm.jpg",
-		"./images/godrej.png",
-		"./images/autodesk.jpg",
-		"./images/ims.png",
-		"./images/ald.png",
-		"./images/gateforum.png",
-		"./images/fbb.png",
-		"./images/madeeasy.jpg",
-		"./images/dell.png",
-		"./images/godrej.png",
-		"./images/dainikjagran.png",
-		"./images/cepta.png",
-		"./images/vlcc.png",
-		"./images/sbi.png",
-		"./images/bob.png",
-		"./images/dell.png",
-	];
-	useEffect(() => {
-		addHitsAPI();
-	}, []);
-	useEffect(() => {
-		const script = document.createElement("script");
-		script.src = "/flyingButterflies.js";
-		script.async = true;
-		document.body.appendChild(script);
-		return () => {
-			document.body.removeChild(script);
-		};
-	}, []);
-	useEffect(() => {
-		dispatch(setLoading({ loading: true }));
-		if (!auth.isauth && localStorage.getItem("token")) {
-			const token = JSON.parse(localStorage.getItem("token"));
-			getUserDataAPI({ token: token })
-				.then((response) => {
-					if (response.success) {
-						dispatch(loggedWithToken({ user: response.data, token: token }));
-						var user = response.data;
-						user.token = token;
-					} else {
-						dispatch(tokenChecked());
-					}
-				})
-				.finally(() => {
-					dispatch(setLoading({ loading: false }));
-				});
-		} else {
-			dispatch(tokenChecked());
-			dispatch(setLoading({ loading: false }));
-		}
-	}, []);
-	return (
-		<div className=''>
-			<LoadingProvider active={auth.isloading}>
-				<Toaster position='top-right' reverseOrder={false} />
-				<BrowserRouter>
-					<Routes>
-						<Route path='/login' element={<Login />}></Route>
-						<Route
-							path='/'
-							element={
-								<>
-									<Preloader />
-									<Navbar />
-									<ScrollToTop />
-									<div className='HomeBack'>
-										<Home />
-									</div>
-									<div className='AboutBack'>
-										<AboutUs />
-									</div>
-									<div className='TrailerBack'>
-										<Trailer />
-										<Events />
-										<Celebs />
-										<Previous />
-									</div>
-									<div className='SponsorBack'>
-										<Sponsors ImageList={List} />
-										<Contact />
-									</div>
-								</>
-							}
-						></Route>
-						<Route
-							path='/team'
-							element={
-								<>
-									<NavPageTeam />
-									<Team />
-								</>
-							}
-						></Route>
-						<Route
-							path='/dashboard'
-							element={
-								<ProtectedRoute>
-									<Dashboard />
-								</ProtectedRoute>
-							}
-							// element={
-							//   user ? (
-							//     <>
-							//       <NavPageDash />
-							//       <Dashboard />
-							//     </>
-							//   ) : (
-							//     <Navigate to="/login" />
-							//   )
-							// }
-						></Route>
-						<Route
-							exact
-							path='/jointeam/:code'
-							element={<ProtectedRoute></ProtectedRoute>}
-						></Route>
-						;
-					</Routes>
-				</BrowserRouter>
-			</LoadingProvider>
-		</div>
-	);
+  // const [state, dispatchs] = useReducer(authReducer, {
+  // 	user: null,
+  // });
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const List = [
+    "./images/ola.png",
+    "./images/festpav.png",
+    "./images/kwalitywalls.png",
+    "./images/pizzahut.png",
+    "./images/pepsi.png",
+    "./images/bob.png",
+    "./images/dainikjagran.png",
+    "./images/goli.png",
+    "./images/redfm.png",
+    "./images/safeexpress.png",
+    "./images/sbi.png",
+    "./images/ias.jpg",
+    "./images/cepta.png",
+    "./images/vlcc.png",
+    "./images/bk.png",
+    "./images/dell.png",
+    "./images/ktm.jpg",
+    "./images/godrej.png",
+    "./images/autodesk.jpg",
+    "./images/ims.png",
+    "./images/ald.png",
+    "./images/gateforum.png",
+    "./images/fbb.png",
+    "./images/madeeasy.jpg",
+    "./images/dell.png",
+    "./images/godrej.png",
+    "./images/dainikjagran.png",
+    "./images/cepta.png",
+    "./images/vlcc.png",
+    "./images/sbi.png",
+    "./images/bob.png",
+    "./images/dell.png",
+  ];
+  useEffect(() => {
+    addHitsAPI();
+  }, []);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "/flyingButterflies.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+  useEffect(() => {
+    dispatch(setLoading({ loading: true }));
+    if (!auth.isauth && localStorage.getItem("token")) {
+      const token = JSON.parse(localStorage.getItem("token"));
+      getUserDataAPI({ token: token })
+        .then((response) => {
+          if (response.success) {
+            dispatch(loggedWithToken({ user: response.data, token: token }));
+            var user = response.data;
+            user.token = token;
+          } else {
+            dispatch(tokenChecked());
+          }
+        })
+        .finally(() => {
+          dispatch(setLoading({ loading: false }));
+        });
+    } else {
+      dispatch(tokenChecked());
+      dispatch(setLoading({ loading: false }));
+    }
+  }, []);
+  return (
+    <div className="">
+      <LoadingProvider active={auth.isloading}>
+        <Toaster position="top-right" reverseOrder={false} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />}></Route>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Preloader />
+                  <Navbar />
+                  <ScrollToTop />
+                  <div className="HomeBack">
+                    <Home />
+                  </div>
+                  <div className="AboutBack">
+                    <AboutUs />
+                  </div>
+                  <div className="TrailerBack">
+                    <Trailer />
+                    <Events />
+                    <Celebs />
+                    <Previous />
+                  </div>
+                  <div className="SponsorBack">
+                    <Sponsors ImageList={List} />
+                    <Contact />
+                  </div>
+                </>
+              }
+            ></Route>
+            <Route
+              path="/team"
+              element={
+                <>
+                  <NavPageTeam />
+                  <AllTeams />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+              // element={
+              //   user ? (
+              //     <>
+              //       <NavPageDash />
+              //       <Dashboard />
+              //     </>
+              //   ) : (
+              //     <Navigate to="/login" />
+              //   )
+              // }
+            ></Route>
+            <Route
+              exact
+              path="/jointeam/:code"
+              element={<ProtectedRoute></ProtectedRoute>}
+            ></Route>
+            ;
+          </Routes>
+        </BrowserRouter>
+      </LoadingProvider>
+    </div>
+  );
 }
 
 export default App;
