@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import navItems from "./navItems";
+import { useLogout } from "../../Hooks/useLogout";
 const HamOpen = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
@@ -43,6 +44,7 @@ function DashboardNavbar(props) {
 	const { option, setOption } = props;
 	const [toggle, setToggle] = useState(false);
 	const auth = useSelector((state) => state.auth);
+	const { logout } = useLogout();
 	// const navItems = [
 	// 	"Konnichiwa " + auth.user.name,
 	// 	"Profile",
@@ -50,6 +52,9 @@ function DashboardNavbar(props) {
 	// 	"EC",
 	// 	"Edit Event",
 	// ];
+	const handleClickLogout = async (e) => {
+		logout();
+	};
 	return (
 		<>
 			<div className='bg-off w-full h-[60px] shadow-md flex flex-row z-50'>
@@ -78,7 +83,10 @@ function DashboardNavbar(props) {
 						</div>
 
 						{/* <p className="m-2">{props.user.culrav_id}</p> */}
-						<button className=' bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-200 text-black text-xl font-semibold'>
+						<button
+							onClick={handleClickLogout}
+							className=' bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-200 text-black text-xl font-semibold'
+						>
 							Logout
 						</button>
 					</div>
@@ -111,7 +119,7 @@ function DashboardNavbar(props) {
 							<ul className='flex mt-[5px] flex-col items-center justify-start sm:mt-[-20px] w-full h-full p-0 m-0 text-xs text-black'>
 								<li className='mx-10 font-Mont pb-[20px] my-2 cursor-pointer'>
 									<div
-										className="mt-[25px] text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont "
+										className='mt-[25px] text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont '
 										smooth={true}
 										duration={500}
 									>
@@ -128,7 +136,7 @@ function DashboardNavbar(props) {
 												setToggle(false);
 												setOption(item);
 											}}
-											className=" text-white text-base mx-2 px-1 font-Mont"
+											className=' text-white text-base mx-2 px-1 font-Mont'
 											smooth={true}
 											duration={500}
 										>

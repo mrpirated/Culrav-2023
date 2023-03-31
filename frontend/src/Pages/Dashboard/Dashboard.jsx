@@ -17,19 +17,21 @@ function Dashboard() {
 					option={option}
 					setOption={setOption}
 				/>
-				{auth.user.type == "FS" && (
+				{auth.user.type == "FS" || auth.user.type == "ADMIN" ? (
 					<DashboardAdmin type={option} setType={setOption} />
+				) : (
+					<DashboardUser type={option} setType={setOption} />
 				)}
-				{auth.user.type == "ADMI" && (
+				{/* {auth.user.type == "POC" && (
 					<DashboardPOC type={option} setType={setOption} />
-				)}
-				{auth.user.type == "ADMI" && (
+				)} */}
+				{/* {auth.user.type == "EC" && (
 					<DashboardEC type={option} setType={setOption} />
-				)}
-				{auth.user.type == "NONE" ||
+				)} */}
+				{/* {auth.user.type == "NONE" ||
 					(auth.user.type == null && (
 						<DashboardUser type={option} setType={setOption} />
-					))}
+					))} */}
 				{/* {auth.user.type=="FS" && <DashboardPoc />} */}
 				{/* {auth.user.type=="EC" && <DashboardEc />} */}
 				{/* {auth.user.type=="FS" && <DashboardUser />} */}

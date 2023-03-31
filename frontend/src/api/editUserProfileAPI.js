@@ -13,6 +13,9 @@ const editUserProfileAPI = async (data) => {
 			},
 			{ headers: { Authorization: "Bearer " + token } }
 		)
+		.then((response) => {
+			return response.data;
+		})
 		.catch((err) => {
 			console.log(err);
 			return { success: false, message: err.message };

@@ -5,16 +5,22 @@ import editUserProfileAPI from "../../api/editUserProfileAPI";
 
 const UserProfile = () => {
 	const auth = useSelector((state) => state.auth);
-	const [userName, setUserName] = useState(auth.user.name);
-	const [userEmail, setUserEmail] = useState(auth.user.email);
-	const [userPhone, setUserPhone] = useState(auth.user.phone);
-	const [userCulravId, setUserCulravId] = useState(auth.user.culrav_id);
-	const [mnnitId, setMnnitId] = useState(
-		auth.user.mnnit_id === null ? "" : auth.user.mnnit_id
-	);
-	const [college, setCollege] = useState(
-		auth.user.college === null ? "" : auth.user.college
-	);
+	const [userName, setUserName] = useState("");
+	const [userPhone, setUserPhone] = useState("");
+	const [mnnitId, setMnnitId] = useState("");
+	const [college, setCollege] = useState("");
+	useEffect(() => {
+		if (auth.isauth) {
+			setUserName(auth.user.name);
+			setUserPhone(auth.user.phone);
+			if (auth.user.mnnit_id != null) {
+				setMnnitId(auth.user.mnnit_id);
+			}
+			if (auth.user.college != null) {
+				setCollege(auth.user.college);
+			}
+		}
+	}, [auth]);
 	const handleSubmit = () => {
 		editUserProfileAPI({
 			token: auth.token,
@@ -22,7 +28,8 @@ const UserProfile = () => {
 			phone: userPhone,
 			college: college === "" ? null : college,
 		}).then((response) => {
-			if (response.success) toast.success(response.message);
+			console.log(response);
+			if (response.success) toast.success("User updated");
 			else {
 				toast.error(response.message);
 			}
@@ -33,7 +40,7 @@ const UserProfile = () => {
 			<div className='bg-OccurYellow w-[95%] md:w-[80%] lg:w-1/2 m-2 p-4 shadow-md h-[600px] box-border overflow-auto rounded-md '>
 				{/* <p className="text-xl font-bold">User Details</p> */}
 				<div className='bg-lightYellow w-full p-4 rounded-md flex justify-center'>
-					<p className='text-2xl font-bold'>{userCulravId}</p>
+					<p className='text-2xl font-bold'>{auth.user.culrav_id}</p>
 				</div>
 				<div className='mt-4'>
 					<label
@@ -44,10 +51,7 @@ const UserProfile = () => {
 					</label>
 					<input
 						type='text'
-						onChange={(e) => {
-							setUserEmail(e.target.value);
-						}}
-						value={userEmail}
+						value={auth.user.email}
 						id='userEmail'
 						className='w-full  rounded-lg p-2 focus:ring-red focus:border-red'
 						required
@@ -64,15 +68,12 @@ const UserProfile = () => {
 						</label>
 						<input
 							type='text'
-							onChange={(e) => {
-								setMnnitId(e.target.value);
-							}}
 							value={mnnitId}
 							id='mnnitId'
 							placeholder='Enter your MNNIT ID'
 							className='w-full  rounded-lg p-2'
-							required
 							disabled={true}
+							required
 						/>
 					</div>
 				) : (
@@ -89,9 +90,9 @@ const UserProfile = () => {
 								setCollege(e.target.value);
 							}}
 							value={college}
-							id='mnnitId'
+							id='college'
 							placeholder='Enter your College Name'
-							className='w-full  rounded-lg p-2'
+							className='w-full  rounded-lg p-2 focus:ring-red focus:border-red bg-white'
 							required
 						/>
 					</div>
@@ -134,7 +135,10 @@ const UserProfile = () => {
 				</div>
 
 				<div className='mt-4'>
-					<button className='hover:shadow-md bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-100 text-black'>
+					<button
+						onClick={handleSubmit}
+						className='hover:shadow-md bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-100 text-black'
+					>
 						Edit Details
 					</button>
 				</div>
