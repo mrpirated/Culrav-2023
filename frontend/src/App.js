@@ -30,6 +30,7 @@ import Preloader from "./Components/Preloader/Preloader";
 import getUserDataAPI from "./api/getUserDataAPI";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import { loggedWithToken, tokenChecked, setLoading } from "./store/auth";
+import addHitsAPI from "./api/addHitsAPI";
 function App() {
   // const [state, dispatchs] = useReducer(authReducer, {
   // 	user: null,
@@ -70,7 +71,9 @@ function App() {
     "./images/bob.png",
     "./images/dell.png",
   ];
-
+  useEffect(() => {
+    addHitsAPI();
+  }, []);
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "/flyingButterflies.js";
@@ -148,7 +151,7 @@ function App() {
               path="/dashboard"
               element={
                 <ProtectedRoute>
-                  <DashboardAdmin />
+                  <Dashboard />
                 </ProtectedRoute>
               }
               // element={

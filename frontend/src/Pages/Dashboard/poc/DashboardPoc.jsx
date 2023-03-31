@@ -11,7 +11,6 @@ const DashboardPoc = () => {
   return (
     <>
       <div className={loading ? "opacity-50" : "opacity-100"}>
-        <DashboardNavbar />
         <div className="md:flex mt-[30px] md:mt-[15px] md:flex-row flex flex-col mx-10">
           {/* left dashboard  */}
           <div className="left m-4 w-[50%]">

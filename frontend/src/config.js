@@ -16,7 +16,10 @@ const config = {
 	getOrganizingTeam: "/getOrganizingTeam",
 	getImages: "/getImage",
 	editEventDetails: "/editEventDetails",
-	getAllPOCs : "/getAllPOCs",
-	getAllECs : "/getAllECs"
+	getAllPOCs: "/getAllPOCs",
+	getAllECs: "/getAllECs",
+	removePOCs: "/removePOCs",
+	removeECs: "/removeECs",
+	addHits: "/addHits",
 };
 export default config;

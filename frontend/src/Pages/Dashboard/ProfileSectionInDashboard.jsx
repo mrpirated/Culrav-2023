@@ -1,13 +1,14 @@
 import React from "react";
-import PersonIcon from "@mui/icons-material/Person";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-const AdminPanel = (props) => {
+
+const ProfileSectionInDashboard = (props) => {
   return (
     <>
       <div className="flex flex-col w-full">
         <div
           className={`${
-            props.type == props.check.toUpperCase()
+            (props.check!=null && props.type == props.check.toUpperCase())
               ? "bg-[#CCAD8F] shadow-md"
               : "bg-brown2"
           } w-full cursor-pointer hover:bg-[#CCAD8F] transition-all duration-200`}
@@ -15,7 +16,7 @@ const AdminPanel = (props) => {
         >
           <p className="text-lg p-4 text-white ">
             <span className="mr-4">
-              <PersonIcon />
+              <AccountCircleIcon />
             </span>
             {props.type}
           </p>
@@ -25,4 +26,4 @@ const AdminPanel = (props) => {
   );
 };
 
-export default AdminPanel;
+export default ProfileSectionInDashboard;

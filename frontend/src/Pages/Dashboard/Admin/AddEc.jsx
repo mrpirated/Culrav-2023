@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios, * as others from "axios";
 import Select from "react-select";
 import toast from "react-hot-toast";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 import { useDispatch, useSelector } from "react-redux";
-import getCommiteesAPI from "../../api/getCommiteesAPI";
-import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
-import { setLoading } from "../../store/auth";
+import getCommiteesAPI from "../../../api/getCommiteesAPI";
+import getCommiteeEventsAPI from "../../../api/getCommiteeEventsAPI";
+import { setLoading } from "../../../store/auth";
+import addECsAPI from "../../../api/addECsAPI";
 
 const AddEc = (props) => {
   const { commitee, commiteeEvents } = props;
@@ -16,27 +17,48 @@ const AddEc = (props) => {
   const [progress, setProgress] = useState(false);
   const [ec, setec] = useState("");
   const auth = useSelector((state) => state.auth);
+  const { setRefreshList } = props;
   const dispatch = useDispatch();
-console.log(commitee)
+  console.log(commitee);
   const onCommiteeChange = (e) => {
-	setSelectedCommitee(e.value)
-	setEvent(commiteeEvents[e.value]);
-	setSelectedEvent(0);
+    setSelectedCommitee(e);
+    setEvent(commiteeEvents[e.value]);
+    setSelectedEvent(null);
   };
 
   const onEventChange = async (e) => {
-	setSelectedEvent(e.value);
+    setSelectedEvent(e);
   };
 
   const handleClick = async () => {
-    
+    if (selectedCommitee == null || selectedEvent == null) {
+      toast.error("select an Event First");
+    } else if (ec == "") {
+      toast.error("Enter EC Culrav ID");
+    } else {
+      const data = {
+        token: auth.token,
+        ec_id: ec,
+        event_id: selectedEvent.value,
+      };
+      await addECsAPI(data)
+        .then((response) => {
+          if (response.success) {
+            toast.success(response.message);
+            setRefreshList(true);
+          } else toast.error(response.message);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
     <>
       <div className="relative">
         <div
-          className={`bg-light my-2 w-full rounded-md mx-1 box-border p-4 ${
+          className={`bg-[#7BDFF2] p-4 m-2 w-full box-border shadow-md ${
             !progress ? "opacity-100" : "opacity-40"
           }`}
         >
@@ -55,7 +77,7 @@ console.log(commitee)
               id="selectCommitee"
               className="w-full"
               onChange={onCommiteeChange}
-              // value={subevent}
+              value={selectedCommitee}
               required
             />
           </div>
@@ -68,11 +90,10 @@ console.log(commitee)
             </label>
             <Select
               options={event}
-			  value={event[selectedEvent]}
+              value={selectedEvent}
               id="selectEvents"
               className="w-full"
               onChange={onEventChange}
-              // value={selectedsubEvent}
               required
             />
           </div>
@@ -101,21 +122,14 @@ console.log(commitee)
           </div>
           <div className="mt-4">
             <button
-              className="hover:shadow-md hover:bg-[#f43e4a] transition-all duration-100"
+              className="hover:shadow-md bg-[#0A2463] hover:bg-[#1c3878] transition-all duration-100"
               onClick={handleClick}
             >
-              Create Team
+              Add EC
             </button>
           </div>
         </div>
-        {progress && (
-          <div
-            className="absolute top-[50%] left-[50%]"
-            style={{ transform: "translate(-50%, -50%)" }}
-          >
-            <Spinner />
-          </div>
-        )}
+
       </div>
     </>
   );
