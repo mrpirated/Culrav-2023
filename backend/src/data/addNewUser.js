@@ -8,6 +8,7 @@ const addNewUser = async (user) => {
 			name: user.name,
 			email: user.email,
 			password: user.password,
+			college: user.college,
 			mnnit_id: user.mnnit_id,
 		};
 

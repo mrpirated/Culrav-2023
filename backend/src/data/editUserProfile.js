@@ -2,11 +2,12 @@ import pool from "../dbconn/db";
 import dbg from "debug";
 const debug = dbg("data:editUserProfile");
 
-const editUserProfile = async (user_id, name, phone) => {
+const editUserProfile = async (user_id, name, phone, college) => {
 	return new Promise((resolve, reject) => {
 		var values = {
 			name,
 			phone,
+			college,
 		};
 		pool.query(
 			`UPDATE user SET ? WHERE user_id = ?`,

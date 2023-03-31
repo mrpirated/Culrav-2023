@@ -28,6 +28,7 @@ const loginService = async ({ email, password }) => {
 				email: response.data.user.email,
 				type: response.data.user.type,
 				mnnit_id: response.data.user.mnnit_id,
+				college: response.data.user.college,
 				phone: response.data.user.phone,
 				culrav_id: getCulravId(user_id),
 			};
