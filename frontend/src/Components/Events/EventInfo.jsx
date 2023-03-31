@@ -59,7 +59,7 @@ function EventInfo(props) {
     <>
       <div
         id="blur"
-        className="fixed w-screen h-screen z-40 top-0 left-0"
+        className="fixed w-screen h-screen z-30 top-0 left-0"
         onClick={props.handleClick}
       ></div>
       <div
@@ -75,7 +75,7 @@ function EventInfo(props) {
           className="flex flex-col w-full h-full shadow-lg overflow-auto"
         >
           <div className="relative flex flex-col w-full h-auto">
-            <div className="fixed top-[-4px] right-3 z-50 p-2 md:p-4">
+            <div className="fixed top-[-4px] right-3 z-30 p-2 md:p-4">
               <IconButton
                 color="primary"
                 aria-label="Close"
@@ -104,10 +104,10 @@ function EventInfo(props) {
                   </p>
                 </div>
               </div>
-              <div className="w-full pl-[20px] pr-[40px] md:w-[50%] h-auto p-6">
+              <div className="w-full md:pl-[20px] md:pr-[40px] pl-[40px] pr-[40px] md:w-[50%] h-auto p-6">
                 <motion.p
                   variants={item}
-                  className="text-xl ml-[10px] mr-[10px] my-2 font-bold italic"
+                  className="text-xl mt-[-10px] md:mt-[0px] ml-[10px] mr-[10px] my-2 font-bold italic"
                 >
                   {props.tagline}
                 </motion.p>

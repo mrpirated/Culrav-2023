@@ -9,6 +9,7 @@ import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 import Spinner from "../../Pages/Dashboard/Spinner";
 import img from "./Assests/cardTop.webp";
 import getImageAPI from "../../api/getImageAPI";
+import toast from "react-hot-toast";
 
 let container = {
   hidden: { opacity: 1, scale: 0 },
@@ -48,6 +49,12 @@ function EventDetails(props) {
     transition = { ease: "linear", duration: 0.3 };
   }
 
+  const EventClick = () => {
+    toast("Registeration for events Coming Soon", {
+      icon: "",
+    });
+  };
+
   const getImage = async () => {
     setImage(getImageAPI("event", props.event_id));
   };
@@ -75,11 +82,11 @@ function EventDetails(props) {
     <>
       <div
         // id="blur"
-        className="fixed w-screen h-screen z-40 top-0 left-0"
+        className="fixed w-screen h-screen z-40 top-[-12.5%] left-[-5.5%] md:left-[-12.5%]"
         onClick={props.handleClose}
       ></div>
       <div
-        className="fixed w-[90vw] md:w-[80vw] h-[80vh] bg-gradient-to-r from-[#ff7e5f] to-[#feb47b] top-[50%] left-[50%] z-40 rounded-md"
+        className="fixed w-[90vw] z-40 md:w-[80vw] h-[80vh] bg-gradient-to-r from-[#ff7e5f] to-[#feb47b] top-[50%] left-[50%] rounded-md"
         style={{ transform: "translate(-50%, -50%)" }}
       >
         {width > 1024}
@@ -96,7 +103,7 @@ function EventDetails(props) {
                 color="primary"
                 aria-label="Close"
                 fontSize="large"
-                // onClick={props.handleClose}
+                onClick={props.handleClose}
               >
                 <CancelRoundedIcon />
               </IconButton>
@@ -104,7 +111,6 @@ function EventDetails(props) {
             <div className="flex flex-col items-center w-full h-auto md:flex-row">
               <div className=" w-full md:w-[50%] md:h-full p-6 relative">
                 <img
-                  // src={props.imgurl}
                   src={image ? image : img}
                   alt={`${props.name} image`}
                   className="object-cover w-full h-full rounded-lg shadow-md"
@@ -121,7 +127,7 @@ function EventDetails(props) {
                   </p>
                 </div>
               </div>
-              <div className="w-full md:w-[50%] pl-[20px] pr-[40px] h-auto p-6">
+              <div className="w-full mt-[-20px] md:mt-[0px] md:w-[50%] md:pl-[20px] md:pr-[40px] pl-[20px] pr-[20px] h-auto p-6">
                 <motion.p
                   variants={item}
                   className="text-xl text-center ml-[10px] mr-[10px] my-2 font-bold italic"
@@ -145,9 +151,11 @@ function EventDetails(props) {
                 </motion.p>
                 <div
                   // id="EventRegister"
-                  className="hidden md:block pl-[80px] pr-[80px]"
+                  className="pl-[80px] pr-[80px]"
                 >
-                  <button id="EventRegister">REGISTER</button>
+                  <button id="EventRegister" onClick={EventClick}>
+                    REGISTER
+                  </button>
                 </div>
               </div>
             </div>
@@ -164,10 +172,6 @@ function EventDetails(props) {
                 <Spinner />
               </div>
             )}
-
-            {/* {subevent.map((element) => {
-                return <EventCard {...element} />;
-              })} */}
             <div className="pl-[50px] pr-[50px]">{props.rules}</div>
             {/* <div className="flex justify-center">
               <p className="text-2xl mb-[5px] text-center ml-[20px] mr-[20px] xlsm:mt-[50px] xs:mt-[50px] md:mt-[50px] xl:mb-[15px] md:mb-[5px] uppercase font-bold lg:text-3xl ">

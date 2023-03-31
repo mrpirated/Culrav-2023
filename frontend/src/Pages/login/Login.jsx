@@ -57,11 +57,11 @@ function Login() {
 				});
 			} else {
 				// setConfirm("Passwords are different");
-				toast.warn("Confirm Password is not matching with password");
+				toast.error("Confirm Password is not matching with password");
 			}
 		} else if (!regExp.test(password)) {
 			// setMessage("Password is invalid");
-			toast.warn(
+			toast.error(
 				"Password must contain at least one numeric digit, one uppercase and one lowercase letter and length should be greater than 8 "
 			);
 		} else {
