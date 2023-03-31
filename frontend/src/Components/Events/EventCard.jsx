@@ -28,22 +28,32 @@ function EventCard(props) {
 
   return (
     <>
-      <div className="w-[80vw] xs:w-[70vw] md:w-[30vw] lg:w-[23vw] m-2 rounded overflow-hidden shadow-lg hover:shadow-2xl">
-        <img
-          className="w-full h-[300px] object-cover"
-          src={image ? image : img}
-          alt="Card"
-        />
-        <div className="px-6 py-4 h-full bg-white">
-          <div className="font-bold text-xl mb-2 ">{props.name}</div>
-          <p class="text-gray-700 pr-[10px] text-base">{props.event_tagline}</p>
-          <div className="">
-            <button
-              className="hover:shadow-md mt-[20px] cursor-pointer hover:bg-[#f43e4a] transition-all duration-100"
-              onClick={handleClose}
-            >
-              SEE MORE
-            </button>
+      <div className="w-[80vw] xs:w-[70vw] md:w-[30vw] bg-white lg:w-[23vw] m-2 rounded shadow-lg flex flex-col justify-between overflow-hidden hover:shadow-2xl">
+        <div className="bg-white">
+          <div>
+            <img
+              className="w-full h-[300px] object-cover"
+              src={image ? image : img}
+              alt="Card"
+            />
+            <div className="px-6 pt-4">
+              <div className="font-bold text-xl mb-2">{props.name}</div>
+              <p class="text-gray-700 pr-[10px] text-base">
+                {props.event_tagline}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div className="px-6 pb-4">
+              <button
+                className="hover:shadow-md mt-[20px] cursor-pointer hover:bg-[#f43e4a] transition-all duration-100"
+                onClick={handleClose}
+              >
+                SEE MORE
+              </button>
+            </div>
           </div>
         </div>
       </div>
