@@ -107,7 +107,7 @@ const DashboardAdmin = (props) => {
 						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
 						<AdminPanel
 							type='Edit Event'
-							onClick={() => setType("Edit Event")}
+							onClick={() => setType("edit event")}
 							check={type}
 						/>
 					</div>

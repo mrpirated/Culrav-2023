@@ -4,11 +4,11 @@ import Event from "./Event";
 function EditEvent(props) {
 	const { ecs, setRefreshList, commitee, commiteeEvents } = props;
 	return (
-		<div className='flex flex-row w-full'>
-			<div className='w-full'>
+		<div className='flex flex-col md:flex-row w-full '>
+			<div className='w-full mt-4 p-2'>
 				<Event />
 			</div>
-			<div className='w-[80%] mx-4'>
+			<div className='w-full mt-4 p-2 md:w-[80%] md:mx-4'>
 				<AddEc
 					commitee={commitee}
 					commiteeEvents={commiteeEvents}

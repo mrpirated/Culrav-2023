@@ -9,9 +9,10 @@ import { motion } from "framer-motion";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 import Spinner from "./Spinner";
 import editEventDetailsAPI from "../../api/editEventDetailsAPI";
+import { useSelector } from "react-redux";
 
 const Event = (props) => {
-  // const { user } = User();
+  const auth = useSelector((state) => state.auth);
   const [rules, setRules] = useState("");
   const [minsize, setMinsize] = useState("");
   const [maxsize, setMaxsize] = useState("");
@@ -22,9 +23,7 @@ const Event = (props) => {
   const [eventCoordinators, setEventCoordinators] = useState([1, 2]);
   const [modal, setModal] = useState(false);
   const [checked, setChecked] = useState(false);
-
-  const token =
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJuYW1lIjoic2FtIiwiaWF0IjoxNjgwMTE0NzQ2LCJleHAiOjE2ODI3MDY3NDZ9.Q6NGw6VljSXhx1VacbGqZxFI9cWdEHTj-lVjUSwHCHE";
+  const [toggle, setToggle] = useState(false);
 
   const getEventsData = async () => {
     const optionarray = [];
@@ -45,11 +44,13 @@ const Event = (props) => {
     const response = await getCommiteeEventsAPI({ commitee_id: 3 });
     response.data.forEach((element) => {
       if (element.event_id == event.value) {
-        setTagline(element.event_tagline);
-        setDescription(element.event_description);
-        setMinsize(element.min_team_members);
-        setMaxsize(element.max_team_members);
-        setRules(element.rules);
+        setTagline(element.event_tagline ? element.event_tagline : "");
+        setDescription(
+          element.event_description ? element.event_description : ""
+        );
+        setMinsize(element.min_team_members ? element.min_team_members : "");
+        setMaxsize(element.max_team_members ? element.max_team_members : "");
+        setRules(element.rules ? element.rules : "");
       }
     });
   };
@@ -58,9 +59,11 @@ const Event = (props) => {
     if (!checked) {
       setMaxsize(1);
       setMinsize(1);
+      setToggle(true);
     } else {
       setMaxsize("");
       setMinsize("");
+      setToggle(false);
     }
     setChecked(!checked);
   };
@@ -69,7 +72,7 @@ const Event = (props) => {
 
   const handleClickEditEvent = async () => {
     const object = {
-      token: token,
+      token: auth.token,
       event_id: selectedoption,
       event_description: description,
       event_tagline: tagline,
@@ -78,6 +81,10 @@ const Event = (props) => {
       rules: rules,
     };
     const response = await editEventDetailsAPI(object);
+    console.log(response);
+    if (response.success) {
+      toast.success(response.message);
+    } else toast.error(response.message);
   };
 
   const handleClickAddMember = async () => {};
@@ -93,7 +100,7 @@ const Event = (props) => {
   return (
     <>
       <div
-        className={`bg-OccurYellow my-2 w-full rounded-md mx-2 box-border p-4 h-[600px] overflow-auto`}
+        className={`bg-OccurYellow my-2 w-full rounded-md md:mx-2 p-4 h-[500px] md:h-[600px] overflow-auto`}
       >
         <div>
           <p className="text-2xl font-medium">Edit Event</p>
@@ -167,6 +174,7 @@ const Event = (props) => {
               placeholder="Min Team Size"
               className="w-full md:w-1/2 md:mr-2 rounded-lg p-2 focus:ring-red focus:border-red"
               required
+              disabled={toggle}
             ></input>
             <input
               type="Number"
@@ -178,6 +186,7 @@ const Event = (props) => {
               placeholder="Max Team Size"
               className="w-full md:w-1/2  rounded-lg p-2 mt-2 md:ml-2 md:mt-0 focus:ring-red focus:border-red"
               required
+              disabled={toggle}
             ></input>
           </div>
           <div className="flex flex-row items-center mt-2">

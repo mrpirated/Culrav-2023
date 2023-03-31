@@ -22,7 +22,7 @@ function Dashboard() {
 				{auth.user.type == "ADMIN" && (
 					<DashboardPOC type={option} setType={setOption} />
 				)}
-				{/* {auth.user.type=="FS" && <DashboardPoc />} */}
+				{auth.user.type=="POC" && <DashboardAdmin type={option} setType={setOption}/>}
 				{/* {auth.user.type=="EC" && <DashboardEc />} */}
 				{/* {auth.user.type=="FS" && <DashboardUser />} */}
 			</div>

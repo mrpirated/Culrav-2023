@@ -78,7 +78,7 @@ function DashboardNavbar(props) {
 						</div>
 
 						{/* <p className="m-2">{props.user.culrav_id}</p> */}
-						<button className='m-4 bg-lightYellow hover:bg-[#f7e3a1] transition-all duration-200 text-black text-xl font-semibold'>
+						<button className=' bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-200 text-black text-xl font-semibold'>
 							Logout
 						</button>
 					</div>

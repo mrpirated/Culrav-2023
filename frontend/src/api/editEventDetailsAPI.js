@@ -25,7 +25,7 @@ const editEventDetailsAPI = async (data) => {
       },
       { headers: { Authorization: "Bearer "+token } }
     );
-    console.log(response);
+    return response.data;
   } catch (err) {
     console.log(err);
     return { success: false, message: err.message };
