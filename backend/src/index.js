@@ -28,6 +28,8 @@ import getAllECs from "./routes/getAllECs";
 import removePOCs from "./routes/removePOCs";
 import removeECs from "./routes/removeECs";
 import editUserProfile from "./routes/editUserProfile";
+import addHits from "./routes/addHits";
+import getStats from "./routes/getStats";
 dotenv.config();
 
 const PORT = config.PORT;
@@ -65,7 +67,9 @@ app.use(
 	getAllECs,
 	removePOCs,
 	removeECs,
-	editUserProfile
+	editUserProfile,
+	addHits,
+	getStats
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");
