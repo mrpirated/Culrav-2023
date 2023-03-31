@@ -34,7 +34,7 @@ const addECsService = async (token, { ec_id, event_id }) => {
 					success: false,
 					message: "User is already EC of the event",
 				});
-			} else return addECs(ec_id, commitee_id);
+			} else return addECs(ec_id, event_id);
 		})
 		.catch((error) => {
 			return error;
