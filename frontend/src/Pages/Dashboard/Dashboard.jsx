@@ -17,7 +17,7 @@ function Dashboard() {
 					option={option}
 					setOption={setOption}
 				/>
-				{auth.user.type == "ADMI" && (
+				{auth.user.type == "FS" && (
 					<DashboardAdmin type={option} setType={setOption} />
 				)}
 				{auth.user.type == "ADMI" && (

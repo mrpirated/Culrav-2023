@@ -42,7 +42,7 @@ const AddPoc = (props) => {
 
 	return (
 		<>
-			<div className='bg-[#f5be8a] p-4 m-2 w-full box-border shadow-md rounded-md'>
+			<div className='bg-[#f5be8a] p-4 md:m-2 w-full box-border shadow-md rounded-md'>
 				<div>
 					<p className='text-2xl font-medium'>Add POC</p>
 				</div>

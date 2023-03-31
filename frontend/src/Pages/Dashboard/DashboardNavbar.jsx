@@ -78,7 +78,7 @@ function DashboardNavbar(props) {
 						</div>
 
 						{/* <p className="m-2">{props.user.culrav_id}</p> */}
-						<button className='m-4 bg-lightYellow hover:bg-[#f7e3a1] transition-all duration-200 text-black text-xl font-semibold'>
+						<button className=' bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-200 text-black text-xl font-semibold'>
 							Logout
 						</button>
 					</div>
@@ -104,14 +104,14 @@ function DashboardNavbar(props) {
 								{HamClose}
 							</div>
 
-							<div className='logo mt-[-30px] mb-[-10px] w-full z-0 flex justify-center items-center'>
+							<div className='logo  w-full z-0 flex justify-center items-center'>
 								<img className='w-[40%]' src={Logo} alt='Renaissance Logo' />
 							</div>
 
-							<ul className='flex mt-[15px] flex-col items-center justify-start sm:mt-[-20px] w-full h-full p-0 m-0 text-xs text-black'>
+							<ul className='flex mt-[5px] flex-col items-center justify-start sm:mt-[-20px] w-full h-full p-0 m-0 text-xs text-black'>
 								<li className='mx-10 font-Mont pb-[20px] my-2 cursor-pointer'>
 									<div
-										className="mt-[25px] text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
+										className="mt-[25px] text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont "
 										smooth={true}
 										duration={500}
 									>
@@ -120,7 +120,7 @@ function DashboardNavbar(props) {
 								</li>
 								{navItems[auth.user.type].map((item) => (
 									<li
-										className='mx-10 font-Mont pb-[20px] my-2 cursor-pointer'
+										className='mt-[5px] mx-10 font-Mont pb-[20px] my-2 cursor-pointer'
 										key={`link-${item}`}
 									>
 										<p
@@ -128,7 +128,7 @@ function DashboardNavbar(props) {
 												setToggle(false);
 												setOption(item);
 											}}
-											className="mt-[-25px] text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
+											className=" text-white text-base mx-2 px-1 font-Mont"
 											smooth={true}
 											duration={500}
 										>
@@ -137,7 +137,7 @@ function DashboardNavbar(props) {
 									</li>
 								))}
 								{auth.isauth && (
-									<div className='px-6 mt-[-20px] mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black'>
+									<div className='px-6 mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black'>
 										<button>LOGOUT</button>
 									</div>
 								)}

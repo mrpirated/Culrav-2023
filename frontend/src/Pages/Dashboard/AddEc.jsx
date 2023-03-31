@@ -57,7 +57,7 @@ const AddEc = (props) => {
 	return (
 		<>
 			<div
-				className={`bg-[#f5be8a] p-4 m-2 w-full box-border shadow-md rounded-md`}
+				className={`bg-[#f5be8a] p-4 mt-2 md:m-2 w-full  shadow-md rounded-md`}
 			>
 				<div>
 					<p className='text-2xl font-medium'>Add EC</p>

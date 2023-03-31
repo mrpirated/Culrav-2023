@@ -66,10 +66,10 @@ const Timer = () => {
           </div>
         </div>
       </div>
-      <div className="md:hidden">
+      <div className="">
         <li
           id="loginBtn"
-          className="pr-4 w-fit uppercase pl-3 mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont"
+          className="pr-4 md:pl-0 w-fit uppercase pl-3 mt-[15px] py-2 font-bold transition duration-700 ease-in-out font-Mont"
         >
           <a href={!auth.isauth ? "/login" : "/dashboard"} className="">
             {/* {!auth.isauth ? "REGISTER NOW" : `WELCOME ${auth.user.name}`} */}
@@ -81,7 +81,7 @@ const Timer = () => {
                 <span className="font-semibold">{auth.user.name}</span>
               </div>
             )}
-            {auth.isauth && <p className="text-xs">Go To Dashboard</p>}
+            {/* {auth.isauth && <p className="text-xs">Go To Dashboard</p>} */}
           </a>
         </li>
       </div>

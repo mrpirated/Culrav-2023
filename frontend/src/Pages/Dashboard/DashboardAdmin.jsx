@@ -87,7 +87,6 @@ const DashboardAdmin = (props) => {
 			});
 	}, []);
 	return (
-		// bg-[#263544]
 		<>
 			<div className='bg-[#fff1c5]'>
 				<div className='md:flex-row flex flex-col relative '>
@@ -108,7 +107,7 @@ const DashboardAdmin = (props) => {
 						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
 						{/* <AdminPanel
 							type='Edit Event'
-							onClick={() => setType("Edit Event")}
+							onClick={() => setType("edit event")}
 							check={type}
 						/> */}
 					</div>
