@@ -5,7 +5,7 @@ import Logo from "../../Assets/Preloader/circle.webp";
 function DashboardNavbar(props) {
   return (
     <>
-      <div className="bg-off w-full h-[60px] shadow-md flex flex-row z-50">
+      <div className="bg-off w-full h-[60px] shadow-lg flex flex-row z-50">
         <div className="flex flex-row justify-start items-center w-full">
           <div className="mx-4 flex flex-row items-center">
             <img src={Logo} className="w-[50px]" />
@@ -13,10 +13,10 @@ function DashboardNavbar(props) {
           </div>
         </div>
         <div className="flex flex-row w-full justify-end items-center">
-          <div className="cursor-pointer flex flex-row items-center justify-center m-4 text-xl text-black">
+          <div className="cursor-pointer flex flex-row items-center justify-center mx-4 text-xl text-black">
             {/* <AccountCircleIcon /> */}
             <p className="m-1">Hi, </p>
-            <p className="m-2 font-semibold">{props.user.name}</p>
+            <p className="m-2 font-semibold block">Sambhav Jain</p>
             {/* <p className="m-2">{props.user.culrav_id}</p> */}
             <button className="m-4">Logout</button>
           </div>

@@ -8,11 +8,13 @@ function Dashboard() {
   const auth = useSelector((state) => state.auth);
   return (
     <>
+	<div className="bg-[#fffbed]">
       <DashboardNavbar user={auth.user} />
 	  {auth.user.type=="FS" && <DashboardAdmin />}
 	  {/* {auth.user.type=="FS" && <DashboardPoc />} */}
 	  {/* {auth.user.type=="EC" && <DashboardEc />} */}
-	  {/* {auth.user.type=="NONE" && <DashboardUser />} */}
+	  {/* {auth.user.type=="FS" && <DashboardUser />} */}
+	  </div>
     </>
   );
 }

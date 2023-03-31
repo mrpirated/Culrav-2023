@@ -43,7 +43,7 @@ const AdminDataList = (props) => {
 
   return (
     <>
-      <div className="bg-white w-full m-2 p-4 shadow-md h-[600px] box-border overflow-auto hideScrollBar">
+      <div className="bg-white w-full h-[90vh] m-2 p-4 shadow-md  box-border overflow-auto hideScrollBar">
         <div>
           <p className="text-2xl font-medium drop-shadow-md">
             List Of {props.type.toUpperCase()}s
@@ -53,7 +53,7 @@ const AdminDataList = (props) => {
               {pocs.map((element) => {
                 return (
                   <div className="" key={element}>
-                    <div className="hover:cursor-pointer px-4 py-2 rounded-md bg-[#F7D6E0] my-2 flex w-full justify-between shadow-md">
+                    <div className="hover:cursor-pointer px-4 py-2 rounded-md bg-[#7BDFF2] my-2 flex w-full justify-between shadow-md">
                       <div className="flex flex-col">
                         <p className="font-semibold text-xl">
                           {element.poc_name}
@@ -66,7 +66,7 @@ const AdminDataList = (props) => {
                         </p>
                       </div>
                       <div
-                        className="flex items-center text-[#D8315B] cursor-pointer"
+                        className="flex items-center text-[#0A2463] hover:text-[#1c3878] cursor-pointer"
                         onClick={() => {
                           deleteHandlerPoc(element);
                         }}

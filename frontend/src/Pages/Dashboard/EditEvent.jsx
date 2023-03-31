@@ -12,8 +12,6 @@ import editEventDetailsAPI from "../../api/editEventDetailsAPI";
 
 const EditEvent = (props) => {
   // const { user } = User();
-  const loading = props.loading;
-  const setLoading = props.setLoading;
   const [rules, setRules] = useState("");
   const [minsize, setMinsize] = useState("");
   const [maxsize, setMaxsize] = useState("");
@@ -39,11 +37,10 @@ const EditEvent = (props) => {
       optionarray.push(object);
     });
     setoptions(optionarray);
-    setLoading(false);
   };
 
   const onEventchange = async (event) => {
-    setLoading(true);
+    
     setselectedoption(event.value);
     const response = await getCommiteeEventsAPI({ commitee_id: 3 });
     response.data.forEach((element) => {
@@ -55,7 +52,6 @@ const EditEvent = (props) => {
         setRules(element.rules);
       }
     });
-    setLoading(false);
   };
 
   const handleCheckBox = async () => {
@@ -91,16 +87,13 @@ const EditEvent = (props) => {
   };
 
   useEffect(() => {
-    setLoading(true);
     getEventsData();
   }, []);
 
   return (
     <>
       <div
-        className={`bg-light my-2 w-full rounded-md mx-1 box-border p-4 ${
-          loading ? "opacity-40" : "opacity-100"
-        }`}
+        className={`bg-light my-2 w-full rounded-md mx-1 box-border p-4`}
       >
         <div>
           <p className="text-2xl font-medium">Edit Event</p>

@@ -19,8 +19,11 @@ const UserProfile = (props) => {
   );
   return (
     <>
-      <div className="bg-[#F7D6E0] w-1/2 m-2 p-4 shadow-md h-[600px] box-border overflow-auto hideScrollBar">
-        <p className="text-xl font-bold">User Details</p>
+      <div className="bg-[#7BDFF2] w-1/2 m-2 p-4 shadow-md h-[600px] box-border overflow-auto hideScrollBar">
+        {/* <p className="text-xl font-bold">User Details</p> */}
+        <div className="bg-[#499fb0] w-full p-4 rounded-md flex justify-center">
+          <p className="text-2xl font-bold">{userCulravId}</p>
+        </div>
         <div className="mt-4">
           <label
             htmlFor="userName"
@@ -95,22 +98,7 @@ const UserProfile = (props) => {
           />
         </div>
         <div className="mt-4">
-          <label
-            htmlFor="userCulId"
-            className="block mb-2 font-medium text-black"
-          >
-            Culrav ID :
-          </label>
-          <input
-            type="text"
-            onChange={(e) => {
-              setUserCulravId(e.target.value);
-            }}
-            value={userCulravId}
-            id="userCulId"
-            className="w-full  rounded-lg p-2 bg-[#eeeeee]"
-            disabled={true}
-          />
+          <button className="hover:shadow-md bg-[#0A2463] hover:bg-[#1c3878] transition-all duration-100">Edit Details</button>
         </div>
       </div>
     </>

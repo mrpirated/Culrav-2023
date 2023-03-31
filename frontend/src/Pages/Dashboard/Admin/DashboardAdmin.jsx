@@ -15,10 +15,11 @@ import getCommiteesAPI from "../../../api/getCommiteesAPI";
 import getCommiteeEventsAPI from "../../../api/getCommiteeEventsAPI";
 import ProfileSectionInDashboard from "../ProfileSectionInDashboard";
 import UserProfile from "../UserProfile";
+import EditEvent from "../EditEvent";
 const DashboardAdmin = () => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const [type, setType] = useState("poc");
+  const [type, setType] = useState("Profile");
   const [pocs, setPocs] = useState([]);
   const [ecs, setEcs] = useState([]);
   const [refreshList, setRefreshList] = useState(false);
@@ -84,60 +85,65 @@ const DashboardAdmin = () => {
   }, []);
   return (
     // bg-[#263544]
+    // bg-[#fffbed]
     <>
-      <div className="bg-[#fff1c5]">
-        <div className="md:flex-row flex flex-col relative ">
-          {/* left dashboard  */}
-          <div className=" left w-[20%] h-screen bg-brown2 shadow-md">
-            <ProfileSectionInDashboard
-              type="USERPROFILE"
-              onClick={() => {
-                setType("userProfile");
-              }}
-              check={type}
-            />
-            <AdminPanel
-              type="POC"
-              onClick={() => setType("poc")}
-              check={type}
-            />
-            <AdminPanel type="EC" onClick={() => setType("ec")} check={type} />
+      <div className="md:flex-row flex flex-col relative h-[91vh]">
+        {/* left dashboard  */}
+        <div className="w-[20%] h-full bg-[#CCAD8F] shadow-md">
+          <ProfileSectionInDashboard
+            type="PROFILE"
+            onClick={() => {
+              setType("Profile");
+            }}
+            check={type}
+          />
+          <AdminPanel type="POC" onClick={() => setType("poc")} check={type} />
+          <AdminPanel type="EC" onClick={() => setType("ec")} check={type} />
+          <AdminPanel
+            type="EDIT EVENT"
+            onClick={() => setType("edit event")}
+            check={type}
+          />
+        </div>
+
+        {/* center dashboard  */}
+        <div className="flex flex-row w-full h-[90vh] ">
+          <div className="w-full h-full">
+            {type == "Profile" && (
+              <div className="flex justify-center items-center">
+                <UserProfile userData={auth.user} />
+              </div>
+            )}
+            {(type == "poc" || type == "ec") && (
+              <AdminDataList
+                type={type}
+                pocs={pocs}
+                ecs={ecs}
+                setRefreshList={setRefreshList}
+              />
+            )}
+            {type == "edit event" && (
+              <div className="w-1/2">
+                <EditEvent />
+              </div>
+            )}
           </div>
 
-          {/* center dashboard  */}
-          <div className="flex flex-row w-full">
-            <div className="w-full">
-              {type == "userProfile" && (
-                <div className="flex justify-center items-center">
-                  <UserProfile userData={auth.user} />
-                </div>
+          {/* right dashboard */}
+          {(type == "poc" || type == "ec") && (
+            <div className="w-[80%] mx-4">
+              {type == "poc" && (
+                <AddPoc commitee={commitee} setRefreshList={setRefreshList} />
               )}
-              {(type == "poc" || type == "ec") && (
-                <AdminDataList
-                  type={type}
-                  pocs={pocs}
-                  ecs={ecs}
+              {type == "ec" && (
+                <AddEc
+                  commitee={commitee}
+                  commiteeEvents={commiteeEvents}
                   setRefreshList={setRefreshList}
                 />
               )}
             </div>
-
-            {/* right dashboard */}
-            {(type == "poc" || type == "ec") && (
-              <div className="w-[80%] mx-4">
-                {type == "poc" && (
-                  <AddPoc commitee={commitee} setRefreshList={setRefreshList} />
-                )}
-                {type == "ec" && (
-                  <AddEc
-                    commitee={commitee}
-                    commiteeEvents={commiteeEvents}
-                    setRefreshList={setRefreshList}
-                  />
-                )}
-              </div>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </>
