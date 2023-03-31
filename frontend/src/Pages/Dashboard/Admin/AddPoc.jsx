@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios, * as others from "axios";
 import Select from "react-select";
 import toast from "react-hot-toast";
-import addPOCsAPI from "../../api/addPOCsAPI";
+import addPOCsAPI from "../../../api/addPOCsAPI";
 import { useSelector } from "react-redux";
-import getCommiteesAPI from "../../api/getCommiteesAPI";
+import getCommiteesAPI from "../../../api/getCommiteesAPI";
 const AddPoc = (props) => {
   const { commitee } = props;
   const [selectedCommitee, setSelectedCommitee] = useState(null);
@@ -13,7 +13,7 @@ const AddPoc = (props) => {
   const { setRefreshList } = props;
 
   const onEventchange = async (event) => {
-    setSelectedCommitee(event.value);
+    setSelectedCommitee(event);
   };
 
   const handleClick = () => {
@@ -25,20 +25,24 @@ const AddPoc = (props) => {
       addPOCsAPI({
         token: auth.token,
         poc_id: poc,
-        commitee_id: commitee[selectedCommitee].value,
-      }).then((response) => {
-        console.log(response);
-        if (response.success) {
-          toast.success(response.message);
-          setRefreshList(true);
-        } else toast.error(response.message);
-      });
+        commitee_id: selectedCommitee.value,
+      })
+        .then((response) => {
+          console.log(response);
+          if (response.success) {
+            toast.success(response.message);
+            setRefreshList(true);
+          } else toast.error(response.message);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
   return (
     <>
-      <div className="bg-light my-2 w-full rounded-md mx-1 box-border p-4">
+      <div className="bg-[#F7D6E0] p-4 m-2 w-full box-border shadow-md">
         <div>
           <p className="text-2xl font-medium">Add POC</p>
         </div>
@@ -51,6 +55,7 @@ const AddPoc = (props) => {
           </label>
           <Select
             options={commitee}
+            value={selectedCommitee}
             id="selectCommitee"
             className="w-full"
             onChange={onEventchange}

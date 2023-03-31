@@ -148,7 +148,7 @@ function App() {
 							path='/dashboard'
 							element={
 								<ProtectedRoute>
-									<DashboardAdmin />
+									<Dashboard />
 								</ProtectedRoute>
 							}
 							// element={
