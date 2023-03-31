@@ -4,7 +4,7 @@ import AddEc from "./Admin/AddEc";
 function EditEC(props) {
 	const { ecs, setRefreshList, commitee, commiteeEvents } = props;
 	return (
-		<div className='flex flex-row w-full'>
+		<div className='flex flex-row w-full p-2'>
 			<div className='w-full'>
 				<AdminDataList type={"ec"} setRefreshList={setRefreshList} data={ecs} />
 			</div>

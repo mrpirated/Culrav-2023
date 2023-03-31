@@ -44,7 +44,7 @@ const AdminDataList = (props) => {
 
 	return (
 		<>
-			<div className='bg-[#F5BE8A] border-3 border-[#F5BE8A] w-full m-2 p-4 shadow-md h-[600px] box-border rounded-md overflow-auto hideScrollBar'>
+			<div className='bg-[#F5BE8A] w-[90%] md:w-full md:m-2 p-4 shadow-md h-[600px] rounded-md overflow-auto'>
 				<div>
 					<p className='text-2xl font-medium drop-shadow-md'>
 						List Of {props.type.toUpperCase()}s
