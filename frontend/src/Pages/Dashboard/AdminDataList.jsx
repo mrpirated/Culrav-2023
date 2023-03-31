@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import removePOCsAPI from "../../../api/removePOCsAPI";
-import removeECsAPI from "../../../api/removeECsAPI";
+import removePOCsAPI from "../../api/removePOCsAPI";
+import removeECsAPI from "../../api/removeECsAPI";
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
-import CardPOC from "../CardPOC";
-import CardEC from "../CardEC";
+import CardPOC from "./CardPOC";
+import CardEC from "./CardEC";
 const AdminDataList = (props) => {
 	const { type, data } = props;
 	const auth = useSelector((store) => store.auth);
@@ -44,7 +44,7 @@ const AdminDataList = (props) => {
 
 	return (
 		<>
-			<div className='bg-[#F5BE8A] w-[90%] md:w-full md:m-2 p-4 shadow-md h-[600px] rounded-md overflow-auto'>
+			<div className='bg-[#F5BE8A] w-full md:w-full md:m-2 p-4 shadow-md h-[500px] md:h-[600px] rounded-md overflow-auto'>
 				<div>
 					<p className='text-2xl font-medium drop-shadow-md'>
 						List Of {props.type.toUpperCase()}s
