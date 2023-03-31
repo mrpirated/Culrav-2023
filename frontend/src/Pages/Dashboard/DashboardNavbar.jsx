@@ -126,7 +126,11 @@ function DashboardNavbar(props) {
 										{`Konnichiwa ${auth.user.name}`.toUpperCase()}
 									</div>
 								</li>
-								{navItems[auth.user.type].map((item) => (
+								{navItems[
+									auth.user.type !== "ADMIN" || auth.user.type !== "FS"
+										? "USER"
+										: auth.user.type
+								].map((item) => (
 									<li
 										className='mt-[5px] mx-10 font-Mont pb-[20px] my-2 cursor-pointer'
 										key={`link-${item}`}
