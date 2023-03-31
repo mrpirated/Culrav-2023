@@ -1,6 +1,6 @@
 import React from "react";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 const ProfileSectionInDashboard = (props) => {
   return (
@@ -8,16 +8,13 @@ const ProfileSectionInDashboard = (props) => {
       <div className="flex flex-col w-full">
         <div
           className={`${
-            (props.check!=null && props.type == props.check.toUpperCase())
-              ? "bg-[#CCAD8F] shadow-md"
-              : "bg-brown2"
-          } w-full cursor-pointer hover:bg-[#CCAD8F] transition-all duration-200`}
+            props.check != null && props.type == props.check.toUpperCase()
+              ? "bg-[#FFF1C5] shadow-md"
+              : "bg-[#F5BE8A]"
+          } shadow-md w-full cursor-pointer hover:bg-[#FFF1C5] transition-all duration-200`}
           onClick={() => props.onClick()}
         >
-          <p className="text-lg p-4 text-white ">
-            <span className="mr-4">
-              <AccountCircleIcon />
-            </span>
+          <p className="text-lg p-4 text-black font-bold">
             {props.type}
           </p>
         </div>

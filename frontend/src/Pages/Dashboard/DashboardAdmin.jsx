@@ -1,34 +1,146 @@
+import React, { useEffect, useState } from "react";
 import CreateTeam from "./CreateTeam";
 import DashboardNavbar from "./DashboardNavbar";
 import AddTeamMembers from "./AddTeamMembers";
-import { User } from "../../User/User";
 import AddPoc from "./AddPoc";
 import AddEc from "./AddEc";
+import EditDescriptionA from "./EditDescriptionA";
+import { useDispatch, useSelector } from "react-redux";
+import AdminPanel from "./AdminPanel";
+import AdminDataList from "./AdminDataList";
+import getAllPocAPI from "../../api/getAllPOCsAPI";
+import { setLoading } from "../../store/auth";
+import getAllECsAPI from "../../api/getAllECsAPI";
+import getCommiteesAPI from "../../api/getCommiteesAPI";
+import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
+import ProfileSectionInDashboard from "./ProfileSectionInDashboard";
+import UserProfile from "./UserProfile";
+import EditEC from "./EditEC";
+import EditPOC from "./EditPOC";
+import EditEvent from "./EditEvent";
+const DashboardAdmin = (props) => {
+	const auth = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
+	const { type, setType } = props;
+	// const [type, setType] = useState("profile");
+	const [pocs, setPocs] = useState([]);
+	const [ecs, setEcs] = useState([]);
+	const [refreshList, setRefreshList] = useState(false);
+	const [commitee, setCommitee] = useState([]);
+	const [commiteeEvents, setCommiteeEvents] = useState({});
 
-const DashboardAdmin = () => {
-	const { user } = User();
-
+	useEffect(() => {
+		dispatch(setLoading({ loading: true }));
+		getAllPocAPI()
+			.then((response) => {
+				setPocs(response.data);
+				return getAllECsAPI();
+			})
+			.then((response) => {
+				setEcs(response.data);
+			})
+			.finally(() => {
+				dispatch(setLoading({ loading: false }));
+				setRefreshList(false);
+			});
+		//   getAllECsAPI().then((response)=>{
+		// 	setEcs(response.data)
+		//   }).finally(() => {
+		//     dispatch(setLoading({ loading: false }));
+		//     setRefreshList(false);
+		//   });
+	}, [refreshList]);
+	useEffect(() => {
+		dispatch(setLoading({ loading: true }));
+		getCommiteesAPI()
+			.then((response) => {
+				const options = [];
+				const eventFetches = [];
+				response.data.forEach((element) => {
+					eventFetches.push(
+						getCommiteeEventsAPI({ commitee_id: element.commitee_id })
+					);
+					options.push({
+						value: element.commitee_id,
+						label: element.name,
+					});
+				});
+				setCommitee(options);
+				return Promise.all(eventFetches);
+			})
+			.then((response) => {
+				const commiteeEvents = {};
+				response.forEach((res, key) => {
+					commiteeEvents[key + 1] = [];
+					res.data.forEach((e) => {
+						commiteeEvents[key + 1].push({
+							value: e.event_id,
+							label: e.name,
+						});
+					});
+				});
+				console.log(commiteeEvents);
+				setCommiteeEvents(commiteeEvents);
+			})
+			.finally(() => {
+				dispatch(setLoading({ loading: false }));
+			});
+	}, []);
 	return (
+		// bg-[#263544]
 		<>
-			<DashboardNavbar />
-			<div className='md:flex mt-[30px] md:mt-[15px] md:flex-row flex flex-col mx-10'>
-				{/* left dashboard  */}
-				<div className='left m-4 w-[50%]'>
-					<div className='flex flex-col flex-wrap w-full h-[70px]'>
-						<div className='bg-light md:mt-[8px] ml-[-16px] md:ml-[-16px] my-2 w-full rounded-md'>
-							<p className='text-2xl p-4 text-brown'>
-								Hello, <span className='text-red'>{user.data.user.name}</span>
-							</p>
+			<div className='bg-[#fff1c5]'>
+				<div className='md:flex-row flex flex-col relative '>
+					{/* left dashboard  */}
+					<div className=' left w-[20%] h-screen bg-[#F5BE8A] shadow-md hidden lg:block'>
+						<ProfileSectionInDashboard
+							type='PROFILE'
+							onClick={() => {
+								setType("profile");
+							}}
+							check={type}
+						/>
+						<AdminPanel
+							type='POC'
+							onClick={() => setType("poc")}
+							check={type}
+						/>
+						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
+						<AdminPanel
+							type='Edit Event'
+							onClick={() => setType("Edit Event")}
+							check={type}
+						/>
+					</div>
+					{type === "ec" && (
+						<div className='flex flex-row w-full'>
+							<EditEC
+								ecs={ecs}
+								setRefreshList={setRefreshList}
+								commitee={commitee}
+								commiteeEvents={commiteeEvents}
+							/>
 						</div>
-					</div>
-				</div>
-
-				{/* center dashboard  */}
-				<div className='center m-4 mt-[15px] ml-[-4px] md:ml-[0px] w-full'>
-					<div className='flex flex-col w-full '>
-						<AddPoc />
-						<AddEc />
-					</div>
+					)}
+					{type === "poc" && (
+						<div className='flex flex-row w-full'>
+							<EditPOC
+								pocs={pocs}
+								setRefreshList={setRefreshList}
+								commitee={commitee}
+							/>
+						</div>
+					)}
+					{type === "profile" && (
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
+							<UserProfile userData={auth.user} />
+						</div>
+					)}
+					{type === "edit event" && (
+						<div className='flex flex-row w-full'>
+							<EditEvent />
+						</div>
+					)}
 				</div>
 			</div>
 		</>

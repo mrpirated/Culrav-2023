@@ -1,39 +1,29 @@
 import React, { useEffect, useState } from "react";
-import CreateTeam from "../CreateTeam";
-import DashboardNavbar from "../DashboardNavbar";
-import AddTeamMembers from "../AddTeamMembers";
-import AddPoc from "./AddPoc";
-import AddEc from "./AddEc";
-import EditDescriptionA from "./EditDescriptionA";
 import { useDispatch, useSelector } from "react-redux";
 import AdminPanel from "./AdminPanel";
-import AdminDataList from "./AdminDataList";
-import getAllPocAPI from "../../../api/getAllPOCsAPI";
-import { setLoading } from "../../../store/auth";
-import getAllECsAPI from "../../../api/getAllECsAPI";
-import getCommiteesAPI from "../../../api/getCommiteesAPI";
-import getCommiteeEventsAPI from "../../../api/getCommiteeEventsAPI";
-import ProfileSectionInDashboard from "../ProfileSectionInDashboard";
-import UserProfile from "../UserProfile";
-import EditEC from "../EditEC";
-import EditPOC from "../EditPOC";
-const DashboardAdmin = () => {
+import getAllPOCsAPI from "../../api/getAllPOCsAPI";
+import { setLoading } from "../../store/auth";
+import getAllECsAPI from "../../api/getAllECsAPI";
+import getCommiteesAPI from "../../api/getCommiteesAPI";
+import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
+import ProfileSectionInDashboard from "./ProfileSectionInDashboard";
+import UserProfile from "./UserProfile";
+import EditEC from "./EditEC";
+import EditPOC from "./EditPOC";
+import EditEvent from "./EditEvent";
+const DashboardPOC = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
-	const [type, setType] = useState("poc");
-	const [pocs, setPocs] = useState([]);
+	const { type, setType } = props;
+	// const [type, setType] = useState("profile");
 	const [ecs, setEcs] = useState([]);
 	const [refreshList, setRefreshList] = useState(false);
 	const [commitee, setCommitee] = useState([]);
 	const [commiteeEvents, setCommiteeEvents] = useState({});
-
+	const [pocCommitee, setPocCommitee] = useState();
 	useEffect(() => {
 		dispatch(setLoading({ loading: true }));
-		getAllPocAPI()
-			.then((response) => {
-				setPocs(response.data);
-				return getAllECsAPI();
-			})
+		getAllECsAPI()
 			.then((response) => {
 				setEcs(response.data);
 			})
@@ -50,6 +40,7 @@ const DashboardAdmin = () => {
 	}, [refreshList]);
 	useEffect(() => {
 		dispatch(setLoading({ loading: true }));
+
 		getCommiteesAPI()
 			.then((response) => {
 				const options = [];
@@ -79,6 +70,12 @@ const DashboardAdmin = () => {
 				});
 				console.log(commiteeEvents);
 				setCommiteeEvents(commiteeEvents);
+				return getAllPOCsAPI();
+			})
+			.then((response) => {
+				setPocCommitee(
+					response.data.find((e) => e.poc_id === auth.user.user_id).commitee_id
+				);
 			})
 			.finally(() => {
 				dispatch(setLoading({ loading: false }));
@@ -90,20 +87,20 @@ const DashboardAdmin = () => {
 			<div className='bg-[#fff1c5]'>
 				<div className='md:flex-row flex flex-col relative '>
 					{/* left dashboard  */}
-					<div className=' left w-[20%] h-screen bg-brown2 shadow-md'>
+					<div className=' left w-[20%] h-screen bg-[#F5BE8A] shadow-md hidden lg:block'>
 						<ProfileSectionInDashboard
-							type='USERPROFILE'
+							type='PROFILE'
 							onClick={() => {
-								setType("userProfile");
+								setType("profile");
 							}}
 							check={type}
 						/>
+						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
 						<AdminPanel
-							type='POC'
-							onClick={() => setType("poc")}
+							type='Edit Event'
+							onClick={() => setType("Edit Event")}
 							check={type}
 						/>
-						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
 					</div>
 					{type === "ec" && (
 						<div className='flex flex-row w-full'>
@@ -115,13 +112,14 @@ const DashboardAdmin = () => {
 							/>
 						</div>
 					)}
-					{type === "poc" && (
+					{type === "profile" && (
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
+							<UserProfile userData={auth.user} />
+						</div>
+					)}
+					{type === "edit event" && (
 						<div className='flex flex-row w-full'>
-							<EditPOC
-								pocs={pocs}
-								setRefreshList={setRefreshList}
-								commitee={commitee}
-							/>
+							<EditEvent />
 						</div>
 					)}
 				</div>
@@ -130,4 +128,4 @@ const DashboardAdmin = () => {
 	);
 };
 
-export default DashboardAdmin;
+export default DashboardPOC;

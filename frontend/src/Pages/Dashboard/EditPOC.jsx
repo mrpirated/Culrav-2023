@@ -1,10 +1,10 @@
 import React from "react";
-import AdminDataList from "./Admin/AdminDataList";
-import AddPoc from "./Admin/AddPoc";
+import AdminDataList from "./AdminDataList";
+import AddPoc from "./AddPoc";
 function EditPOC(props) {
 	const { pocs, setRefreshList, commitee, commiteeEvents } = props;
 	return (
-		<div className='flex flex-row w-full'>
+		<div className='flex flex-col md:flex-row w-full '>
 			<div className='w-full'>
 				<AdminDataList
 					type={"poc"}
@@ -12,7 +12,7 @@ function EditPOC(props) {
 					data={pocs}
 				/>
 			</div>
-			<div className='w-full'>
+			<div className='w-full md:w-[80%] p-2 md:mx-4'>
 				<AddPoc commitee={commitee} setRefreshList={setRefreshList} />
 			</div>
 		</div>

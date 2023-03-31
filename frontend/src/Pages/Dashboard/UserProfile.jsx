@@ -19,25 +19,10 @@ const UserProfile = (props) => {
   );
   return (
     <>
-      <div className="bg-[#F7D6E0] w-1/2 m-2 p-4 shadow-md h-[600px] box-border overflow-auto hideScrollBar">
-        <p className="text-xl font-bold">User Details</p>
-        <div className="mt-4">
-          <label
-            htmlFor="userName"
-            className="block mb-2 font-medium text-black"
-          >
-            Username :
-          </label>
-          <input
-            type="text"
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-            value={userName}
-            id="userName"
-            className="w-full  rounded-lg p-2 focus:ring-red focus:border-red"
-            required
-          />
+      <div className="bg-OccurYellow w-[95%] md:w-[80%] lg:w-1/2 m-2 p-4 shadow-md h-[600px] box-border overflow-auto rounded-md ">
+        {/* <p className="text-xl font-bold">User Details</p> */}
+        <div className="bg-lightYellow w-full p-4 rounded-md flex justify-center">
+          <p className="text-2xl font-bold">{userCulravId}</p>
         </div>
         <div className="mt-4">
           <label
@@ -53,6 +38,45 @@ const UserProfile = (props) => {
             }}
             value={userEmail}
             id="userEmail"
+            className="w-full  rounded-lg p-2 focus:ring-red focus:border-red"
+            required
+            disabled={true}
+          />
+        </div>
+        <div className="mt-4">
+          <label
+            htmlFor="mnnitId"
+            className="block mb-2 font-medium text-black"
+          >
+            MNNIT ID :
+          </label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setMnnitId(e.target.value);
+            }}
+            value={mnnitId}
+            id="mnnitId"
+            placeholder="Enter your MNNIT ID"
+            className="w-full  rounded-lg p-2"
+            required
+            disabled={true}
+          />
+        </div>
+        <div className="mt-4">
+          <label
+            htmlFor="userName"
+            className="block mb-2 font-medium text-black"
+          >
+            Full Name :
+          </label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+            value={userName}
+            id="userName"
             className="w-full  rounded-lg p-2 focus:ring-red focus:border-red"
             required
           />
@@ -75,42 +99,11 @@ const UserProfile = (props) => {
             required
           />
         </div>
+
         <div className="mt-4">
-          <label
-            htmlFor="mnnitId"
-            className="block mb-2 font-medium text-black"
-          >
-            MNNIT ID :
-          </label>
-          <input
-            type="text"
-            onChange={(e) => {
-              setMnnitId(e.target.value);
-            }}
-            value={mnnitId}
-            id="mnnitId"
-            placeholder="Enter your MNNIT ID"
-            className="w-full  rounded-lg p-2 focus:ring-red focus:border-red"
-            required
-          />
-        </div>
-        <div className="mt-4">
-          <label
-            htmlFor="userCulId"
-            className="block mb-2 font-medium text-black"
-          >
-            Culrav ID :
-          </label>
-          <input
-            type="text"
-            onChange={(e) => {
-              setUserCulravId(e.target.value);
-            }}
-            value={userCulravId}
-            id="userCulId"
-            className="w-full  rounded-lg p-2 bg-[#eeeeee]"
-            disabled={true}
-          />
+          <button className="hover:shadow-md bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-100 text-black">
+            Edit Details
+          </button>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios, * as others from "axios";
 import Select from "react-select";
 import toast from "react-hot-toast";
-import Spinner from "../Spinner";
+import Spinner from "./Spinner";
 import { useSelector } from "react-redux";
 const EditDescriptionA = () => {
 	const [commitee, setCommitte] = useState([]);
