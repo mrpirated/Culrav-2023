@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./Pages/login/Login";
 
 // import NavPageLogin from "./Pages/login/NavPage";
-import Team from "./Pages/Team/Team";
+import AllTeams from "./Pages/Team/AllTeams";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import LoadingProvider from "./Components/LoadingProvider";
@@ -71,108 +71,108 @@ function App() {
     "./images/dell.png",
   ];
 
-	useEffect(() => {
-		const script = document.createElement("script");
-		script.src = "/flyingButterflies.js";
-		script.async = true;
-		document.body.appendChild(script);
-		return () => {
-			document.body.removeChild(script);
-		};
-	}, []);
-	useEffect(() => {
-		dispatch(setLoading({ loading: true }));
-		if (!auth.isauth && localStorage.getItem("token")) {
-			const token = JSON.parse(localStorage.getItem("token"));
-			getUserDataAPI({ token: token })
-				.then((response) => {
-					if (response.success) {
-						dispatch(loggedWithToken({ user: response.data, token: token }));
-						var user = response.data;
-						user.token = token;
-					} else {
-						dispatch(tokenChecked());
-					}
-				})
-				.finally(() => {
-					dispatch(setLoading({ loading: false }));
-				});
-		} else {
-			dispatch(tokenChecked());
-			dispatch(setLoading({ loading: false }));
-		}
-	}, []);
-	return (
-		<div className=''>
-			<LoadingProvider active={auth.isloading}>
-				<Toaster position='top-right' reverseOrder={false} />
-				<BrowserRouter>
-					<Routes>
-						<Route path='/login' element={<Login />}></Route>
-						<Route
-							path='/'
-							element={
-								<>
-									<Preloader />
-									<Navbar />
-									<ScrollToTop />
-									<div className='HomeBack'>
-										<Home />
-									</div>
-									<div className='AboutBack'>
-										<AboutUs />
-									</div>
-									<div className='TrailerBack'>
-										<Trailer />
-										<Events />
-										<Celebs />
-										<Previous />
-									</div>
-									<div className='SponsorBack'>
-										<Sponsors ImageList={List} />
-										<Contact />
-									</div>
-								</>
-							}
-						></Route>
-						<Route
-							path='/team'
-							element={
-								<>
-									<NavPageTeam />
-									<Team />
-								</>
-							}
-						></Route>
-						<Route
-							path='/dashboard'
-							element={
-								<ProtectedRoute>
-									<DashboardAdmin />
-								</ProtectedRoute>
-							}
-							// element={
-							//   user ? (
-							//     <>
-							//       <NavPageDash />
-							//       <Dashboard />
-							//     </>
-							//   ) : (
-							//     <Navigate to="/login" />
-							//   )
-							// }
-						></Route>
-						<Route
-            exact
-            path="/jointeam/:code"
-            element={<ProtectedRoute></ProtectedRoute>}
-          ></Route>
-						;
-					</Routes>
-				</BrowserRouter>
-			</LoadingProvider>
-		</div>
-	);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "/flyingButterflies.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+  useEffect(() => {
+    dispatch(setLoading({ loading: true }));
+    if (!auth.isauth && localStorage.getItem("token")) {
+      const token = JSON.parse(localStorage.getItem("token"));
+      getUserDataAPI({ token: token })
+        .then((response) => {
+          if (response.success) {
+            dispatch(loggedWithToken({ user: response.data, token: token }));
+            var user = response.data;
+            user.token = token;
+          } else {
+            dispatch(tokenChecked());
+          }
+        })
+        .finally(() => {
+          dispatch(setLoading({ loading: false }));
+        });
+    } else {
+      dispatch(tokenChecked());
+      dispatch(setLoading({ loading: false }));
+    }
+  }, []);
+  return (
+    <div className="">
+      <LoadingProvider active={auth.isloading}>
+        <Toaster position="top-right" reverseOrder={false} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />}></Route>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Preloader />
+                  <Navbar />
+                  <ScrollToTop />
+                  <div className="HomeBack">
+                    <Home />
+                  </div>
+                  <div className="AboutBack">
+                    <AboutUs />
+                  </div>
+                  <div className="TrailerBack">
+                    <Trailer />
+                    <Events />
+                    <Celebs />
+                    <Previous />
+                  </div>
+                  <div className="SponsorBack">
+                    <Sponsors ImageList={List} />
+                    <Contact />
+                  </div>
+                </>
+              }
+            ></Route>
+            <Route
+              path="/team"
+              element={
+                <>
+                  <NavPageTeam />
+                  <AllTeams />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardAdmin />
+                </ProtectedRoute>
+              }
+              // element={
+              //   user ? (
+              //     <>
+              //       <NavPageDash />
+              //       <Dashboard />
+              //     </>
+              //   ) : (
+              //     <Navigate to="/login" />
+              //   )
+              // }
+            ></Route>
+            <Route
+              exact
+              path="/jointeam/:code"
+              element={<ProtectedRoute></ProtectedRoute>}
+            ></Route>
+            ;
+          </Routes>
+        </BrowserRouter>
+      </LoadingProvider>
+    </div>
+  );
 }
 
 export default App;

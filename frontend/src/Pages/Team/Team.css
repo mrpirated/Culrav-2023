@@ -129,18 +129,15 @@
   bottom: 15px;
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 960px) {
+/* @media only screen and (max-width: 1024px) and (min-width: 960px) {
   .Tech {
     padding-bottom: 0px;
-    /* margin-bottom: -20px; */
-    /* background: #000; */
   }
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 960px) {
   #TechSection {
     padding-bottom: 50px;
-    /* background-color: aliceblue; */
   }
 }
 
@@ -148,7 +145,7 @@
   .Fest {
     padding-top: 40px;
   }
-}
+} */
 
 .containerTeam .Proffcard .contentTeam {
   position: relative;
