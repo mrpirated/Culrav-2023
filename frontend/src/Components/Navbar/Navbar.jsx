@@ -166,7 +166,7 @@ function Navbar() {
             href={!auth.isauth ? "/login" : "/dashboard"}
             className={`hidden md:block bg-light md:mt-[-15px] ${
               !navScroll ? "lg:mt-[20px]" : "lg:mt-[-7px]"
-            } xl:mt-[-80px] 2xl:mt-[-120px] md:ml-[10px] xl:ml-[20px] sm:px-4 sm:py-2 lg:px-6 lg:py-2 text-black font-bold hover:text-white hover:bg-dark transition ease-in-out duration-700`}
+            } xl:mt-[-80px] 2xl:mt-[-120px] md:ml-[10px] xl:ml-[20px] sm:px-4 sm:py-2 lg:px-6 lg:py-4 text-black font-bold hover:text-white hover:bg-dark transition ease-in-out duration-700`}
           >
             <li
               className="text-sm uppercase sm:text-[10px] cursor-pointer font-Mont lg:text-[14px] 2xl:text-[15px]"
@@ -176,7 +176,8 @@ function Navbar() {
               {auth.isauth && <p className="text-xs">Go To Dashboard</p>} */}
               <a href={!auth.isauth ? "/login" : "/dashboard"} className="">
                 {/* {!auth.isauth ? "REGISTER NOW" : `WELCOME ${auth.user.name}`} */}
-                {!auth.isauth ? (
+                {!auth.isauth ? "REGISTER NOW" : "DASHBOARD"}
+                {/* {!auth.isauth ? (
                   "REGISTER NOW"
                 ) : (
                   <div>
@@ -184,7 +185,7 @@ function Navbar() {
                     <span className="font-semibold">{auth.user.name}</span>
                   </div>
                 )}
-                {auth.isauth && <p className="text-xs">Go To Dashboard</p>}
+                {auth.isauth && <p className="text-xs">Go To Dashboard</p>} */}
               </a>
             </li>
           </a>
