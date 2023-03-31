@@ -1,6 +1,5 @@
 import React from "react";
-import AdminDataList from "./Admin/AdminDataList";
-import AddEc from "./Admin/AddEc";
+import AddEc from "./AddEc";
 import Event from "./Event";
 function EditEvent(props) {
 	const { ecs, setRefreshList, commitee, commiteeEvents } = props;

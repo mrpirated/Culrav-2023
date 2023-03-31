@@ -1,6 +1,6 @@
 import React from "react";
-import AdminDataList from "./Admin/AdminDataList";
-import AddEc from "./Admin/AddEc";
+import AdminDataList from "./AdminDataList";
+import AddEc from "./AddEc";
 function EditEC(props) {
 	const { ecs, setRefreshList, commitee, commiteeEvents } = props;
 	return (

@@ -1,6 +1,6 @@
 import React from "react";
-import AdminDataList from "./Admin/AdminDataList";
-import AddPoc from "./Admin/AddPoc";
+import AdminDataList from "./AdminDataList";
+import AddPoc from "./AddPoc";
 function EditPOC(props) {
 	const { pocs, setRefreshList, commitee, commiteeEvents } = props;
 	return (
