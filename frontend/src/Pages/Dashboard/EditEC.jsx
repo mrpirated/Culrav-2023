@@ -1,13 +1,12 @@
 import React from "react";
 import AdminDataList from "./Admin/AdminDataList";
 import AddEc from "./Admin/AddEc";
-import Event from "./Event";
-function EditEvent(props) {
+function EditEC(props) {
 	const { ecs, setRefreshList, commitee, commiteeEvents } = props;
 	return (
 		<div className='flex flex-row w-full'>
 			<div className='w-full'>
-				<Event />
+				<AdminDataList type={"ec"} setRefreshList={setRefreshList} data={ecs} />
 			</div>
 			<div className='w-[80%] mx-4'>
 				<AddEc
@@ -20,4 +19,4 @@ function EditEvent(props) {
 	);
 }
 
-export default EditEvent;
+export default EditEC;

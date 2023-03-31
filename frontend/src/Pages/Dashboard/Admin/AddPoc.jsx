@@ -42,7 +42,7 @@ const AddPoc = (props) => {
 
   return (
     <>
-      <div className="bg-[#7BDFF2] p-4 m-2 w-full box-border shadow-md">
+      <div className="bg-[#f5be8a] p-4 m-2 w-full box-border shadow-md rounded-md">
         <div>
           <p className="text-2xl font-medium">Add POC</p>
         </div>
@@ -91,7 +91,13 @@ const AddPoc = (props) => {
         </div>
         <div className="mt-4">
           <button
-            className="hover:shadow-md bg-[#0A2463] hover:bg-[#1c3878] transition-all duration-100"
+            className={`hover:shadow-md 
+            bg-lightYellow 
+            hover:bg-[#f7e3a1] 
+            shadow-md 
+            transition-all 
+            duration-100 
+            text-black`}
             onClick={handleClick}
           >
             Add POC

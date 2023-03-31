@@ -15,11 +15,13 @@ import getCommiteesAPI from "../../../api/getCommiteesAPI";
 import getCommiteeEventsAPI from "../../../api/getCommiteeEventsAPI";
 import ProfileSectionInDashboard from "../ProfileSectionInDashboard";
 import UserProfile from "../UserProfile";
+import EditEC from "../EditEC";
+import EditPOC from "../EditPOC";
 import EditEvent from "../EditEvent";
 const DashboardAdmin = () => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const [type, setType] = useState("Profile");
+  const [type, setType] = useState("profile");
   const [pocs, setPocs] = useState([]);
   const [ecs, setEcs] = useState([]);
   const [refreshList, setRefreshList] = useState(false);
@@ -85,63 +87,53 @@ const DashboardAdmin = () => {
   }, []);
   return (
     // bg-[#263544]
-    // bg-[#fffbed]
     <>
-      <div className="md:flex-row flex flex-col relative h-[91vh]">
-        {/* left dashboard  */}
-        <div className="w-[20%] h-full bg-[#CCAD8F] shadow-md">
-          <ProfileSectionInDashboard
-            type="PROFILE"
-            onClick={() => {
-              setType("Profile");
-            }}
-            check={type}
-          />
-          <AdminPanel type="POC" onClick={() => setType("poc")} check={type} />
-          <AdminPanel type="EC" onClick={() => setType("ec")} check={type} />
-          <AdminPanel
-            type="EDIT EVENT"
-            onClick={() => setType("edit event")}
-            check={type}
-          />
-        </div>
-
-        {/* center dashboard  */}
-        <div className="flex flex-row w-full h-[90vh] ">
-          <div className="w-full h-full">
-            {type == "Profile" && (
-              <div className="flex justify-center items-center">
-                <UserProfile userData={auth.user} />
-              </div>
-            )}
-            {(type == "poc" || type == "ec") && (
-              <AdminDataList
-                type={type}
-                pocs={pocs}
+      <div className="bg-[#fff1c5]">
+        <div className="md:flex-row flex flex-col relative ">
+          {/* left dashboard  */}
+          <div className=" left w-[20%] h-screen bg-[#F5BE8A] shadow-md hidden lg:block">
+            <ProfileSectionInDashboard
+              type="PROFILE"
+              onClick={() => {
+                setType("profile");
+              }}
+              check={type}
+            />
+            <AdminPanel
+              type="POC"
+              onClick={() => setType("poc")}
+              check={type}
+            />
+            <AdminPanel type="EC" onClick={() => setType("ec")} check={type} />
+            <AdminPanel type="Edit Event" onClick={() => setType("Edit Event")} check={type} />
+          </div>
+          {type === "ec" && (
+            <div className="flex flex-row w-full">
+              <EditEC
                 ecs={ecs}
                 setRefreshList={setRefreshList}
+                commitee={commitee}
+                commiteeEvents={commiteeEvents}
               />
-            )}
-            {type == "edit event" && (
-              <div className="w-1/2">
-                <EditEvent />
-              </div>
-            )}
-          </div>
-
-          {/* right dashboard */}
-          {(type == "poc" || type == "ec") && (
-            <div className="w-[80%] mx-4">
-              {type == "poc" && (
-                <AddPoc commitee={commitee} setRefreshList={setRefreshList} />
-              )}
-              {type == "ec" && (
-                <AddEc
-                  commitee={commitee}
-                  commiteeEvents={commiteeEvents}
-                  setRefreshList={setRefreshList}
-                />
-              )}
+            </div>
+          )}
+          {type === "poc" && (
+            <div className="flex flex-row w-full">
+              <EditPOC
+                pocs={pocs}
+                setRefreshList={setRefreshList}
+                commitee={commitee}
+              />
+            </div>
+          )}
+          {type === "profile" && (
+            <div className="flex flex-row w-full justify-center h-screen lg:h-auto">
+              <UserProfile userData={auth.user} />
+            </div>
+          )}
+		  {type === "Edit Event" && (
+            <div className="flex flex-row w-full">
+              <EditEvent />
             </div>
           )}
         </div>

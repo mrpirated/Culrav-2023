@@ -56,80 +56,75 @@ const AddEc = (props) => {
 
   return (
     <>
-      <div className="relative">
-        <div
-          className={`bg-[#7BDFF2] p-4 m-2 w-full box-border shadow-md ${
-            !progress ? "opacity-100" : "opacity-40"
-          }`}
-        >
-          <div>
-            <p className="text-2xl font-medium">Add EC</p>
-          </div>
-          <div className="mt-4">
-            <label
-              htmlFor="selectCommitee"
-              className="block mb-2 font-medium text-black"
-            >
-              Select Commitee
-            </label>
-            <Select
-              options={commitee}
-              id="selectCommitee"
-              className="w-full"
-              onChange={onCommiteeChange}
-              value={selectedCommitee}
+      <div
+        className={`bg-[#f5be8a] p-4 m-2 w-full box-border shadow-md rounded-md`}
+      >
+        <div>
+          <p className="text-2xl font-medium">Add EC</p>
+        </div>
+        <div className="mt-4">
+          <label
+            htmlFor="selectCommitee"
+            className="block mb-2 font-medium text-black"
+          >
+            Select Commitee
+          </label>
+          <Select
+            options={commitee}
+            id="selectCommitee"
+            className="w-full"
+            onChange={onCommiteeChange}
+            value={selectedCommitee}
+            required
+          />
+        </div>
+        <div className="mt-4">
+          <label
+            htmlFor="selectEvents"
+            className="block mb-2 font-medium text-black"
+          >
+            Select Event
+          </label>
+          <Select
+            options={event}
+            value={selectedEvent}
+            id="selectEvents"
+            className="w-full"
+            onChange={onEventChange}
+            required
+          />
+        </div>
+        <div className="mt-4">
+          <label htmlFor="ecid" className="block mb-2 font-medium text-black">
+            Enter Ec Culrav Id
+          </label>
+          <div className="flex flex-row">
+            <input
+              type="text"
+              value="CUL - "
+              disabled={true}
+              className="w-[70px] rounded-lg p-2 focus:ring-red focus:border-red mr-2 bg-white"
+            ></input>
+            <input
+              type="text"
+              onChange={(e) => {
+                setec(e.target.value);
+              }}
+              value={ec}
+              id="ecid"
+              className="w-full  rounded-lg p-2 focus:ring-red focus:border-red"
               required
             />
-          </div>
-          <div className="mt-4">
-            <label
-              htmlFor="selectEvents"
-              className="block mb-2 font-medium text-black"
-            >
-              Select Event
-            </label>
-            <Select
-              options={event}
-              value={selectedEvent}
-              id="selectEvents"
-              className="w-full"
-              onChange={onEventChange}
-              required
-            />
-          </div>
-          <div className="mt-4">
-            <label htmlFor="ecid" className="block mb-2 font-medium text-black">
-              Enter Ec Culrav Id
-            </label>
-            <div className="flex flex-row">
-              <input
-                type="text"
-                value="CUL - "
-                disabled={true}
-                className="w-[70px] rounded-lg p-2 focus:ring-red focus:border-red mr-2 bg-white"
-              ></input>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setec(e.target.value);
-                }}
-                value={ec}
-                id="ecid"
-                className="w-full  rounded-lg p-2 focus:ring-red focus:border-red"
-                required
-              />
-            </div>
-          </div>
-          <div className="mt-4">
-            <button
-              className="hover:shadow-md bg-[#0A2463] hover:bg-[#1c3878] transition-all duration-100"
-              onClick={handleClick}
-            >
-              Add EC
-            </button>
           </div>
         </div>
-
+        <div className="mt-4">
+          <button
+            className="hover:shadow-md bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-100 text-black"
+            onClick={handleClick}
+          >
+            Add EC
+          </button>
+        </div>
       </div>
     </>
   );

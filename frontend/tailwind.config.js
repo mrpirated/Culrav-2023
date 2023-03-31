@@ -26,6 +26,8 @@ module.exports = {
       brown: "#2B2B2D",
       brown2: "#2e2829",
       d_primary: "#282828",
+      lightYellow : "#FFF1C5",
+      OccurYellow : "#F5BE8A"
     },
     extend: {
       fontFamily: {

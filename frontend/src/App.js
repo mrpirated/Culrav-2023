@@ -30,47 +30,50 @@ import Preloader from "./Components/Preloader/Preloader";
 import getUserDataAPI from "./api/getUserDataAPI";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import { loggedWithToken, tokenChecked, setLoading } from "./store/auth";
+import addHitsAPI from "./api/addHitsAPI";
 function App() {
-  // const [state, dispatchs] = useReducer(authReducer, {
-  // 	user: null,
-  // });
-  const dispatch = useDispatch();
-  const auth = useSelector((state) => state.auth);
-  const List = [
-    "./images/ola.png",
-    "./images/festpav.png",
-    "./images/kwalitywalls.png",
-    "./images/pizzahut.png",
-    "./images/pepsi.png",
-    "./images/bob.png",
-    "./images/dainikjagran.png",
-    "./images/goli.png",
-    "./images/redfm.png",
-    "./images/safeexpress.png",
-    "./images/sbi.png",
-    "./images/ias.jpg",
-    "./images/cepta.png",
-    "./images/vlcc.png",
-    "./images/bk.png",
-    "./images/dell.png",
-    "./images/ktm.jpg",
-    "./images/godrej.png",
-    "./images/autodesk.jpg",
-    "./images/ims.png",
-    "./images/ald.png",
-    "./images/gateforum.png",
-    "./images/fbb.png",
-    "./images/madeeasy.jpg",
-    "./images/dell.png",
-    "./images/godrej.png",
-    "./images/dainikjagran.png",
-    "./images/cepta.png",
-    "./images/vlcc.png",
-    "./images/sbi.png",
-    "./images/bob.png",
-    "./images/dell.png",
-  ];
-
+	// const [state, dispatchs] = useReducer(authReducer, {
+	// 	user: null,
+	// });
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.auth);
+	const List = [
+		"./images/ola.png",
+		"./images/festpav.png",
+		"./images/kwalitywalls.png",
+		"./images/pizzahut.png",
+		"./images/pepsi.png",
+		"./images/bob.png",
+		"./images/dainikjagran.png",
+		"./images/goli.png",
+		"./images/redfm.png",
+		"./images/safeexpress.png",
+		"./images/sbi.png",
+		"./images/ias.jpg",
+		"./images/cepta.png",
+		"./images/vlcc.png",
+		"./images/bk.png",
+		"./images/dell.png",
+		"./images/ktm.jpg",
+		"./images/godrej.png",
+		"./images/autodesk.jpg",
+		"./images/ims.png",
+		"./images/ald.png",
+		"./images/gateforum.png",
+		"./images/fbb.png",
+		"./images/madeeasy.jpg",
+		"./images/dell.png",
+		"./images/godrej.png",
+		"./images/dainikjagran.png",
+		"./images/cepta.png",
+		"./images/vlcc.png",
+		"./images/sbi.png",
+		"./images/bob.png",
+		"./images/dell.png",
+	];
+	useEffect(() => {
+		addHitsAPI();
+	}, []);
 	useEffect(() => {
 		const script = document.createElement("script");
 		script.src = "/flyingButterflies.js";
@@ -163,10 +166,10 @@ function App() {
 							// }
 						></Route>
 						<Route
-            exact
-            path="/jointeam/:code"
-            element={<ProtectedRoute></ProtectedRoute>}
-          ></Route>
+							exact
+							path='/jointeam/:code'
+							element={<ProtectedRoute></ProtectedRoute>}
+						></Route>
 						;
 					</Routes>
 				</BrowserRouter>
