@@ -146,7 +146,7 @@ function DashboardNavbar(props) {
 								))}
 								{auth.isauth && (
 									<div className='px-6 mb-[20px] py-4 mx-4 text-lg font-bold transition duration-700 ease-in-out font-Mont text-black'>
-										<button>LOGOUT</button>
+										<button onClick={handleClickLogout}>LOGOUT</button>
 									</div>
 								)}
 							</ul>
