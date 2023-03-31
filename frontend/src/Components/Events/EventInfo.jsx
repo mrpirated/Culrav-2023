@@ -59,7 +59,7 @@ function EventInfo(props) {
     <>
       <div
         id="blur"
-        className="fixed w-screen h-screen z-40 top-0 left-0"
+        className="fixed w-screen h-screen z-30 top-0 left-0"
         onClick={props.handleClick}
       ></div>
       <div
@@ -75,7 +75,7 @@ function EventInfo(props) {
           className="flex flex-col w-full h-full shadow-lg overflow-auto"
         >
           <div className="relative flex flex-col w-full h-auto">
-            <div className="fixed top-[-4px] right-3 z-50 p-2 md:p-4">
+            <div className="fixed top-[-4px] right-3 z-30 p-2 md:p-4">
               <IconButton
                 color="primary"
                 aria-label="Close"
