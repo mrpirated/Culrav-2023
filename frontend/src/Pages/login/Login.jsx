@@ -10,11 +10,12 @@ function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [mnnitID, setMnnitID] = useState("");
+	const [college, setCollege] = useState("");
 	const [passwordAgain, setPasswordAgain] = useState("");
 	const [name, setName] = useState("");
 	const [message, setMessage] = useState("");
 	const [confirm, setConfirm] = useState("");
-	const [reg, setReg] = useState(false);
+	const [reg, setReg] = useState(1);
 	const { login, error } = useLogin();
 	const { signup, isLoadingSignup, errorSignup } = useSignup();
 	const navigate = useNavigate();
@@ -52,9 +53,11 @@ function Login() {
 			// setMessage("Password is valid");
 			if (password === passwordAgain) {
 				// setConfirm("Password validation successful");
-				await signup(name, email, password, mnnitID).then((response) => {
-					navigate("/");
-				});
+				await signup(name, email, password, mnnitID, college, reg).then(
+					(response) => {
+						navigate("/");
+					}
+				);
 			} else {
 				// setConfirm("Passwords are different");
 				toast.error("Confirm Password is not matching with password");
@@ -170,8 +173,31 @@ function Login() {
 											ARE YOU FROM MNNIT?
 										</label>
 									</span>
-									<span>
-										<input type='checkbox' onChange={() => setReg(!reg)} />
+								</div>
+								<div className='flex items-center my-[5px]'>
+									<span className='flex flex-row justify-center items-center'>
+										<label className='text-[14px] ml-[10px] text-white lg:text-black mr-2'>
+											Yes
+										</label>
+										<input
+											type='radio'
+											id='mnnitian'
+											name='mnnitian'
+											checked={reg}
+											onChange={() => setReg(1)}
+										/>
+									</span>
+									<span className='flex flex-row justify-center items-center'>
+										<label className='text-[14px] ml-[10px] text-white lg:text-black mr-2'>
+											No
+										</label>
+										<input
+											type='radio'
+											id='mnnitian'
+											name='mnnitian'
+											checked={!reg}
+											onChange={() => setReg(0)}
+										/>
 									</span>
 								</div>
 								<div>
@@ -179,12 +205,18 @@ function Login() {
 										<input
 											type='number'
 											placeholder='Registration Number'
-											required='true'
+											required={reg}
 											onChange={(e) => setMnnitID(e.target.value)}
 											value={mnnitID}
 										></input>
 									) : (
-										<div className='hidden'></div>
+										<input
+											type='text'
+											placeholder='College Name'
+											required={!reg}
+											onChange={(e) => setCollege(e.target.value)}
+											value={college}
+										></input>
 									)}
 								</div>
 								<div className='text-white lg:text-black'>{confirm}</div>

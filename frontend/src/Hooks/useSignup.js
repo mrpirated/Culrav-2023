@@ -7,10 +7,16 @@ export const useSignup = () => {
 	const [errorSignup, setErrorSignup] = useState(null);
 	const [isLoadingSignup, setIsLoadingSignup] = useState(null);
 	const dispatch = useDispatch();
-	const signup = async (name, email, password, mnnit_id) => {
+	const signup = async (name, email, password, mnnit_id, college, reg) => {
 		setIsLoadingSignup(true);
 		setErrorSignup(null);
-		await signupAPI({ name, email, password, mnnit_id })
+		await signupAPI({
+			name,
+			email,
+			password,
+			mnnit_id: reg ? mnnit_id : null,
+			college: reg ? null : college,
+		})
 			.then((response) => {
 				if (response.success) {
 					localStorage.setItem("token", JSON.stringify(response.data.token));

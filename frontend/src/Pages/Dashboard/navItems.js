@@ -1,8 +1,8 @@
 const navItems = {
-	ADMIN: ["profile", "poc", "ec", "edit event"],
-	FS: ["profile", "poc", "ec", "edit event"],
-	POC: ["profile", "ec", "edit event"],
-	EC: ["profile", "edit event"],
+	ADMIN: ["profile", "poc", "ec"],
+	FS: ["profile", "poc", "ec"],
+	POC: ["profile", "ec"],
+	EC: ["profile"],
 	USER: ["profile"],
 };
 export default navItems;

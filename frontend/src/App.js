@@ -91,8 +91,6 @@ function App() {
 				.then((response) => {
 					if (response.success) {
 						dispatch(loggedWithToken({ user: response.data, token: token }));
-						var user = response.data;
-						user.token = token;
 					} else {
 						dispatch(tokenChecked());
 					}

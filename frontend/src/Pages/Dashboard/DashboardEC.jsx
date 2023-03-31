@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdminPanel from "./AdminPanel";
-import getAllPOCsAPI from "../../api/getAllPOCsAPI";
 import { setLoading } from "../../store/auth";
 import getAllECsAPI from "../../api/getAllECsAPI";
 import getCommiteesAPI from "../../api/getCommiteesAPI";
@@ -11,7 +10,7 @@ import UserProfile from "./UserProfile";
 import EditEC from "./EditEC";
 import EditPOC from "./EditPOC";
 import EditEvent from "./EditEvent";
-const DashboardPOC = (props) => {
+const DashboardEC = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 	const { type, setType } = props;
@@ -20,24 +19,25 @@ const DashboardPOC = (props) => {
 	const [refreshList, setRefreshList] = useState(false);
 	const [commitee, setCommitee] = useState([]);
 	const [commiteeEvents, setCommiteeEvents] = useState({});
-	const [pocCommitee, setPocCommitee] = useState([]);
-	useEffect(() => {
-		dispatch(setLoading({ loading: true }));
-		getAllECsAPI()
-			.then((response) => {
-				setEcs(response.data);
-			})
-			.finally(() => {
-				dispatch(setLoading({ loading: false }));
-				setRefreshList(false);
-			});
-		//   getAllECsAPI().then((response)=>{
-		// 	setEcs(response.data)
-		//   }).finally(() => {
-		//     dispatch(setLoading({ loading: false }));
-		//     setRefreshList(false);
-		//   });
-	}, [refreshList]);
+	const [ecCommitee, setEcCommitee] = useState([]);
+	const [ecEvent, setEcEvent] = useState({});
+	// useEffect(() => {
+	// 	dispatch(setLoading({ loading: true }));
+	// 	getAllECsAPI()
+	// 		.then((response) => {
+	// 			setEcs(response.data);
+	// 		})
+	// 		.finally(() => {
+	// 			dispatch(setLoading({ loading: false }));
+	// 			setRefreshList(false);
+	// 		});
+	// 	//   getAllECsAPI().then((response)=>{
+	// 	// 	setEcs(response.data)
+	// 	//   }).finally(() => {
+	// 	//     dispatch(setLoading({ loading: false }));
+	// 	//     setRefreshList(false);
+	// 	//   });
+	// }, [refreshList]);
 	useEffect(() => {
 		dispatch(setLoading({ loading: true }));
 
@@ -70,12 +70,12 @@ const DashboardPOC = (props) => {
 				});
 				console.log(commiteeEvents);
 				setCommiteeEvents(commiteeEvents);
-				return getAllPOCsAPI();
+				return getAllECsAPI();
 			})
 			.then((response) => {
-				setPocCommitee(
+				setEcCommitee(
 					response.data
-						.filter((e) => e.poc_id === auth.user.user_id)
+						.filter((e) => e.ec_id === auth.user.user_id)
 						.map((e) => e.commitee_id)
 				);
 			})
@@ -98,23 +98,12 @@ const DashboardPOC = (props) => {
 							}}
 							check={type}
 						/>
-						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
 						{/* <AdminPanel
 							type='Edit Event'
-							onClick={() => setType("Edit Event")}
+							onClick={() => setType("edit event")}
 							check={type}
 						/> */}
 					</div>
-					{type === "ec" && (
-						<div className='flex flex-row w-full'>
-							<EditEC
-								ecs={ecs}
-								setRefreshList={setRefreshList}
-								commitee={commitee.filter((e) => pocCommitee.includes(e.value))}
-								commiteeEvents={commiteeEvents}
-							/>
-						</div>
-					)}
 					{type === "profile" && (
 						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
 							<UserProfile userData={auth.user} />
@@ -124,7 +113,7 @@ const DashboardPOC = (props) => {
 						<div className='flex flex-row w-full'>
 							<EditEvent
 								setRefreshList={setRefreshList}
-								commitee={commitee.filter((e) => pocCommitee.includes(e.value))}
+								commitee={commitee.filter((e) => ecCommitee.includes(e.value))}
 								commiteeEvents={commiteeEvents}
 							/>
 						</div>
@@ -135,4 +124,4 @@ const DashboardPOC = (props) => {
 	);
 };
 
-export default DashboardPOC;
+export default DashboardEC;

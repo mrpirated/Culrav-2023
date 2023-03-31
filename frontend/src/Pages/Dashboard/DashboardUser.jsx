@@ -1,46 +1,127 @@
-import React from "react";
-import CreateTeam from "./CreateTeam";
-import Myteams from "./Myteams";
-import AddTeamMembers from "./AddTeamMembers";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import AdminPanel from "./AdminPanel";
+import { setLoading } from "../../store/auth";
+import getAllECsAPI from "../../api/getAllECsAPI";
+import getCommiteesAPI from "../../api/getCommiteesAPI";
+import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
+import ProfileSectionInDashboard from "./ProfileSectionInDashboard";
+import UserProfile from "./UserProfile";
+import EditEC from "./EditEC";
+import EditPOC from "./EditPOC";
+import EditEvent from "./EditEvent";
+const DashboardEC = (props) => {
+	const auth = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
+	const { type, setType } = props;
+	// const [type, setType] = useState("profile");
+	// const [ecs, setEcs] = useState([]);
+	// const [refreshList, setRefreshList] = useState(false);
+	// const [commitee, setCommitee] = useState([]);
+	// const [commiteeEvents, setCommiteeEvents] = useState({});
+	// const [ecCommitee, setEcCommitee] = useState([]);
+	// const [ecEvent, setEcEvent] = useState({});
+	// useEffect(() => {
+	// 	dispatch(setLoading({ loading: true }));
+	// 	getAllECsAPI()
+	// 		.then((response) => {
+	// 			setEcs(response.data);
+	// 		})
+	// 		.finally(() => {
+	// 			dispatch(setLoading({ loading: false }));
+	// 			setRefreshList(false);
+	// 		});
+	// 	//   getAllECsAPI().then((response)=>{
+	// 	// 	setEcs(response.data)
+	// 	//   }).finally(() => {
+	// 	//     dispatch(setLoading({ loading: false }));
+	// 	//     setRefreshList(false);
+	// 	//   });
+	// }, [refreshList]);
+	// useEffect(() => {
+	// 	dispatch(setLoading({ loading: true }));
 
+	// 	getCommiteesAPI()
+	// 		.then((response) => {
+	// 			const options = [];
+	// 			const eventFetches = [];
+	// 			response.data.forEach((element) => {
+	// 				eventFetches.push(
+	// 					getCommiteeEventsAPI({ commitee_id: element.commitee_id })
+	// 				);
+	// 				options.push({
+	// 					value: element.commitee_id,
+	// 					label: element.name,
+	// 				});
+	// 			});
+	// 			setCommitee(options);
+	// 			return Promise.all(eventFetches);
+	// 		})
+	// 		.then((response) => {
+	// 			const commiteeEvents = {};
+	// 			response.forEach((res, key) => {
+	// 				commiteeEvents[key + 1] = [];
+	// 				res.data.forEach((e) => {
+	// 					commiteeEvents[key + 1].push({
+	// 						value: e.event_id,
+	// 						label: e.name,
+	// 					});
+	// 				});
+	// 			});
+	// 			console.log(commiteeEvents);
+	// 			setCommiteeEvents(commiteeEvents);
+	// 			return getAllECsAPI();
+	// 		})
+	// 		.then((response) => {
+	// 			setEcCommitee(
+	// 				response.data
+	// 					.filter((e) => e.ec_id === auth.user.user_id)
+	// 					.map((e) => e.commitee_id)
+	// 			);
+	// 		})
+	// 		.finally(() => {
+	// 			dispatch(setLoading({ loading: false }));
+	// 		});
+	// }, []);
 
-const DashboardUser = () => {
-    const auth = useSelector((state) => state.auth);
-  return (
-    <>
-      <div className="md:flex mt-[30px] md:mt-[15px] md:flex-row flex flex-col mx-10">
-        {/* left dashboard  */}
-        <div className="left m-4 w-[70%]">
-          <div className="flex flex-col flex-wrap w-full h-[70px]">
-            <div className="bg-light md:mt-[8px] ml-[-16px] md:ml-[-16px] my-2 w-full rounded-md">
-              <p className="text-2xl p-4 text-brown">
-                Hello, <span className="text-red">{auth.user.name}</span>
-              </p>
-              <p className="text-sm ml-[2px] p-4 pb-4 mt-[-30px] text-brown">
-                {auth.user.email}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* center dashboard  */}
-        <div className="center mt-[35px] md:mt-[15px] m-4 ml-[-4px] md:ml-[0px] w-full">
-          <div className="flex flex-col w-full ">
-            <CreateTeam />
-            <div className="mt-[22px]">
-              <AddTeamMembers />
-            </div>
-          </div>
-        </div>
-
-        {/* right dashboard */}
-        <div className="m-4 mt-[7px] md:mr-[4px] md:mt-[15px] mb-[32px] ml-[-4px] md:ml-[0px] w-full h-full ">
-          <Myteams />
-        </div>
-      </div>
-    </>
-  );
+	return (
+		// bg-[#263544]
+		<>
+			<div className='bg-[#fff1c5]'>
+				<div className='md:flex-row flex flex-col relative '>
+					{/* left dashboard  */}
+					<div className=' left w-[20%] h-screen bg-[#F5BE8A] shadow-md hidden lg:block'>
+						<ProfileSectionInDashboard
+							type='PROFILE'
+							onClick={() => {
+								setType("profile");
+							}}
+							check={type}
+						/>
+						{/* <AdminPanel
+							type='Edit Event'
+							onClick={() => setType("edit event")}
+							check={type}
+						/> */}
+					</div>
+					{type === "profile" && (
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
+							<UserProfile />
+						</div>
+					)}
+					{/* {type === "edit event" && (
+						<div className='flex flex-row w-full'>
+							<EditEvent
+								setRefreshList={setRefreshList}
+								commitee={commitee.filter((e) => ecCommitee.includes(e.value))}
+								commiteeEvents={commiteeEvents}
+							/>
+						</div>
+					)} */}
+				</div>
+			</div>
+		</>
+	);
 };
 
-export default DashboardUser;
+export default DashboardEC;

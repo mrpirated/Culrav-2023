@@ -106,11 +106,11 @@ const DashboardAdmin = (props) => {
 							check={type}
 						/>
 						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
-						<AdminPanel
+						{/* <AdminPanel
 							type='Edit Event'
 							onClick={() => setType("Edit Event")}
 							check={type}
-						/>
+						/> */}
 					</div>
 					{type === "ec" && (
 						<div className='flex flex-row w-full'>
@@ -136,11 +136,15 @@ const DashboardAdmin = (props) => {
 							<UserProfile userData={auth.user} />
 						</div>
 					)}
-					{type === "edit event" && (
+					{/* {type === "edit event" && (
 						<div className='flex flex-row w-full'>
-							<EditEvent />
+							<EditEvent
+								setRefreshList={setRefreshList}
+								commitee={commitee}
+								commiteeEvents={commiteeEvents}
+							/>
 						</div>
-					)}
+					)} */}
 				</div>
 			</div>
 		</>

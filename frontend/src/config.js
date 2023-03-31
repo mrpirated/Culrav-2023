@@ -21,5 +21,6 @@ const config = {
 	removePOCs: "/removePOCs",
 	removeECs: "/removeECs",
 	addHits: "/addHits",
+	editUserProfile: "/editUserProfile",
 };
 export default config;
