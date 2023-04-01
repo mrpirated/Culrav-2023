@@ -11,6 +11,7 @@ function Dashboard() {
 	const [option, setOption] = useState("profile");
 	const [isEC, setIsEC] = useState(false);
 	const [isPOC, setIsPOC] = useState(false);
+	const [navItems, setNavItems] = useState([]);
 	useEffect(() => {
 		if (auth.pocs.length > 0) {
 			setIsPOC(true);
@@ -19,6 +20,13 @@ function Dashboard() {
 			setIsEC(true);
 		}
 	}, [auth.pocs, auth.ecs]);
+	useEffect(() => {
+		if (auth.user.type === "ADMIN" || auth.user.type === "FS") {
+			setNavItems(["poc", "ec"]);
+		} else if (isPOC) {
+			setNavItems(["ec"]);
+		}
+	}, [auth.user.type, isPOC, isEC]);
 	return (
 		<>
 			<div className='bg-[#fffbed]'>
@@ -26,6 +34,7 @@ function Dashboard() {
 					user={auth.user}
 					option={option}
 					setOption={setOption}
+					navItems={navItems}
 				/>
 				{auth.user.type == "FS" || auth.user.type == "ADMIN" ? (
 					<DashboardAdmin type={option} setType={setOption} />

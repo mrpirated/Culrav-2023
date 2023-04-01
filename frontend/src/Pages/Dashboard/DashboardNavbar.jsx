@@ -4,7 +4,6 @@ import Logo from "../../Assets/Preloader/circle.webp";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import navItems from "./navItems";
 import { useLogout } from "../../Hooks/useLogout";
 const HamOpen = (
 	<svg
@@ -41,7 +40,7 @@ const HamClose = (
 );
 
 function DashboardNavbar(props) {
-	const { option, setOption } = props;
+	const { option, setOption, navItems } = props;
 	const [toggle, setToggle] = useState(false);
 	const auth = useSelector((state) => state.auth);
 	const { logout } = useLogout();
@@ -126,11 +125,23 @@ function DashboardNavbar(props) {
 										{`Konnichiwa ${auth.user.name}`.toUpperCase()}
 									</div>
 								</li>
-								{navItems[
-									auth.user.type !== "ADMIN" || auth.user.type !== "FS"
-										? "USER"
-										: auth.user.type
-								].map((item) => (
+								<li
+									className='mt-[5px] mx-10 font-Mont pb-[20px] my-2 cursor-pointer'
+									key={`link-profile`}
+								>
+									<p
+										onClick={() => {
+											setToggle(false);
+											setOption("profile");
+										}}
+										className=' text-white text-base mx-2 px-1 font-Mont'
+										smooth={true}
+										duration={500}
+									>
+										{"PROFILE"}
+									</p>
+								</li>
+								{navItems.map((item) => (
 									<li
 										className='mt-[5px] mx-10 font-Mont pb-[20px] my-2 cursor-pointer'
 										key={`link-${item}`}
