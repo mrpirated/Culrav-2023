@@ -125,7 +125,7 @@ function EventInfo(props) {
 								</div>
 							)}
 							{subevent.map((element) => {
-								return <EventCard {...element} />;
+								return <EventCard ecs={ecs} {...element} />;
 							})}
 						</div>
 						<div className='flex justify-center'>

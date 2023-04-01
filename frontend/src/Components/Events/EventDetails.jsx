@@ -6,7 +6,6 @@ import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import TeamEvent from "./TeamEvent";
 import EventCard from "./EventCard";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
-import Spinner from "../../Pages/Dashboard/Spinner";
 import img from "./Assests/cardTop.webp";
 import getImageAPI from "../../api/getImageAPI";
 import toast from "react-hot-toast";
@@ -35,7 +34,7 @@ function EventDetails(props) {
 	const [image, setImage] = useState("../../Pages/Team/Assets/Background.png");
 	const [subevent, setSubevent] = useState([]);
 	const [tagline, setTagline] = useState("");
-
+	const { ecs } = props;
 	console.log("Event Details", props);
 	console.log("Tagline", props.event_tagline);
 	const width = window.screen.width;
@@ -168,6 +167,25 @@ function EventDetails(props) {
 							className='pl-[50px] pr-[50px]'
 							dangerouslySetInnerHTML={{ __html: props.rules }}
 						/>
+					</div>
+					<div className='flex justify-center'>
+						<p className='text-2xl ml-[20px] mr-[20px] text-center xlsm:mt-[5px] xs:mt-[5px] xlsm:mb-[13px] xs:mb-[13px] md:mt-[25px] md:mb-[-15px] uppercase mt-[40px] mb-[-10px] font-bold lg:text-3xl '>
+							{props.name} COORDINATORS
+						</p>
+					</div>
+					<div className='flex flex-row flex-wrap justify-center'>
+						{ecs
+							.filter((e) => e.event_id === props.event_id)
+							.map((e) => (
+								<div className='m-10 lg:mx-20'>
+									<div className='w-full h-full flex flex-col justify-center items-center'>
+										<p className='font-bold text-xl lg:text-2xl mt-4'>
+											{e.ec_name.toUpperCase()}
+										</p>
+										<p className='font-normal lg:text-md'>{e.ec_phone}</p>
+									</div>
+								</div>
+							))}
 					</div>
 				</motion.div>
 			</div>

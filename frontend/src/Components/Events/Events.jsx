@@ -6,16 +6,30 @@ import Eventcomponent from "./Eventcomponent";
 import getCommiteesAPI from "../../api/getCommiteesAPI";
 import getAllPOCsAPI from "../../api/getAllPOCsAPI";
 import getAllECsAPI from "../../api/getAllECsAPI";
-
+import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 function Events() {
 	const [data, setData] = useState([]);
 	const [pocs, setPocs] = useState([]);
 	const [ecs, setEcs] = useState([]);
-
+	const [eventData, setEventData] = useState({});
 	useEffect(() => {
+		var ed = {};
 		getCommiteesAPI()
 			.then((response) => {
 				setData(response.data);
+				const eventDatas = [];
+				response.data.forEach((e) => {
+					ed[e.commitee_id] = [];
+					eventDatas.push(getCommiteeEventsAPI({ commitee_id: e.commitee_id }));
+				});
+				setEventData(ed);
+				return Promise.all(eventDatas);
+			})
+			.then((response) => {
+				response.forEach((e, key) => {
+					ed[key + 1].push(e.data);
+				});
+				setEventData(ed);
 				return getAllPOCsAPI();
 			})
 			.then((response) => {
@@ -26,7 +40,6 @@ function Events() {
 				setEcs(response.data);
 			});
 	}, []);
-
 	let width = window.screen.width;
 	let textSize = "60px";
 	if (width > 640) textSize = "88px";
@@ -38,7 +51,12 @@ function Events() {
 
 			<div className='mx-4 flex flex-row flex-wrap justify-around'>
 				{data.map((element) => (
-					<Eventcomponent pocs={pocs} ecs={ecs} {...element} />
+					<Eventcomponent
+						eventData={eventData}
+						pocs={pocs}
+						ecs={ecs}
+						{...element}
+					/>
 				))}
 			</div>
 		</div>

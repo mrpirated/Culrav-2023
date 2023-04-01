@@ -11,6 +11,8 @@ function Eventcomponent(props) {
 	const [subevent, setSubevent] = useState([]);
 	const [display, setdisplay] = useState(false);
 	const [imgurl, setimgurl] = useState(null);
+	const { eventData } = props;
+	// console.log(eventData);
 	const handleEvent = () => {
 		const slider = document.getElementById(`slider${props.name}`);
 		slider.style.width = "100%";
@@ -21,32 +23,12 @@ function Eventcomponent(props) {
 		slider.style.width = "0%";
 	};
 
-	const getEventsData = async () => {
-		await getCommiteeEventsAPI({ commitee_id: props.commitee_id }).then(
-			(response) => {
-				setSubevent(response.data);
-			}
-		);
-		// const jsony = await fetch(
-		//   `${process.env.REACT_APP_COMMITEE}?commitee_id=${props.commitee_id}`
-		// );
-		// const response = await jsony.json();
-
-		// const response = await axios.get(
-		//   `${process.env.REACT_APP_COMMITEE}?commitee_id=${props.commitee_id}`
-		// );
-		// setSubevent(response.data);
-		// console.log(response.data.data);
-	};
-
-	const fetchImage = async () => {
-		const url = getImagesAPI("commitee", props.commitee_id);
-		setimgurl(url);
-	};
-
 	useEffect(() => {
-		getEventsData();
-		fetchImage();
+		setSubevent(eventData[props.commitee_id]);
+	}, [eventData]);
+	useEffect(() => {
+		setimgurl(getImagesAPI("commitee", props.commitee_id));
+
 		const slider = document.getElementById(`slider${props.name}`);
 		slider.style.width = "0%";
 	}, []);
