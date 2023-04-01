@@ -42,19 +42,19 @@ const Celebs = () => {
         <span
           onClick={() => setState(1)}
           id="space"
-          className="text-light mr-[30px] sm:mr-[50px] xl:mr-[200px] cursor-pointer text-[12px] xs:text-[17px] lg:text-[20px] transition ease-in-out duration-500"
+          className="text-light hover:text-dark mr-[30px] sm:mr-[50px] xl:mr-[200px] cursor-pointer text-[12px] xs:text-[17px] lg:text-[20px] transition ease-in-out duration-500"
         >
           FACULTIES
         </span>
         <span
           onClick={() => setState(2)}
-          className="text-light mr-[30px] sm:mr-[50px] xl:mr-[200px] cursor-pointer text-[12px] xs:text-[17px] lg:text-[20px] transition ease-in-out duration-500"
+          className="text-light hover:text-dark mr-[30px] sm:mr-[50px] xl:mr-[200px] cursor-pointer text-[12px] xs:text-[17px] lg:text-[20px] transition ease-in-out duration-500"
         >
           ORGANIZING TEAM
         </span>
         <span
           onClick={() => setState(3)}
-          className="text-light cursor-pointer text-[12px] xs:text-[17px] lg:text-[20px] transition ease-in-out duration-500"
+          className="text-light hover:text-dark cursor-pointer text-[12px] xs:text-[17px] lg:text-[20px] transition ease-in-out duration-500"
         >
           TECH TEAM
         </span>
