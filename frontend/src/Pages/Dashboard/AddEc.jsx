@@ -40,6 +40,7 @@ const AddEc = (props) => {
 				token: auth.token,
 				ec_id: ec,
 				event_id: selectedEvent.value,
+				commitee_id: selectedCommitee.value,
 			};
 			await addECsAPI(data)
 				.then((response) => {

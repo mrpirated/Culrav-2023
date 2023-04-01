@@ -6,8 +6,9 @@ import checkTokenService from "./checkTokenService";
 import checkIfUserIdExists from "../data/checkIfUserIdExists";
 import checkIfUserIsEC from "../data/checkIfUserIsEC";
 import checkIfPhoneIsUpdated from "../data/checkIfPhoneIsUpdated";
+import checkIfUserIsPOC from "../data/checkIfUserIsPOC";
 const debug = dbg("service:addECs");
-const addECsService = async (token, { ec_id, event_id }) => {
+const addECsService = async (token, { ec_id, event_id, commitee_id }) => {
 	var user_id;
 	var user_type;
 	return await checkTokenService(token)
@@ -17,7 +18,10 @@ const addECsService = async (token, { ec_id, event_id }) => {
 		})
 		.then((response) => {
 			user_type = response.data.type;
-			if (user_type === "ADMIN" || user_type === "FS" || user_type === "POC") {
+			return checkIfUserIsPOC(user_id, commitee_id);
+		})
+		.then((response) => {
+			if (response.success || user_type === "ADMIN" || user_type === "FS") {
 				return checkIfUserIdExists(ec_id);
 			} else {
 				return Promise.reject({

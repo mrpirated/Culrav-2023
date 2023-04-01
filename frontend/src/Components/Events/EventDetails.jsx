@@ -49,7 +49,7 @@ function EventDetails(props) {
 	}
 
 	const EventClick = () => {
-		toast("Registeration for events Coming Soon", {
+		toast("Registrations for events are Coming Soon", {
 			icon: "",
 		});
 	};
