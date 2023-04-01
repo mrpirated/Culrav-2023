@@ -18,7 +18,7 @@ function Dashboard() {
 		if (auth.ecs.length > 0) {
 			setIsEC(true);
 		}
-	}, [auth.isauth]);
+	}, [auth.pocs, auth.ecs]);
 	return (
 		<>
 			<div className='bg-[#fffbed]'>
@@ -30,7 +30,7 @@ function Dashboard() {
 				{auth.user.type == "FS" ||
 					(auth.user.type == "ADMIN" ? (
 						<DashboardAdmin type={option} setType={setOption} />
-					) : isPOC || isEC ? (
+					) : isPOC || isEC > 0 ? (
 						<DashboardPositions
 							type={option}
 							setType={setOption}

@@ -44,7 +44,6 @@ const slice = createSlice({
 			auth.updateUser = true;
 		},
 		setPOCs: (auth, action) => {
-			console.log(action);
 			auth.pocs = action.payload.pocs;
 		},
 		setECs: (auth, action) => {
