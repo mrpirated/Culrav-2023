@@ -5,7 +5,7 @@ const debug = dbg("data:getAllECs");
 const getAllECs = async () => {
 	return new Promise((resolve, reject) => {
 		pool.query(
-			`SELECT u.user_id as ec_id, u.name as ec_name,
+			`SELECT u.user_id as ec_id, u.name as ec_name, u.phone as ec_phone,
             c.commitee_id, c.name as commitee_name, e.event_id,
             e.name as event_name
             FROM user u 

@@ -4,18 +4,27 @@ import AnimatedText from "./AnimatedText";
 // import data from "./data.js";
 import Eventcomponent from "./Eventcomponent";
 import getCommiteesAPI from "../../api/getCommiteesAPI";
+import getAllPOCsAPI from "../../api/getAllPOCsAPI";
+import getAllECsAPI from "../../api/getAllECsAPI";
 
 function Events() {
 	const [data, setData] = useState([]);
-
-	const fetchCommiteeData = async () => {
-		const response = await getCommiteesAPI();
-		// console.log(response.data);
-		setData(response.data);
-	};
+	const [pocs, setPocs] = useState([]);
+	const [ecs, setEcs] = useState([]);
 
 	useEffect(() => {
-		fetchCommiteeData();
+		getCommiteesAPI()
+			.then((response) => {
+				setData(response.data);
+				return getAllPOCsAPI();
+			})
+			.then((response) => {
+				setPocs(response.data);
+				return getAllECsAPI();
+			})
+			.then((response) => {
+				setEcs(response.data);
+			});
 	}, []);
 
 	let width = window.screen.width;
@@ -29,7 +38,7 @@ function Events() {
 
 			<div className='mx-4 flex flex-row flex-wrap justify-around'>
 				{data.map((element) => (
-					<Eventcomponent {...element} />
+					<Eventcomponent pocs={pocs} ecs={ecs} {...element} />
 				))}
 			</div>
 		</div>

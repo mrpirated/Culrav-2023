@@ -32,6 +32,7 @@ const AdminDataList = (props) => {
 				token: auth.token,
 				ec_id: e.ec_id,
 				event_id: e.event_id,
+				commitee_id: e.commitee_id,
 			};
 			await removeECsAPI(data).then((response) => {
 				console.log(response);
