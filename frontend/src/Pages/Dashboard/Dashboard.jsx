@@ -28,7 +28,7 @@ function Dashboard() {
 					setOption={setOption}
 				/>
 				{auth.user.type == "FS" ||
-					(auth.user.type == "ADMI" ? (
+					(auth.user.type == "ADMIN" ? (
 						<DashboardAdmin type={option} setType={setOption} />
 					) : isPOC || isEC ? (
 						<DashboardPositions
