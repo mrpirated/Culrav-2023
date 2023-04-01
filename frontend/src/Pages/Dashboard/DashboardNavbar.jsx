@@ -119,7 +119,7 @@ function DashboardNavbar(props) {
 							<ul className='flex mt-[5px] flex-col items-center justify-start sm:mt-[-20px] w-full h-full p-0 m-0 text-xs text-black'>
 								<li className='mx-10 font-Mont pb-[20px] my-2 cursor-pointer'>
 									<div
-										className='mt-[25px] text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont '
+										className='mt-[25px] text-center text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont '
 										smooth={true}
 										duration={500}
 									>
