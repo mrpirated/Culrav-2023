@@ -1,5 +1,6 @@
 const config = {
-	baseUrl: process.env.REACT_APP_BASE_URL,
+	// baseUrl: process.env.REACT_APP_BASE_URL,
+	baseUrl: `http://localhost:5008/api`,
 	environment: process.env.REACT_APP_ENVIRONMENT || "development",
 	login: "/login",
 	signup: "/signup",
@@ -22,5 +23,6 @@ const config = {
 	removeECs: "/removeECs",
 	addHits: "/addHits",
 	editUserProfile: "/editUserProfile",
+	getUserPositions: "/getUserPositions",
 };
 export default config;

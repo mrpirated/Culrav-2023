@@ -11,9 +11,6 @@ import AllTeams from "./Pages/Team/AllTeams";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import LoadingProvider from "./Components/LoadingProvider";
-import NavPageDash from "./Pages/Dashboard/NavPage";
-import DashboardAdmin from "./Pages/Dashboard/DashboardAdmin";
-import DashboardPoc from "./Pages/Dashboard/poc/DashboardPoc";
 import { useDispatch, useSelector } from "react-redux";
 //Components
 import Navbar from "./Components/Navbar/Navbar";
@@ -29,8 +26,15 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Preloader from "./Components/Preloader/Preloader";
 import getUserDataAPI from "./api/getUserDataAPI";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import { loggedWithToken, tokenChecked, setLoading } from "./store/auth";
+import {
+	loggedWithToken,
+	tokenChecked,
+	setLoading,
+	setPOCs,
+	setECs,
+} from "./store/auth";
 import addHitsAPI from "./api/addHitsAPI";
+import getUserPositionsAPI from "./api/getUserPositionsAPI";
 function App() {
 	// const [state, dispatchs] = useReducer(authReducer, {
 	// 	user: null,
@@ -83,6 +87,13 @@ function App() {
 			document.body.removeChild(script);
 		};
 	}, []);
+	useEffect(() => {
+		if (auth.isauth)
+			getUserPositionsAPI({ token: auth.token }).then((response) => {
+				dispatch(setPOCs({ pocs: response.data.pocs }));
+				dispatch(setECs({ ecs: response.data.ecs }));
+			});
+	}, [auth.isauth]);
 	useEffect(() => {
 		dispatch(setLoading({ loading: true }));
 		if (!auth.isauth && localStorage.getItem("token")) {

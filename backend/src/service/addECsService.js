@@ -5,6 +5,7 @@ import getUserType from "../data/getUserType";
 import checkTokenService from "./checkTokenService";
 import checkIfUserIdExists from "../data/checkIfUserIdExists";
 import checkIfUserIsEC from "../data/checkIfUserIsEC";
+import checkIfPhoneIsUpdated from "../data/checkIfPhoneIsUpdated";
 const debug = dbg("service:addECs");
 const addECsService = async (token, { ec_id, event_id }) => {
 	var user_id;
@@ -33,6 +34,14 @@ const addECsService = async (token, { ec_id, event_id }) => {
 				return Promise.reject({
 					success: false,
 					message: "User is already EC of the event",
+				});
+			} else return checkIfPhoneIsUpdated(ec_id);
+		})
+		.then((response) => {
+			if (response.data.phone == null || response.data.phone === "") {
+				return Promise.reject({
+					success: false,
+					message: "User has not updated their phone number.",
 				});
 			} else return addECs(ec_id, event_id);
 		})

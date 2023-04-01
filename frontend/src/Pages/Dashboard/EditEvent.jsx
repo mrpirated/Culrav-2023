@@ -8,13 +8,13 @@ function EditEvent(props) {
 			<div className='w-full mt-4 p-2'>
 				<Event />
 			</div>
-			<div className='w-full mt-4 p-2 md:w-[80%] md:mx-4'>
+			{/* <div className='w-full mt-4 p-2 md:w-[80%] md:mx-4'>
 				<AddEc
 					commitee={commitee}
 					commiteeEvents={commiteeEvents}
 					setRefreshList={setRefreshList}
 				/>
-			</div>
+			</div> */}
 		</div>
 	);
 }

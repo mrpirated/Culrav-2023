@@ -5,6 +5,8 @@ const initialState = {
 	token: "",
 	isauth: false,
 	checkToken: false,
+	pocs: [],
+	ecs: [],
 };
 const slice = createSlice({
 	name: "auth",
@@ -41,6 +43,13 @@ const slice = createSlice({
 		setUpdateUser: (auth, action) => {
 			auth.updateUser = true;
 		},
+		setPOCs: (auth, action) => {
+			console.log(action);
+			auth.pocs = action.payload.pocs;
+		},
+		setECs: (auth, action) => {
+			auth.ecs = action.payload.ecs;
+		},
 	},
 });
 
@@ -52,6 +61,8 @@ export const {
 	tokenChecked,
 	userUpdated,
 	setUpdateUser,
+	setPOCs,
+	setECs,
 } = slice.actions;
 
 export default slice.reducer;

@@ -4,6 +4,7 @@ import getUserType from "../data/getUserType";
 import checkTokenService from "./checkTokenService";
 import checkIfUserIdExists from "../data/checkIfUserIdExists";
 import checkIfUserIsPOC from "../data/checkIfUserIsPOC";
+import checkIfPhoneIsUpdated from "../data/checkIfPhoneIsUpdated";
 const debug = dbg("service:addPOCs");
 const addPOCsService = async (token, { poc_id, commitee_id }) => {
 	var user_id;
@@ -33,6 +34,14 @@ const addPOCsService = async (token, { poc_id, commitee_id }) => {
 				return Promise.reject({
 					success: false,
 					message: "User is already POC of the commitee",
+				});
+			} else return checkIfPhoneIsUpdated(poc_id);
+		})
+		.then((response) => {
+			if (response.data.phone == null || response.data.phone === "") {
+				return Promise.reject({
+					success: false,
+					message: "User has not updated their phone number.",
 				});
 			} else return addPOCs(poc_id, commitee_id);
 		})
