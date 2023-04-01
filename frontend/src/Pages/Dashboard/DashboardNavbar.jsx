@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useLogout } from "../../Hooks/useLogout";
+import { useNavigate } from "react-router-dom";
 const HamOpen = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
@@ -44,6 +45,7 @@ function DashboardNavbar(props) {
 	const [toggle, setToggle] = useState(false);
 	const auth = useSelector((state) => state.auth);
 	const { logout } = useLogout();
+	const navigate = useNavigate();
 	// const navItems = [
 	// 	"Konnichiwa " + auth.user.name,
 	// 	"Profile",
@@ -77,7 +79,10 @@ function DashboardNavbar(props) {
 					<div className='hidden cursor-pointer lg:flex flex-row items-center justify-center m-4 text-xl text-black'>
 						{/* <AccountCircleIcon /> */}
 
-						<div className='m-2 font-semibold w-full'>
+						<div
+							className='m-2 font-semibold w-full'
+							onClick={() => navigate("/")}
+						>
 							Konnichiwa {props.user.name}
 						</div>
 
@@ -121,6 +126,7 @@ function DashboardNavbar(props) {
 										className='mt-[25px] text-center text-white text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont '
 										smooth={true}
 										duration={500}
+										onClick={() => navigate("/")}
 									>
 										{`Konnichiwa ${auth.user.name}`.toUpperCase()}
 									</div>
