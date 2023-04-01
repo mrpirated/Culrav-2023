@@ -27,19 +27,18 @@ function Dashboard() {
 					option={option}
 					setOption={setOption}
 				/>
-				{auth.user.type == "FS" ||
-					(auth.user.type == "ADMIN" ? (
-						<DashboardAdmin type={option} setType={setOption} />
-					) : isPOC || isEC > 0 ? (
-						<DashboardPositions
-							type={option}
-							setType={setOption}
-							isPOC={isPOC}
-							isEC={isEC}
-						/>
-					) : (
-						<DashboardUser type={option} setType={setOption} />
-					))}
+				{auth.user.type == "FS" || auth.user.type == "ADMIN" ? (
+					<DashboardAdmin type={option} setType={setOption} />
+				) : isPOC || isEC > 0 ? (
+					<DashboardPositions
+						type={option}
+						setType={setOption}
+						isPOC={isPOC}
+						isEC={isEC}
+					/>
+				) : (
+					<DashboardUser type={option} setType={setOption} />
+				)}
 
 				{/* {auth.user.type == "EC" && (
 					<DashboardEC type={option} setType={setOption} />
