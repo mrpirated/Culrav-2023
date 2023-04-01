@@ -30,10 +30,8 @@ const item = {
 };
 
 function EventInfo(props) {
-	const [subevent, setSubevent] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const { pocs, ecs } = props;
-	console.log(pocs);
+	const { pocs, ecs, eventData } = props;
 	const width = window.screen.width;
 	let initial = "hidden";
 	let animate = "visible";
@@ -43,14 +41,6 @@ function EventInfo(props) {
 		animate = { y: 0, opacity: 1 };
 		transition = { ease: "linear", duration: 0.3 };
 	}
-
-	useEffect(() => {
-		getCommiteeEventsAPI({ commitee_id: props.commitee_id }).then(
-			(response) => {
-				setSubevent(response.data);
-			}
-		);
-	}, []);
 
 	return (
 		<>
@@ -124,7 +114,7 @@ function EventInfo(props) {
 									<Spinner />
 								</div>
 							)}
-							{subevent.map((element) => {
+							{eventData[props.commitee_id].map((element) => {
 								return <EventCard ecs={ecs} {...element} />;
 							})}
 						</div>

@@ -27,7 +27,7 @@ function Events() {
 			})
 			.then((response) => {
 				response.forEach((e, key) => {
-					ed[key + 1].push(e.data);
+					ed[key + 1] = e.data;
 				});
 				setEventData(ed);
 				return getAllPOCsAPI();

@@ -8,7 +8,6 @@ import getImagesAPI from "../../api/getImageAPI";
 // import { element } from "prop-types";
 
 function Eventcomponent(props) {
-	const [subevent, setSubevent] = useState([]);
 	const [display, setdisplay] = useState(false);
 	const [imgurl, setimgurl] = useState(null);
 	const { eventData } = props;
@@ -23,9 +22,6 @@ function Eventcomponent(props) {
 		slider.style.width = "0%";
 	};
 
-	useEffect(() => {
-		setSubevent(eventData[props.commitee_id]);
-	}, [eventData]);
 	useEffect(() => {
 		setimgurl(getImagesAPI("commitee", props.commitee_id));
 
@@ -67,7 +63,7 @@ function Eventcomponent(props) {
 						className={`absolute top-0 left-0 h-full z-10 overflow-hidden bg-[#f58e76] opacity-[0.85] transition-all duration-[400ms] rounded-t-lg`}
 					>
 						<div className='flex flex-col items-center justify-center h-full w-full'>
-							{subevent.map((element) => {
+							{eventData[props.commitee_id].map((element) => {
 								return (
 									<p className='m-1 mb-0 text-[15px] text-center uppercase text-black'>
 										{element.name}
