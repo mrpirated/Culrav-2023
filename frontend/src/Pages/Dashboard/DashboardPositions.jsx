@@ -14,12 +14,12 @@ import EditEvent from "./EditEvent";
 const DashboardPositions = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
-	const { type, setType, isPOC, isEC } = props;
+	const { type, setType } = props;
 	// const [type, setType] = useState("profile");
 	const [ecs, setEcs] = useState([]);
 	const [refreshList, setRefreshList] = useState(false);
 	const [commitee, setCommitee] = useState([]);
-	const [commiteeEvents, setCommiteeEvents] = useState({});
+	const [commiteeEvents, setCommiteeEvents] = useState([]);
 	useEffect(() => {
 		dispatch(setLoading({ loading: true }));
 		getAllECsAPI()
@@ -57,17 +57,16 @@ const DashboardPositions = (props) => {
 				return Promise.all(eventFetches);
 			})
 			.then((response) => {
-				const commiteeEvents = {};
-				response.forEach((res, key) => {
-					commiteeEvents[key + 1] = [];
+				const commiteeEvents = [];
+				response.forEach((res) => {
 					res.data.forEach((e) => {
-						commiteeEvents[key + 1].push({
+						commiteeEvents.push({
 							value: e.event_id,
 							label: e.name,
+							commitee_id: e.commitee_id,
 						});
 					});
 				});
-				console.log(commiteeEvents);
 				setCommiteeEvents(commiteeEvents);
 			})
 
@@ -90,27 +89,27 @@ const DashboardPositions = (props) => {
 							}}
 							check={type}
 						/>
-						{isPOC && (
+						{auth.isPOC && (
 							<AdminPanel
 								type='EC'
 								onClick={() => setType("ec")}
 								check={type}
 							/>
 						)}
-						{/* {isPOC && (
+						{(auth.isPOC || auth.isEC) && (
 							<AdminPanel
 								type='Edit Event'
 								onClick={() => setType("edit event")}
 								check={type}
 							/>
-						)} */}
+						)}
 					</div>
-					{isPOC && type === "ec" && (
+					{auth.isPOC && type === "ec" && (
 						<div className='flex flex-row w-full'>
 							<EditEC
 								ecs={ecs}
 								setRefreshList={setRefreshList}
-								commitee={commitee.filter((e) => auth.pocs.includes(e.value))}
+								commitee={commitee.filter((e) => auth.poc.includes(e.value))}
 								commiteeEvents={commiteeEvents}
 							/>
 						</div>
@@ -120,15 +119,30 @@ const DashboardPositions = (props) => {
 							<UserProfile userData={auth.user} />
 						</div>
 					)}
-					{/* {isPOC && type === "edit event" && (
+					{/* {auth.isPOC && type === "edit event" && (
 						<div className='flex flex-row w-full'>
 							<EditEvent
 								setRefreshList={setRefreshList}
-								commitee={commitee.filter((e) => auth.pocs.includes(e.value))}
+								commitee={commitee.filter((e) =>
+									auth.commitees.includes(e.value)
+								)}
 								commiteeEvents={commiteeEvents}
 							/>
 						</div>
 					)} */}
+					{(auth.isPOC || auth.isEC) && type === "edit event" && (
+						<div className='flex flex-row w-full'>
+							<EditEvent
+								setRefreshList={setRefreshList}
+								commitee={commitee.filter((e) =>
+									auth.commitees.includes(e.value)
+								)}
+								commiteeEvents={commiteeEvents.filter((e) =>
+									auth.events.includes(e.value)
+								)}
+							/>
+						</div>
+					)}
 				</div>
 			</div>
 		</>

@@ -2,31 +2,23 @@ import DashboardNavbar from "./DashboardNavbar";
 import { useSelector } from "react-redux";
 import DashboardAdmin from "./DashboardAdmin";
 import DashboardPositions from "./DashboardPositions";
-import DashboardEC from "./DashboardEC";
 import DashboardUser from "./DashboardUser";
 import { useState } from "react";
 import { useEffect } from "react";
 function Dashboard() {
 	const auth = useSelector((state) => state.auth);
 	const [option, setOption] = useState("profile");
-	const [isEC, setIsEC] = useState(false);
-	const [isPOC, setIsPOC] = useState(false);
 	const [navItems, setNavItems] = useState([]);
-	useEffect(() => {
-		if (auth.pocs.length > 0) {
-			setIsPOC(true);
-		}
-		if (auth.ecs.length > 0) {
-			setIsEC(true);
-		}
-	}, [auth.pocs, auth.ecs]);
+
 	useEffect(() => {
 		if (auth.user.type === "ADMIN" || auth.user.type === "FS") {
-			setNavItems(["poc", "ec"]);
-		} else if (isPOC) {
-			setNavItems(["ec"]);
+			setNavItems(["poc", "ec", "edit event"]);
+		} else if (auth.isPOC) {
+			setNavItems(["ec", "edit event"]);
+		} else if (auth.isEC) {
+			setNavItems(["edit event"]);
 		}
-	}, [auth.user.type, isPOC, isEC]);
+	}, [auth.user.type, auth.isPOC, auth.isEC]);
 	return (
 		<>
 			<div className='bg-[#fffbed]'>
@@ -38,13 +30,8 @@ function Dashboard() {
 				/>
 				{auth.user.type == "FS" || auth.user.type == "ADMIN" ? (
 					<DashboardAdmin type={option} setType={setOption} />
-				) : isPOC || isEC > 0 ? (
-					<DashboardPositions
-						type={option}
-						setType={setOption}
-						isPOC={isPOC}
-						isEC={isEC}
-					/>
+				) : auth.isPOC || auth.isEC ? (
+					<DashboardPositions type={option} setType={setOption} />
 				) : (
 					<DashboardUser type={option} setType={setOption} />
 				)}

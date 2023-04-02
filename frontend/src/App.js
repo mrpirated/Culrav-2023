@@ -30,8 +30,11 @@ import {
 	loggedWithToken,
 	tokenChecked,
 	setLoading,
+	setPOC,
+	setEC,
+	setCommitees,
+	setEvents,
 	setPOCs,
-	setECs,
 } from "./store/auth";
 import addHitsAPI from "./api/addHitsAPI";
 import getUserPositionsAPI from "./api/getUserPositionsAPI";
@@ -90,8 +93,12 @@ function App() {
 	useEffect(() => {
 		if (auth.isauth)
 			getUserPositionsAPI({ token: auth.token }).then((response) => {
-				dispatch(setPOCs({ pocs: response.data.pocs }));
-				dispatch(setECs({ ecs: response.data.ecs }));
+				console.log(response);
+				dispatch(setCommitees({ commitees: response.data.commitees }));
+				dispatch(setEvents({ events: response.data.events }));
+				dispatch(setPOC({ isPOC: response.data.isPOC }));
+				dispatch(setEC({ isEC: response.data.isEC }));
+				dispatch(setPOCs({ poc: response.data.poc }));
 			});
 	}, [auth.isauth]);
 	useEffect(() => {

@@ -19,10 +19,10 @@ const AddEc = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const { setRefreshList } = props;
 	const dispatch = useDispatch();
-	console.log(commitee);
 	const onCommiteeChange = (e) => {
 		setSelectedCommitee(e);
-		setEvent(commiteeEvents[e.value]);
+		console.log(commiteeEvents);
+		setEvent(commiteeEvents.filter((event) => event.commitee_id == e.value));
 		setSelectedEvent(null);
 	};
 
@@ -79,7 +79,14 @@ const AddEc = (props) => {
 						required
 					/>
 				</div>
-				<div className='mt-4'>
+				<div
+					className='mt-4'
+					onClick={() => {
+						if (selectedCommitee == null) {
+							toast("Select Commitee first");
+						}
+					}}
+				>
 					<label
 						htmlFor='selectEvents'
 						className='block mb-2 font-medium text-black'

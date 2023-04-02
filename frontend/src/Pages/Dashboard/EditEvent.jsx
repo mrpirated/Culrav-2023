@@ -6,7 +6,7 @@ function EditEvent(props) {
 	return (
 		<div className='flex flex-col md:flex-row w-full '>
 			<div className='w-full mt-4 p-2'>
-				<Event />
+				<Event commitee={commitee} commiteeEvents={commiteeEvents} />
 			</div>
 			{/* <div className='w-full mt-4 p-2 md:w-[80%] md:mx-4'>
 				<AddEc

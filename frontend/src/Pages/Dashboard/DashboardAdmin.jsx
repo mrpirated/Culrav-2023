@@ -69,17 +69,16 @@ const DashboardAdmin = (props) => {
 				return Promise.all(eventFetches);
 			})
 			.then((response) => {
-				const commiteeEvents = {};
+				const commiteeEvents = [];
 				response.forEach((res, key) => {
-					commiteeEvents[key + 1] = [];
 					res.data.forEach((e) => {
-						commiteeEvents[key + 1].push({
+						commiteeEvents.push({
 							value: e.event_id,
 							label: e.name,
+							commitee_id: e.commitee_id,
 						});
 					});
 				});
-				console.log(commiteeEvents);
 				setCommiteeEvents(commiteeEvents);
 			})
 			.finally(() => {
@@ -105,11 +104,11 @@ const DashboardAdmin = (props) => {
 							check={type}
 						/>
 						<AdminPanel type='EC' onClick={() => setType("ec")} check={type} />
-						{/* <AdminPanel
+						<AdminPanel
 							type='Edit Event'
 							onClick={() => setType("edit event")}
 							check={type}
-						/> */}
+						/>
 					</div>
 					{type === "ec" && (
 						<div className='flex flex-row w-full'>
@@ -135,7 +134,7 @@ const DashboardAdmin = (props) => {
 							<UserProfile userData={auth.user} />
 						</div>
 					)}
-					{/* {type === "edit event" && (
+					{type === "edit event" && (
 						<div className='flex flex-row w-full'>
 							<EditEvent
 								setRefreshList={setRefreshList}
@@ -143,7 +142,7 @@ const DashboardAdmin = (props) => {
 								commiteeEvents={commiteeEvents}
 							/>
 						</div>
-					)} */}
+					)}
 				</div>
 			</div>
 		</>
