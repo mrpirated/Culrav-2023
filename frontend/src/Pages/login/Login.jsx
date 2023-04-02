@@ -203,7 +203,7 @@ function Login() {
 								<div>
 									{reg ? (
 										<input
-											type='number'
+											type='text'
 											placeholder='Registration Number'
 											required={reg}
 											onChange={(e) => setMnnitID(e.target.value)}
