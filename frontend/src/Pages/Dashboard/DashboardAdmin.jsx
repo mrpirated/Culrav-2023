@@ -135,7 +135,7 @@ const DashboardAdmin = (props) => {
 						</div>
 					)}
 					{type === "edit event" && (
-						<div className='flex flex-row w-full'>
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
 							<EditEvent commitee={commitee} commiteeEvents={commiteeEvents} />
 						</div>
 					)}
