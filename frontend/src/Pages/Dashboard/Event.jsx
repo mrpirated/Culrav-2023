@@ -106,9 +106,7 @@ const Event = (props) => {
 
 	return (
 		<>
-			<div
-				className={`bg-OccurYellow my-2 w-full rounded-md md:mx-2 p-4 h-[500px] md:h-[600px] overflow-auto`}
-			>
+			<div>
 				<div>
 					<p className='text-2xl font-medium'>Edit Event</p>
 				</div>
