@@ -131,7 +131,7 @@ const DashboardPositions = (props) => {
 						</div>
 					)} */}
 					{(auth.isPOC || auth.isEC) && type === "edit event" && (
-						<div className='flex flex-row w-full'>
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
 							<EditEvent
 								setRefreshList={setRefreshList}
 								commitee={commitee.filter((e) =>

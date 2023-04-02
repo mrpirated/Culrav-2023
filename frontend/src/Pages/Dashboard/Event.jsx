@@ -223,7 +223,7 @@ const Event = (props) => {
 						<input
 							type='checkbox'
 							id='solo'
-							class='w-4 h-4 rounded'
+							className='w-4 h-4 rounded'
 							onChange={handleCheckBox}
 							checked={checked}
 						/>
