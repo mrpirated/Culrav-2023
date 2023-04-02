@@ -2,10 +2,10 @@ import React from "react";
 import AddEc from "./AddEc";
 import Event from "./Event";
 function EditEvent(props) {
-	const { setRefreshList, commitee, commiteeEvents } = props;
+	const { commitee, commiteeEvents } = props;
 	return (
-		<div className='flex flex-col md:flex-row w-full '>
-			<div className='w-full m-4 p-2 '>
+		<div className='bg-OccurYellow w-[95%] md:w-[80%] lg:w-1/2 m-2 p-4 shadow-md h-[600px] box-border overflow-auto rounded-md '>
+			<div className='w-full mt-4 p-2 '>
 				<Event commitee={commitee} commiteeEvents={commiteeEvents} />
 			</div>
 			{/* <div className='w-full mt-4 p-2 md:w-[80%] md:mx-4'>

@@ -136,11 +136,7 @@ const DashboardAdmin = (props) => {
 					)}
 					{type === "edit event" && (
 						<div className='flex flex-row w-full'>
-							<EditEvent
-								setRefreshList={setRefreshList}
-								commitee={commitee}
-								commiteeEvents={commiteeEvents}
-							/>
+							<EditEvent commitee={commitee} commiteeEvents={commiteeEvents} />
 						</div>
 					)}
 				</div>
