@@ -167,38 +167,40 @@ function Login() {
 									onChange={(e) => setPasswordAgain(e.target.value)}
 									value={passwordAgain}
 								/>
-								<div className='flex items-center my-[5px]'>
-									<span className='mr-2'>
-										<label className='text-[14px] ml-[10px] text-white lg:text-black'>
-											ARE YOU FROM MNNIT?
-										</label>
-									</span>
-								</div>
-								<div className='flex items-center my-[5px]'>
-									<span className='flex flex-row justify-center items-center'>
-										<label className='text-[14px] ml-[10px] text-white lg:text-black mr-2'>
-											Yes
-										</label>
-										<input
-											type='radio'
-											id='mnnitian'
-											name='mnnitian'
-											checked={reg}
-											onChange={() => setReg(1)}
-										/>
-									</span>
-									<span className='flex flex-row justify-center items-center'>
-										<label className='text-[14px] ml-[10px] text-white lg:text-black mr-2'>
-											No
-										</label>
-										<input
-											type='radio'
-											id='mnnitian'
-											name='mnnitian'
-											checked={!reg}
-											onChange={() => setReg(0)}
-										/>
-									</span>
+								<div className='flex'>
+									<div className='flex items-center my-[5px]'>
+										<span className='mr-2'>
+											<label className='text-[14px] ml-[10px] text-white lg:text-black'>
+												ARE YOU FROM MNNIT?
+											</label>
+										</span>
+									</div>
+									<div className='flex items-center my-[5px]'>
+										<span className='flex flex-row justify-center items-center'>
+											<label className='text-[14px] ml-[10px] text-white lg:text-black mr-2'>
+												Yes
+											</label>
+											<input
+												type='radio'
+												id='mnnitian'
+												name='mnnitian'
+												checked={reg}
+												onChange={() => setReg(1)}
+											/>
+										</span>
+										<span className='flex flex-row justify-center items-center'>
+											<label className='text-[14px] ml-[10px] text-white lg:text-black mr-2'>
+												No
+											</label>
+											<input
+												type='radio'
+												id='mnnitian'
+												name='mnnitian'
+												checked={!reg}
+												onChange={() => setReg(0)}
+											/>
+										</span>
+									</div>
 								</div>
 								<div>
 									{reg ? (

@@ -1,4 +1,4 @@
-.imgBx {
+.imgBxTeam {
   position: relative;
   width: 190px;
   height: 190px;
@@ -7,7 +7,7 @@
   border: 10px solid rgba(0, 0, 0, 0.25);
 }
 
-.imgBx img {
+.imgBxTeam img {
   position: absolute;
   top: 0;
   left: 0;

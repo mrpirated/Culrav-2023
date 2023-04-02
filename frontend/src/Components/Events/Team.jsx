@@ -7,7 +7,7 @@ function Team(props) {
   return (
     <div className="m-10 lg:mx-20">
       <div className="w-full h-full flex flex-col justify-center items-center">
-        <div className="imgBx">
+        <div className="imgBxTeam">
           <img src={imageUrl} alt="avatar" className="img" />
         </div>
         <p className="font-bold text-xl lg:text-2xl mt-4">
