@@ -247,7 +247,7 @@ const Event = (props) => {
 						className='hover:shadow-md bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-100 text-black'
 						onClick={handleClickEditEvent}
 					>
-						Edit Event
+						SAVE CHANGES
 					</button>
 				</div>
 			</div>
