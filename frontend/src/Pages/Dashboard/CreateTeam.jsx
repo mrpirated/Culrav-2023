@@ -3,19 +3,11 @@ import axios, * as others from "axios";
 import Select from "react-select";
 import toast from "react-hot-toast";
 import Spinner from "./Spinner";
-import { useSelector } from "react-redux";
 import createTeamAPI from "../../api/createTeamAPI";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 import { useLocation } from "react-router-dom";
-const options = [
-  { value: 6, label: "Anunaad" },
-  { value: 2, label: "Rangsaazi" },
-  { value: 5, label: "Dark Room" },
-  { value: 7, label: "Litmuse" },
-  { value: 3, label: "Razzmatazz" },
-  { value: 4, label: "Spandan" },
-  { value: 1, label: "Rangmanch" },
-];
+import getCommiteesAPI from "../../api/getCommiteesAPI";
+import { useDispatch, useSelector } from "react-redux";
 
 function useQuery() {
   const { search } = useLocation();
@@ -24,93 +16,142 @@ function useQuery() {
 }
 
 function CreateTeam() {
-  const [subevent, setSubevent] = useState([]);
-  const [selectedsubEvent, setselectedsubEvent] = useState(null);
+  const [commitee, setCommitee] = useState([]);
+  const [commiteeEvents, setCommiteeEvents] = useState([]);
+  const [event, setEvent] = useState([]);
+  const [selectedCommitee, setSelectedCommitee] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [teamName, setTeamName] = useState("");
-  const [progress, setProgress] = useState(false);
   const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const query = useQuery();
   const [comDefaultValue, setComDeafultValue] = useState(null);
   const [eventDefaultValue, setEventDeafultValue] = useState(null);
 
-  const onEventchange = async (event) => {
-    setProgress(true);
-    const id = event.value;
-    let defValue = options.filter((opt) => opt.value == parseInt(id))[0];
-    setComDeafultValue(defValue);
-    setselectedsubEvent(null);
-    // const response = await axios.get(
-    // 	`${process.env.REACT_APP_COMMITEE}?commitee_id=${id}`
-    // );
-    const object = {
-      commitee_id: id,
-    };
-    const response = await getCommiteeEventsAPI(object);
-    console.log("rs", response.data);
-    const subeventoptions = [];
-    await response.data.forEach((element) => {
-      const object = {
-        value: element.event_id,
-        label: element.name,
-      };
-      subeventoptions.push(object);
-    });
-    setProgress(false);
-    setSubevent(subeventoptions);
+  const onCommiteeChange = (e) => {
+    setSelectedCommitee(e);
+    console.log(commiteeEvents);
+    setEvent(commiteeEvents.filter((event) => event.commitee_id == e.value));
+    setSelectedEvent(null);
   };
 
-  const onSubEventchange = async (event) => {
-    console.log("subevent selected");
-    console.log(event.value);
-    let defValue = subevent.filter(
-      (opt) => opt.value == parseInt(event.value)
-    )[0];
-    setEventDeafultValue(defValue);
-    setselectedsubEvent(event.value);
+  const onEventChange = async (e) => {
+    setSelectedEvent(e);
   };
+
+  // const onEventchange = async (event) => {
+  //   setProgress(true);
+  //   const id = event.value;
+  //   let defValue = options.filter((opt) => opt.value == parseInt(id))[0];
+  //   setComDeafultValue(defValue);
+  //   setselectedsubEvent(null);
+  //   // const response = await axios.get(
+  //   // 	`${process.env.REACT_APP_COMMITEE}?commitee_id=${id}`
+  //   // );
+  //   const object = {
+  //     commitee_id: id,
+  //   };
+  //   const response = await getCommiteeEventsAPI(object);
+  //   console.log("rs", response.data);
+  //   const subeventoptions = [];
+  //   await response.data.forEach((element) => {
+  //     const object = {
+  //       value: element.event_id,
+  //       label: element.name,
+  //     };
+  //     subeventoptions.push(object);
+  //   });
+  //   setProgress(false);
+  //   setSubevent(subeventoptions);
+  // };
+
+  // const onSubEventchange = async (event) => {
+  //   console.log("subevent selected");
+  //   console.log(event.value);
+  //   let defValue = subevent.filter(
+  //     (opt) => opt.value == parseInt(event.value)
+  //   )[0];
+  //   setEventDeafultValue(defValue);
+  //   setselectedsubEvent(event.value);
+  // };
 
   const onchangeTeamname = async (event) => {
     setTeamName(event.target.value);
   };
 
   const handleClick = async () => {
-    if (selectedsubEvent != null) {
-      setSubevent([]);
-      setselectedsubEvent(null);
-      setTeamName("");
-
+    if (selectedEvent != null && teamName != null) {
+      console.log(selectedEvent);
       const data = {
         token: auth.token,
-        event_id: selectedsubEvent,
+        event_id: selectedEvent.value,
         team_name: teamName,
       };
 
       const response = await createTeamAPI(data);
+      console.log(response);
       if (response.success) {
         toast.success("Team created successfully");
       } else {
         toast.error(response.message);
       }
     } else {
-      // console.log("select a sub event");
-      toast.error("Select an event");
+      if (selectedEvent == null) toast.error("Select an event");
+      if (teamName == null) toast.error("Enter Team Name");
     }
   };
 
+  // useEffect(() => {
+  //   let com_id = query.get("com_id");
+  //   let event_id = query.get("event_id");
+  //   let defValue = options.filter((opt) => opt.value == parseInt(com_id))[0];
+  //   let eventdefValue = subevent.filter(
+  //     (opt) => opt.value == parseInt(event_id)
+  //   )[0];
+  //   setComDeafultValue(defValue);
+  //   setEventDeafultValue(eventdefValue);
+  // }, []);
+
   useEffect(() => {
-    let com_id = query.get("com_id");
-    let event_id = query.get("event_id");
-    let defValue = options.filter((opt) => opt.value == parseInt(com_id))[0];
-    let eventdefValue = subevent.filter(
-      (opt) => opt.value == parseInt(event_id)
-    )[0];
-    setComDeafultValue(defValue);
-    setEventDeafultValue(eventdefValue);
+    // dispatch(setLoading({ loading: true }));
+    getCommiteesAPI()
+      .then((response) => {
+        const options = [];
+        const eventFetches = [];
+        response.data.forEach((element) => {
+          eventFetches.push(
+            getCommiteeEventsAPI({ commitee_id: element.commitee_id })
+          );
+          options.push({
+            value: element.commitee_id,
+            label: element.name,
+          });
+        });
+        setCommitee(options);
+        return Promise.all(eventFetches);
+      })
+      .then((response) => {
+        const commiteeEvents = [];
+        response.forEach((res, key) => {
+          res.data.forEach((e) => {
+            commiteeEvents.push({
+              value: e.event_id,
+              label: e.name,
+              commitee_id: e.commitee_id,
+            });
+          });
+        });
+        setCommiteeEvents(commiteeEvents);
+      })
+      .finally(() => {
+        // dispatch(setLoading({ loading: false }));
+      });
+    console.log(commiteeEvents);
   }, []);
 
   return (
     <>
-      <div className="bg-light my-2 w-full rounded-md mx-1 box-border p-4">
+      <div className="bg-OccurYellow my-2 w-full rounded-md mx-1 box-border p-4">
         <div>
           <p className="text-2xl font-medium">CREATE TEAM</p>
         </div>
@@ -123,11 +164,12 @@ function CreateTeam() {
           </label>
           <Select
             // ref={comref}
-            options={options}
+            options={commitee}
+            value={selectedCommitee}
             id="selectCommitee"
             className="w-full"
-            onChange={onEventchange}
-            value={comDefaultValue}
+            onChange={onCommiteeChange}
+            // value={comDefaultValue}
             required
           />
         </div>
@@ -139,11 +181,11 @@ function CreateTeam() {
             Select Event
           </label>
           <Select
-            options={subevent}
+            options={event}
+            value={selectedEvent}
             id="selectEvents"
             className="w-full"
-            onChange={onSubEventchange}
-            value={eventDefaultValue}
+            onChange={onEventChange}
             required
           />
         </div>
@@ -165,10 +207,10 @@ function CreateTeam() {
         </div>
         <div className="mt-4">
           <button
-            className="hover:shadow-md hover:bg-[#f43e4a] transition-all duration-100"
+            className="hover:shadow-md bg-lightYellow hover:bg-[#f7e3a1] shadow-md transition-all duration-100 text-black"
             onClick={handleClick}
           >
-            CREATE
+            CREATE TEAM
           </button>
         </div>
       </div>

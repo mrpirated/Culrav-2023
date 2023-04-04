@@ -24,5 +24,6 @@ const config = {
 	addHits: "/addHits",
 	editUserProfile: "/editUserProfile",
 	getUserPositions: "/getUserPositions",
+	getTeamDetails: "/getTeamDetails"
 };
 export default config;
