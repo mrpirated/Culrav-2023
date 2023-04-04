@@ -193,7 +193,7 @@ function Myteams() {
 
   return (
     <>
-      <div className="bg-OccurYellow my-3 mx-4 w-full rounded-md box-border p-4">
+      <div className="bg-OccurYellow my-3 mx-4 w-full rounded-md box-border p-4 overflow-auto h-[90vh]">
         <div>
           <p className="text-2xl font-medium">MY TEAMS</p>
           <div className="mt-4">
