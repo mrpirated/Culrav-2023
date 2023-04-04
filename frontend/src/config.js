@@ -28,5 +28,6 @@ const config = {
   getTeamDetails: "/getTeamDetails",
   addMemberToTeamLink: "/addMemberToTeamLink",
   deactivateTeamLink: "/deactivateTeamLink",
+  removeTeamMemberByLeader: "/removeTeamMemberByLeader",
 };
 export default config;

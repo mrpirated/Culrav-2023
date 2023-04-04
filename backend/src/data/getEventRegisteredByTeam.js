@@ -7,7 +7,9 @@ const getEventRegisteredByTeam = async (team_id) => {
 	debug(team_id);
 	return new Promise((resolve, reject) => {
 		pool.query(
-			"SELECT event_id, min_team_members, max_team_members FROM team WHERE team_id = ?",
+			`SELECT t.event_id, e.min_team_members, e.max_team_members FROM team t
+			JOIN event e ON t.event_id = e.event_id
+			WHERE t.team_id = ?`,
 			[team_id],
 			(err, result) => {
 				if (err) {

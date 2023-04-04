@@ -10,9 +10,10 @@ const RegisterEvent = () => {
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
   const data = location.state;
+  console.log(data);
   return (
     <div className="bg-lightYellow h-screen">
-      <DashboardNavbar user={auth.user} />
+      {/* <DashboardNavbar user={auth.user} /> */}
       <div className="flex flex-row w-full justify-center h-screen lg:h-auto">
         <EditTeams
           commitee_id={data ? data.commitee_id : null}

@@ -19,7 +19,7 @@
   width: 45%;
   top: 70px;
   bottom: 70px;
-  background: #f1f1f1;
+  background: #FFF1C5;
   padding: 14px 28px;
   border-radius: 10px;
   overflow: scroll;
@@ -34,7 +34,7 @@
     position: absolute;
     width: 400px;
     top: 110px;
-    background: #f1f1f1;
+    background: #FFF1C5;
     padding: 14px 28px;
     border-radius: 10px;
   }
@@ -45,7 +45,7 @@
     position: absolute;
     width: 350px;
     top: 110px;
-    background: #f1f1f1;
+    background: #FFF1C5;
     padding: 14px 28px;
     border-radius: 10px;
   }
@@ -56,7 +56,7 @@
     position: absolute;
     width: 300px;
     top: 110px;
-    background: #f1f1f1;
+    background: #FFF1C5;
     padding: 14px 28px;
     border-radius: 10px;
   }
@@ -67,7 +67,7 @@
     position: absolute;
     width: 250px;
     top: 110px;
-    background: #f1f1f1;
+    background: #FFF1C5;
     padding: 14px 28px;
     border-radius: 10px;
   }

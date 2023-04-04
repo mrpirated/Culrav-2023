@@ -19,14 +19,13 @@ function Navbar() {
     logout();
   };
 
-  console.log(window.location.href);
-
   useEffect(() => {
-    if (window.location.href == "http://localhost:3000/") {
+    if(navbarRef.current!=null){
+      console.log(navbarRef)
       const applyContainerProperties = () => {
         navbarRef.current.classList.add("navbar-below");
       };
-
+      
       window.onscroll = function () {
         if (window.scrollY >= 500) {
           navbarRef.current.classList.add("activeNav");
@@ -58,6 +57,7 @@ function Navbar() {
 
       applyContainerProperties();
     }
+    
   }, []);
 
   const HamOpen = (
