@@ -11,7 +11,6 @@ const checkLinkStatus = async (team_id) => {
 				if (err) {
 					reject({ success: false, message: err });
 				} else {
-					debug(result[0]);
 					if (result[0].link === null) {
 						resolve({
 							success: false,

@@ -4,6 +4,7 @@ const debug = dbg("service:addMemberToTeamLink");
 import getTeamWithLink from "../data/getTeamWithLink";
 import checkIfEventRegistered from "../data/checkIfEventRegistered";
 import addMemberToTeam from "../data/addMemberToTeam";
+import checkTeamSize from "../data/checkTeamSize";
 const addMemberToTeamLinkService = async (token, { link }) => {
 	var user_id;
 	var team_id, event_id;
@@ -18,11 +19,22 @@ const addMemberToTeamLinkService = async (token, { link }) => {
 			return checkIfEventRegistered(user_id, event_id);
 		})
 		.then((response) => {
-			if (!response.success) return addMemberToTeam(user_id, team_id);
+			if (!response.success) return checkTeamSize(team_id);
 			else {
 				return Promise.reject({
 					success: false,
 					message: "User Already Registered in the Event",
+				});
+			}
+		})
+		.then((response) => {
+			team_size = response.data.team_size;
+			if (team_size < max_team_members) {
+				return addMemberToTeam(user_id, team_id);
+			} else {
+				return Promise.reject({
+					success: false,
+					message: "Team is full",
 				});
 			}
 		})

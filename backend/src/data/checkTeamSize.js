@@ -1,22 +1,19 @@
 import pool from "../dbconn/db";
 import dbg from "debug";
+const debug = dbg("data:TeamSize");
 
-const debug = dbg("data:getEventRegisteredByTeam");
-
-const getEventRegisteredByTeam = async (team_id) => {
-	debug(team_id);
+const checkTeamSize = async (team_id) => {
 	return new Promise((resolve, reject) => {
 		pool.query(
-			"SELECT event_id, min_team_members, max_team_members FROM team WHERE team_id = ?",
+			`SELECT COUNT(*) as team_size FROM team_member WHERE team_id = ?`,
 			[team_id],
 			(err, result) => {
 				if (err) {
 					reject({ success: false, message: err });
 				} else {
-					debug(result);
 					resolve({
 						success: true,
-						message: "Event Fetched",
+						message: "Team Size Fetched",
 						data: result[0],
 					});
 				}
@@ -24,4 +21,4 @@ const getEventRegisteredByTeam = async (team_id) => {
 		);
 	});
 };
-export default getEventRegisteredByTeam;
+export default checkTeamSize;
