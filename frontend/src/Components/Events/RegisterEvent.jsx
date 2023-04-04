@@ -115,6 +115,7 @@ function RegisterEvent(props) {
                 <CreateTeam
                   commitee_id={props.commitee_id}
                   event_id={props.event_id}
+                  handleClose={props.handleClose}
                 />
               </div>
             </div>
