@@ -12,7 +12,9 @@ function EditEC(props) {
 					type={"ec"}
 					setRefreshList={setRefreshList}
 					data={
-						auth.user.type == "FS" || auth.user.type == "ADMIN"
+						auth.user.type === "FS" ||
+						auth.user.type === "ADMIN" ||
+						auth.user.type === "TECHLEAD"
 							? ecs
 							: ecs.filter((e) => auth.poc.includes(e.commitee_id))
 					}

@@ -2,7 +2,7 @@ import React from "react";
 import AdminDataList from "./AdminDataList";
 import AddPoc from "./AddPoc";
 function EditPOC(props) {
-	const { pocs, setRefreshList, commitee, commiteeEvents } = props;
+	const { pocs, setRefreshList, commitee } = props;
 	return (
 		<div className='flex flex-col md:flex-row w-full '>
 			<div className='w-full mt-4 p-2'>

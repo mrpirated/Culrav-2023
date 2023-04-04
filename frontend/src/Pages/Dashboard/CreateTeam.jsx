@@ -1,21 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios, * as others from "axios";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import toast from "react-hot-toast";
-import Spinner from "./Spinner";
 import createTeamAPI from "../../api/createTeamAPI";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
-import { useLocation } from "react-router-dom";
 import getCommiteesAPI from "../../api/getCommiteesAPI";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setTeams } from "../../store/auth";
 import getUserTeamsAPI from "../../api/getUserTeamsAPI";
-
-function useQuery() {
-	const { search } = useLocation();
-
-	return React.useMemo(() => new URLSearchParams(search), [search]);
-}
 
 function CreateTeam(props) {
 	const [commitee, setCommitee] = useState([]);
@@ -30,7 +21,7 @@ function CreateTeam(props) {
 	const onCommiteeChange = (e) => {
 		setSelectedCommitee(e);
 		console.log(commiteeEvents);
-		setEvent(commiteeEvents.filter((event) => event.commitee_id == e.value));
+		setEvent(commiteeEvents.filter((event) => event.commitee_id === e.value));
 		setSelectedEvent(null);
 	};
 
@@ -43,7 +34,7 @@ function CreateTeam(props) {
 	};
 
 	const handleClick = () => {
-		if (selectedEvent != null && teamName != "") {
+		if (selectedEvent !== null && teamName !== "") {
 			const data = {
 				token: auth.token,
 				event_id: selectedEvent.value,
@@ -71,7 +62,7 @@ function CreateTeam(props) {
 				});
 		} else {
 			if (selectedEvent == null) toast.error("Select an event");
-			if (teamName == "") toast.error("Enter Team Name");
+			if (teamName === "") toast.error("Enter Team Name");
 		}
 	};
 	// useEffect(() => {
@@ -103,7 +94,7 @@ function CreateTeam(props) {
 				setCommitee(options);
 				if (props) {
 					setSelectedCommitee(
-						options.filter((element) => element.value == props.commitee_id)
+						options.filter((element) => element.value === props.commitee_id)
 					);
 				}
 				return Promise.all(eventFetches);
@@ -122,11 +113,11 @@ function CreateTeam(props) {
 				if (props) {
 					setEvent(
 						commiteeEvents.filter(
-							(event) => event.commitee_id == props.commitee_id
+							(event) => event.commitee_id === props.commitee_id
 						)
 					);
 					setSelectedEvent(
-						commiteeEvents.find((element) => element.value == props.event_id)
+						commiteeEvents.find((element) => element.value === props.event_id)
 					);
 				}
 				setCommiteeEvents(commiteeEvents);
