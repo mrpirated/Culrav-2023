@@ -1,11 +1,8 @@
 import dbg from "debug";
 import checkTokenService from "./checkTokenService";
 const debug = dbg("service:removeMemberFromTeam");
-import checkIfEventRegistered from "../data/checkIfEventRegistered";
 import removeMemberFromTeam from "../data/removeMemberFromTeam";
-import getEventRegisteredByTeam from "../data/getEventRegisteredByTeam";
 import checkIfTeamLeader from "../data/checkIfTeamLeader";
-import removeTeam from "../data/removeTeam";
 const removeTeamMemberByLeaderService = async (
 	token,
 	{ team_id, member_id }
