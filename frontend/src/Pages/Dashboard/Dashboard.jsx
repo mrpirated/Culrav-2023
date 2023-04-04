@@ -21,6 +21,8 @@ function Dashboard() {
 			setNavItems(["ec", "edit event"]);
 		} else if (auth.isEC) {
 			setNavItems(["edit event"]);
+		} else {
+			setNavItems(["create team","my teams"])
 		}
 	}, [auth.user.type, auth.isPOC, auth.isEC]);
 	return (

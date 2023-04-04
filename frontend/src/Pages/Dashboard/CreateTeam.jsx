@@ -144,7 +144,11 @@ function CreateTeam(props) {
           });
         });
         if (props) {
-          setEvent(commiteeEvents.filter((event) => event.commitee_id == props.commitee_id));
+          setEvent(
+            commiteeEvents.filter(
+              (event) => event.commitee_id == props.commitee_id
+            )
+          );
           setSelectedEvent(
             commiteeEvents.filter((element) => element.value == props.event_id)
           );
@@ -158,7 +162,7 @@ function CreateTeam(props) {
 
   return (
     <>
-      <div className="bg-OccurYellow my-2 w-full rounded-md mx-1 box-border p-4">
+      <div className="bg-OccurYellow my-2 w-full rounded-md box-border p-4">
         <div>
           <p className="text-2xl font-medium">CREATE TEAM</p>
         </div>

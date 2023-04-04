@@ -11,7 +11,7 @@ const ProfileSectionInDashboard = (props) => {
             props.check != null && props.type == props.check.toUpperCase()
               ? "bg-[#FFF1C5] shadow-md"
               : "bg-[#F5BE8A]"
-          } shadow-md w-full cursor-pointer hover:bg-[#FFF1C5] transition-all duration-200`}
+          } w-full cursor-pointer hover:bg-[#FFF1C5] transition-all duration-200`}
           onClick={() => props.onClick()}
         >
           <p className="text-lg p-4 text-black font-bold">

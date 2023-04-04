@@ -12,6 +12,8 @@ import EditPOC from "./EditPOC";
 import EditEvent from "./EditEvent";
 import CreateTeam from "./CreateTeam";
 import Myteams from "./Myteams";
+import AddTeamMembers from "./AddTeamMembers";
+import EditTeams from "./EditTeams";
 const DashboardEC = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
@@ -127,7 +129,7 @@ const DashboardEC = (props) => {
 					)}
 					{type === "create team" && (
 						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
-							<CreateTeam />
+							<EditTeams />
 						</div>
 					)}
 					{type === "my teams" && (

@@ -41,6 +41,7 @@ import addHitsAPI from "./api/addHitsAPI";
 import getUserPositionsAPI from "./api/getUserPositionsAPI";
 import getUserTeamsAPI from "./api/getUserTeamsAPI";
 import RegisterEvent from "./Pages/Dashboard/RegisterEvent";
+import JoinToTeamWithLink from "./Pages/Dashboard/JoinToTeamWithLink";
 function App() {
   // const [state, dispatchs] = useReducer(authReducer, {
   // 	user: null,
@@ -189,7 +190,15 @@ function App() {
                 </ProtectedRoute>
               }
             ></Route>
-            ;
+            <Route
+              exact
+              path="/link/:link"
+              element={
+                <ProtectedRoute>
+                  <JoinToTeamWithLink />
+                </ProtectedRoute>
+              }
+            ></Route>
           </Routes>
         </BrowserRouter>
       </LoadingProvider>
