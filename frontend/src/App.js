@@ -183,22 +183,10 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/registerevent"
-              element={
-                <ProtectedRoute>
-                  <RegisterEvent />
-                </ProtectedRoute>
-              }
+              path="/jointeam/:code"
+              element={<ProtectedRoute></ProtectedRoute>}
             ></Route>
-            <Route
-              exact
-              path="/link/:link"
-              element={
-                <ProtectedRoute>
-                  <JoinToTeamWithLink />
-                </ProtectedRoute>
-              }
-            ></Route>
+            ;
           </Routes>
         </BrowserRouter>
       </LoadingProvider>
