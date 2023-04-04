@@ -80,10 +80,12 @@ function CreateTeam(props) {
 
   const handleClick = async () => {
     if (selectedEvent != null && teamName != "") {
-      console.log(selectedEvent);
+      let event_id = null;
+      if (selectedEvent.value != null) event_id = selectedEvent.value;
+      else event_id = selectedEvent[0].value;
       const data = {
         token: auth.token,
-        event_id: selectedEvent.value,
+        event_id: event_id,
         team_name: teamName,
       };
 

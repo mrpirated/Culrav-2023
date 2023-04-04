@@ -11,6 +11,7 @@ import getImageAPI from "../../api/getImageAPI";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import RegisterEvent from "./RegisterEvent";
+import { useSelector } from "react-redux";
 
 let container = {
   hidden: { opacity: 1, scale: 0 },
@@ -50,12 +51,14 @@ function EventDetails(props) {
     transition = { ease: "linear", duration: 0.3 };
   }
   const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth);
 
   const EventClick = () => {
-    setinnerdisplay(true);
-    // navigate("/registerevent", {
-    //   state: { event_id: props.event_id, commitee_id: props.commitee_id },
-    // });
+    if (auth.isauth === true) {
+      setinnerdisplay(true);
+    } else {
+      toast.error("Please Register yourself to continue ..");
+    }
   };
 
   const handleClose = () => {
@@ -195,7 +198,13 @@ function EventDetails(props) {
           </div>
         </motion.div>
       </div>
-      {innerdisplay && <RegisterEvent commitee_id={props.commitee_id} event_id={props.event_id} handleClose={handleClose} />}
+      {innerdisplay && (
+        <RegisterEvent
+          commitee_id={props.commitee_id}
+          event_id={props.event_id}
+          handleClose={handleClose}
+        />
+      )}
     </>
   );
 }
