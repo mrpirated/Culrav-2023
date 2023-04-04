@@ -55,6 +55,7 @@ function CreateTeam(props) {
 				.then((response) => {
 					if (response.success) {
 						toast.success("Team created successfully");
+
 						return getUserTeamsAPI({ token: auth.token });
 					} else {
 						toast.error(response.message);
@@ -63,6 +64,7 @@ function CreateTeam(props) {
 				})
 				.then((response) => {
 					dispatch(setTeams({ teams: response.data }));
+					props.handleClose();
 				})
 				.finally(() => {
 					dispatch(setLoading({ loading: false }));

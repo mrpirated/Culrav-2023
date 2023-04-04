@@ -103,13 +103,6 @@ const DashboardEC = (props) => {
               check={type}
             />
             <ProfileSectionInDashboard
-              type="CREATE TEAM"
-              onClick={() => {
-                setType("create team");
-              }}
-              check={type}
-            />
-            <ProfileSectionInDashboard
               type="MY TEAMS"
               onClick={() => {
                 setType("my teams");
@@ -125,11 +118,6 @@ const DashboardEC = (props) => {
           {type === "profile" && (
             <div className="flex flex-row w-full justify-center h-screen lg:h-auto">
               <UserProfile />
-            </div>
-          )}
-          {type === "create team" && (
-            <div className="flex flex-row w-full justify-center h-screen lg:h-auto">
-              <CreateTeam />
             </div>
           )}
           {type === "my teams" && (

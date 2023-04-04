@@ -1,6 +1,6 @@
 import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 const ProfileSectionInDashboard = (props) => {
   return (
@@ -14,9 +14,7 @@ const ProfileSectionInDashboard = (props) => {
           } w-full cursor-pointer hover:bg-[#FFF1C5] transition-all duration-200`}
           onClick={() => props.onClick()}
         >
-          <p className="text-lg p-4 text-black font-bold">
-            {props.type}
-          </p>
+          <p className="text-lg p-4 text-black font-bold">{props.type}</p>
         </div>
       </div>
     </>

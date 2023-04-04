@@ -28,7 +28,7 @@ module.exports = {
 			d_primary: "#282828",
 			lightYellow: "#FFF1C5",
 			OccurYellow: "#F5BE8A",
-			green: "#7FFF00	",
+			green: "#9bee49",
 		},
 		extend: {
 			fontFamily: {

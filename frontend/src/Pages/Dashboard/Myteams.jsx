@@ -258,13 +258,13 @@ function Myteams() {
 											<div className='teams mt-[5px] px-5 py-4 bg-OccurYellow rounded-md'>
 												{/* <div className="flex justify-between">
                             <div> */}
-												<p className='text-sm ml-[-1px]'>
+												<p className='text font-semibold'>
 													{selectedTeam.team_name}
 												</p>
-												<p className='text-sm pt-[2px] ml-[-1px]'>
+												<p className='text-sm pt-[2px]'>
 													{selectedTeam.event_name}
 												</p>
-												<p className='text-sm pt-[2px] ml-[-1px]'>
+												<p className='text-sm pt-[2px]'>
 													{selectedTeam.commitee_name}
 												</p>
 

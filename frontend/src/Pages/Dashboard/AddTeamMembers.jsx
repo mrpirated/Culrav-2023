@@ -5,7 +5,8 @@ import { toast } from "react-hot-toast";
 import addMemberToTeamLinkAPI from "../../api/addMemberToTeamLinkAPI";
 import { setLoading, setTeams } from "../../store/auth";
 import getUserTeamsAPI from "../../api/getUserTeamsAPI";
-const AddTeamMembers = () => {
+const AddTeamMembers = (props) => {
+	const { handleClose } = props;
 	const [teamLink, setTeamLink] = useState("");
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const AddTeamMembers = () => {
 				})
 				.then((response) => {
 					dispatch(setTeams({ teams: response.data }));
+					handleClose();
 				})
 				.finally(() => {
 					dispatch(setLoading({ loading: false }));
