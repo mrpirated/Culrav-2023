@@ -114,7 +114,7 @@ function Myteams() {
 			});
 	};
 	const removeUser = (user_id) => {
-		const confirmresult = window.prompt("Are you sure want to remove user !");
+		const confirmresult = window.confirm("Are you sure want to remove user !");
 		if (confirmresult) {
 			dispatch(setLoading({ loading: true }));
 
