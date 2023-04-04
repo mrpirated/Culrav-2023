@@ -3,6 +3,7 @@ import axios, * as others from "axios";
 import "./Modal.css";
 import { useSelector } from "react-redux";
 import getUserTeamsAPI from "../../api/getUserTeams";
+import getTeamDetailsAPI from "../../api/getTeamDetailsAPI";
 function Myteams() {
   const [modal, setModal] = useState(true);
   const auth = useSelector((state) => state.auth);
@@ -117,30 +118,33 @@ function Myteams() {
   };
 
   const getTeamsData = async () => {
-    const response = await getUserTeamsAPI({token:auth.token});
-	console.log("tt",response);
-    console.log("My Teams", response.data.data);
-    // setMyteams([...myteams, response.data.data]);
+    const response = await getUserTeamsAPI({ token: auth.token });
+    console.log("tt", response);
+    console.log("My Teams", response.data);
+    setMyteams(response.data);
   };
 
   const getTeamsDetails = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_GETTEAMDETAILS}?team_id=${teamID}`,
-      {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      }
-    );
+
+    const response = await getTeamDetailsAPI({token : auth.token , team_id : teamID});
+    console.log(response);
+    // const response = await axios.get(
+    //   `${process.env.REACT_APP_GETTEAMDETAILS}?team_id=${teamID}`,
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${auth.token}`,
+    //     },
+    //   }
+    // );
 
     console.log("Successfully fetched team details");
-    setMyTeamMembers(response.data.data.team_members);
-    console.log("teammembers", response.data.data.team_members);
-    setMyTeamName(response.data.data.team_details.team_name);
-    setMyTeamID(response.data.data.team_details.team_id);
-    setMyCommiteeName(response.data.data.team_details.commitee_name);
-    setMyEventName(response.data.data.team_details.event_name);
-    console.log("teamname", response.data.data.team_details.team_name);
+    setMyTeamMembers(response.data.team_members);
+    console.log("teammembers", response.data.team_members);
+    setMyTeamName(response.data.team_details.team_name);
+    setMyTeamID(response.data.team_details.team_id);
+    setMyCommiteeName(response.data.team_details.commitee_name);
+    setMyEventName(response.data.team_details.event_name);
+    console.log("teamname", response.data.team_details.team_name);
   };
 
   const toggleModal = () => {
