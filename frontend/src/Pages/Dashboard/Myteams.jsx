@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios, * as others from "axios";
 import "./Modal.css";
 import { useSelector } from "react-redux";
-import getUserTeamsAPI from "../../api/getUserTeams";
+import getUserTeamsAPI from "../../api/getUserTeamsAPI";
 function Myteams() {
   const [modal, setModal] = useState(true);
   const auth = useSelector((state) => state.auth);

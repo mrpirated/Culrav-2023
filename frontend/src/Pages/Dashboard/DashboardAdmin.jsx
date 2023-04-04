@@ -18,6 +18,7 @@ import UserProfile from "./UserProfile";
 import EditEC from "./EditEC";
 import EditPOC from "./EditPOC";
 import EditEvent from "./EditEvent";
+import Myteams from "./Myteams";
 const DashboardAdmin = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
@@ -109,6 +110,11 @@ const DashboardAdmin = (props) => {
 							onClick={() => setType("edit event")}
 							check={type}
 						/>
+						<AdminPanel
+							type='My Teams'
+							onClick={() => setType("my teams")}
+							check={type}
+						/>
 					</div>
 					{type === "ec" && (
 						<div className='flex flex-row w-full'>
@@ -137,6 +143,11 @@ const DashboardAdmin = (props) => {
 					{type === "edit event" && (
 						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
 							<EditEvent commitee={commitee} commiteeEvents={commiteeEvents} />
+						</div>
+					)}
+					{type === "my teams" && (
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
+							<Myteams />
 						</div>
 					)}
 				</div>

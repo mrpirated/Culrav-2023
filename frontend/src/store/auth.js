@@ -10,6 +10,7 @@ const initialState = {
 	commitees: [],
 	events: [],
 	poc: [],
+	teams: [],
 };
 const slice = createSlice({
 	name: "auth",
@@ -61,6 +62,9 @@ const slice = createSlice({
 		setPOCs: (auth, action) => {
 			auth.poc = action.payload.poc;
 		},
+		setTeams: (auth, action) => {
+			auth.teams = action.payload.teams;
+		},
 	},
 });
 
@@ -77,6 +81,7 @@ export const {
 	setCommitees,
 	setEvents,
 	setPOCs,
+	setTeams,
 } = slice.actions;
 
 export default slice.reducer;

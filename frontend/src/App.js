@@ -35,9 +35,11 @@ import {
 	setCommitees,
 	setEvents,
 	setPOCs,
+	setTeams,
 } from "./store/auth";
 import addHitsAPI from "./api/addHitsAPI";
 import getUserPositionsAPI from "./api/getUserPositionsAPI";
+import getUserTeamsAPI from "./api/getUserTeamsAPI";
 function App() {
 	// const [state, dispatchs] = useReducer(authReducer, {
 	// 	user: null,
@@ -93,13 +95,19 @@ function App() {
 	useEffect(() => {
 		if (auth.isauth)
 			getUserPositionsAPI({ token: auth.token }).then((response) => {
-				console.log(response);
 				dispatch(setCommitees({ commitees: response.data.commitees }));
 				dispatch(setEvents({ events: response.data.events }));
 				dispatch(setPOC({ isPOC: response.data.isPOC }));
 				dispatch(setEC({ isEC: response.data.isEC }));
 				dispatch(setPOCs({ poc: response.data.poc }));
 			});
+	}, [auth.isauth]);
+	useEffect(() => {
+		if (auth.isauth) {
+			getUserTeamsAPI({ token: auth.token }).then((response) => {
+				dispatch(setTeams({ teams: response.data }));
+			});
+		}
 	}, [auth.isauth]);
 	useEffect(() => {
 		dispatch(setLoading({ loading: true }));
