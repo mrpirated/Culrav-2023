@@ -496,7 +496,7 @@ function Myteams() {
 																</div>
 															) : (
 																<div>
-																	{auth.user.name === element.user_name ? (
+																	{auth.user.user_id === element.user_id ? (
 																		<button onClick={handleDelete} id='leave'>
 																			LEAVE
 																		</button>
