@@ -31,6 +31,7 @@ import editUserProfile from "./routes/editUserProfile";
 import addHits from "./routes/addHits";
 import getStats from "./routes/getStats";
 import getUserPositions from "./routes/getUserPositions";
+import deactivateTeamLink from "./routes/deactivateTeamLink";
 dotenv.config();
 
 const PORT = config.PORT;
@@ -71,7 +72,8 @@ app.use(
 	editUserProfile,
 	addHits,
 	getStats,
-	getUserPositions
+	getUserPositions,
+	deactivateTeamLink
 );
 app.use("/", (req, res) => {
 	res.send("Server is Running");
