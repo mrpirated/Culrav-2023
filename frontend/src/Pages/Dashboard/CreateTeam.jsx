@@ -8,6 +8,7 @@ import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 import { useLocation } from "react-router-dom";
 import getCommiteesAPI from "../../api/getCommiteesAPI";
 import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../../store/auth";
 
 function useQuery() {
   const { search } = useLocation();
@@ -79,6 +80,7 @@ function CreateTeam(props) {
 
   const handleClick = async () => {
     if (selectedEvent != null && teamName != "") {
+      console.log(selectedEvent);
       const data = {
         token: auth.token,
         event_id: selectedEvent.value,
@@ -110,7 +112,7 @@ function CreateTeam(props) {
   // }, []);
 
   useEffect(() => {
-    // dispatch(setLoading({ loading: true }));
+    dispatch(setLoading({ loading: true }));
     getCommiteesAPI()
       .then((response) => {
         const options = [];
@@ -156,7 +158,7 @@ function CreateTeam(props) {
         setCommiteeEvents(commiteeEvents);
       })
       .finally(() => {
-        // dispatch(setLoading({ loading: false }));
+        dispatch(setLoading({ loading: false }));
       });
   }, []);
 

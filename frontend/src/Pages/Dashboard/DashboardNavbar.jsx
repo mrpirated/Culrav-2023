@@ -58,7 +58,7 @@ function DashboardNavbar(props) {
   };
   return (
     <>
-      <div className="bg-off w-full h-[60px] shadow-md flex flex-row z-50">
+      <div className="bg-off w-full h-[60px] shadow-md flex flex-row z-50 ">
         <div className="flex flex-row justify-start items-center w-full">
           <a href="/">
             <div className="mx-4 flex flex-row items-center">

@@ -137,8 +137,9 @@ function App() {
         <Toaster position="top-right" reverseOrder={false} />
         <BrowserRouter>
           <Routes>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login />} />
             <Route
+              exact
               path="/"
               element={
                 <>
@@ -163,7 +164,7 @@ function App() {
                   </div>
                 </>
               }
-            ></Route>
+            />
             <Route
               path="/team"
               element={
@@ -172,7 +173,7 @@ function App() {
                   <AllTeams />
                 </>
               }
-            ></Route>
+            />
             <Route
               path="/dashboard"
               element={
@@ -180,12 +181,24 @@ function App() {
                   <Dashboard />
                 </ProtectedRoute>
               }
-            ></Route>
+            />
+            <Route
+              path="/registerevent"
+              element={
+                <ProtectedRoute>
+                  <RegisterEvent />
+                </ProtectedRoute>
+              }
+            />
             <Route
               exact
-              path="/jointeam/:code"
-              element={<ProtectedRoute></ProtectedRoute>}
-            ></Route>
+              path="/jointeam/:link"
+              element={
+                <ProtectedRoute>
+                  <JoinToTeamWithLink />
+                </ProtectedRoute>
+              }
+            />
             ;
           </Routes>
         </BrowserRouter>

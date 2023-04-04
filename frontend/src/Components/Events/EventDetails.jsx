@@ -10,6 +10,7 @@ import img from "./Assests/cardTop.webp";
 import getImageAPI from "../../api/getImageAPI";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import RegisterEvent from "./RegisterEvent";
 
 let container = {
 	hidden: { opacity: 1, scale: 0 },
@@ -33,6 +34,7 @@ const item = {
 
 function EventDetails(props) {
 	const [image, setImage] = useState("../../Pages/Team/Assets/Background.png");
+	const [innerdisplay, setinnerdisplay] = useState(false);
 	const [subevent, setSubevent] = useState([]);
 	const [tagline, setTagline] = useState("");
 	const { ecs } = props;
@@ -50,13 +52,14 @@ function EventDetails(props) {
 	const navigate = useNavigate();
 
 	const EventClick = () => {
-		navigate("/dashboard", {
-			replace: true,
-			state: { event_id: props.event_id, commitee_id: props.commitee_id },
-		});
-		toast("Registrations for events are Coming Soon", {
-			icon: "",
-		});
+		setinnerdisplay(true);
+		// navigate("/registerevent", {
+		//   state: { event_id: props.event_id, commitee_id: props.commitee_id },
+		// });
+	};
+
+	const handleClose = () => {
+		setinnerdisplay(!innerdisplay);
 	};
 
 	const getImage = async () => {
@@ -192,6 +195,13 @@ function EventDetails(props) {
 					</div>
 				</motion.div>
 			</div>
+			{innerdisplay && (
+				<RegisterEvent
+					commitee_id={props.commitee_id}
+					event_id={props.event_id}
+					handleClose={handleClose}
+				/>
+			)}
 		</>
 	);
 }
