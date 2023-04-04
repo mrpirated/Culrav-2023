@@ -18,7 +18,12 @@ const removeECsService = async (token, { ec_id, event_id, commitee_id }) => {
 			return checkIfUserIsPOC(user_id, commitee_id);
 		})
 		.then((response) => {
-			if (response.success || user_type === "ADMIN" || user_type === "FS") {
+			if (
+				response.success ||
+				user_type === "ADMIN" ||
+				user_type === "FS" ||
+				user_type === "TECHLEAD"
+			) {
 				return checkIfUserIdExists(ec_id);
 			} else {
 				return Promise.reject({

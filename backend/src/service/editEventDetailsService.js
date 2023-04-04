@@ -37,7 +37,12 @@ const editEventDetailsService = async (
 			else return response;
 		})
 		.then((response) => {
-			if (response.success || user_type === "ADMIN" || user_type === "FS") {
+			if (
+				response.success ||
+				user_type === "ADMIN" ||
+				user_type === "FS" ||
+				user_type === "TECHLEAD"
+			) {
 				return editEventDetails(
 					event_id,
 					event_description,

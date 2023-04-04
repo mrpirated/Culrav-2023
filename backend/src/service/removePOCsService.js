@@ -14,7 +14,11 @@ const removePOCsService = async (token, { poc_id, commitee_id }) => {
 		})
 		.then((response) => {
 			user_type = response.data.type;
-			if (user_type === "ADMIN" || user_type === "FS") {
+			if (
+				user_type === "ADMIN" ||
+				user_type === "FS" ||
+				user_type === "TECHLEAD"
+			) {
 				return checkIfUserIdExists(poc_id);
 			} else {
 				return Promise.reject({
