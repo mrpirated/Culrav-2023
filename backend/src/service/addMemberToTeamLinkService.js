@@ -5,6 +5,7 @@ import getTeamWithLink from "../data/getTeamWithLink";
 import checkIfEventRegistered from "../data/checkIfEventRegistered";
 import addMemberToTeam from "../data/addMemberToTeam";
 import checkTeamSize from "../data/checkTeamSize";
+import checkIfPhoneIsUpdated from "../data/checkIfPhoneIsUpdated";
 const addMemberToTeamLinkService = async (token, { link }) => {
 	var user_id;
 	var team_id, event_id;
@@ -25,13 +26,21 @@ const addMemberToTeamLinkService = async (token, { link }) => {
 			return checkIfEventRegistered(user_id, event_id);
 		})
 		.then((response) => {
-			if (!response.success) return checkTeamSize(team_id);
+			if (!response.success) return checkIfPhoneIsUpdated(user_id);
 			else {
 				return Promise.reject({
 					success: false,
 					message: "User Already Registered in the Event",
 				});
 			}
+		})
+		.then((response) => {
+			if (response.data.phone == null) {
+				return Promise.reject({
+					success: false,
+					message: "User had not updated the phone number",
+				});
+			} else return checkTeamSize(team_id);
 		})
 		.then((response) => {
 			team_size = response.data.team_size;
