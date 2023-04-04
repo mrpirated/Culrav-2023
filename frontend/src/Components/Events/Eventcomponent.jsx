@@ -65,7 +65,10 @@ function Eventcomponent(props) {
 						<div className='flex flex-col items-center justify-center h-full w-full'>
 							{eventData[props.commitee_id].map((element) => {
 								return (
-									<p className='m-1 mb-0 text-[15px] text-center uppercase text-black'>
+									<p
+										className='m-1 mb-0 text-[15px] text-center uppercase text-black'
+										key={element.event_id}
+									>
 										{element.name}
 									</p>
 								);
