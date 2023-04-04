@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
-import CreateTeam from "./CreateTeam";
-import DashboardNavbar from "./DashboardNavbar";
-import AddTeamMembers from "./AddTeamMembers";
-import AddPoc from "./AddPoc";
-import AddEc from "./AddEc";
-import EditDescriptionA from "./EditDescriptionA";
 import { useDispatch, useSelector } from "react-redux";
 import AdminPanel from "./AdminPanel";
-import AdminDataList from "./AdminDataList";
 import getAllPocAPI from "../../api/getAllPOCsAPI";
 import { setLoading } from "../../store/auth";
 import getAllECsAPI from "../../api/getAllECsAPI";

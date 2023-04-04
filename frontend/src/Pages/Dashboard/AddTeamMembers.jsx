@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import addMemberToTeamAPI from "../../api/addMemberToTeamAPI";
 import { toast } from "react-hot-toast";
 import addMemberToTeamLinkAPI from "../../api/addMemberToTeamLinkAPI";
 import { setLoading, setTeams } from "../../store/auth";
@@ -11,7 +10,7 @@ const AddTeamMembers = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 	const handleClick = () => {
-		if (teamLink != "") {
+		if (teamLink !== "") {
 			dispatch(setLoading({ loading: true }));
 
 			addMemberToTeamLinkAPI({

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios, * as others from "axios";
 import Select from "react-select";
 import toast from "react-hot-toast";
 import addPOCsAPI from "../../api/addPOCsAPI";
 import { useSelector } from "react-redux";
-import getCommiteesAPI from "../../api/getCommiteesAPI";
 const AddPoc = (props) => {
 	const { commitee } = props;
 	const [selectedCommitee, setSelectedCommitee] = useState(null);

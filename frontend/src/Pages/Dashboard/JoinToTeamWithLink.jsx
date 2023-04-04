@@ -13,7 +13,7 @@ const JoinToTeamWithLink = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (token != "") {
+		if (token !== "") {
 			dispatch(setLoading({ loading: true }));
 			addMemberToTeamLinkAPI({
 				token: token,
