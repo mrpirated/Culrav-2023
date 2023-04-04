@@ -199,6 +199,7 @@ function App() {
                 </ProtectedRoute>
               }
             ></Route>
+            ;
           </Routes>
         </BrowserRouter>
       </LoadingProvider>

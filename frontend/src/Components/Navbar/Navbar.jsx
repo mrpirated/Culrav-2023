@@ -19,43 +19,46 @@ function Navbar() {
     logout();
   };
 
+  console.log(window.location.href);
+
   useEffect(() => {
-    const applyContainerProperties = () => {
-      navbarRef.current.classList.add("navbar-below");
-    };
+    if (window.location.href == "http://localhost:3000/") {
+      const applyContainerProperties = () => {
+        navbarRef.current.classList.add("navbar-below");
+      };
 
-    window.onscroll = function () {
-      if (window.scrollY >= 500) {
-        navbarRef.current.classList.add("activeNav");
-        setScroll(true);
-      } else {
-        navbarRef.current.classList.add("activeNav");
-        setScroll(false);
-      }
+      window.onscroll = function () {
+        if (window.scrollY >= 500) {
+          navbarRef.current.classList.add("activeNav");
+          setScroll(true);
+        } else {
+          navbarRef.current.classList.add("activeNav");
+          setScroll(false);
+        }
 
-      const element = document.getElementsByClassName("TrailerBack");
-      const height = element[0].scrollHeight;
-      const start = element[0].getBoundingClientRect().y;
-      // console.log(start);
-      if (start + height * 0.2 > 0) {
-        element[0].style.backgroundColor = "bisque";
-      }
-      if (start + height * 0.2 <= 0 && start + height * 0.4 > 0) {
-        element[0].style.backgroundColor = "#F9C1B1";
-      }
-      if (start + height * 0.4 <= 0 && start + height * 0.6 > 0) {
-        element[0].style.backgroundColor = "#f2dea4";
-      }
-      if (start + height * 0.6 <= 0 && start + height * 0.8 > 0) {
-        element[0].style.backgroundColor = "#F9C1B1";
-      }
-      if (start + height * 0.8 <= 0) {
-        element[0].style.backgroundColor = "bisque";
-      }
-    };
+        const element = document.getElementsByClassName("TrailerBack");
+        const height = element[0].scrollHeight;
+        const start = element[0].getBoundingClientRect().y;
+        if (start + height * 0.2 > 0) {
+          element[0].style.backgroundColor = "bisque";
+        }
+        if (start + height * 0.2 <= 0 && start + height * 0.4 > 0) {
+          element[0].style.backgroundColor = "#F9C1B1";
+        }
+        if (start + height * 0.4 <= 0 && start + height * 0.6 > 0) {
+          element[0].style.backgroundColor = "#f2dea4";
+        }
+        if (start + height * 0.6 <= 0 && start + height * 0.8 > 0) {
+          element[0].style.backgroundColor = "#F9C1B1";
+        }
+        if (start + height * 0.8 <= 0) {
+          element[0].style.backgroundColor = "bisque";
+        }
+      };
 
-    applyContainerProperties();
-  });
+      applyContainerProperties();
+    }
+  }, []);
 
   const HamOpen = (
     <svg
