@@ -8,6 +8,8 @@ import checkTeamSize from "../data/checkTeamSize";
 const addMemberToTeamLinkService = async (token, { link }) => {
 	var user_id;
 	var team_id, event_id;
+	var min_team_members, max_team_members;
+	var team_size;
 	return await checkTokenService(token)
 		.then((response) => {
 			debug(response);
@@ -15,7 +17,11 @@ const addMemberToTeamLinkService = async (token, { link }) => {
 			return getTeamWithLink(link);
 		})
 		.then((response) => {
-			(event_id = response.data.event_id), (team_id = response.data.team_id);
+			min_team_members = response.data.min_team_members;
+			max_team_members = response.data.max_team_members;
+
+			event_id = response.data.event_id;
+			team_id = response.data.team_id;
 			return checkIfEventRegistered(user_id, event_id);
 		})
 		.then((response) => {
