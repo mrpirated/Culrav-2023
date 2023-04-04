@@ -474,7 +474,20 @@ function Myteams() {
 																		MEMBER
 																	</p>
 																)}
+																{element.mnnit_id === null ? (
+																	<p className='text-sm pt-[2px] ml-[2px]'>
+																		{element.college}
+																	</p>
+																) : (
+																	<p className='text-sm pt-[2px] ml-[2px]'>
+																		{element.mnnit_id}
+																	</p>
+																)}
+																<p className='text-sm pt-[2px] ml-[2px]'>
+																	Phone: {element.phone}
+																</p>
 															</div>
+
 															{selectedTeam.is_leader ? (
 																<div>
 																	{element.is_leader ? (
