@@ -50,9 +50,8 @@ function EventDetails(props) {
   const navigate = useNavigate();
 
   const EventClick = () => {
-	navigate('/registerevent',{state:{event_id:props.event_id,commitee_id : props.commitee_id}});
-    toast("Registrations for events are Coming Soon", {
-      icon: "",
+    navigate("/registerevent", {
+      state: { event_id: props.event_id, commitee_id: props.commitee_id },
     });
   };
 
@@ -166,9 +165,7 @@ function EventDetails(props) {
           </div>
 
           <div className="p-4 md:p-10 flex flex-row flex-wrap justify-center">
-            <div
-              dangerouslySetInnerHTML={{ __html: props.rules }}
-            />
+            <div dangerouslySetInnerHTML={{ __html: props.rules }} />
           </div>
           <div className="flex justify-center">
             <p className="text-2xl ml-[20px] mr-[20px] text-center xlsm:mt-[5px] xs:mt-[20px] xlsm:mb-[13px] xs:mb-[13px] md:mt-[25px] md:mb-[-15px] uppercase mt-[40px] mb-[-10px] font-bold lg:text-3xl ">

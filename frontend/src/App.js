@@ -192,7 +192,7 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/link/:link"
+              path="/jointeam/:link"
               element={
                 <ProtectedRoute>
                   <JoinToTeamWithLink />

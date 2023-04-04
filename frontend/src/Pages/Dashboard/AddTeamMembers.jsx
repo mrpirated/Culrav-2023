@@ -29,7 +29,7 @@ const AddTeamMembers = () => {
       </div>
       <div className="mt-4">
         <label htmlFor="teamID" className="block mb-2 font-medium text-black">
-          Enter Team Link
+          Enter Team Code
         </label>
         <input
           type="string"
