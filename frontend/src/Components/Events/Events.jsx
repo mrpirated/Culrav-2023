@@ -55,6 +55,7 @@ function Events() {
 						eventData={eventData}
 						pocs={pocs}
 						ecs={ecs}
+						key={element.commitee_id}
 						{...element}
 					/>
 				))}
