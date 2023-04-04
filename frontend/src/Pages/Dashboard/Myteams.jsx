@@ -123,33 +123,33 @@ function Myteams() {
 		setMyteams(response.data);
 	};
 
-	const getTeamsDetails = async () => {
-		const response = await getTeamDetailsAPI({
-			token: auth.token,
-			team_id: teamID,
-		});
-		console.log(response);
-		// const response = await axios.get(
-		//   `${process.env.REACT_APP_GETTEAMDETAILS}?team_id=${teamID}`,
-		//   {
-		//     headers: {
-		//       Authorization: `Bearer ${auth.token}`,
-		//     },
-		//   }
-		// );
+	// const getTeamsDetails = async () => {
+	// 	const response = await getUserTeamsAPI({
+	// 		token: auth.token,
+	// 		team_id: teamID,
+	// 	});
+	// 	console.log(response);
+	// 	// const response = await axios.get(
+	// 	//   `${process.env.REACT_APP_GETTEAMDETAILS}?team_id=${teamID}`,
+	// 	//   {
+	// 	//     headers: {
+	// 	//       Authorization: `Bearer ${auth.token}`,
+	// 	//     },
+	// 	//   }
+	// 	// );
 
-		console.log("Successfully fetched team details");
-		setMyTeamMembers(response.data.team_members);
-		console.log("teammembers", response.data.team_members);
-		setMyTeamName(response.data.team_details.team_name);
-		setMyTeamID(response.data.team_details.team_id);
-		setMyCommiteeName(response.data.team_details.commitee_name);
-		setMyEventName(response.data.team_details.event_name);
-		console.log("teamname", response.data.team_details.team_name);
-	};
+	// 	console.log("Successfully fetched team details");
+	// 	setMyTeamMembers(response.data.team_members);
+	// 	console.log("teammembers", response.data.team_members);
+	// 	setMyTeamName(response.data.team_details.team_name);
+	// 	setMyTeamID(response.data.team_details.team_id);
+	// 	setMyCommiteeName(response.data.team_details.commitee_name);
+	// 	setMyEventName(response.data.team_details.event_name);
+	// 	console.log("teamname", response.data.team_details.team_name);
+	// };
 
 	const toggleModal = () => {
-		getTeamsDetails();
+		// getTeamsDetails();
 		setModal(!modal);
 	};
 
