@@ -32,8 +32,6 @@ function EventDetails(props) {
 	const [image, setImage] = useState("../../Pages/Team/Assets/Background.png");
 	const [innerdisplay, setinnerdisplay] = useState(false);
 	const { ecs } = props;
-	console.log("Event Details", props);
-	console.log("Tagline", props.event_tagline);
 	const width = window.screen.width;
 	let initial = "hidden";
 	let animate = "visible";
