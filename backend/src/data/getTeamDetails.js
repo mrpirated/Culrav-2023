@@ -8,7 +8,7 @@ const getTeamDetails = async (team_id) => {
 		pool.query(
 			`SELECT t.team_id, t.team_name, e.event_id, 
             e.name AS 'event_name', e.commitee_id, 
-            c.name AS 'commitee_name', t.link AD 'link'
+            c.name AS 'commitee_name', t.link AS 'link'
 			FROM team t 
             JOIN event e ON t.event_id = e.event_id
             JOIN commitee c ON e.commitee_id = c.commitee_id
