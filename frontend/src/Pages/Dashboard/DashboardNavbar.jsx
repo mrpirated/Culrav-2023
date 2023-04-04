@@ -116,7 +116,10 @@ function DashboardNavbar(props) {
                 {HamClose}
               </div>
 
-              <div className="logo  w-full z-0 flex justify-center items-center">
+              <div
+                className="logo  w-full z-0 flex justify-center items-center"
+                onClick={() => navigate("/")}
+              >
                 <img className="w-[40%]" src={Logo} alt="Renaissance Logo" />
               </div>
 
