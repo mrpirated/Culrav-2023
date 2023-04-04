@@ -8,7 +8,8 @@ import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 import { useLocation } from "react-router-dom";
 import getCommiteesAPI from "../../api/getCommiteesAPI";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "../../store/auth";
+import { setLoading, setTeams } from "../../store/auth";
+import getUserTeamsAPI from "../../api/getUserTeamsAPI";
 
 function useQuery() {
 	const { search } = useLocation();
@@ -17,7 +18,6 @@ function useQuery() {
 }
 
 function CreateTeam(props) {
-	const { commitee_id, event_id } = props;
 	const [commitee, setCommitee] = useState([]);
 	const [commiteeEvents, setCommiteeEvents] = useState([]);
 	const [event, setEvent] = useState([]);
@@ -49,16 +49,29 @@ function CreateTeam(props) {
 				event_id: selectedEvent.value,
 				team_name: teamName,
 			};
-			createTeamAPI(data).then((response) => {
-				if (response.success) toast.success("Team created successfully");
-				else toast.error(response.message);
-			});
+			dispatch(setLoading({ loading: true }));
+
+			createTeamAPI(data)
+				.then((response) => {
+					if (response.success) {
+						toast.success("Team created successfully");
+						return getUserTeamsAPI({ token: auth.token });
+					} else {
+						toast.error(response.message);
+						return Promise.reject(response);
+					}
+				})
+				.then((response) => {
+					dispatch(setTeams({ teams: response.data }));
+				})
+				.finally(() => {
+					dispatch(setLoading({ loading: false }));
+				});
 		} else {
 			if (selectedEvent == null) toast.error("Select an event");
 			if (teamName == "") toast.error("Enter Team Name");
 		}
 	};
-
 	// useEffect(() => {
 	//   let com_id = query.get("com_id");
 	//   let event_id = query.get("event_id");
