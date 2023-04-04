@@ -12,8 +12,14 @@ const createTeamService = async (token, { event_id, team_name }) => {
 			user_id = response.data.decoded.user_id;
 			return checkIfEventRegistered(user_id, event_id);
 		})
-		.then(() => {
-			return createTeam(user_id, event_id, team_name);
+		.then((response) => {
+			if (!response.success) return createTeam(user_id, event_id, team_name);
+			else {
+				return Promise.reject({
+					success: false,
+					message: "User Already Registered in the Event",
+				});
+			}
 		})
 		.then((response) => {
 			return addMemberToTeam(user_id, response.data.insertId);

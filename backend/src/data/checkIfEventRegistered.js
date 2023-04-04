@@ -8,8 +8,8 @@ const checkIfEventRegistered = async (user_id, event_id) => {
 		debug(event_id, user_id);
 		pool.query(
 			`SELECT tm.member_id, t.event_id FROM team t 
-        JOIN team_member tm ON t.team_id = tm.team_id WHERE
-        t.event_id = ? AND tm.member_id = ?`,
+        	JOIN team_member tm ON t.team_id = tm.team_id WHERE
+        	t.event_id = ? AND tm.member_id = ?`,
 			[event_id, user_id],
 			(err, result) => {
 				if (err) {
@@ -21,7 +21,7 @@ const checkIfEventRegistered = async (user_id, event_id) => {
 							success: true,
 							message: "User Already Registered in the Event",
 						});
-					else resolve({ success: false, message: result });
+					else resolve({ success: false, message: "User is not registered" });
 				}
 			}
 		);
