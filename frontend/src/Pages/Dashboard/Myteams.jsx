@@ -30,6 +30,7 @@ function Myteams() {
 
 		navigator.clipboard.writeText(text).then(
 			() => {
+				toast.success("Copied to clipboard");
 				// console.log('copied');
 			},
 			(err) => {
@@ -202,11 +203,13 @@ function Myteams() {
 										className='teams flex justify-between px-4 py-2 bg-lightYellow rounded-md my-2'
 									>
 										<div>
-											<p className='font-semibold text-xl'>
-												{element.team_name}
+											<p className='font-semibold text-[18px]'>
+												{element.event_name}
 											</p>
-											<p className='text-sm'>{element.event_name}</p>
-											{/* <p className="text-md ml-[1px]">{element.team_name}</p> */}
+											<p className='text-[16px]'>{element.team_name}</p>
+											<p className='text-[14px] ml-[1px]'>
+												{element.commitee_name}
+											</p>
 										</div>
 										<button
 											className='w-[30%] md:w-[20%] text-lg text-black hover:cursor-pointer bg-OccurYellow hover:bg-[#f3e1aa]'
@@ -256,16 +259,16 @@ function Myteams() {
 											</div>
 										</div>
 										<div>
-											<div className='teams mt-[5px] px-5 py-4 bg-OccurYellow rounded-md'>
+											<div className='teams mt-[5px] px-5 py-4 bg-OccurYellow rounded-md text-center'>
 												{/* <div className="flex justify-between">
                             <div> */}
 												<p className='text-2xl font-semibold'>
-													{selectedTeam.team_name}
+													{selectedTeam.team_name.toUpperCase()}
 												</p>
-												<p className='text-sm pt-[2px]'>
+												<p className='text-[20px] pt-[2px]'>
 													{selectedTeam.event_name}
 												</p>
-												<p className='text-sm pt-[2px]'>
+												<p className='text-[18px] pt-[2px]'>
 													{selectedTeam.commitee_name}
 												</p>
 
