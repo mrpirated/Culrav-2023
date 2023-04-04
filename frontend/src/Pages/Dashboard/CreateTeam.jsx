@@ -15,7 +15,8 @@ function useQuery() {
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-function CreateTeam() {
+function CreateTeam(props) {
+  console.log("props", props);
   const [commitee, setCommitee] = useState([]);
   const [commiteeEvents, setCommiteeEvents] = useState([]);
   const [event, setEvent] = useState([]);
@@ -24,9 +25,6 @@ function CreateTeam() {
   const [teamName, setTeamName] = useState("");
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const query = useQuery();
-  const [comDefaultValue, setComDeafultValue] = useState(null);
-  const [eventDefaultValue, setEventDeafultValue] = useState(null);
 
   const onCommiteeChange = (e) => {
     setSelectedCommitee(e);
@@ -80,8 +78,7 @@ function CreateTeam() {
   };
 
   const handleClick = async () => {
-    if (selectedEvent != null && teamName != null) {
-      console.log(selectedEvent);
+    if (selectedEvent != null && teamName != "") {
       const data = {
         token: auth.token,
         event_id: selectedEvent.value,
@@ -97,7 +94,7 @@ function CreateTeam() {
       }
     } else {
       if (selectedEvent == null) toast.error("Select an event");
-      if (teamName == null) toast.error("Enter Team Name");
+      if (teamName == "") toast.error("Enter Team Name");
     }
   };
 
@@ -128,6 +125,11 @@ function CreateTeam() {
           });
         });
         setCommitee(options);
+        if (props) {
+          setSelectedCommitee(
+            options.filter((element) => element.value == props.commitee_id)
+          );
+        }
         return Promise.all(eventFetches);
       })
       .then((response) => {
@@ -141,12 +143,17 @@ function CreateTeam() {
             });
           });
         });
+        if (props) {
+          setEvent(commiteeEvents.filter((event) => event.commitee_id == props.commitee_id));
+          setSelectedEvent(
+            commiteeEvents.filter((element) => element.value == props.event_id)
+          );
+        }
         setCommiteeEvents(commiteeEvents);
       })
       .finally(() => {
         // dispatch(setLoading({ loading: false }));
       });
-    console.log(commiteeEvents);
   }, []);
 
   return (
@@ -163,13 +170,11 @@ function CreateTeam() {
             Select Commitee
           </label>
           <Select
-            // ref={comref}
             options={commitee}
             value={selectedCommitee}
             id="selectCommitee"
             className="w-full"
             onChange={onCommiteeChange}
-            // value={comDefaultValue}
             required
           />
         </div>
