@@ -11,7 +11,11 @@ function Dashboard() {
 	const [navItems, setNavItems] = useState([]);
 
 	useEffect(() => {
-		if (auth.user.type === "ADMIN" || auth.user.type === "FS") {
+		if (
+			auth.user.type === "ADMIN" ||
+			auth.user.type === "FS" ||
+			auth.user.type === "TECHLEAD"
+		) {
 			setNavItems(["poc", "ec", "edit event"]);
 		} else if (auth.isPOC) {
 			setNavItems(["ec", "edit event"]);
@@ -28,7 +32,9 @@ function Dashboard() {
 					setOption={setOption}
 					navItems={navItems}
 				/>
-				{auth.user.type == "FS" || auth.user.type == "ADMIN" ? (
+				{auth.user.type == "FS" ||
+				auth.user.type == "ADMIN" ||
+				auth.user.type === "TECHLEAD" ? (
 					<DashboardAdmin type={option} setType={setOption} />
 				) : auth.isPOC || auth.isEC ? (
 					<DashboardPositions type={option} setType={setOption} />
