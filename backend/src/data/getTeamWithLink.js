@@ -5,7 +5,10 @@ const debug = dbg("data:getTeamWithLink");
 const getTeamWithLink = async (link) => {
 	return new Promise((resolve, reject) => {
 		pool.query(
-			`SELECT team_id,event_id,min_team_members,max_team_members FROM team WHERE link = ?`,
+			`SELECT t.team_id, t.event_id, e.min_team_members, e.max_team_members 
+			FROM team t
+			JOIN event e ON e.event_id = t.event_id
+			WHERE t.link = ?`,
 			[link],
 			(err, result) => {
 				if (err) {
