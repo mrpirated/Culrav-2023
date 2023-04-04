@@ -11,6 +11,7 @@ import getImageAPI from "../../api/getImageAPI";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import RegisterEvent from "./RegisterEvent";
+import { useSelector } from "react-redux";
 
 let container = {
 	hidden: { opacity: 1, scale: 0 },
@@ -35,9 +36,8 @@ const item = {
 function EventDetails(props) {
 	const [image, setImage] = useState("../../Pages/Team/Assets/Background.png");
 	const [innerdisplay, setinnerdisplay] = useState(false);
-	const [subevent, setSubevent] = useState([]);
-	const [tagline, setTagline] = useState("");
 	const { ecs } = props;
+	const auth = useSelector((state) => state.auth);
 	console.log("Event Details", props);
 	console.log("Tagline", props.event_tagline);
 	const width = window.screen.width;
@@ -68,19 +68,6 @@ function EventDetails(props) {
 
 	useEffect(() => {
 		getImage();
-	}, []);
-
-	const getEventsData = async () => {
-		await getCommiteeEventsAPI({ commitee_id: props.commitee_id }).then(
-			(response) => {
-				setSubevent(response.data);
-				console.log(response.data);
-			}
-		);
-	};
-
-	useEffect(() => {
-		getEventsData();
 	}, []);
 
 	return (
@@ -158,9 +145,17 @@ function EventDetails(props) {
 									// id="EventRegister"
 									className='pl-[80px] pr-[80px]'
 								>
-									<button id='EventRegister' onClick={EventClick}>
-										REGISTER
-									</button>
+									{auth.teams
+										.map((team) => team.event_id)
+										.includes(props.event_id) ? (
+										<button id='EventRegister' className='bg-green' disabled>
+											REGISTERED
+										</button>
+									) : (
+										<button id='EventRegister' onClick={EventClick}>
+											REGISTER
+										</button>
+									)}
 								</div>
 							</div>
 						</div>
