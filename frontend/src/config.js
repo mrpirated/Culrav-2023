@@ -1,8 +1,8 @@
 const config = {
-	// baseUrl: process.env.REACT_APP_BASE_URL,
+	baseUrl: process.env.REACT_APP_BASE_URL,
 	websiteUrl: process.env.REACT_APP_WEBSITE_URL,
 	joinTeam: "/joinTeam",
-	baseUrl: `http://localhost:5008/api`,
+	// baseUrl: `http://localhost:5008/api`,
 	environment: process.env.REACT_APP_ENVIRONMENT || "development",
 	login: "/login",
 	signup: "/signup",
@@ -30,5 +30,6 @@ const config = {
 	addMemberToTeamLink: "/addMemberToTeamLink",
 	deactivateTeamLink: "/deactivateTeamLink",
 	removeTeamMemberByLeader: "/removeTeamMemberByLeader",
+	getRegisteredTeams: "/getRegisteredTeams",
 };
 export default config;

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import getUserTeamsAPI from "../../api/getUserTeamsAPI";
 import { setTeams } from "../../store/auth";
 import SelectEventToViewEventRegisterations from "./SelectEventToViewEventRegisterations";
+import TeamCard from "./TeamCard";
+import EventTable from "./EventTable";
 
 function EventRegisterations() {
   const [modal, setModal] = useState(false);
@@ -34,42 +36,34 @@ function EventRegisterations() {
 
   return (
     <>
-      
-      <div className="bg-OccurYellow my-3 mx-4 w-full rounded-md box-border p-4 overflow-auto h-[90vh]">
-      <div>
-        <SelectEventToViewEventRegisterations
-          setSelectedEvent={setSelectedEvent}
-        />
-      </div>
-        <div>
-          <p className="text-2xl font-medium">EVENT REGISTERATIONS</p>
-          <div className="mt-4">
-            {auth.teams.map((element) => {
-              return (
-                <div className="" key={element.team_id}>
-                  <div
-                    key={element}
-                    className="teams flex justify-between px-4 py-2 bg-lightYellow rounded-md my-2"
-                  >
-                    <div>
-                      <p className="font-semibold text-xl">
-                        {element.team_name}
-                      </p>
-                      <p className="text-sm">{element.event_name}</p>
-                      {/* <p className="text-md ml-[1px]">{element.team_name}</p> */}
-                    </div>
-                    <button
-                      className="w-[30%] md:w-[20%] text-lg text-black hover:cursor-pointer bg-OccurYellow hover:bg-[#f3e1aa]"
-                      onClick={() => viewDetails(element)}
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+      <div className="flex flex-row w-full">
+        <div className="w-full my-3 mx-2">
+          <SelectEventToViewEventRegisterations
+            setSelectedEvent={setSelectedEvent}
+          />
+          <div className="mt-2">
+            <EventTable selectedEvent={selectedEvent} />
           </div>
         </div>
+        {/* <div className="bg-OccurYellow my-3 mx-4 w-full rounded-md box-border p-4 overflow-auto h-[90vh]">
+          <div>
+            <p className="text-2xl font-medium">
+              {selectedEvent ? selectedEvent.label : "select an event"}
+            </p>
+            <div className="mt-4">
+              {auth.teams.map((element) => {
+                return (
+                  <TeamCard
+                    element={element}
+                    checkLeader={viewDetails}
+                    buttonText="View Details"
+                    allowToggle={true}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div> */}
       </div>
     </>
   );

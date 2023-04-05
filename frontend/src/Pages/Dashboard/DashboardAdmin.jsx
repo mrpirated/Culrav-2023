@@ -12,6 +12,7 @@ import EditEC from "./EditEC";
 import EditPOC from "./EditPOC";
 import EditEvent from "./EditEvent";
 import Myteams from "./Myteams";
+import EventRegisterations from "./EventRegisterations";
 const DashboardAdmin = (props) => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
@@ -108,6 +109,11 @@ const DashboardAdmin = (props) => {
 							onClick={() => setType("my teams")}
 							check={type}
 						/>
+						<AdminPanel
+							type='EVENT REGISTERATIONS'
+							onClick={() => setType("event registerations")}
+							check={type}
+						/>
 					</div>
 					{type === "ec" && (
 						<div className='flex flex-row w-full'>
@@ -141,6 +147,11 @@ const DashboardAdmin = (props) => {
 					{type === "my teams" && (
 						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
 							<Myteams />
+						</div>
+					)}
+					{type === "event registerations" && (
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
+							<EventRegisterations />
 						</div>
 					)}
 				</div>

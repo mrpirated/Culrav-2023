@@ -65,39 +65,41 @@ const SelectEventToViewEventRegisterations = (props) => {
     <>
       <div className="bg-OccurYellow w-full rounded-md p-4">
         <div>
-          <p className="text-2xl font-medium">CREATE TEAM</p>
+          <p className="text-2xl font-medium">View Registrations</p>
         </div>
-        <div className="mt-4">
-          <label
-            htmlFor="selectCommitee"
-            className="block mb-2 font-medium text-black"
-          >
-            Select Commitee
-          </label>
-          <Select
-            options={commitee}
-            value={selectedCommitee}
-            id="selectCommitee"
-            className="w-full"
-            onChange={onCommiteeChange}
-            required
-          />
-        </div>
-        <div className="mt-4">
-          <label
-            htmlFor="selectEvents"
-            className="block mb-2 font-medium text-black"
-          >
-            Select Event
-          </label>
-          <Select
-            options={event}
-            value={selectedEvent}
-            id="selectEvents"
-            className="w-full"
-            onChange={onEventChange}
-            required
-          />
+        <div className="flex flex-col lg:flex-row w-full">
+          <div className="mt-4 lg:mr-4 w-full">
+            <label
+              htmlFor="selectCommitee"
+              className="block mb-2 font-medium text-black"
+            >
+              Select Commitee
+            </label>
+            <Select
+              options={commitee}
+              value={selectedCommitee}
+              id="selectCommitee"
+              className="w-full"
+              onChange={onCommiteeChange}
+              required
+            />
+          </div>
+          <div className="mt-4 w-full">
+            <label
+              htmlFor="selectEvents"
+              className="block mb-2 font-medium text-black"
+            >
+              Select Event
+            </label>
+            <Select
+              options={event}
+              value={selectedEvent}
+              id="selectEvents"
+              className="w-full"
+              onChange={onEventChange}
+              required
+            />
+          </div>
         </div>
         {/* <div className="mt-4">
           <button
