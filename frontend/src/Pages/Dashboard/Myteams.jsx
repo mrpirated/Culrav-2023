@@ -210,6 +210,9 @@ function Myteams() {
 											<p className='text-[14px] ml-[1px]'>
 												{element.commitee_name}
 											</p>
+											<p className='text-[14px] ml-[1px]'>
+												Team Size: {element.team_count}
+											</p>
 										</div>
 										<button
 											className='w-[30%] md:w-[20%] text-lg text-black hover:cursor-pointer bg-OccurYellow hover:bg-[#f3e1aa]'
@@ -462,25 +465,23 @@ function Myteams() {
 															className='teams px-4 mt-[5px] py-3 bg-OccurYellow rounded-md flex items-center justify-between'
 														>
 															<div>
-																<p className='text-sm ml-[2px]'>
-																	Name: {element.user_name}
+																<p className='font-bold text-sm ml-[2px]'>
+																	{element.user_name}
 																</p>
 																{element.is_leader ? (
 																	<p className='text-sm pt-[2px] ml-[2px]'>
 																		LEADER
 																	</p>
 																) : (
-																	<p className='text-sm pt-[2px] ml-[2px]'>
-																		MEMBER
-																	</p>
+																	<p className='hidden'></p>
 																)}
 																{element.mnnit_id === null ? (
 																	<p className='text-sm pt-[2px] ml-[2px]'>
-																		{element.college}
+																		College: {element.college}
 																	</p>
 																) : (
 																	<p className='text-sm pt-[2px] ml-[2px]'>
-																		{element.mnnit_id}
+																		Reg No: {element.mnnit_id}
 																	</p>
 																)}
 																<p className='text-sm pt-[2px] ml-[2px]'>
