@@ -104,6 +104,13 @@ const DashboardPositions = (props) => {
 								check={type}
 							/>
 						)}
+						{(auth.isPOC || auth.isEC) && (
+							<AdminPanel
+								type='EVENT REGISTERATIONS'
+								onClick={() => setType("event registerations")}
+								check={type}
+							/>
+						)}
 					</div>
 					{auth.isPOC && type === "ec" && (
 						<div className='flex flex-row w-full'>
