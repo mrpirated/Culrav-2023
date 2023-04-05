@@ -110,8 +110,8 @@ const DashboardAdmin = (props) => {
 							check={type}
 						/>
 						<AdminPanel
-							type='EVENT REGISTERATIONS'
-							onClick={() => setType("event registerations")}
+							type='EVENT REGISTRATIONS'
+							onClick={() => setType("event registrations")}
 							check={type}
 						/>
 					</div>
@@ -149,7 +149,7 @@ const DashboardAdmin = (props) => {
 							<Myteams />
 						</div>
 					)}
-					{type === "event registerations" && (
+					{type === "event registrations" && (
 						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
 							<EventRegisterations
 								commitee={commitee}

@@ -21,12 +21,12 @@ function Dashboard() {
 				"ec",
 				"edit event",
 				"my teams",
-				"event registerations",
+				"event registrations",
 			]);
 		} else if (auth.isPOC) {
-			setNavItems(["ec", "edit event", "my teams", "event registerations"]);
+			setNavItems(["ec", "edit event", "my teams", "event registrations"]);
 		} else if (auth.isEC) {
-			setNavItems(["edit event", "my teams", "event registerations"]);
+			setNavItems(["edit event", "my teams", "event registrations"]);
 		} else {
 			setNavItems(["my teams"]);
 		}
