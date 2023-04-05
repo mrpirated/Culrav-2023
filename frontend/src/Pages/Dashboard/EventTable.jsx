@@ -159,7 +159,6 @@ const EventTable = (props) => {
       dispatch(setLoading({ loading: true }));
       getRegisterdTeamAPI(data)
         .then((response) => {
-          console.log(response);
           response.data.forEach((element) => {
             const object = {
               team_id: element.team_id,
