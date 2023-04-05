@@ -32,7 +32,7 @@ function EventRegisterations(props) {
 						{...props}
 						setSelectedEvent={setSelectedEvent}
 					/>
-					<div className='mt-2'>
+					<div className='mt-2 max-h-[500px] overflow-auto'>
 						<EventTable selectedEvent={selectedEvent} />
 					</div>
 				</div>
