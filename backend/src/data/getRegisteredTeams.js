@@ -8,7 +8,8 @@ const getRegisteredTeams = async (event_id) => {
 		pool.query(
 			`SELECT t.team_id, t.team_name, t.team_leader AS leader_id,
             u.name as leader_name, u.mnnit_id as leader_mnnit_id,
-            u.phone AS leader_phone
+            u.phone AS leader_phone,
+			(SELECT COUNT(*) FROM team_member tm1 WHERE tm1.team_id = t.team_id) AS team_size
 			FROM team t 
             JOIN user u ON u.user_id = t.team_leader
             WHERE t.event_id = ?`,

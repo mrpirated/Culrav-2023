@@ -9,7 +9,7 @@ const getTeamDetails = async (team_id) => {
 			`SELECT t.team_id, t.team_name, e.event_id, 
             e.name AS 'event_name', e.commitee_id, 
             c.name AS 'commitee_name', t.link AS 'link',
-			(SELECT COUNT(*) FROM team_member tm1 WHERE tm1.team_id = ?) AS team_count
+			(SELECT COUNT(*) FROM team_member tm1 WHERE tm1.team_id = ?) AS team_size
 			FROM team t 
             JOIN event e ON t.event_id = e.event_id
             JOIN commitee c ON e.commitee_id = c.commitee_id

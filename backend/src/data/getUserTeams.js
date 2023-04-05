@@ -9,7 +9,7 @@ const getUserTeams = async (user_id) => {
 			`SELECT t.team_id, t.team_name, e.event_id, e.name AS 'event_name', 
             e.commitee_id, c.name AS 'commitee_name', 
             IF(t.team_leader = ?, true, false) as 'is_leader',
-			(SELECT COUNT(*) FROM team_member tm1 WHERE tm1.team_id = t.team_id) AS team_count
+			(SELECT COUNT(*) FROM team_member tm1 WHERE tm1.team_id = t.team_id) AS team_size
 			FROM team t 
             JOIN team_member tm ON tm.team_id = t.team_id 
             JOIN event e ON t.event_id = e.event_id
