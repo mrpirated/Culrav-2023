@@ -8,13 +8,15 @@ const getTeamDetails = async (team_id) => {
 		pool.query(
 			`SELECT t.team_id, t.team_name, e.event_id, 
             e.name AS 'event_name', e.commitee_id, 
-            c.name AS 'commitee_name', t.link AS 'link'
+            c.name AS 'commitee_name', t.link AS 'link',
+			(SELECT COUNT(*) FROM team_member tm1 WHERE tm1.team_id = ?) AS team_count
 			FROM team t 
             JOIN event e ON t.event_id = e.event_id
             JOIN commitee c ON e.commitee_id = c.commitee_id
             WHERE t.team_id = ?`,
-			[team_id],
+			[team_id, team_id],
 			(err, result) => {
+				debug(result);
 				if (err) {
 					reject({ success: false, message: err });
 				} else

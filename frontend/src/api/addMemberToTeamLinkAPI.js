@@ -3,7 +3,6 @@ import config from "../config";
 
 const addMemberToTeamLinkAPI = async (data) => {
 	const { token, link } = data;
-    console.log(token);
 	return await axios
 		.post(
 			`${config.baseUrl}${config.addMemberToTeamLink}`,
