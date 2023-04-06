@@ -208,8 +208,9 @@ const EventTable = (props) => {
 		Promise.all(team_details)
 			.then((response) => {
 				var jsonData = [];
-				response.forEach((res) => {
+				response.forEach((res, index) => {
 					var obj = {};
+					obj["Sr No."] = index;
 					obj["TEAM NAME"] = res.data.team_details.team_name;
 					obj["TEAM SIZE"] = res.data.team_details.team_size;
 
