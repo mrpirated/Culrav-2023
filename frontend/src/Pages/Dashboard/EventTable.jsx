@@ -227,7 +227,7 @@ const EventTable = (props) => {
 					res.data.team_members
 						.filter((member) => member.is_leader === 0)
 						.forEach((member, index) => {
-							obj[`MEMBER_${index + 1}`] = `${member.user_name}(${getCulravId(
+							obj[`MEMBER_${index + 2}`] = `${member.user_name}(${getCulravId(
 								member.user_id
 							)})`;
 						});
