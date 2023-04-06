@@ -8,11 +8,11 @@ import TeamCard from "./TeamCard";
 import EventTable from "./EventTable";
 
 function EventRegisterations(props) {
-	const [modal, setModal] = useState(false);
 	const auth = useSelector((state) => state.auth);
 
-	const [selectedEvent, setSelectedEvent] = useState(null);
 	const [teamUpdated, setTeamUpdated] = useState(false);
+	const [selectedCommitee, setSelectedCommitee] = useState(null);
+	const [selectedEvent, setSelectedEvent] = useState(null);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -31,9 +31,15 @@ function EventRegisterations(props) {
 					<SelectEventToViewEventRegisterations
 						{...props}
 						setSelectedEvent={setSelectedEvent}
+						selectedEvent={selectedEvent}
+						selectedCommitee={selectedCommitee}
+						setSelectedCommitee={setSelectedCommitee}
 					/>
 					<div className='mt-2 max-h-[500px] overflow-auto'>
-						<EventTable selectedEvent={selectedEvent} />
+						<EventTable
+							selectedEvent={selectedEvent}
+							selectedCommitee={selectedCommitee}
+						/>
 					</div>
 				</div>
 				{/* <div className="bg-OccurYellow my-3 mx-4 w-full rounded-md box-border p-4 overflow-auto h-[90vh]">

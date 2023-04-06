@@ -6,10 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../../store/auth";
 
 const SelectEventToViewEventRegisterations = (props) => {
-	const { commitee, commiteeEvents } = props;
+	const {
+		commitee,
+		commiteeEvents,
+		selectedCommitee,
+		setSelectedCommitee,
+		selectedEvent,
+		setSelectedEvent,
+	} = props;
 	const [event, setEvent] = useState([]);
-	const [selectedCommitee, setSelectedCommitee] = useState(null);
-	const [selectedEvent, setSelectedEvent] = useState(null);
+
 	const dispatch = useDispatch();
 
 	const onCommiteeChange = (e) => {
