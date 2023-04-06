@@ -150,7 +150,6 @@ const EventTable = (props) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		if (selectedEvent) {
-			// console.log("useEffect Called");
 			const data = {
 				token: auth.token,
 				event_id: selectedEvent.value,
@@ -217,7 +216,6 @@ const EventTable = (props) => {
 					res.data.team_members
 						.filter((member) => member.is_leader === 1)
 						.forEach((member) => {
-							console.log(member);
 							obj["TEAM LEADER"] = member.user_name;
 							obj["LEADER CULRAV ID"] = getCulravId(member.user_id);
 							if (member.mnnit_id === null) {
