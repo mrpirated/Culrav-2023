@@ -4,6 +4,7 @@ const debug = dbg("service:createTeam");
 import createTeam from "../data/createTeam";
 import checkIfEventRegistered from "../data/checkIfEventRegistered";
 import addMemberToTeam from "../data/addMemberToTeam";
+import checkIfPhoneIsUpdated from "../data/checkIfPhoneIsUpdated";
 const createTeamService = async (token, { event_id, team_name }) => {
 	var user_id;
 	return await checkTokenService(token)
@@ -13,13 +14,22 @@ const createTeamService = async (token, { event_id, team_name }) => {
 			return checkIfEventRegistered(user_id, event_id);
 		})
 		.then((response) => {
-			if (!response.success) return createTeam(user_id, event_id, team_name);
-			else {
+			if (!response.success) {
+				return checkIfPhoneIsUpdated(user_id);
+			} else {
 				return Promise.reject({
 					success: false,
 					message: "User Already Registered in the Event",
 				});
 			}
+		})
+		.then((response) => {
+			if (response.data.phone == null) {
+				return Promise.reject({
+					success: false,
+					message: "User had not updated the phone number",
+				});
+			} else return createTeam(user_id, event_id, team_name);
 		})
 		.then((response) => {
 			return addMemberToTeam(user_id, response.data.insertId);
