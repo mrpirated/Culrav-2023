@@ -37,11 +37,11 @@ function EventRegisterations() {
   return (
     <>
       <div className="flex flex-row w-full">
-        <div className="w-full my-3 mx-2">
+        <div className="w-full my-3 px-2">
           <SelectEventToViewEventRegisterations
             setSelectedEvent={setSelectedEvent}
           />
-          <div className="mt-2">
+          <div className="mt-2 max-h-[500px] overflow-auto">
             <EventTable selectedEvent={selectedEvent} />
           </div>
         </div>

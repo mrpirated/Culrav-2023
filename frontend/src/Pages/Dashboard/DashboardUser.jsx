@@ -2,7 +2,6 @@ import React from "react";
 import ProfileSectionInDashboard from "./ProfileSectionInDashboard";
 import UserProfile from "./UserProfile";
 import Myteams from "./Myteams";
-import EventRegisterations from "./EventRegisterations";
 const DashboardEC = (props) => {
   const { type, setType } = props;
 
@@ -26,13 +25,6 @@ const DashboardEC = (props) => {
               }}
               check={type}
             />
-            <ProfileSectionInDashboard
-              type="EVENT REGISTERATIONS"
-              onClick={() => {
-                setType("event registerations");
-              }}
-              check={type}
-            />
 
             {/* <AdminPanel
 							type='Edit Event'
@@ -50,21 +42,7 @@ const DashboardEC = (props) => {
               <Myteams />
             </div>
           )}
-          {type === "event registerations" && (
-            <div className="flex flex-row w-full justify-center h-screen lg:h-auto">
-              <EventRegisterations />
-            </div>
-          )}
 
-          {/* {type === "edit event" && (
-						<div className='flex flex-row w-full'>
-							<EditEvent
-								setRefreshList={setRefreshList}
-								commitee={commitee.filter((e) => ecCommitee.includes(e.value))}
-								commiteeEvents={commiteeEvents}
-							/>
-						</div>
-					)} */}
         </div>
       </div>
     </>
