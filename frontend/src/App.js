@@ -8,6 +8,7 @@ import Login from "./Pages/login/Login";
 
 // import NavPageLogin from "./Pages/login/NavPage";
 import AllTeams from "./Pages/Team/AllTeams";
+import AllSponsors from "./Pages/Sponsors/AllSponsors";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import LoadingProvider from "./Components/LoadingProvider";
@@ -171,6 +172,15 @@ function App() {
                 <>
                   <NavPageTeam />
                   <AllTeams />
+                </>
+              }
+            />
+            <Route
+              path="/sponsors"
+              element={
+                <>
+                  <NavPageTeam />
+                  <AllSponsors />
                 </>
               }
             />
