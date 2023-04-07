@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Preloader.css";
 import circle from "../../Assets/Preloader/circle.webp";
 import textOnly from "../../Assets/Preloader/textOnly.webp";
+import logo from "../../Assets/Home/Logo1.png";
 
 function Preloader() {
   const [visibility, setVisibility] = useState("fixed");
@@ -17,7 +18,7 @@ function Preloader() {
       <div
         className={`Preloader decrease-opacity h-screen w-screen ${visibility} z-[90] overflow-hidden flex justify-center items-center`}
       >
-        <div className="relative">
+        {/* <div className="relative">
           <img
             src={textOnly}
             className=" increase-opacity w-[300px] top-[41%] left-[48%] fixed z-40"
@@ -28,6 +29,11 @@ function Preloader() {
         <img
           src={circle}
           className="slide-top blink w-[150px] mt-[-150px]"
+          alt=""
+        /> */}
+        <img
+          src={logo}
+          className="slide-top-logo blink w-[250px] mt-[-50px]"
           alt=""
         />
       </div>
