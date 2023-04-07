@@ -43,7 +43,7 @@ function Navbar() {
   return (
     <nav className="w-full flex flex-row justify-between z-30 fixed transition duration-600 shadow-xl">
       <div className="logo md:px-0 flex justify-center items-center md:w-1/3 md:h-1/3 xlsm:px-3 xlsm:py-6 xs:px-6 xs:py-6 transition duration-600">
-        <a href="/">
+        <a href="https://www.drishtiias.com/">
           <img
             className="cursor-pointer w-[80px] xs:w-[130px] sm:w-[120px] md:w-[80px] mt-[-10px] my-[-11px] mb-[-22px]"
             src={logo}

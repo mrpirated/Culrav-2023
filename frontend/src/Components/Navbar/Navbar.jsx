@@ -105,7 +105,7 @@ function Navbar() {
           !navScroll ? "lg:w-1/3 lg:h-1/3" : "md:w-1/3 md:h-1/3"
         } xlsm:px-3 xlsm:py-6 xs:px-6 xs:py-6 transition duration-600`}
       >
-        <a href="/">
+        <a href="https://www.drishtiias.com/">
           <img
             className={`cursor-pointer ${
               !navScroll
