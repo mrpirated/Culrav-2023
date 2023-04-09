@@ -16,7 +16,7 @@ const Schedule = () => {
             setDay("day1");
           }}
           className={`cursor-pointer text-black ${
-            day == "day1" && "bg-warm"
+            day === "day1" && "bg-warm"
           }  px-4 py-2 rounded-md hover:bg-[#c1867a] transition-all duration-300`}
         >
           <p>Day 1</p>
@@ -26,7 +26,7 @@ const Schedule = () => {
             setDay("day2");
           }}
           className={`cursor-pointer text-black ${
-            day == "day2" && "bg-warm"
+            day === "day2" && "bg-warm"
           }  px-4 py-2 rounded-md hover:bg-[#c1867a] transition-all duration-300`}
         >
           <p>Day 2</p>
@@ -36,15 +36,15 @@ const Schedule = () => {
             setDay("day3");
           }}
           className={`cursor-pointer text-black ${
-            day == "day3" && "bg-warm"
+            day === "day3" && "bg-warm"
           }  px-4 py-2 rounded-md hover:bg-[#c1867a] transition-all duration-300`}
         >
           <p>Day 3</p>
         </div>
       </div>
-      {day == "day1" && <Day1 />}
-      {day == "day2" && <Day2 />}
-      {day == "day3" && <Day3 />}
+      {day === "day1" && <Day1 />}
+      {day === "day2" && <Day2 />}
+      {day === "day3" && <Day3 />}
     </div>
   );
 };

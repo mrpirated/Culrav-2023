@@ -158,7 +158,7 @@ function App() {
 									<div className='TrailerBack'>
 										<Trailer />
 										<Events />
-										<Schedule />
+										{/* <Schedule /> */}
 										<Celebs />
 										<Previous />
 									</div>
