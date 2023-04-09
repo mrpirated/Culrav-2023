@@ -10,4 +10,5 @@ module.exports = {
 	PORT: process.env.PORT,
 	SALT_ROUNDS: process.env.SALT_ROUNDS,
 	SECRET_KEY: process.env.SECRET_KEY,
+	AZURE_EMAIL_CONNECTION_STRING: process.env.AZURE_EMAIL_CONNECTION_STRING,
 };

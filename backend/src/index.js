@@ -34,6 +34,7 @@ import getUserPositions from "./routes/getUserPositions";
 import deactivateTeamLink from "./routes/deactivateTeamLink";
 import removeTeamMemberByLeader from "./routes/removeTeamMemberByLeader";
 import getRegisteredTeams from "./routes/getRegisteredTeams";
+import sendEmail from "./controllers/sendEmail";
 dotenv.config();
 
 const PORT = config.PORT;
@@ -79,6 +80,16 @@ app.use(
 	removeTeamMemberByLeader,
 	getRegisteredTeams
 );
+// sendEmail({
+// 	subject: "This is very important email.",
+// 	body: ``,
+// 	receivers: [
+// 		{
+// 			address: "<abhishekkeshri2014@gmail.com>",
+// 			displayName: "Abhishek Keshri",
+// 		},
+// 	],
+// });
 app.use("/", (req, res) => {
 	res.send("Server is Running");
 });

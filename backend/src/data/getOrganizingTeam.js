@@ -14,6 +14,7 @@ const getOrganizingTeam = async () => {
             OR type = "TECHTEAM"
             OR type = "COCO"
             OR type = "PR"
+			OR type = "ARTSLEAD"
 			OR type = "MEDIALEAD"
 			OR type = "DESIGNLEAD"`,
 			(err, result) => {
