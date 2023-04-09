@@ -5,6 +5,8 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import AttractionsIcon from "@mui/icons-material/Attractions";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
 
 const ScheduleComponent = (props) => {
   return (
@@ -14,7 +16,7 @@ const ScheduleComponent = (props) => {
         contentStyle={
           props.highlighted
             ? {
-                background: "rgb(33, 150, 243)",
+                background: props.color,
                 color: "#fff",
               }
             : {
@@ -24,12 +26,20 @@ const ScheduleComponent = (props) => {
         }
         contentArrowStyle={
           props.highlighted
-            ? { borderRight: "7px solid  rgb(33, 150, 243)" }
-            : { borderRight: "7px solid  rgb(255, 255, 255)" }
+            ? { borderRight: "7px solid" + props.color }
+            : { borderRight: "7px solid  rgb(200, 255, 255)" }
         }
         date={props.date ? props.date : ""}
-        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-        icon={<AttractionsIcon />}
+        iconStyle={{ background: props.color, color: "#fff" }}
+        icon={
+          props.subheading === "(Anunaad)" ? (
+            <MusicNoteIcon />
+          ) : props.subheading === "(Rangsaazi)" ? (
+            <ColorLensIcon />
+          ) : (
+            <AttractionsIcon />
+          )
+        }
       >
         <h3 className="vertical-timeline-element-title">
           {props.heading ? props.heading : ""}

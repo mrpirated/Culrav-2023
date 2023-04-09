@@ -1,89 +1,50 @@
-import React from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import AttractionsIcon from "@mui/icons-material/Attractions";
-
-import Icon from "./entertainment.jpg";
-import ScheduleComponent from "./ScheduleComponent";
-
-const DisplayIcon = () => {
-  return <img src={Icon} className="h-10 w-10"></img>;
-};
+import React, { useState } from "react";
+import Day1 from "./Day1";
+import Day2 from "./Day2";
+import Day3 from "./Day3";
 
 const Schedule = () => {
+  const [day, setDay] = useState("day1");
   return (
-    <div className="mt-[100px]">
-      <h1 className="text-darker mb-[30px] text-center pt-[20px] md:pt-[50px] pb-[20px] md:pb-[40px] text-[40px] font-bold tracking-wide japanFont">
+    <div className="schedule mt-[100px]">
+      <h1 className="text-darker mb-[20px] text-center pt-[20px] md:pt-[50px] pb-[20px] md:pb-[40px] text-[40px] font-bold tracking-wide japanFont">
         SCHEDULE
       </h1>
-      <VerticalTimeline>
-        <ScheduleComponent
-          date="2008 - 2010"
-          heading="Web Designer"
-          subheading="Los Angeles, CA"
-          para="User Experience, Visual Design"
-          highlighted={true}
-        />
-        <ScheduleComponent
-          date="2006 - 2008"
-          heading="Web Designer"
-          subheading="San Francisco, CA"
-          para="User Experience, Visual Design"
-          highlighted={false}
-        />
-        <ScheduleComponent
-          date="April 2013"
-          heading="Content Marketing for Web, Mobile and Social Media"
-          subheading="Online Course"
-          para="Strategy, Social Media"
-          highlighted={true}
-        />
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="April 2013"
-          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
-          icon={<DisplayIcon />}
+      <div className="flex flex-row justify-between items-center w-full text-xl md:text-2xl font-semibold px-[10%] md:px-[25%] mb-[30px]">
+        <div
+          onClick={() => {
+            setDay("day1");
+          }}
+          className={`cursor-pointer text-black ${
+            day == "day1" && "bg-warm"
+          }  px-4 py-2 rounded-md hover:bg-[#c1867a] transition-all duration-300`}
         >
-          <h3 className="vertical-timeline-element-title">
-            Content Marketing for Web, Mobile and Social Media
-          </h3>
-          <h4 className="vertical-timeline-element-subtitle">Online Course</h4>
-          <p>Strategy, Social Media</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="November 2012"
-          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
-          icon={<DisplayIcon />}
+          <p>Day 1</p>
+        </div>
+        <div
+          onClick={() => {
+            setDay("day2");
+          }}
+          className={`cursor-pointer text-black ${
+            day == "day2" && "bg-warm"
+          }  px-4 py-2 rounded-md hover:bg-[#c1867a] transition-all duration-300`}
         >
-          <h3 className="vertical-timeline-element-title">
-            Agile Development Scrum Master
-          </h3>
-          <h4 className="vertical-timeline-element-subtitle">Certification</h4>
-          <p>Creative Direction, User Experience, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="2002 - 2006"
-          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
-          icon={<DisplayIcon />}
+          <p>Day 2</p>
+        </div>
+        <div
+          onClick={() => {
+            setDay("day3");
+          }}
+          className={`cursor-pointer text-black ${
+            day == "day3" && "bg-warm"
+          }  px-4 py-2 rounded-md hover:bg-[#c1867a] transition-all duration-300`}
         >
-          <h3 className="vertical-timeline-element-title">
-            Bachelor of Science in Interactive Digital Media Visual Imaging
-          </h3>
-          <h4 className="vertical-timeline-element-subtitle">
-            Bachelor Degree
-          </h4>
-          <p>Creative Direction, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
-          icon={<DisplayIcon />}
-        />
-      </VerticalTimeline>
+          <p>Day 3</p>
+        </div>
+      </div>
+      {day == "day1" && <Day1 />}
+      {day == "day2" && <Day2 />}
+      {day == "day3" && <Day3 />}
     </div>
   );
 };
