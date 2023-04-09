@@ -7,6 +7,7 @@ import getAllECsAPI from "../../api/getAllECsAPI";
 import getCommiteesAPI from "../../api/getCommiteesAPI";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 import ProfileSectionInDashboard from "./ProfileSectionInDashboard";
+import EventRegisterations from "./EventRegisterations";
 import UserProfile from "./UserProfile";
 import EditEC from "./EditEC";
 import EditEvent from "./EditEvent";
@@ -103,6 +104,13 @@ const DashboardPositions = (props) => {
 								check={type}
 							/>
 						)}
+						{(auth.isPOC || auth.isEC) && (
+							<AdminPanel
+								type='EVENT REGISTRATIONS'
+								onClick={() => setType("event registrations")}
+								check={type}
+							/>
+						)}
 					</div>
 					{auth.isPOC && type === "ec" && (
 						<div className='flex flex-row w-full'>
@@ -127,6 +135,18 @@ const DashboardPositions = (props) => {
 					{(auth.isPOC || auth.isEC) && type === "edit event" && (
 						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
 							<EditEvent
+								commitee={commitee.filter((e) =>
+									auth.commitees.includes(e.value)
+								)}
+								commiteeEvents={commiteeEvents.filter((e) =>
+									auth.events.includes(e.value)
+								)}
+							/>
+						</div>
+					)}
+					{type === "event registrations" && (
+						<div className='flex flex-row w-full justify-center h-screen lg:h-auto'>
+							<EventRegisterations
 								commitee={commitee.filter((e) =>
 									auth.commitees.includes(e.value)
 								)}

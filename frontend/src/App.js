@@ -8,6 +8,7 @@ import Login from "./Pages/login/Login";
 
 // import NavPageLogin from "./Pages/login/NavPage";
 import AllTeams from "./Pages/Team/AllTeams";
+import AllSponsors from "./Pages/Sponsors/AllSponsors";
 import NavPageTeam from "./Pages/Team/NavPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import LoadingProvider from "./Components/LoadingProvider";
@@ -42,6 +43,7 @@ import getUserPositionsAPI from "./api/getUserPositionsAPI";
 import getUserTeamsAPI from "./api/getUserTeamsAPI";
 import RegisterEvent from "./Pages/Dashboard/RegisterEvent";
 import JoinToTeamWithLink from "./Pages/Dashboard/JoinToTeamWithLink";
+import Schedule from "./Components/Schedule/Schedule";
 function App() {
   // const [state, dispatchs] = useReducer(authReducer, {
   // 	user: null,
@@ -60,7 +62,8 @@ function App() {
     "./images/redfm.png",
     "./images/safeexpress.png",
     "./images/sbi.png",
-    "./images/ias.jpg",
+    "./images/dell.png",
+    "./images/madeeasy.jpg",
     "./images/cepta.png",
     "./images/vlcc.png",
     "./images/bk.png",
@@ -155,6 +158,7 @@ function App() {
                   <div className="TrailerBack">
                     <Trailer />
                     <Events />
+                    <Schedule />
                     <Celebs />
                     <Previous />
                   </div>
@@ -171,6 +175,15 @@ function App() {
                 <>
                   <NavPageTeam />
                   <AllTeams />
+                </>
+              }
+            />
+            <Route
+              path="/sponsors"
+              element={
+                <>
+                  <NavPageTeam />
+                  <AllSponsors />
                 </>
               }
             />

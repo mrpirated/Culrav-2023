@@ -202,7 +202,7 @@ function Myteams() {
                   element={element}
                   checkLeader={checkLeader}
                   buttonText="EDIT"
-				  allowToggle={false}
+                  allowToggle={false}
                 />
               );
             })}

@@ -52,7 +52,7 @@ function Login() {
 		const mnnitRegex = /^2019|^2020|^2021|^2022/;
 
 		if (regExp.test(password)) {
-			if (mnnitRegex.test(mnnitID)) {
+			if (!reg || (reg && mnnitRegex.test(mnnitID))) {
 				// setMessage("Password is valid");
 				if (password === passwordAgain) {
 					// setConfirm("Password validation successful");

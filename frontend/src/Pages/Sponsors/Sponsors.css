@@ -1,0 +1,322 @@
+.image {
+  background-image: url(./Assets/Background.png);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* #Head {
+  font-family: "japan";
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 110px;
+  margin-bottom: -100px;
+} */
+
+#HeadDown {
+  font-family: "japan";
+  font-size: 50px;
+  font-weight: bold;
+  /* padding-top: 110px; */
+  margin-bottom: -100px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media screen and (max-width: 700px) {
+  #HeadDown {
+    font-family: "japan";
+    font-size: 30px;
+    font-weight: bold;
+    /* padding-top: 110px; */
+    margin-bottom: -100px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #HeadDown {
+    font-family: "japan";
+    font-size: 23px;
+    font-weight: bold;
+    /* padding-top: 110px; */
+    margin-bottom: -100px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.bodyTeam {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: -125px;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+.SectionTeam {
+  position: relative;
+}
+
+.SectionTeam::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(#daa095, #a5888a); */
+  clip-path: circle(30% at right 70%);
+}
+.SectionTeam::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(#daa095, #a5888a); */
+  clip-path: circle(20% at 10% 70%);
+}
+.containerTeam {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin: 150px 0; */
+}
+
+.containerTeam .card {
+  position: relative;
+  width: 280px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.containerTeam .Proffcard {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.containerTeam .card .contentTeam {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* opacity: 0.5; */
+  transition: 0.5s;
+  bottom: 15px;
+}
+
+/* @media only screen and (max-width: 1024px) and (min-width: 960px) {
+  .Tech {
+    padding-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 960px) {
+  #TechSection {
+    padding-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 960px) {
+  .Fest {
+    padding-top: 40px;
+  }
+} */
+
+.containerTeam .Proffcard .contentTeam {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* opacity: 0.5; */
+  transition: 0.5s;
+  bottom: -3px;
+}
+
+.containerTeam .card:hover .contentTeam {
+  /* opacity: 1; */
+  /* transform: translateY(-35px); */
+}
+
+.containerTeam .card .contentTeam .imgBx {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid rgba(0, 0, 0, 0.25);
+}
+
+.containerTeam .Proffcard .contentTeam .imgBx {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid rgba(0, 0, 0, 0.25);
+}
+
+.containerTeam .card .contentTeam .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.containerTeam .Proffcard .contentTeam .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.containerTeam .card .contentTeam .contentBx h3 {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px 0 10px;
+  line-height: 1.3em;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.containerTeam .Proffcard .contentTeam .contentBx h3 {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px 0 10px;
+  line-height: 1.3em;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.containerTeam .card .contentTeam .contentBx h3 span {
+  font-size: 11px;
+  font-weight: 300;
+  /* text-transform: initial; */
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.containerTeam .Proffcard .contentTeam .contentBx h3 span {
+  font-size: 11px;
+  font-weight: 300;
+  /* text-transform: initial; */
+  /* padding-right: 15px;
+  padding-right: 15px; */
+}
+
+.containerTeam .card .sci {
+  position: absolute;
+  bottom: 85px;
+  display: flex;
+}
+
+.containerTeam .card .sci li {
+  list-style-type: none;
+  margin: 0 10px;
+  transform: translateY(40px);
+  transition: 0.5s;
+  /* opacity: 0.5; */
+}
+
+.containerTeam .Proffcard .sci {
+  position: absolute;
+  bottom: 85px;
+  display: flex;
+}
+
+.containerTeam .Proffcard .sci li {
+  list-style-type: none;
+  margin: 0 10px;
+  transform: translateY(40px);
+  transition: 0.5s;
+  /* opacity: 0.5; */
+}
+
+.containerTeam .card .sci li:nth-child(1) {
+  transition-delay: 0.3s;
+}
+.containerTeam .card .sci li:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.containerTeam .card .sci li:nth-child(3) {
+  transition-delay: 0.9s;
+}
+
+.containerTeam .Proffcard .sci li:nth-child(1) {
+  transition-delay: 0.3s;
+}
+.containerTeam .Proffcard .sci li:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.containerTeam .Proffcard .sci li:nth-child(3) {
+  transition-delay: 0.9s;
+}
+
+.containerTeam .card:hover .sci li {
+  /* transform: translateY(20px); */
+  opacity: 1;
+}
+
+.containerTeam .card .sci li a {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.containerTeam .card .sci li a:hover {
+  opacity: 1;
+}
+
+.containerTeam .Proffcard:hover .sci li {
+  /* transform: translateY(20px); */
+  opacity: 1;
+}
+
+.containerTeam .Proffcard .sci li a {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.containerTeam .Proffcard .sci li a:hover {
+  opacity: 1;
+}

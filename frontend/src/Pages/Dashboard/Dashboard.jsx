@@ -16,11 +16,17 @@ function Dashboard() {
 			auth.user.type === "FS" ||
 			auth.user.type === "TECHLEAD"
 		) {
-			setNavItems(["poc", "ec", "edit event", "my teams"]);
+			setNavItems([
+				"poc",
+				"ec",
+				"edit event",
+				"my teams",
+				"event registrations",
+			]);
 		} else if (auth.isPOC) {
-			setNavItems(["ec", "edit event", "my teams"]);
+			setNavItems(["ec", "edit event", "my teams", "event registrations"]);
 		} else if (auth.isEC) {
-			setNavItems(["edit event", "my teams"]);
+			setNavItems(["edit event", "my teams", "event registrations"]);
 		} else {
 			setNavItems(["my teams"]);
 		}
