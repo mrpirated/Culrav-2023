@@ -49,7 +49,7 @@ function Login() {
 		e.preventDefault();
 
 		const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-		const mnnitRegex = /^2019|^2020|^2021|^2022/;
+		const mnnitRegex = /^201|^2020|^2021|^2022/;
 
 		if (regExp.test(password)) {
 			if (!reg || (reg && mnnitRegex.test(mnnitID))) {
