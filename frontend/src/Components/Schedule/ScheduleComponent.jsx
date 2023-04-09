@@ -6,7 +6,6 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import AttractionsIcon from "@mui/icons-material/Attractions";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
-import CelebrationIcon from "@mui/icons-material/Celebration";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 
 const ScheduleComponent = (props) => {

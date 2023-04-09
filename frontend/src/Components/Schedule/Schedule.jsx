@@ -6,7 +6,7 @@ import Day3 from "./Day3";
 const Schedule = () => {
   const [day, setDay] = useState("day1");
   return (
-    <div className="mt-[100px]">
+    <div className="schedule mt-[100px]">
       <h1 className="text-darker mb-[20px] text-center pt-[20px] md:pt-[50px] pb-[20px] md:pb-[40px] text-[40px] font-bold tracking-wide japanFont">
         SCHEDULE
       </h1>
