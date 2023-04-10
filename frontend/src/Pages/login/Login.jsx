@@ -51,21 +51,17 @@ function Login() {
 		const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 		if (regExp.test(password)) {
-			if (!reg || (reg && reg.length >= 6)) {
-				// setMessage("Password is valid");
-				if (password === passwordAgain) {
-					// setConfirm("Password validation successful");
-					await signup(name, email, password, mnnitID, college, reg).then(
-						(response) => {
-							navigate("/");
-						}
-					);
-				} else {
-					// setConfirm("Passwords are different");
-					toast.error("Confirm Password is not matching with password");
-				}
+			// setMessage("Password is valid");
+			if (password === passwordAgain) {
+				// setConfirm("Password validation successful");
+				await signup(name, email, password, mnnitID, college, reg).then(
+					(response) => {
+						navigate("/");
+					}
+				);
 			} else {
-				toast.error("Enter valid MNNIT ID");
+				// setConfirm("Passwords are different");
+				toast.error("Confirm Password is not matching with password");
 			}
 		} else if (!regExp.test(password)) {
 			// setMessage("Password is invalid");
