@@ -35,6 +35,9 @@ import deactivateTeamLink from "./routes/deactivateTeamLink";
 import removeTeamMemberByLeader from "./routes/removeTeamMemberByLeader";
 import getRegisteredTeams from "./routes/getRegisteredTeams";
 import sendEmail from "./controllers/sendEmail";
+import emailNotSent from "./template/emailNotSent";
+import getCulravId from "./controllers/getCulravId";
+import getUserWithoutPhone from "./data/getUserWithoutPhone";
 dotenv.config();
 
 const PORT = config.PORT;
@@ -81,14 +84,34 @@ app.use(
 	getRegisteredTeams
 );
 // sendEmail({
-// 	subject: "This is very important email.",
-// 	body: ``,
+// 	subject: "Update Your Phone Number",
+// 	body: emailNotSent("Deepesh Rathi", getCulravId(17)),
 // 	receivers: [
 // 		{
-// 			address: "<abhishekkeshri2014@gmail.com>",
-// 			displayName: "Abhishek Keshri",
+// 			address: `<deepeshrathi9@gmail.com>`,
+// 			displayName: "Deepesh Rathi",
 // 		},
 // 	],
+// });
+// getUserWithoutPhone().then((response) => {
+// 	response.data
+// 		.filter((member) => member.user_id == 17 || member.user_id == 18)
+// 		.forEach((item) => {
+// 			debug(item.name);
+
+// 			sendEmail({
+// 				subject: "Update Your Phone Number",
+// 				body: emailNotSent(item.name, getCulravId(item.user_id)),
+// 				receivers: [
+// 					{
+// 						address: `<${item.email}>`,
+// 						displayName: item.name,
+// 					},
+// 				],
+// 			}).then((response) => {
+// 				debug(response);
+// 			});
+// 		});
 // });
 app.use("/", (req, res) => {
 	res.send("Server is Running");
