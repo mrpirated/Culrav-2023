@@ -27,7 +27,7 @@ const ScheduleComponent = (props) => {
         contentArrowStyle={
           props.highlighted
             ? { borderRight: "7px solid" + props.color }
-            : { borderRight: "7px solid  rgb(200, 255, 255)" }
+            : { borderRight: "7px solid  rgb(255, 255, 255)" }
         }
         date={props.date ? props.date : ""}
         iconStyle={{ background: props.color, color: "#fff" }}
