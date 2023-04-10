@@ -41,7 +41,7 @@ const Day3 = () => {
           date="10:00am-2:30pm"
           heading="Nukkad"
           subheading="(Rangmanch)"
-          para="Outside MP Hall"
+          para="Culrav Arena"
           highlighted={false}
           color={circleColor}
         />
@@ -81,7 +81,7 @@ const Day3 = () => {
           date="2:30pm-4:30pm"
           heading="Blind Arts"
           subheading="(Rangsaazi)"
-          para="Bikaner/NLHC-1"
+          para="NLHC-1"
           highlighted={false}
           color={circleColor}
         />
@@ -89,7 +89,7 @@ const Day3 = () => {
           date="3:00pm-4:30pm"
           heading="Ijaad"
           subheading="(Anunaad)"
-          para="Basketball Court"
+          para="Culrav Arena"
           highlighted={false}
           color={circleColor}
         />
@@ -105,14 +105,14 @@ const Day3 = () => {
           date="4:30pm-6:30pm"
           heading="Dance Battle"
           subheading="(Razzmatazz)"
-          para="Basketball Court"
+          para="Culrav Arena"
           highlighted={false}
           color={circleColor}
         />
         <ScheduleComponent
-          date="7:30pm- 9:30pm"
-          heading="Pro Nite"
-          subheading="(EDM)"
+          date="7:30pm- 9:55pm"
+          heading="Celebrity Night"
+          subheading="(Shalmali Kholgade)"
           para="Gymkhana Ground"
           highlighted={true}
           color={circleColor}

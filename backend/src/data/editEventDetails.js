@@ -8,7 +8,8 @@ const editEventDetails = async (
 	event_tagline,
 	min_team_members,
 	max_team_members,
-	rules
+	rules,
+	reg_active
 ) => {
 	return new Promise((resolve, reject) => {
 		var values = {
@@ -17,6 +18,7 @@ const editEventDetails = async (
 			min_team_members,
 			max_team_members,
 			rules,
+			reg_active,
 		};
 		pool.query(
 			`UPDATE event SET ? WHERE event_id = ?`,

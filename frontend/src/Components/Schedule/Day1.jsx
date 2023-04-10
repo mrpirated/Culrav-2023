@@ -25,7 +25,7 @@ const Day1 = () => {
           date="9:00am-12:00pm"
           heading="Paint the way"
           subheading="(Rangsaazi)"
-          para="Gymkhana/Athletics ground Road"
+          para="Gymkhana Road"
           highlighted={false}
           color={circleColor}
         />
@@ -38,8 +38,16 @@ const Day1 = () => {
           color={circleColor}
         />
         <ScheduleComponent
-          date="12:30pm-3:30pm"
-          heading="The Vault of Dance"
+          date="11:30am-3:00pm"
+          heading="Voice of Culrav- Finals"
+          subheading="(Anunaad)"
+          para="Seminar Hall"
+          highlighted={false}
+          color={circleColor}
+        />
+        <ScheduleComponent
+          date="12:30pm-4:00pm"
+          heading="Desi Sync"
           subheading="(Razzmatazz)"
           para="MP Hall"
           highlighted={false}
@@ -57,15 +65,7 @@ const Day1 = () => {
           date="1:00pm-3:30pm"
           heading="Let's Face it"
           subheading="(Rangsaazi)"
-          para="Arena/Bikaner/NLHC-2"
-          highlighted={false}
-          color={circleColor}
-        />
-        <ScheduleComponent
-          date="11:30am-3:00pm"
-          heading="Voice of Culrav- Finals"
-          subheading="(Anunaad)"
-          para="Seminar Hall"
+          para="Culrav Arena"
           highlighted={false}
           color={circleColor}
         />
@@ -94,11 +94,11 @@ const Day1 = () => {
           color={circleColor}
         />
         <ScheduleComponent
-          date="7:30pm-9:30pm"
-          heading="Band Performance(Pronite)"
-          subheading=""
+          date="8:00pm-9:55pm"
+          heading="EDM Night"
+          subheading="(DJ Swattrex)"
           para="Gymkhana Ground"
-          highlighted={false}
+          highlighted={true}
           color={circleColor}
         />
 

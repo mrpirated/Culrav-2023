@@ -11,6 +11,7 @@ const editEventDetailsAPI = async (data) => {
 		min_team_members,
 		max_team_members,
 		rules,
+		reg_active,
 	} = data;
 	return await axios
 		.post(
@@ -22,6 +23,7 @@ const editEventDetailsAPI = async (data) => {
 				min_team_members,
 				max_team_members,
 				rules,
+				reg_active,
 			},
 			{ headers: { Authorization: "Bearer " + token } }
 		)

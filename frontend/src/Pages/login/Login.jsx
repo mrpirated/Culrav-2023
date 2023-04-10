@@ -51,7 +51,7 @@ function Login() {
 		const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 		if (regExp.test(password)) {
-			if (!reg || (reg && reg.length >= 6)) {
+			if (!reg || (reg && mnnitID.length >= 6)) {
 				// setMessage("Password is valid");
 				if (password === passwordAgain) {
 					// setConfirm("Password validation successful");

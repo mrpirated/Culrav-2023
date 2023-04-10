@@ -15,6 +15,7 @@ const editEventDetailsService = async (
 		min_team_members,
 		max_team_members,
 		rules,
+		reg_active,
 	}
 ) => {
 	var user_id;
@@ -49,7 +50,8 @@ const editEventDetailsService = async (
 					event_tagline,
 					min_team_members,
 					max_team_members,
-					rules
+					rules,
+					reg_active
 				);
 			} else {
 				return Promise.reject({

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-// import { User } from "../../../User/User";
 import toast from "react-hot-toast";
+import { Switch } from "@mui/material";
 import getCommiteeEventsAPI from "../../api/getCommiteeEventsAPI";
 import editEventDetailsAPI from "../../api/editEventDetailsAPI";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,7 @@ const Event = (props) => {
 	const [eventCoordinators, setEventCoordinators] = useState([1, 2]);
 	const [modal, setModal] = useState(false);
 	const [checked, setChecked] = useState(false);
-	const [toggle, setToggle] = useState(false);
+	const [regActive, setRegActive] = useState(false);
 	const dispatch = useDispatch();
 	const onEventchange = (e) => {
 		setSelectedEvent(e);
@@ -37,6 +37,7 @@ const Event = (props) => {
 						setDescription(element.event_description);
 						setMinsize(element.min_team_members);
 						setMaxsize(element.max_team_members);
+						setRegActive(element.reg_active);
 						if (element.min_team_members == 1 && element.max_team_members == 1)
 							setChecked(true);
 						setRules(element.rules);
@@ -77,7 +78,9 @@ const Event = (props) => {
 				min_team_members: minsize,
 				max_team_members: maxsize,
 				rules: rules,
+				reg_active: regActive,
 			};
+			console.log(object);
 			dispatch(setLoading({ loading: true }));
 			editEventDetailsAPI(object)
 				.then((response) => {
@@ -241,6 +244,17 @@ const Event = (props) => {
 						className='w-full h-[300px] md:h-[200px] rounded-lg p-2 focus:ring-red focus:border-red'
 						required
 					></textarea>
+				</div>
+				<div className='mt-4'>
+					<label htmlFor='rules' className='block mb-2 font-medium text-black'>
+						Allow New Registrations
+					</label>
+					<Switch
+						checked={regActive}
+						onChange={(e) => {
+							setRegActive(e.target.checked);
+						}}
+					/>
 				</div>
 				<div className='mt-4'>
 					<button
