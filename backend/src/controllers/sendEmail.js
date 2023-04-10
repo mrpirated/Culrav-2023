@@ -7,7 +7,7 @@ const {
 import config from "../config";
 const sendEmail = async (data) => {
 	const { subject, body, receivers } = data;
-	const connectionString = `endpoint=https://culrav-email.communication.azure.com/;accesskey=qzBl6G/QLldyb505DBKd/gHBByQ5MiUYgkziNN2Yr3mrjGqiiAeOoGncTFBQ2906KpNuioifeLVHgRIKrYEKSQ==`;
+	const connectionString = config.AZURE_EMAIL_CONNECTION_STRING;
 	const emailClient = new EmailClient(connectionString);
 	const message = {
 		senderAddress: "<no-reply@culrav.online>",
