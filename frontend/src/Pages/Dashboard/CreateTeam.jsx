@@ -20,7 +20,7 @@ function CreateTeam(props) {
 
 	const onCommiteeChange = (e) => {
 		setSelectedCommitee(e);
-		console.log(commiteeEvents);
+
 		setEvent(commiteeEvents.filter((event) => event.commitee_id === e.value));
 		setSelectedEvent(null);
 	};

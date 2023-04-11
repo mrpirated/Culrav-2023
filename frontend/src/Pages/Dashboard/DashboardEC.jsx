@@ -68,7 +68,7 @@ const DashboardEC = (props) => {
 						});
 					});
 				});
-				console.log(commiteeEvents);
+
 				setCommiteeEvents(commiteeEvents);
 				return getAllECsAPI();
 			})

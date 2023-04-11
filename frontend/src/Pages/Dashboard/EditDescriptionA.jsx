@@ -48,8 +48,6 @@ const EditDescriptionA = () => {
 	};
 
 	const onSubEventchange = async (event) => {
-		console.log("subevent selected");
-		console.log(event.value);
 		setselectedsubEvent(event.value);
 	};
 

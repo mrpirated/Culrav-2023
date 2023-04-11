@@ -26,15 +26,12 @@ const AddPoc = (props) => {
 				commitee_id: selectedCommitee.value,
 			})
 				.then((response) => {
-					console.log(response);
 					if (response.success) {
 						toast.success(response.message);
 						setRefreshList(true);
 					} else toast.error(response.message);
 				})
-				.catch((err) => {
-					console.log(err);
-				});
+				.catch((err) => {});
 		}
 	};
 

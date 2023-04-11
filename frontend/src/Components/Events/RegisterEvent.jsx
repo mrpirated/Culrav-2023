@@ -38,8 +38,6 @@ function RegisterEvent(props) {
 	const [subevent, setSubevent] = useState([]);
 	const [tagline, setTagline] = useState("");
 	const { ecs } = props;
-	console.log("Event Details", props);
-	console.log("Tagline", props.event_tagline);
 	const width = window.screen.width;
 	let initial = "hidden";
 	let animate = "visible";
@@ -49,14 +47,6 @@ function RegisterEvent(props) {
 		animate = { y: 0, opacity: 1 };
 		transition = { ease: "linear", duration: 0.3 };
 	}
-	const navigate = useNavigate();
-
-	const EventClick = () => {
-		// navigate('/dashboard');
-		// navigate("/registerevent", {
-		//   state: { event_id: props.event_id, commitee_id: props.commitee_id },
-		// });
-	};
 
 	const getImage = async () => {
 		setImage(getImageAPI("event", props.event_id));
@@ -70,7 +60,6 @@ function RegisterEvent(props) {
 		await getCommiteeEventsAPI({ commitee_id: props.commitee_id }).then(
 			(response) => {
 				setSubevent(response.data);
-				console.log(response.data);
 			}
 		);
 	};

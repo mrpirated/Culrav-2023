@@ -2,7 +2,6 @@ import axios from "axios";
 import config from "../config";
 
 const editEventDetailsAPI = async (data) => {
-	console.log(data);
 	const {
 		token,
 		event_id,
@@ -29,7 +28,6 @@ const editEventDetailsAPI = async (data) => {
 		)
 		.then((response) => response.data)
 		.catch((err) => {
-			console.log(err);
 			return { success: false, message: err.message };
 		});
 };

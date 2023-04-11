@@ -6,7 +6,7 @@ import { useLogout } from "../../Hooks/useLogout";
 import { useSelector } from "react-redux";
 import "./Navbar.css";
 
-const navItems = ["about", "events", "sponsors", "contact"];
+const navItems = ["about", "events", "contact", "schedule"];
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
@@ -21,7 +21,6 @@ function Navbar() {
 
   useEffect(() => {
     if (navbarRef.current != null) {
-      console.log(navbarRef);
       const applyContainerProperties = () => {
         navbarRef.current.classList.add("navbar-below");
       };
@@ -151,6 +150,21 @@ function Navbar() {
             </Link>
           ))}
           <a
+            href="/sponsors"
+            className={`hidden ${
+              !navScroll
+                ? "lg:mt-[20px]"
+                : "lg:mt-[-7px] before:bg-dark hover:text-dark"
+            } md:block md:mt-[-15px] xl:mt-[-80px] 2xl:mt-[-120px] mx-2 px-1 lg:mx-3 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark`}
+          >
+            <li
+              className="text-sm  sm:text-[12px] cursor-pointer lg:text-[14px] 2xl:text-[15px]"
+              key={`link-teampage`}
+            >
+              SPONSORS
+            </li>
+          </a>
+          <a
             href="/team"
             className={`hidden ${
               !navScroll
@@ -163,21 +177,6 @@ function Navbar() {
               key={`link-teampage`}
             >
               TEAM
-            </li>
-          </a>
-          <a
-            // href="/schedule"
-            className={`hidden ${
-              !navScroll
-                ? "lg:mt-[20px]"
-                : "lg:mt-[-7px] before:bg-dark hover:text-dark"
-            } md:block md:mt-[-15px] xl:mt-[-80px] 2xl:mt-[-120px] mx-2 px-1 lg:mx-3 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark`}
-          >
-            <li
-              className="text-sm  sm:text-[12px] cursor-pointer lg:text-[14px] 2xl:text-[15px]"
-              key={`link-teampage`}
-            >
-              SCHEDULE
             </li>
           </a>
           <a
@@ -254,11 +253,11 @@ function Navbar() {
                   </li>
                 ))}
                 <a
-                  // href="/schedule"
+                  href="/sponsors"
                   className="mt-[8px] mb-[28px] text-base mx-2 px-1 lg:mx-4 lg:px-2 relative font-Mont before:content-[''] before:absolute before:bg-dark before:h-[3px] before:w-0 before:left-0 before:bottom-[-8px] before:transition-[0.3s] before:duration-300 hover:before:w-full hover:text-dark"
                 >
                   <li key={`link-teampage`} className="text-white">
-                    SCHEDULE
+                    SPONSORS
                   </li>
                 </a>
                 <a
