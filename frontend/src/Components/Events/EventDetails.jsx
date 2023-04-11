@@ -163,7 +163,7 @@ function EventDetails(props) {
             </p>
           </div>
 
-          <div className="p-4 ml-[10px] mr-[10px] md:p-10 flex flex-row flex-wrap justify-center">
+          <div className="p-4 ml-[20px] mr-[20px] md:p-10 flex flex-row flex-wrap justify-center">
             <div dangerouslySetInnerHTML={{ __html: props.rules }} />
           </div>
           <div className="flex justify-center">
