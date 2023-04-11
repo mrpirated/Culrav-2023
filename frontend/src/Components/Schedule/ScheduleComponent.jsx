@@ -10,6 +10,8 @@ import ColorLensIcon from "@mui/icons-material/ColorLens";
 import PlaceIcon from "@mui/icons-material/Place";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import { Icon } from "@mui/material";
+import Drams from "./Drams";
 const ScheduleComponent = (props) => {
 	return (
 		<>
@@ -35,6 +37,8 @@ const ScheduleComponent = (props) => {
 						<MusicNoteIcon />
 					) : props.subheading === "(Rangsaazi)" ? (
 						<ColorLensIcon />
+					) : props.subheading === "(Rangmanch)" ? (
+						<Drams />
 					) : (
 						<AttractionsIcon />
 					)
