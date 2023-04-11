@@ -8,6 +8,7 @@ import AttractionsIcon from "@mui/icons-material/Attractions";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import PlaceIcon from "@mui/icons-material/Place";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 const ScheduleComponent = (props) => {
 	return (
@@ -25,8 +26,6 @@ const ScheduleComponent = (props) => {
 						? { borderRight: "7px solid" + props.color }
 						: { borderRight: "7px solid  rgb(255, 255, 255)" }
 				}
-				date={props.date ? props.date : ""}
-				dateClassName='text-black'
 				iconStyle={{
 					background: props.color,
 					color: "#000",
@@ -50,10 +49,16 @@ const ScheduleComponent = (props) => {
 						{props.subheading ? props.subheading : ""}
 					</h4>
 				</div>
-				<div className='flex items-center '>
+				<div className='flex items-center mt-1'>
 					<div className='font-bold'>
 						<PlaceIcon />
 						{props.para ? props.para : ""}
+					</div>
+				</div>
+				<div className='flex items-center mt-1'>
+					<div className='font-bold'>
+						<AccessTimeIcon />
+						{props.date ? props.date : ""}
 					</div>
 				</div>
 			</VerticalTimelineElement>
