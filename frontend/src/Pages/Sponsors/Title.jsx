@@ -187,11 +187,6 @@ const Title = () => {
       imageUrl: imgTravel,
     },
     {
-      name: "IIC",
-      post: "Innovation Partner",
-      imageUrl: imgIIC,
-    },
-    {
       name: "Dainik Jagran",
       post: "Press Partner",
       imageUrl: imgPress,

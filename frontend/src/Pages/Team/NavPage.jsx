@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import logo from "../../Assets/Home/Logo1.png";
+import logo from "../../Assets/Home/Logo.png";
 import { useSelector } from "react-redux";
 function Navbar() {
   const [toggle, setToggle] = useState(false);
