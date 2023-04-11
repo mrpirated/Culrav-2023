@@ -26,11 +26,10 @@ const Event = (props) => {
 	const dispatch = useDispatch();
 	const onEventchange = (e) => {
 		setSelectedEvent(e);
-		console.log(e);
+
 		dispatch(setLoading({ loading: true }));
 		getCommiteeEventsAPI({ commitee_id: e.commitee_id })
 			.then((response) => {
-				console.log(response);
 				response.data.forEach((element) => {
 					if (element.event_id == e.value) {
 						setTagline(element.event_tagline);
@@ -80,11 +79,10 @@ const Event = (props) => {
 				rules: rules,
 				reg_active: regActive,
 			};
-			console.log(object);
+
 			dispatch(setLoading({ loading: true }));
 			editEventDetailsAPI(object)
 				.then((response) => {
-					console.log(response);
 					if (response.success) {
 						toast.success(response.message);
 					} else toast.error(response.message);

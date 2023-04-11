@@ -13,7 +13,6 @@ export const useLogin = () => {
 		setError(null);
 		await loginAPI({ email, password })
 			.then((response) => {
-				console.log(response);
 				if (response.success) {
 					localStorage.setItem("token", JSON.stringify(response.data.token));
 					// response.data.user.token = response.data.token;

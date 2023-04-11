@@ -35,7 +35,6 @@ const AdminDataList = (props) => {
 				commitee_id: e.commitee_id,
 			};
 			await removeECsAPI(data).then((response) => {
-				console.log(response);
 				if (response.success) toast.success(response.message);
 				else toast.error(response.message);
 			});

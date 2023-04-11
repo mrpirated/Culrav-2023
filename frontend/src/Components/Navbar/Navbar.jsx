@@ -21,7 +21,6 @@ function Navbar() {
 
 	useEffect(() => {
 		if (navbarRef.current != null) {
-			console.log(navbarRef);
 			const applyContainerProperties = () => {
 				navbarRef.current.classList.add("navbar-below");
 			};

@@ -28,7 +28,6 @@ const UserProfile = () => {
 			phone: userPhone,
 			college: college === "" ? null : college,
 		}).then((response) => {
-			console.log(response);
 			if (response.success) toast.success("User updated");
 			else {
 				toast.error(response.message);

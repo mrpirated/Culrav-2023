@@ -21,7 +21,7 @@ const AddEc = (props) => {
 	const dispatch = useDispatch();
 	const onCommiteeChange = (e) => {
 		setSelectedCommitee(e);
-		console.log(commiteeEvents);
+
 		setEvent(commiteeEvents.filter((event) => event.commitee_id == e.value));
 		setSelectedEvent(null);
 	};
@@ -49,9 +49,7 @@ const AddEc = (props) => {
 						setRefreshList(true);
 					} else toast.error(response.message);
 				})
-				.catch((err) => {
-					console.log(err);
-				});
+				.catch((err) => {});
 		}
 	};
 

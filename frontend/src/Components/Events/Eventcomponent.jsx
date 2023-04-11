@@ -11,7 +11,7 @@ function Eventcomponent(props) {
 	const [display, setdisplay] = useState(false);
 	const [imgurl, setimgurl] = useState(null);
 	const { eventData } = props;
-	// console.log(eventData);
+	//
 	const handleEvent = () => {
 		const slider = document.getElementById(`slider${props.name}`);
 		slider.style.width = "100%";
