@@ -58,7 +58,7 @@ function App() {
 		"./images/amul.png",
 		"./images/barbeque.jpg",
 		"./images/bean.jpg",
-		"./images/Bob.png",
+		"./images/bob.png",
 		"./images/btscafe.jpg",
 		"./images/cables.jpg",
 		"./images/Cafe96.webp",
