@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import logo from "../../Assets/Home/Logo1.png";
+import logo from "../../Assets/Home/Logo.png";
 import { Link } from "react-scroll";
 import { useLogout } from "../../Hooks/useLogout";
 import { useSelector } from "react-redux";
