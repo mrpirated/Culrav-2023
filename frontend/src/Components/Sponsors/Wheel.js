@@ -61,7 +61,7 @@ export default class Wheel extends Component {
             className="japanFont text-[9vw] lg:text-[5vw] xl:text-[5vw] 2xl:text-[5vw]"
             style={Styles.text.largehead}
           >
-            {/* <div className="japanFont mb-[15px]">PAST</div> */}
+            <div className="japanFont mb-[15px]">OFFICIAL</div>
             <div className="japanFont">SPONSORS</div>
           </h1>
         </div>

@@ -1,40 +1,40 @@
-// import { useState, useRef, useEffect } from "react";
-// import Now from "./Now/Now";
+import { useState, useRef, useEffect } from "react";
+import Now from "./Now/Now";
 import Past from "./Past/Past";
 
 const Celebs = () => {
-  // const [set, setState] = useState(false);
-  // const animateRef = useRef();
+  const [set, setState] = useState(true);
+  const animateRef = useRef();
 
-  // useEffect(() => {
-  //   const applyContainerProperties = () => {
-  //     animateRef.current.classList.add("effect-container");
-  //   };
+  useEffect(() => {
+    const applyContainerProperties = () => {
+      animateRef.current.classList.add("effect-container");
+    };
 
-  //   const onClick = () => {
-  //     setTimeout(() => {
-  //       animateRef.current.classList.remove("activeCeleb");
-  //     }, 500);
-  //     animateRef.current.classList.add("activeCeleb");
-  //   };
+    const onClick = () => {
+      setTimeout(() => {
+        animateRef.current.classList.remove("activeCeleb");
+      }, 500);
+      animateRef.current.classList.add("activeCeleb");
+    };
 
-  //   applyContainerProperties();
+    applyContainerProperties();
 
-  //   animateRef.current.addEventListener("mouseup", onClick);
+    animateRef.current.addEventListener("mouseup", onClick);
 
-  //   const cleanupRef = animateRef.current;
+    const cleanupRef = animateRef.current;
 
-  //   return () => {
-  //     cleanupRef.removeEventListener("mouseup", onClick);
-  //   };
-  // });
+    return () => {
+      cleanupRef.removeEventListener("mouseup", onClick);
+    };
+  });
 
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="text-darker mt-[70px] text-center pt-[35px] pb-[28px] text-[40px] font-bold tracking-wide japanFont">
-        PAST CELEBS
+        CELEBS
       </h1>
-      {/* <div ref={animateRef} className="relative text-center">
+      <div ref={animateRef} className="relative text-center mt-[15px]">
         <span
           onClick={() => setState(false)}
           id="space"
@@ -51,10 +51,10 @@ const Celebs = () => {
         <div id="bar" className={set === true ? "flex justify-end" : ""}>
           <div className="bg-black w-[70px] mt-[-2px] mr-[0px] h-[2px] mb-[40px]"></div>
         </div>
-      </div> */}
-      <div className="mx-[50px] lg:mx-[100px] xl:mx-[150px] mt-[33px]">
-        {/* {set === true ? <Now /> : <Past />} */}
-        <Past />
+      </div>
+      <div className="mx-[50px] lg:mx-[100px] xl:mx-[150px]">
+        {set === true ? <Now /> : <Past />}
+        {/* <Past /> */}
       </div>
     </div>
   );

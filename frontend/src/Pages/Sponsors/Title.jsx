@@ -253,9 +253,9 @@ const Title = () => {
       {/* pb-[180px] */}
       <h1
         id="HeadDown"
-        className="text-center mt-[20px] md:mt-[40px] pb-[150px] xl:pb-[160px] text-grey"
+        className="text-center mt-[-40px] md:mt-[-40px] xl:mt-[-60px] pb-[150px] xl:pb-[160px] text-grey"
       >
-        SPONSORS
+        OUR SPONSORS
       </h1>
       <div className="bodyTeam">
         <div className="SectionTeam">
