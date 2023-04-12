@@ -11,7 +11,7 @@ const nowCelebs = [
   {
     url: img1,
     name: "SWATTREX",
-    label: "EDM DJ artist",
+    label: "EDM DJ Artist",
   },
   {
     url: img2,
